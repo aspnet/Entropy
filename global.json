@@ -1,0 +1,3 @@
+{
+    "sources": ["src", "..\\DependencyInjection\\src", "..\\Hosting\\src"]
+}

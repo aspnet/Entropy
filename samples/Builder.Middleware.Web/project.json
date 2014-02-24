@@ -1,0 +1,12 @@
+{
+  "version" : "0.1-alpha-*",
+  "dependencies": {
+    "Helios" : "0.1-alpha-*",
+    "Microsoft.AspNet.Abstractions": "0.1-alpha-*",
+    "Microsoft.AspNet.DependencyInjection": "0.1-alpha-*"
+  },
+  "configurations": {
+    "net45": { },
+    "k10" : { }
+  }
+}
