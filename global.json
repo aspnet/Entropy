@@ -1,3 +1,8 @@
 {
-    "sources": ["src", "..\\DependencyInjection\\src", "..\\Hosting\\src"]
+    "sources": [
+        "src", 
+        "..\\Configuration\\src", 
+        "..\\DependencyInjection\\src", 
+        "..\\Hosting\\src"
+    ]
 }
