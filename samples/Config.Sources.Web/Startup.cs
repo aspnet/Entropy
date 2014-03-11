@@ -21,19 +21,19 @@ public class Startup
         config.AddIniFile(AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "\\Config.Sources.ini");
         config.AddEnvironmentVariables();
 
-        Func<String, String> line = key => "[" + key + "] " + config.Get(key) + "\r\n\r\n";
-
         app.Run(async ctx =>
         {
             ctx.Response.ContentType = "text/plain";
-            await ctx.Response.WriteAsync(line("Services:One.Two"));
-            await ctx.Response.WriteAsync(line("Services:One.Two:Six"));
-            await ctx.Response.WriteAsync(line("Data:DefaultConnecection:ConnectionString"));
-            await ctx.Response.WriteAsync(line("Data:DefaultConnecection:Provider"));
-            await ctx.Response.WriteAsync(line("Data:Inventory:ConnectionString"));
-            await ctx.Response.WriteAsync(line("Data:Inventory:Provider"));
-            await ctx.Response.WriteAsync(line("PATH"));
-            await ctx.Response.WriteAsync(line("COMPUTERNAME"));
+
+            Func<String, String> formatKeyValue = key => "[" + key + "] " + config.Get(key) + "\r\n\r\n";
+            await ctx.Response.WriteAsync(formatKeyValue("Services:One.Two"));
+            await ctx.Response.WriteAsync(formatKeyValue("Services:One.Two:Six"));
+            await ctx.Response.WriteAsync(formatKeyValue("Data:DefaultConnecection:ConnectionString"));
+            await ctx.Response.WriteAsync(formatKeyValue("Data:DefaultConnecection:Provider"));
+            await ctx.Response.WriteAsync(formatKeyValue("Data:Inventory:ConnectionString"));
+            await ctx.Response.WriteAsync(formatKeyValue("Data:Inventory:Provider"));
+            await ctx.Response.WriteAsync(formatKeyValue("PATH"));
+            await ctx.Response.WriteAsync(formatKeyValue("COMPUTERNAME"));
         });
     }
 
