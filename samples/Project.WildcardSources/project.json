@@ -1,0 +1,9 @@
+{
+    "code": "*.cs",
+    "exclude": "buggy/**/*.cs",
+    "resources": "embed/**/*.*",
+    "configurations": {
+        "net45": { },
+        "k10" : { }
+    }
+}

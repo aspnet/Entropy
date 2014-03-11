@@ -1,0 +1,15 @@
+{
+    "dependencies": {
+        "Newtonsoft.Json": "5.0.8",
+        "Project.ProjectReference": "",
+        "Project.SharedFiles": ""
+    },
+    "configurations": {
+        "net45": { 
+            "dependencies": {
+                "System.Web": ""
+            }
+        },
+        "k10" : { }
+    }
+}

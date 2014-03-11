@@ -1,0 +1,7 @@
+{
+    "compilationOptions": {
+        "define": ["SOMETHING"],
+        "allowUnsafe": true,
+        "warningsAsErrors" : true
+    }
+}
