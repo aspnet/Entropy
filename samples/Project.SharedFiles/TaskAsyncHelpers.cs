@@ -8,7 +8,7 @@ namespace Project.SharedFiles
     /// </summary>
     internal class TaskAsyncHelpers
     {
-        static async void ContinueWith(Task task, TaskCompletionSource<object> tcs)
+        internal static async void ContinueWith(Task task, TaskCompletionSource<object> tcs)
         {
             try
             {
