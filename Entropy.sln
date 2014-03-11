@@ -50,6 +50,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Runtime", "Runtime", "{E18E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Runtime.AsyncEntryPoint.net45", "samples\Runtime.AsyncEntryPoint\Runtime.AsyncEntryPoint.net45.csproj", "{795D1DAC-5980-47B5-B1FD-3414C19EF8FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Runtime.ApplicationEnvironment.net45", "samples\Runtime.ApplicationEnvironment\Runtime.ApplicationEnvironment.net45.csproj", "{224F90DD-5D62-4FB5-A313-8BE6878C63A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -120,6 +122,10 @@ Global
 		{795D1DAC-5980-47B5-B1FD-3414C19EF8FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{795D1DAC-5980-47B5-B1FD-3414C19EF8FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{795D1DAC-5980-47B5-B1FD-3414C19EF8FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{224F90DD-5D62-4FB5-A313-8BE6878C63A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{224F90DD-5D62-4FB5-A313-8BE6878C63A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{224F90DD-5D62-4FB5-A313-8BE6878C63A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{224F90DD-5D62-4FB5-A313-8BE6878C63A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -141,5 +147,6 @@ Global
 		{947441AB-89AC-4D10-BAC7-3ED04EB06796} = {8C3C9195-3424-454F-93FE-5585D1900B90}
 		{31884D8E-5B24-4180-8C54-8EBAE126F77D} = {8C3C9195-3424-454F-93FE-5585D1900B90}
 		{795D1DAC-5980-47B5-B1FD-3414C19EF8FD} = {E18EC158-1635-44BF-B1E9-16BA4987A0DE}
+		{224F90DD-5D62-4FB5-A313-8BE6878C63A5} = {E18EC158-1635-44BF-B1E9-16BA4987A0DE}
 	EndGlobalSection
 EndGlobal
