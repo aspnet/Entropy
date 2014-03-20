@@ -1,0 +1,15 @@
+{
+  "version" : "0.1-alpha-*",
+  "dependencies": {
+    "Helios" : "0.1-alpha-*",
+    "Microsoft.AspNet.Abstractions": "0.1-alpha-*",
+    "Microsoft.AspNet.DependencyInjection.Autofac": "0.1-alpha-*",
+    "Microsoft.AspNet.DependencyInjection": "0.1-alpha-*",
+    "Microsoft.AspNet.RequestContainer": "0.1-alpha-*",
+    "Autofac": "3.3.0"
+  },
+  "configurations": {
+    "net45": { },
+    "k10" : { }
+  }
+}
