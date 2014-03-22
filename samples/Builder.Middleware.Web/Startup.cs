@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNet.Abstractions;
-using Microsoft.AspNet.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNet.RequestContainer;
 
 namespace Builder.Middleware.Web
 {
@@ -12,20 +9,43 @@ namespace Builder.Middleware.Web
     {
         public void Configuration(IBuilder app)
         {
-            app.Use(typeof(MyMiddleware), "Yo");
+            app.UseXHttpHeaderOverride();
+            app.UseMiddleware(typeof(MyMiddleware), "Yo");
         }
     }
 
     public static class BuilderExtensions
     {
-        public static IBuilder Use(this IBuilder builder, Type middleware, params object[] args)
+        public static IBuilder UseXHttpHeaderOverride(this IBuilder builder)
         {
-            return builder.Use(next =>
+            return builder.UseMiddleware(typeof(XHttpHeaderOverrideMiddleware));
+        }
+    }
+
+    public class XHttpHeaderOverrideMiddleware
+    {
+        private readonly RequestDelegate _next;
+
+        public XHttpHeaderOverrideMiddleware(RequestDelegate next)
+        {
+            _next = next;
+        }
+
+        public Task Invoke(HttpContext httpContext)
+        {
+            var headerValue = httpContext.Request.Headers["X-HTTP-Method-Override"];
+            var queryValue = httpContext.Request.Query["X-HTTP-Method-Override"];
+
+            if (!string.IsNullOrEmpty(headerValue))
             {
-                var typeActivator = builder.ServiceProvider.GetService<ITypeActivator>();
-                var instance = typeActivator.CreateInstance(builder.ServiceProvider, middleware, new[] { next }.Concat(args).ToArray());
-                return (RequestDelegate)Delegate.CreateDelegate(typeof(RequestDelegate), instance, "Invoke");
-            });
+                httpContext.Request.Method = headerValue;
+            }
+            else if (!string.IsNullOrEmpty(queryValue))
+            {
+                httpContext.Request.Method = queryValue;
+            }
+
+            return _next.Invoke(httpContext);
         }
     }
 
@@ -42,9 +62,10 @@ namespace Builder.Middleware.Web
             _services = services;
         }
 
-        public async Task Invoke(HttpContext context)
+        public async Task Invoke(HttpContext httpContext)
         {
-            await context.Response.WriteAsync(_greeting + ", middleware!");
+            await httpContext.Response.WriteAsync(_greeting + ", middleware!\r\n");
+            await httpContext.Response.WriteAsync("This request is a " + httpContext.Request.Method + "\r\n");
         }
     }
 }
