@@ -20,10 +20,6 @@ namespace Container.Autofac.Web
             containerBuilder.RegisterType<CallTwo>().As<ICall>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<CallThree>().As<ICall>().InstancePerDependency();
 
-            // TODO - overflow from host services
-            containerBuilder.RegisterGeneric(typeof(ContextAccessor<>)).As(typeof(IContextAccessor<>)).InstancePerLifetimeScope();
-            containerBuilder.RegisterType<TypeActivator>().As<ITypeActivator>().InstancePerDependency();
-
             AutofacRegistration.Populate(containerBuilder, app.ServiceProvider, Enumerable.Empty<IServiceDescriptor>());
             var container = containerBuilder.Build();
 

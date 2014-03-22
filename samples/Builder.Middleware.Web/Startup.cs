@@ -23,7 +23,7 @@ namespace Builder.Middleware.Web
             return builder.Use(next =>
             {
                 var typeActivator = builder.ServiceProvider.GetService<ITypeActivator>();
-                var instance = typeActivator.CreateInstance(middleware, new[] { next }.Concat(args).ToArray());
+                var instance = typeActivator.CreateInstance(builder.ServiceProvider, middleware, new[] { next }.Concat(args).ToArray());
                 return (RequestDelegate)Delegate.CreateDelegate(typeof(RequestDelegate), instance, "Invoke");
             });
         }
