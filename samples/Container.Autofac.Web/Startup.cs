@@ -28,7 +28,8 @@ namespace Container.Autofac.Web
             app.UseMiddleware(typeof(MyMiddleware));
             app.UseMiddleware(typeof(MyMiddleware));
 
-            app.Run(async context => context.Response.WriteAsync("---------- Done\r\n"));
+            app.Run(async context =>
+                await context.Response.WriteAsync("---------- Done\r\n"));
         }
     }
 
@@ -45,6 +46,8 @@ namespace Container.Autofac.Web
 
         public async Task Invoke(HttpContext context)
         {
+            context.Response.ContentType = "text/plain";
+
             await context.Response.WriteAsync("---------- MyMiddleware ctor\r\n");
             await context.Response.WriteAsync(_calls.Aggregate("", (a, b) => a + b.Text + "\r\n"));
 

@@ -18,7 +18,8 @@ namespace Container.Fallback.Web
             app.UseMiddleware(typeof(MyMiddleware));
             app.UseMiddleware(typeof(MyMiddleware));
 
-            app.Run(async context => context.Response.WriteAsync("---------- Done\r\n"));
+            app.Run(async context =>
+                await context.Response.WriteAsync("---------- Done\r\n"));
         }
 
         public IEnumerable<IServiceDescriptor> DefineServices()
@@ -30,7 +31,7 @@ namespace Container.Fallback.Web
 
             yield return describer.Transient<ITypeActivator, TypeActivator>();
             yield return describer.Describe(
-                typeof(IContextAccessor<>), 
+                typeof(IContextAccessor<>),
                 typeof(ContextAccessor<>),
                 implementationInstance: null,
                 lifecycle: LifecycleKind.Scoped);
@@ -50,6 +51,8 @@ namespace Container.Fallback.Web
 
         public async Task Invoke(HttpContext context)
         {
+            context.Response.ContentType = "text/plain";
+
             await context.Response.WriteAsync("---------- MyMiddleware ctor\r\n");
             await context.Response.WriteAsync(_calls.Aggregate("", (a, b) => a + b.Text + "\r\n"));
 
