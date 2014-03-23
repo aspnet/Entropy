@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Abstractions;
 using Microsoft.AspNet.ConfigurationModel;
@@ -6,19 +6,12 @@ using Microsoft.Net.Runtime;
 
 public class Startup
 {
-    private readonly IApplicationEnvironment _applicationEnvironment;
-
-    public Startup(IApplicationEnvironment applicationEnvironment)
-    {
-        _applicationEnvironment = applicationEnvironment;
-    }
-
     public void Configuration(IBuilder app)
     {
-        // TODO - this should use _applicationEnvironment once it's wired through
+        var applicationEnvironment = (IApplicationEnvironment)app.ServiceProvider.GetService(typeof(IApplicationEnvironment));
 
         var config = new Configuration();
-        config.AddIniFile(AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "\\Config.Sources.ini");
+        config.AddIniFile(Path.Combine(applicationEnvironment.ApplicationBasePath, "Config.Sources.ini"));
         config.AddEnvironmentVariables();
 
         app.Run(async ctx =>
