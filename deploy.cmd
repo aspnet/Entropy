@@ -19,12 +19,16 @@ IF NOT EXIST .nuget\nuget.exe (
 )
 
 ECHO Downloading ProjectK
-.nuget\nuget.exe install ProjectK -Version 0.1-alpha-291 -OutputDirectory packages -NoCache
-SET K_CMD=%~dp0packages\ProjectK.0.1-alpha-291\tools\k.cmd
+.nuget\nuget.exe install ProjectK -Prerelease -OutputDirectory packages -NoCache
+FOR /D %%G IN (packages\ProjectK.*) DO (
+  SET K_CMD=%~dp0%%G\tools\k.cmd
+)
 
-CD "%DEPLOYMENT_SOURCE%\samples\Builder.Filtering.Web"
-CALL "%K_CMD%" restore
-CALL "%K_CMD%" pack --out "%DEPLOYMENT_TARGET%"
+FOR /D %%G IN (samples\*.Web) DO (
+  CD "%DEPLOYMENT_SOURCE%\%%G"
+  CALL "%K_CMD%" restore
+  CALL "%K_CMD%" pack --out "%DEPLOYMENT_TARGET%"
+)
 
 POPD
 
