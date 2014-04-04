@@ -10,8 +10,13 @@ IF NOT DEFINED DEPLOYMENT_TARGET (
   SET DEPLOYMENT_TARGET=%~dp0%artifacts\deploment
 )
 
-ECHO Downloading NuGet.exe
-@powershell -NoProfile -ExecutionPolicy unrestricted -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest 'https://www.nuget.org/nuget.exe' -OutFile '.nuget\nuget.exe'"
+IF NOT EXIST .nuget (
+  MKDIR .nuget
+)
+IF NOT EXIST .nuget\nuget.exe (
+  ECHO Downloading NuGet.exe
+  @powershell -NoProfile -ExecutionPolicy unrestricted -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest 'https://www.nuget.org/nuget.exe' -OutFile '.nuget\nuget.exe'"
+)
 
 ECHO Downloading ProjectK
 .nuget\nuget.exe install ProjectK -Version 0.1-alpha-291 -OutputDirectory packages -NoCache
