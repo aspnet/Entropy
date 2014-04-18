@@ -11,19 +11,15 @@ namespace Data.InMemory
     {
         public static async Task Main()
         {
-            var config = new EntityConfigurationBuilder()
-                .UseDataStore(new InMemoryDataStore())
-                .BuildConfiguration();
-
-            using (var db = new MyContext(config))
+            using (var db = new MyContext())
             {
-                db.Add(new Blog { BlogId = 1, Name = "ADO.NET", Url = "http://blogs.msdn.com/adonet" });
-                db.Add(new Blog { BlogId = 2, Name = ".NET Framework", Url = "http://blogs.msdn.com/dotnet" });
-                db.Add(new Blog { BlogId = 3, Name = "Visual Studio", Url = "http://blogs.msdn.com/visualstudio" });
+                db.Add(new Blog {BlogId = 1, Name = "ADO.NET", Url = "http://blogs.msdn.com/adonet"});
+                db.Add(new Blog {BlogId = 2, Name = ".NET Framework", Url = "http://blogs.msdn.com/dotnet"});
+                db.Add(new Blog {BlogId = 3, Name = "Visual Studio", Url = "http://blogs.msdn.com/visualstudio"});
                 await db.SaveChangesAsync();
             }
 
-            using (var db = new MyContext(config))
+            using (var db = new MyContext())
             {
                 var blogs = db.Blogs.OrderBy(b => b.Name);
                 foreach (var item in blogs)
@@ -36,11 +32,14 @@ namespace Data.InMemory
 
     public class MyContext : EntityContext
     {
-        public MyContext(EntityConfiguration config)
-            : base(config)
-        { }
-
         public EntitySet<Blog> Blogs { get; set; }
+
+        protected override void OnConfiguring(EntityConfigurationBuilder builder)
+        {
+            builder
+                .WithServices(s => s.AddInMemoryStore())
+                .UseInMemoryStore(persist: true);
+        }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -13,11 +13,7 @@ namespace Data.SqlServer
     {
         public static async Task Main()
         {
-            var config = new EntityConfigurationBuilder()
-                .UseSqlServer(@"Server=(localdb)\v11.0;Database=Blogging;Trusted_Connection=True;")
-                .BuildConfiguration();
-
-            using (var db = new MyContext(config))
+            using (var db = new MyContext())
             {
                 // TODO Swap to simple top level API when available
                 var creator = new SqlServerDataStoreCreator(
@@ -32,7 +28,7 @@ namespace Data.SqlServer
                 }
             }
 
-            using (var db = new MyContext(config))
+            using (var db = new MyContext())
             {
                 // TODO Remove when identity columns work end-to-end
                 var nextId = db.Blogs.Any() ? db.Blogs.Max(b => b.BlogId) + 1 : 1;
@@ -50,11 +46,14 @@ namespace Data.SqlServer
 
     public class MyContext : EntityContext
     {
-        public MyContext(EntityConfiguration config)
-            :base(config)
-        { }
-
         public EntitySet<Blog> Blogs { get; set; }
+
+        protected override void OnConfiguring(EntityConfigurationBuilder builder)
+        {
+            builder
+                .WithServices(s => s.AddSqlServer())
+                .SqlServerConnectionString(@"Server=(localdb)\v11.0;Database=Blogging;Trusted_Connection=True;");
+        }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
