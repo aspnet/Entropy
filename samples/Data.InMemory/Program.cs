@@ -36,9 +36,7 @@ namespace Data.InMemory
 
         protected override void OnConfiguring(EntityConfigurationBuilder builder)
         {
-            builder
-                .WithServices(s => s.AddInMemoryStore())
-                .UseInMemoryStore(persist: true);
+            builder.UseInMemoryStore();
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

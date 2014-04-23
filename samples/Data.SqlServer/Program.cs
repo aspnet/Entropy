@@ -50,9 +50,7 @@ namespace Data.SqlServer
 
         protected override void OnConfiguring(EntityConfigurationBuilder builder)
         {
-            builder
-                .WithServices(s => s.AddSqlServer())
-                .SqlServerConnectionString(@"Server=(localdb)\v11.0;Database=Blogging;Trusted_Connection=True;");
+            builder.SqlServerConnectionString(@"Server=(localdb)\v11.0;Database=Blogging;Trusted_Connection=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
