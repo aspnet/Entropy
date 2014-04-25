@@ -44,9 +44,9 @@ namespace Data.SqlServer
         }
     }
 
-    public class MyContext : EntityContext
+    public class MyContext : DbContext
     {
-        public EntitySet<Blog> Blogs { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
 
         protected override void OnConfiguring(EntityConfigurationBuilder builder)
         {
