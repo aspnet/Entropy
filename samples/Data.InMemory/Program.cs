@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Data.Entity;
-using Microsoft.Data.Entity.Metadata;
 using Microsoft.Data.InMemory;
 
 namespace Data.InMemory
@@ -37,13 +36,6 @@ namespace Data.InMemory
         protected override void OnConfiguring(EntityConfigurationBuilder builder)
         {
             builder.UseInMemoryStore();
-        }
-
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            builder
-                .Entity<Blog>()
-                .Key(b => b.BlogId);
         }
     }
 

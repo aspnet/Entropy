@@ -2,9 +2,6 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Data.Entity;
-using Microsoft.Data.Entity.Metadata;
-using Microsoft.Data.Migrations;
-using Microsoft.Data.Relational;
 using Microsoft.Data.SqlServer;
 
 namespace Data.SqlServer
@@ -15,16 +12,9 @@ namespace Data.SqlServer
         {
             using (var db = new MyContext())
             {
-                // TODO Swap to simple top level API when available
-                var creator = new SqlServerDataStoreCreator(
-                    (SqlServerDataStore)db.Configuration.DataStore,
-                    new ModelDiffer(),
-                    new SqlServerMigrationOperationSqlGenerator(),
-                    new SqlStatementExecutor());
-
-                if(!await creator.ExistsAsync())
+                if (!await db.Database.ExistsAsync())
                 {
-                    await creator.CreateAsync(db.Model);
+                    await db.Database.CreateAsync();
                 }
             }
 
@@ -32,7 +22,7 @@ namespace Data.SqlServer
             {
                 // TODO Remove when identity columns work end-to-end
                 var nextId = db.Blogs.Any() ? db.Blogs.Max(b => b.BlogId) + 1 : 1;
-                db.Add(new Blog { BlogId = nextId, Name = "Another Blog", Url = "http://example.com" });
+                await db.AddAsync(new Blog { BlogId = nextId, Name = "Another Blog", Url = "http://example.com" });
                 await db.SaveChangesAsync();
            
                 var blogs = db.Blogs.OrderBy(b => b.Name);
@@ -51,13 +41,6 @@ namespace Data.SqlServer
         protected override void OnConfiguring(EntityConfigurationBuilder builder)
         {
             builder.SqlServerConnectionString(@"Server=(localdb)\v11.0;Database=Blogging;Trusted_Connection=True;");
-        }
-
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            builder
-                .Entity<Blog>()
-                .Key(b => b.BlogId);
         }
     }
 
