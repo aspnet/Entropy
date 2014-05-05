@@ -5,9 +5,9 @@
         "Microsoft.AspNet.DependencyInjection" : "0.1-alpha-*",
         "Microsoft.AspNet.Logging": "0.1-alpha-*",
         "Microsoft.Data.Entity": "0.1-alpha-*",
-        "Microsoft.Data.Relational": "0.1-alpha-*",
-        "Microsoft.Data.SqlServer": "0.1-alpha-*",
-        "Microsoft.Data.Migrations": "0.1-alpha-*"
+        "Microsoft.Data.Entity.Relational": "0.1-alpha-*",
+        "Microsoft.Data.Entity.SqlServer": "0.1-alpha-*",
+        "Microsoft.Data.Entity.Migrations": "0.1-alpha-*"
   },
   "configurations": {
     "net45": { },
