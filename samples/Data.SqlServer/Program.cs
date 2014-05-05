@@ -55,7 +55,7 @@ namespace Data.SqlServer
     {
         public DbSet<Blog> Blogs { get; set; }
 
-        protected override void OnConfiguring(EntityConfigurationBuilder builder)
+        protected override void OnConfiguring(DbContextOptions builder)
         {
             builder.SqlServerConnectionString(@"Server=(localdb)\v11.0;Database=Blogging;Trusted_Connection=True;");
         }

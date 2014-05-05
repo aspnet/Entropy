@@ -50,7 +50,7 @@ namespace Data.InMemory
     {
         public DbSet<Blog> Blogs { get; set; }
 
-        protected override void OnConfiguring(EntityConfigurationBuilder builder)
+        protected override void OnConfiguring(DbContextOptions builder)
         {
             builder.UseInMemoryStore();
         }
