@@ -16,9 +16,8 @@
 // permissions and limitations under the License.
 
 using Config.SettingObject.Web;
-using Microsoft.AspNet.Abstractions;
-using Microsoft.AspNet.ConfigurationModel;
-using Microsoft.AspNet.ConfigurationModel.Sources;
+using Microsoft.AspNet.Builder;
+using Microsoft.Framework.ConfigurationModel;
 
 public class Startup
 {

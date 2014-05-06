@@ -15,13 +15,10 @@
 // See the Apache 2 License for the specific language governing
 // permissions and limitations under the License.
 
-using Microsoft.AspNet.Abstractions;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
+using Microsoft.AspNet.Builder;
+using Microsoft.AspNet.Http;
 
 namespace Builder.Filtering.Web
 {

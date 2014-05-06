@@ -19,10 +19,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Abstractions;
-using Microsoft.AspNet.DependencyInjection;
-using Microsoft.AspNet.DependencyInjection.Fallback;
-using Microsoft.AspNet.RequestContainer;
+using Microsoft.AspNet.Builder;
+using Microsoft.AspNet.Http;
+using Microsoft.Framework.DependencyInjection;
+using Microsoft.Framework.DependencyInjection.Fallback;
 
 namespace Container.Fallback.Web
 {
@@ -30,7 +30,7 @@ namespace Container.Fallback.Web
     {
         public void Configuration(IBuilder app)
         {
-            app.UseContainer(DefineServices().BuildServiceProvider(app.ServiceProvider));
+            app.UseServices(DefineServices().BuildServiceProvider(app.ApplicationServices));
 
             app.UseMiddleware(typeof(MyMiddleware));
             app.UseMiddleware(typeof(MyMiddleware));

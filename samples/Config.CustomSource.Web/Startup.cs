@@ -17,8 +17,9 @@
 
 using System.Threading.Tasks;
 using Config.CustomSource.Web;
-using Microsoft.AspNet.Abstractions;
-using Microsoft.AspNet.ConfigurationModel;
+using Microsoft.AspNet.Builder;
+using Microsoft.AspNet.Http;
+using Microsoft.Framework.ConfigurationModel;
 
 public class Startup
 {

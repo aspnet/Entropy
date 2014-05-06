@@ -17,7 +17,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNet.ConfigurationModel.Sources;
+using Microsoft.Framework.ConfigurationModel;
 
 namespace Config.CustomSource.Web
 {
@@ -60,6 +60,10 @@ namespace Config.CustomSource.Web
                 return earlierKeys.Concat(new[] { "Caption" });
             }
             return earlierKeys;
+        }
+
+        public void Set(string key, string value)
+        {
         }
     }
 }

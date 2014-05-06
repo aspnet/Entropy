@@ -17,15 +17,16 @@
 
 using System.IO;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Abstractions;
-using Microsoft.AspNet.ConfigurationModel;
+using Microsoft.AspNet.Builder;
+using Microsoft.AspNet.Http;
+using Microsoft.Framework.ConfigurationModel;
 using Microsoft.Net.Runtime;
 
 public class Startup
 {
     public void Configuration(IBuilder app)
     {
-        var applicationEnvironment = (IApplicationEnvironment)app.ServiceProvider.GetService(typeof(IApplicationEnvironment));
+        var applicationEnvironment = (IApplicationEnvironment)app.ApplicationServices.GetService(typeof(IApplicationEnvironment));
 
         var config = new Configuration();
         config.AddIniFile(Path.Combine(applicationEnvironment.ApplicationBasePath, "Config.Sources.ini"));

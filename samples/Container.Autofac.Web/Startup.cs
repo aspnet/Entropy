@@ -15,16 +15,16 @@
 // See the Apache 2 License for the specific language governing
 // permissions and limitations under the License.
 
-using System.Threading;
-using Autofac;
-using Microsoft.AspNet.Abstractions;
-using Microsoft.AspNet.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.AspNet.DependencyInjection.Autofac;
-using Microsoft.AspNet.RequestContainer;
+using Autofac;
+using Microsoft.AspNet.Builder;
+using Microsoft.AspNet.Http;
+using Microsoft.Framework.DependencyInjection;
+using Microsoft.Framework.DependencyInjection.Autofac;
 
 namespace Container.Autofac.Web
 {
@@ -37,10 +37,10 @@ namespace Container.Autofac.Web
             containerBuilder.RegisterType<CallTwo>().As<ICall>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<CallThree>().As<ICall>().InstancePerDependency();
 
-            AutofacRegistration.Populate(containerBuilder, Enumerable.Empty<IServiceDescriptor>(), app.ServiceProvider);
+            AutofacRegistration.Populate(containerBuilder, Enumerable.Empty<IServiceDescriptor>(), app.ApplicationServices);
             var container = containerBuilder.Build();
 
-            app.UseContainer(container.Resolve<IServiceProvider>());
+            app.UseServices(container.Resolve<IServiceProvider>());
 
             app.UseMiddleware(typeof(MyMiddleware));
             app.UseMiddleware(typeof(MyMiddleware));

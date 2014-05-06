@@ -15,10 +15,10 @@
 // See the Apache 2 License for the specific language governing
 // permissions and limitations under the License.
 
-using Microsoft.AspNet.Abstractions;
 using System;
 using System.Threading.Tasks;
-using Microsoft.AspNet.RequestContainer;
+using Microsoft.AspNet.Builder;
+using Microsoft.AspNet.Http;
 
 namespace Builder.Middleware.Web
 {
