@@ -57,7 +57,7 @@ namespace Data.SqlServer
 
         protected override void OnConfiguring(DbContextOptions builder)
         {
-            builder.SqlServerConnectionString(@"Server=(localdb)\v11.0;Database=Blogging;Trusted_Connection=True;");
+            builder.UseSqlServer(@"Server=(localdb)\v11.0;Database=Blogging;Trusted_Connection=True;");
         }
     }
 
