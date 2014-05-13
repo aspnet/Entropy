@@ -11,5 +11,8 @@
   "configurations": {
     "net45": { },
     "k10" : { }
+  },
+  "commands": {
+    "web": "Microsoft.AspNet.Hosting server=Microsoft.AspNet.Server.WebListener server.urls=http://localhost:5001"
   }
 }

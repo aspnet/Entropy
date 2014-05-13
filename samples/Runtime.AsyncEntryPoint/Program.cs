@@ -16,7 +16,9 @@ namespace Runtime.AsyncEntryPoint
                 Console.WriteLine(i);
             }
 
+#if NET45
             Console.ReadKey();
+#endif
 
             return 0;
         }

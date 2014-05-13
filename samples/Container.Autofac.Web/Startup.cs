@@ -13,7 +13,7 @@ namespace Container.Autofac.Web
 {
     public class Startup
     {
-        public void Configuration(IBuilder app)
+        public void Configure(IBuilder app)
         {
             var containerBuilder = new ContainerBuilder();
             containerBuilder.RegisterType<CallOne>().As<ICall>().SingleInstance();

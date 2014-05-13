@@ -7,7 +7,7 @@ namespace Builder.Filtering.Web
 {
     public class Startup
     {
-        public void Configuration(IBuilder app)
+        public void Configure(IBuilder app)
         {
             app.Use(next => context => FilterAsync(context, next));
 

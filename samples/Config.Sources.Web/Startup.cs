@@ -8,7 +8,7 @@ using Microsoft.Net.Runtime;
 
 public class Startup
 {
-    public void Configuration(IBuilder app)
+    public void Configure(IBuilder app)
     {
         var applicationEnvironment = (IApplicationEnvironment)app.ApplicationServices.GetService(typeof(IApplicationEnvironment));
 
