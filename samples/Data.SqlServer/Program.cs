@@ -12,10 +12,7 @@ namespace Data.SqlServer
         {
             using (var db = new MyContext())
             {
-                if (!await db.Database.ExistsAsync())
-                {
-                    await db.Database.CreateAsync();
-                }
+                await db.Database.EnsureCreatedAsync();
             }
 
             using (var db = new MyContext())
