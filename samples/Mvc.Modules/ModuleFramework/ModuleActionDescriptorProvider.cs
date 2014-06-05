@@ -30,7 +30,12 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             {
                 foreach (var type in assembly.GetExportedTypes())
                 {
-                    if ((typeof(MvcModule).IsAssignableFrom(type)) && type != typeof(MvcModule))
+                    var typeInfo = type.GetTypeInfo();
+                    if (typeInfo.IsClass &&
+                        !typeInfo.IsAbstract &&
+                        !typeInfo.ContainsGenericParameters &&
+                        typeof(MvcModule).IsAssignableFrom(type) && 
+                        type != typeof(MvcModule))
                     {
                         context.Results.AddRange(GetActions(type));
                     }
