@@ -1,0 +1,23 @@
+﻿{
+    "dependencies": {
+        "Helios": "0.1-alpha-build-*",
+        "Microsoft.AspNet.Mvc": "0.1-alpha-build-*",
+        "Microsoft.AspNet.Server.WebListener": "0.1-alpha-build-*",
+        "Microsoft.AspNet.StaticFiles": "0.1-alpha-build-*",
+        "Microsoft.Framework.ConfigurationModel.Json": "0.1-alpha-build-*"
+    },
+    "commands": {
+        /* Change the port number when you are self hosting this application */
+        "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5000"
+    },
+    "configurations": {
+        "net45": {
+            "dependencies": {
+                "System.Data": "",
+                "System.ComponentModel.DataAnnotations": ""
+            }
+        },
+        "k10": {
+        }
+    }
+}
