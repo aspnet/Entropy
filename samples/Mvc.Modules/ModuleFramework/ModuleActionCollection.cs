@@ -5,11 +5,11 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
 {
     public class ModuleActionCollection
     {
-	    public ModuleActionCollection(List<ModuleActionInfo> actions, string verb)
-	    {
+        public ModuleActionCollection(List<ModuleActionInfo> actions, string verb)
+        {
             Actions = actions;
             Verb = verb;
-	    }
+        }
 
         public Func<object> this[string path]
         {

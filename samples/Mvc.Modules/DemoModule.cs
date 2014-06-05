@@ -3,9 +3,9 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
 {
     public class DemoModule : MvcModule
     {
-	    public DemoModule()
-	    {
+        public DemoModule()
+        {
             Get["/foo"] = () => "Hello, world!";
-	    }
+        }
     }
 }

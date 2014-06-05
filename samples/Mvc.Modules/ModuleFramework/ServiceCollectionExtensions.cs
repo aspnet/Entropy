@@ -5,7 +5,7 @@ namespace Microsoft.Framework.DependencyInjection
 {
     public static class ServiceCollectionExtensions
     {
-	    public static void AddModules(this IServiceCollection services)
+        public static void AddModules(this IServiceCollection services)
         {
             services.AddTransient<INestedProvider<ActionDescriptorProviderContext>, ModuleActionDescriptorProvider>();
             services.AddTransient<INestedProvider<ActionInvokerProviderContext>, ModuleActionInvokerProvider>();

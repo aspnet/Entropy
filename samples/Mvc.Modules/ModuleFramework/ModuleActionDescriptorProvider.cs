@@ -16,11 +16,11 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             IControllerAssemblyProvider assemblyProvider,
             IServiceProvider services,
             ITypeActivator typeActivator)
-	    {
+        {
             _assemblyProvider = assemblyProvider;
             _services = services;
             _typeActivator = typeActivator;
-	    }
+        }
 
         public int Order { get { return 0; } }
 

@@ -26,7 +26,7 @@ namespace Mvc.Modules
                 routes.MapModuleRoute();
 
                 routes.MapRoute(
-                    name: "default", 
+                    name: "default",
                     template: "{controller}/{action}/{id?}",
                     defaults: new { controller = "Home", action = "Index" });
             });
