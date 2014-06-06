@@ -41,6 +41,7 @@
     <Compile Include="ModuleFramework\MvcModule.cs" />
     <Compile Include="ModuleFramework\RouteBuilderExtensions.cs" />
     <Compile Include="ModuleFramework\ServiceCollectionExtensions.cs" />
+    <Compile Include="NameFilterAttribute.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

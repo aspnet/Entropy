@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace Microsoft.AspNet.Mvc.ModuleFramework
 {
@@ -14,8 +13,13 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
         }
 
         public ModuleActionCollection Get { get; private set; }
+
         public ModuleActionCollection Post { get; private set; }
 
         public List<ModuleActionInfo> Actions { get; private set; }
+
+        public ActionContext ActionContext { get; set; }
+
+        public ViewDataDictionary ViewData { get; set; }
     }
 }

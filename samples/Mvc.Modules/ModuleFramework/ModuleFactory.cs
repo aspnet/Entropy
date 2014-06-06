@@ -1,4 +1,5 @@
-﻿using Microsoft.Framework.DependencyInjection;
+﻿using Microsoft.AspNet.Mvc.ModelBinding;
+using Microsoft.Framework.DependencyInjection;
 using System;
 
 namespace Microsoft.AspNet.Mvc.ModuleFramework
@@ -22,7 +23,16 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
                 throw new InvalidOperationException("Not a module.");
             }
 
-            return _activator.CreateInstance(_services, actionDescriptor.ModuleType);
+            var module = _activator.CreateInstance(_services, actionDescriptor.ModuleType);
+
+            Injector.InjectProperty(module, "ActionContext", context);
+
+            var viewData = new ViewDataDictionary(
+                _services.GetService<IModelMetadataProvider>(),
+                context.ModelState);
+            Injector.InjectProperty(module, "ViewData", viewData);
+
+            return module;
         }
 
         public void ReleaseModule(object module)
