@@ -1,13 +1,6 @@
 {
-  "version" : "0.1-alpha-*",
   "dependencies": {
-        "Microsoft.Data.Entity": "0.1-alpha-*",
-        "Microsoft.Data.Entity.Migrations": "0.1-alpha-*",
-        "Microsoft.Data.Entity.Relational": "0.1-alpha-*",
-        "Microsoft.Data.Entity.SqlServer": "0.1-alpha-*",
-        "Microsoft.Framework.ConfigurationModel" : "0.1-alpha-*",
-        "Microsoft.Framework.DependencyInjection" : "0.1-alpha-*",
-        "Microsoft.Framework.Logging": "0.1-alpha-*"
+        "EntityFramework.SqlServer": "7.0.0-*"
   },
   "configurations": {
     "net451": { },

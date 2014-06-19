@@ -1,10 +1,10 @@
 ﻿{
     "dependencies": {
-        "Helios": "0.1-alpha-build-*",
-        "Microsoft.AspNet.Mvc": "0.1-alpha-build-*",
-        "Microsoft.AspNet.Server.WebListener": "0.1-alpha-build-*",
-        "Microsoft.AspNet.StaticFiles": "0.1-alpha-build-*",
-        "Microsoft.Framework.ConfigurationModel.Json": "0.1-alpha-build-*"
+        "Helios": "1.0.0-*",
+        "Microsoft.AspNet.Mvc": "6.0.0-*",
+        "Microsoft.AspNet.Server.WebListener": "1.0.0-*",
+        "Microsoft.AspNet.StaticFiles": "1.0.0-*",
+        "Microsoft.Framework.ConfigurationModel.Json": "1.0.0-*"
     },
     "commands": {
         /* Change the port number when you are self hosting this application */

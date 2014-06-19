@@ -1,10 +1,9 @@
 {
-  "version" : "0.1-alpha-*",
   "dependencies": {
-    "Helios" : "0.1-alpha-*",
-    "Microsoft.AspNet.FileSystems": "0.1-alpha-*",
-    "Microsoft.AspNet.Http": "0.1-alpha-*",
-    "Microsoft.Framework.ConfigurationModel": "0.1-alpha-*"
+    "Helios" : "1.0.0-*",
+    "Microsoft.AspNet.FileSystems": "1.0.0-*",
+    "Microsoft.AspNet.Http": "1.0.0-*",
+    "Microsoft.Framework.ConfigurationModel": "1.0.0-*"
   },
   "configurations": {
     "net45": { },

@@ -1,9 +1,6 @@
 {
-  "version" : "0.1-alpha-*",
   "dependencies": {
-        "Microsoft.Data.Entity": "0.1-alpha-*",
-        "Microsoft.Data.Entity.InMemory": "0.1-alpha-*",
-        "Microsoft.Framework.Logging": "0.1-alpha-*"
+        "EntityFramework.InMemory": "7.0.0-*"
   },
   "configurations": {
     "net45": { },
