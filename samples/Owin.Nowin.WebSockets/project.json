@@ -1,0 +1,18 @@
+﻿{
+    "commands": {
+        "web": "Microsoft.AspNet.Hosting --server NowinWebSockets"
+    },
+    "dependencies": {
+        "Microsoft.AspNet.Hosting" : "1.0.0-*",
+        "Microsoft.AspNet.Owin" : "1.0.0-*",
+        "Microsoft.AspNet.Http" : "1.0.0-*",
+        "Nowin" : "0.11.0"
+    },
+
+    "configurations" : {
+        "net451" : {
+            "dependencies": {
+            }
+        }
+    }
+}
