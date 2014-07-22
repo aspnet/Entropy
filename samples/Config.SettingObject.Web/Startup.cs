@@ -1,5 +1,6 @@
 using Config.SettingObject.Web;
 using Microsoft.AspNet.Builder;
+using Microsoft.AspNet.Http;
 using Microsoft.Framework.ConfigurationModel;
 
 public class Startup

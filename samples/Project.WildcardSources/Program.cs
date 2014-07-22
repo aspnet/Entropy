@@ -8,7 +8,7 @@ namespace Project.WildcardSources
     {
         public void Main()
         {
-            var me = Assembly.Load("Project.WildcardSources");
+            var me = Assembly.Load(new AssemblyName("Project.WildcardSources"));
 
             using (var stream = me.GetManifestResourceStream("SomeText.txt"))
             {

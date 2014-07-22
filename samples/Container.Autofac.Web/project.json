@@ -8,8 +8,7 @@
     "Microsoft.Framework.DependencyInjection.Autofac": "1.0.0-*"
   },
   "configurations": {
-    "net45": { },
-    "k10" : { }
+    "net45": { }
   },
   "commands": {
     "web": "Microsoft.AspNet.Hosting server=Microsoft.AspNet.Server.WebListener server.urls=http://localhost:5001"
