@@ -36,10 +36,10 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             {
                 context.Result = new ModuleActionInvoker(
                     context.ActionContext,
-                    actionDescriptor,
-                    _moduleFactory,
                     _bindingProvider,
-                    _filterProvider);
+                    _filterProvider,
+                    _moduleFactory,
+                    actionDescriptor);
             }
 
             callNext();
