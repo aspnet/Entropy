@@ -4,7 +4,7 @@
     "resources": "embed/**/*.*",
     "configurations": {
         "net45": { },
-        "k10": {
+        "aspnetcore50": {
             "dependencies": {
                 "System.Console": "4.0.0.0",
                 "System.IO": "4.0.10.0",
