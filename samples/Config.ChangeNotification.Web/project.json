@@ -5,7 +5,7 @@
     "Microsoft.AspNet.Http": "1.0.0-*",
     "Microsoft.Framework.ConfigurationModel": "1.0.0-*"
   },
-  "configurations": {
+  "frameworks": {
     "net45": { },
     "aspnetcore50" : { }
   }

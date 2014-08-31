@@ -2,7 +2,7 @@
   "dependencies": {
         "EntityFramework.InMemory": "7.0.0-*"
   },
-  "configurations": {
+  "frameworks": {
     "net45": { },
     "aspnetcore50" : {
       "dependencies": {

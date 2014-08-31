@@ -4,7 +4,7 @@
         "Project.ProjectReference": "",
         "Project.SharedFiles": ""
     },
-    "configurations": {
+    "frameworks": {
         "net45": { 
             "dependencies": {
                 "System.Web": ""

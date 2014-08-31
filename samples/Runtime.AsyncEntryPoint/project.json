@@ -1,7 +1,7 @@
 {
   "dependencies": {
   },
-  "configurations": {
+  "frameworks": {
     "net45": {},
     "aspnetcore50": {
         "dependencies": {

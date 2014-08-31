@@ -9,7 +9,7 @@
         "Nowin" : "0.11.0"
     },
 
-    "configurations" : {
+    "frameworks" : {
         "net451" : {
             "dependencies": {
             }

@@ -7,7 +7,7 @@
     "Microsoft.Net.Server": "1.0.0-*"
   },
   "commands": { "web": "Microsoft.AspNet.Hosting --server=Microsoft.AspNet.Server.WebListener --server.urls=http://localhost:8080" },
-  "configurations": {
+  "frameworks": {
     "net45": {
     },
     "aspnetcore50": {

@@ -2,7 +2,7 @@
     "code": "*.cs",
     "exclude": "buggy/**/*.cs",
     "resources": "embed/**/*.*",
-    "configurations": {
+    "frameworks": {
         "net45": { },
         "aspnetcore50": {
             "dependencies": {

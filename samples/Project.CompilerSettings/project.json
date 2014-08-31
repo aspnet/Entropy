@@ -4,7 +4,7 @@
         "allowUnsafe": true,
         "warningsAsErrors" : true
     },
-    "configurations": {
+    "frameworks": {
         "net45": { },
         "aspnetcore50" : {
             "dependencies": {

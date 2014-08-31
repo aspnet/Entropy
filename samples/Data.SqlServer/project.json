@@ -2,7 +2,7 @@
   "dependencies": {
         "EntityFramework.SqlServer": "7.0.0-*"
   },
-  "configurations": {
+  "frameworks": {
     "net451": { },
     "aspnetcore50" : {
       "dependencies": {
