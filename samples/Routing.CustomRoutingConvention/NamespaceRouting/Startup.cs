@@ -7,7 +7,6 @@ using Microsoft.AspNet.Security.Cookies;
 using Microsoft.Data.Entity;
 using Microsoft.Framework.ConfigurationModel;
 using Microsoft.Framework.DependencyInjection;
-using NamespaceRouting.Models;
 using Microsoft.AspNet.Mvc;
 
 namespace NamespaceRouting
@@ -30,13 +29,6 @@ namespace NamespaceRouting
 
             // Enable Browser Link support
             app.UseBrowserLink();
-
-            // Add cookie-based authentication to the request pipeline
-            app.UseCookieAuthentication(new CookieAuthenticationOptions
-            {
-                AuthenticationType = ClaimsIdentityOptions.DefaultAuthenticationType,
-                LoginPath = new PathString("/Account/Login"),
-            });
 
             // Add MVC to the request pipeline
             app.UseMvc(routes =>

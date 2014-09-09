@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNet.Mvc;
-using NamespaceRouting.Models;
 
 namespace MySite.Admin
 {
