@@ -1,11 +1,8 @@
 ﻿using System;
 using Microsoft.AspNet.Mvc;
 
-namespace MySite.Products
+namespace MySite.Inventory
 {
-    /// <summary>
-    /// Summary description for ProductsController
-    /// </summary>    
     public class ProductsController : Controller
     {
         [HttpGet]
