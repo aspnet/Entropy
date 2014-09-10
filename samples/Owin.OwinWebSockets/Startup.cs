@@ -33,7 +33,7 @@ namespace SelfHostServer
 
     public class Startup
     {
-        public void Configure(IBuilder app)
+        public void Configure(IApplicationBuilder app)
         {
             app.UseOwin(addToPiepline =>
             {

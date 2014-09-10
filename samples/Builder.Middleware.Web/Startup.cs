@@ -7,7 +7,7 @@ namespace Builder.Middleware.Web
 {
     public class Startup
     {
-        public void Configure(IBuilder app)
+        public void Configure(IApplicationBuilder app)
         {
             app.UseXHttpHeaderOverride();
             app.UseMiddleware(typeof(MyMiddleware), "Yo");
@@ -16,7 +16,7 @@ namespace Builder.Middleware.Web
 
     public static class BuilderExtensions
     {
-        public static IBuilder UseXHttpHeaderOverride(this IBuilder builder)
+        public static IApplicationBuilder UseXHttpHeaderOverride(this IApplicationBuilder builder)
         {
             return builder.UseMiddleware(typeof(XHttpHeaderOverrideMiddleware));
         }

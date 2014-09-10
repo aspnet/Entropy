@@ -9,7 +9,7 @@ namespace NowinWebSockets
 {
     public class Startup
     {
-        public void Configure(IBuilder app)
+        public void Configure(IApplicationBuilder app)
         {
             app.Use(async (context, next) =>
             {

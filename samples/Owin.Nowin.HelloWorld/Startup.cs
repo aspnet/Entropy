@@ -4,7 +4,7 @@ using Microsoft.AspNet.Http;
 
 public class Startup
 {
-    public void Configure(IBuilder app)
+    public void Configure(IApplicationBuilder app)
     {
         app.Run(context =>
         {

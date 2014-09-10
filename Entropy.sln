@@ -72,7 +72,7 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Runtime.ApplicationEnvironm
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Runtime.AsyncEntryPoint", "samples\Runtime.AsyncEntryPoint\Runtime.AsyncEntryPoint.kproj", "{916ADD8F-362D-4DFD-8367-1C578131A79A}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Mvc.CustomRoutingConvention", "samples\Mvc.CustomRoutingConvention\Mvc.CustomRoutingConvention.kproj", "{EB695332-A440-4CAB-8216-7ADFA1952CA3}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Mvc.CustomRoutingConvention", "samples\Mvc.CustomRoutingConvention\Mvc.CustomRoutingConvention.kproj", "{FAC6DC00-3824-4708-819A-DE8702017E39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -176,10 +176,10 @@ Global
 		{916ADD8F-362D-4DFD-8367-1C578131A79A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{916ADD8F-362D-4DFD-8367-1C578131A79A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{916ADD8F-362D-4DFD-8367-1C578131A79A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EB695332-A440-4CAB-8216-7ADFA1952CA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EB695332-A440-4CAB-8216-7ADFA1952CA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EB695332-A440-4CAB-8216-7ADFA1952CA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EB695332-A440-4CAB-8216-7ADFA1952CA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAC6DC00-3824-4708-819A-DE8702017E39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAC6DC00-3824-4708-819A-DE8702017E39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAC6DC00-3824-4708-819A-DE8702017E39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAC6DC00-3824-4708-819A-DE8702017E39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -209,6 +209,6 @@ Global
 		{28B788B4-1CD5-47A7-B840-4C9A63C5F0B1} = {8C3C9195-3424-454F-93FE-5585D1900B90}
 		{F516F026-23C8-4A10-93D7-E55141797F86} = {E18EC158-1635-44BF-B1E9-16BA4987A0DE}
 		{916ADD8F-362D-4DFD-8367-1C578131A79A} = {E18EC158-1635-44BF-B1E9-16BA4987A0DE}
-		{EB695332-A440-4CAB-8216-7ADFA1952CA3} = {5BCA2B8A-37DA-4A88-A221-3D5B4796B07F}
+		{FAC6DC00-3824-4708-819A-DE8702017E39} = {5BCA2B8A-37DA-4A88-A221-3D5B4796B07F}
 	EndGlobalSection
 EndGlobal

@@ -7,7 +7,7 @@ namespace Mvc.Modules
 {
     public class Startup
     {
-        public void Configure(IBuilder app)
+        public void Configure(IApplicationBuilder app)
         {
             var configuration = new Configuration();
             configuration.AddJsonFile("config.json");

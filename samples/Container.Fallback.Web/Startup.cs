@@ -11,7 +11,7 @@ namespace Container.Fallback.Web
 {
     public class Startup
     {
-        public void Configure(IBuilder app)
+        public void Configure(IApplicationBuilder app)
         {
             app.UseServices(DefineServices().BuildServiceProvider(app.ApplicationServices));
 

@@ -8,7 +8,7 @@ namespace NamespaceRouting
 {
     public class Startup
     {
-        public void Configure(IBuilder app)
+        public void Configure(IApplicationBuilder app)
         {
             // Set up application services
             app.UseServices(services =>

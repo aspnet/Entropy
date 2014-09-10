@@ -5,7 +5,7 @@ namespace Builder.HelloWorld.Web
 {
     public class Startup
     {
-        public void Configure(IBuilder app)
+        public void Configure(IApplicationBuilder app)
         {
             app.Run(async context =>
             {
