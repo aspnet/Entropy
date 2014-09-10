@@ -5,8 +5,7 @@ namespace MySite.Inventory
 {
     public class ProductsController : Controller
     {
-        [HttpGet]
-        public string Index()
+        public string List()
         {
             return "Hello from ProductsController";
         }

@@ -11,7 +11,7 @@ namespace MySite.Admin
 
         //This shows how you can override the default convention that you set for the controller
         //If you start the route here with /, it goes to the root of the application ignoring the
-        //attribute route fot the controller
+        //attribute route for the controller
         [HttpGet("/[action]/{username}")]
         public string GetUserByName(string username)
         {
