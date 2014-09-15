@@ -1,6 +1,6 @@
 using System;
 using System.Threading.Tasks;
-#if NET45
+#if ASPNET50
 using System.Web;
 #endif
 using Newtonsoft.Json;
@@ -16,7 +16,7 @@ namespace Project.Dependencies
             // Dependency shared
             var data = JsonConvert.SerializeObject(new { message = "Hello World".ToLower2() });
 
-#if NET45
+#if ASPNET50
             // Imported on net45 only
             data = HttpUtility.HtmlEncode(data);
 #endif

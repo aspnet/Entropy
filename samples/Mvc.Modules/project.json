@@ -1,22 +1,17 @@
 {
-    "dependencies": {
-        "Microsoft.AspNet.Mvc": "6.0.0-*",
-        "Microsoft.AspNet.Server.IIS": "1.0.0-*",
-        "Microsoft.AspNet.Server.WebListener": "1.0.0-*",
-        "Microsoft.AspNet.StaticFiles": "1.0.0-*",
-        "Microsoft.Framework.ConfigurationModel.Json": "1.0.0-*"
-    },
-    "commands": {
-        /* Change the port number when you are self hosting this application */
-        "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5000"
-    },
-    "frameworks": {
-        "net45": {
-            "dependencies": {
-                "System.Data": "",
-                "System.ComponentModel.DataAnnotations": ""
-            }
-        },
-        "aspnetcore50": { }
-    }
+  "dependencies": {
+    "Microsoft.AspNet.Mvc": "6.0.0-*",
+    "Microsoft.AspNet.Server.IIS": "1.0.0-*",
+    "Microsoft.AspNet.Server.WebListener": "1.0.0-*",
+    "Microsoft.AspNet.StaticFiles": "1.0.0-*",
+    "Microsoft.Framework.ConfigurationModel.Json": "1.0.0-*"
+  },
+  "commands": {
+    /* Change the port number when you are self hosting this application */
+    "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5000"
+  },
+  "frameworks": {
+    "aspnet50": { },
+    "aspnetcore50": { }
+  }
 }

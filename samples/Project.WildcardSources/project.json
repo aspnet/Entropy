@@ -3,7 +3,7 @@
     "exclude": "buggy/**/*.cs",
     "resources": "embed/**/*.*",
     "frameworks": {
-        "net45": { },
+        "aspnet50": { },
         "aspnetcore50": {
             "dependencies": {
                 "System.Console": "4.0.0.0",

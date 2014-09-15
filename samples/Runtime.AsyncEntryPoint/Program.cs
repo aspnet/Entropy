@@ -16,7 +16,7 @@ namespace Runtime.AsyncEntryPoint
                 Console.WriteLine(i);
             }
 
-#if NET45
+#if ASPNET50
             Console.ReadKey();
 #endif
 

@@ -1,7 +1,7 @@
-﻿{
+{
     "dependencies": {
-        "Microsoft.AspNet.Mvc": "6.0.0-alpha4-*", 
-        "Microsoft.AspNet.Server.IIS": "1.0.0-alpha4-*"
+        "Microsoft.AspNet.Mvc": "6.0.0-*", 
+        "Microsoft.AspNet.Server.IIS": "1.0.0-*"
     },
     "commands": {
         /* Change the port number when you are self hosting this application */

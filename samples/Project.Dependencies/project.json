@@ -5,7 +5,7 @@
         "Project.SharedFiles": ""
     },
     "frameworks": {
-        "net45": { 
+        "aspnet50": { 
             "dependencies": {
                 "System.Web": ""
             }
