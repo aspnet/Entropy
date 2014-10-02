@@ -1,0 +1,11 @@
+﻿{
+    "dependencies": {
+        "Microsoft.AspNet.Mvc": "6.0.0-*",
+        "Microsoft.AspNet.Server.WebListener": "1.0.0-*",
+        "Microsoft.AspNet.Hosting": "1.0.0-*"
+    },
+    "commands": { "web": "Microsoft.AspNet.Hosting server=Microsoft.AspNet.Server.WebListener server.urls=http://localhost:5001" },
+    "frameworks": {
+        "aspnet50": { }
+    }
+}
