@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Mvc.Razor;
 using Microsoft.Framework.DependencyInjection;
 
 namespace RazorPre
@@ -8,7 +7,7 @@ namespace RazorPre
     {
         public void Configure(IApplicationBuilder app)
         {
-            app.UseServices(services =>
+            app.UsePerRequestServices(services =>
             {
                 services.AddMvc();
             });
