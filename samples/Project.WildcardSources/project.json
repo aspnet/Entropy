@@ -6,10 +6,10 @@
         "aspnet50": { },
         "aspnetcore50": {
             "dependencies": {
-                "System.Console": "4.0.0.0",
-                "System.IO": "4.0.10.0",
-                "System.Reflection": "4.0.10.0",
-                "System.Runtime": "4.0.20.0"
+                "System.Console": "4.0.0-beta-*",
+                "System.IO": "4.0.10-beta-*",
+                "System.Reflection": "4.0.10-beta-*",
+                "System.Runtime": "4.0.20-beta-*"
             }
         }
     }
