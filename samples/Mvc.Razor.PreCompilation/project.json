@@ -1,5 +1,5 @@
 {
-    "pack-exclude": [],
+    "packExclude": [],
     "dependencies": {
         "Microsoft.AspNet.Mvc": "6.0.0-*",
         "Microsoft.AspNet.Server.WebListener": "1.0.0-*",
