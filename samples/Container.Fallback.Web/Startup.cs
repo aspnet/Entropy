@@ -13,7 +13,7 @@ namespace Container.Fallback.Web
     {
         public void Configure(IApplicationBuilder app)
         {
-            app.UseServices(DefineServices().BuildServiceProvider(app.ApplicationServices));
+            app.UseRequestServices(DefineServices().BuildServiceProvider(app.ApplicationServices));
 
             app.UseMiddleware(typeof(MyMiddleware));
             app.UseMiddleware(typeof(MyMiddleware));
@@ -33,7 +33,6 @@ namespace Container.Fallback.Web
             yield return describer.Describe(
                 typeof(IContextAccessor<>),
                 typeof(ContextAccessor<>),
-                implementationInstance: null,
                 lifecycle: LifecycleKind.Scoped);
         }
     }

@@ -24,14 +24,6 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             }
 
             var module = _activator.CreateInstance(_services, actionDescriptor.ModuleType);
-
-            Injector.InjectProperty(module, "ActionContext", context);
-
-            var viewData = new ViewDataDictionary(
-                _services.GetService<IModelMetadataProvider>(),
-                context.ModelState);
-            Injector.InjectProperty(module, "ViewData", viewData);
-
             return module;
         }
 

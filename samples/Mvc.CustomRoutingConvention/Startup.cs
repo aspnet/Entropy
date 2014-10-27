@@ -13,7 +13,7 @@ namespace NamespaceRouting
             // Set up application services
             app.UseServices(services =>
             {
-                services.SetupOptions<MvcOptions>(options =>
+                services.Configure<MvcOptions>(options =>
                 {
                     options.ApplicationModelConventions.Add(new NameSpaceRoutingConvention());
                 });

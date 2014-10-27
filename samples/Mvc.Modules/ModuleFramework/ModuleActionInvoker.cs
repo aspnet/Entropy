@@ -1,6 +1,8 @@
 ﻿// Copyright (c) Microsoft Open Technologies, Inc. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Framework.DependencyInjection;
 
@@ -14,11 +16,10 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
 
         public ModuleActionInvoker(
             ActionContext actionContext,
-            IActionBindingContextProvider bindingContextProvider,
             INestedProviderManager<FilterProviderContext> filterProvider,
             IModuleFactory moduleFactory,
             ModuleActionDescriptor descriptor)
-            : base(actionContext, bindingContextProvider, filterProvider)
+            : base(actionContext, filterProvider)
         {
             _descriptor = descriptor;
             _moduleFactory = moduleFactory;
@@ -58,6 +59,11 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             {
                 return new ObjectResult(value);
             }
+        }
+
+        protected override Task<IDictionary<string, object>> GetActionArgumentsAsync(ActionContext context)
+        {
+            throw new NotImplementedException();
         }
     }
 }

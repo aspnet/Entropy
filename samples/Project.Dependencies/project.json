@@ -1,12 +1,12 @@
 {
     "dependencies": {
         "Newtonsoft.Json": "5.0.8",
-        "Project.ProjectReference": "",
-        "Project.SharedFiles": ""
+        "Project.ProjectReference": "1.0.0-*",
+        "Project.SharedFiles": "1.0.0-*"
     },
     "frameworks": {
         "aspnet50": { 
-            "dependencies": {
+            "frameworkdependencies": {
                 "System.Web": ""
             }
         },

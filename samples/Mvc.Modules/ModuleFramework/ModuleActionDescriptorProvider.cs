@@ -8,12 +8,12 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
 {
     public class ModuleActionDescriptorProvider : IActionDescriptorProvider
     {
-        private readonly IControllerAssemblyProvider _assemblyProvider;
+        private readonly IAssemblyProvider _assemblyProvider;
         private readonly IServiceProvider _services;
         private readonly ITypeActivator _typeActivator;
 
         public ModuleActionDescriptorProvider(
-            IControllerAssemblyProvider assemblyProvider,
+            IAssemblyProvider assemblyProvider,
             IServiceProvider services,
             ITypeActivator typeActivator)
         {
