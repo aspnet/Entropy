@@ -34,7 +34,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
                     if (typeInfo.IsClass &&
                         !typeInfo.IsAbstract &&
                         !typeInfo.ContainsGenericParameters &&
-                        typeof(MvcModule).IsAssignableFrom(type) && 
+                        typeof(MvcModule).IsAssignableFrom(type) &&
                         type != typeof(MvcModule))
                     {
                         context.Results.AddRange(GetActions(type));
@@ -62,7 +62,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
                 RouteDataActionConstraint pathConstraint;
                 if (action.Path == "/")
                 {
-                    pathConstraint = new RouteDataActionConstraint("modulepath", RouteKeyHandling.DenyKey);
+                    pathConstraint = new RouteDataActionConstraint("modulepath", string.Empty);
                 }
                 else
                 {
@@ -73,7 +73,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
                 {
                     FilterDescriptors = filters,
                     Index = i++,
-                    MethodConstraints = new List<HttpMethodConstraint>()
+                    ActionConstraints = new List<IActionConstraintMetadata>()
                     {
                         new HttpMethodConstraint(new [] { action.Verb }),
                     },
