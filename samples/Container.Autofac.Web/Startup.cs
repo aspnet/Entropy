@@ -23,7 +23,7 @@ namespace Container.Autofac.Web
             AutofacRegistration.Populate(containerBuilder, Enumerable.Empty<IServiceDescriptor>(), app.ApplicationServices);
             var container = containerBuilder.Build();
 
-            app.UseServices(container.Resolve<IServiceProvider>());
+            app.UseRequestServices(container.Resolve<IServiceProvider>());
 
             app.UseMiddleware(typeof(MyMiddleware));
             app.UseMiddleware(typeof(MyMiddleware));
