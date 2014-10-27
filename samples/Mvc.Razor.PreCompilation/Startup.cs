@@ -7,7 +7,7 @@ namespace RazorPre
     {
         public void Configure(IApplicationBuilder app)
         {
-            app.UsePerRequestServices(services =>
+            app.UseServices(services =>
             {
                 services.AddMvc();
             });
