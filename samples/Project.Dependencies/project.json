@@ -6,7 +6,7 @@
     },
     "frameworks": {
         "aspnet50": { 
-            "frameworkdependencies": {
+            "frameworkAssemblies": {
                 "System.Web": ""
             }
         },
