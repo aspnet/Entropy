@@ -1,8 +1,8 @@
 {
   "dependencies": {
     "Autofac": "3.3.0",
-    "Helios" : "1.0.0-*",
     "Microsoft.AspNet.Http": "1.0.0-*",
+    "Microsoft.AspNet.Server.IIS" : "1.0.0-*",
     "Microsoft.AspNet.RequestContainer": "1.0.0-*",
     "Microsoft.Framework.DependencyInjection": "1.0.0-*",
     "Microsoft.Framework.DependencyInjection.Autofac": "1.0.0-*"
