@@ -21,6 +21,7 @@ namespace Microsoft.AspNet.Builder
                 addToPipeline(next =>
                 {
                     var appBuilder = new AppBuilder();
+                    appBuilder.Properties["builder.DefaultApp"] = next;
 
                     configure(appBuilder);
 
