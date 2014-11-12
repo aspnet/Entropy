@@ -1,0 +1,25 @@
+﻿{
+    "webroot": "wwwroot",
+    "version": "1.0.0-*",
+    "exclude": [
+        "wwwroot"
+    ],
+    "packExclude": [
+        "**.kproj",
+        "**.user",
+        "**.vspscc"
+    ],
+    "commands": {
+        "Katana": "run"
+    },
+    "dependencies": {
+        "Microsoft.AspNet.Owin": "1.0.0-*",
+        "Microsoft.AspNet.Security.DataProtection": "1.0.0-*",
+        "Microsoft.AspNet.Server.IIS": "1.0.0-*",
+        "Microsoft.Framework.DependencyInjection": "1.0.0-*",
+        "Microsoft.Owin": "3.0.0"
+    },
+    "frameworks" : {
+        "aspnet50" : { }
+    }
+}
