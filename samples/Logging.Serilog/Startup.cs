@@ -6,7 +6,7 @@ using Microsoft.Framework.ConfigurationModel;
 using Microsoft.Framework.Logging;
 using Serilog;
 
-namespace SerilogSampleApp
+namespace Logging.Serilog
 {
     public class Startup
     {

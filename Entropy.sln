@@ -78,7 +78,7 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Mvc.Razor.PreCompilation", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logging", "Logging", "{C5053B6C-73B6-4B82-A686-E7948DAFC2F5}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Logging.Serilog", "samples\Logging.SerilogSampleApp\Logging.Serilog.kproj", "{B4463127-48DC-488B-B1D9-E9D288F55D95}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Logging.Serilog", "samples\Logging.Serilog\Logging.Serilog.kproj", "{B4463127-48DC-488B-B1D9-E9D288F55D95}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Owin.IAppBuilderBridge", "samples\Owin.IAppBuilderBridge\Owin.IAppBuilderBridge.kproj", "{10F1507A-B17C-4CCA-AEE8-9B9DEF4E2D94}"
 EndProject
