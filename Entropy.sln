@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.22228.1
+VisualStudioVersion = 14.0.22231.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Builder", "Builder", "{097807B3-FE74-4DCD-B76B-2FCE1A272BE5}"
 EndProject
@@ -81,6 +81,8 @@ EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Logging.Serilog", "samples\Logging.Serilog\Logging.Serilog.kproj", "{B4463127-48DC-488B-B1D9-E9D288F55D95}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Owin.IAppBuilderBridge", "samples\Owin.IAppBuilderBridge\Owin.IAppBuilderBridge.kproj", "{10F1507A-B17C-4CCA-AEE8-9B9DEF4E2D94}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Runtime.CustomLoader", "samples\Runtime.CustomLoader\Runtime.CustomLoader.kproj", "{09032DF5-A611-477E-B59E-AE7FFB952CBB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -200,6 +202,10 @@ Global
 		{10F1507A-B17C-4CCA-AEE8-9B9DEF4E2D94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10F1507A-B17C-4CCA-AEE8-9B9DEF4E2D94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10F1507A-B17C-4CCA-AEE8-9B9DEF4E2D94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09032DF5-A611-477E-B59E-AE7FFB952CBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09032DF5-A611-477E-B59E-AE7FFB952CBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09032DF5-A611-477E-B59E-AE7FFB952CBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09032DF5-A611-477E-B59E-AE7FFB952CBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -233,5 +239,6 @@ Global
 		{4CAD6F98-9947-4AB4-81EF-5068B2F98ABD} = {5BCA2B8A-37DA-4A88-A221-3D5B4796B07F}
 		{B4463127-48DC-488B-B1D9-E9D288F55D95} = {C5053B6C-73B6-4B82-A686-E7948DAFC2F5}
 		{10F1507A-B17C-4CCA-AEE8-9B9DEF4E2D94} = {9BB0CAA1-33AB-464C-8EDE-C9D033EAD645}
+		{09032DF5-A611-477E-B59E-AE7FFB952CBB} = {E18EC158-1635-44BF-B1E9-16BA4987A0DE}
 	EndGlobalSection
 EndGlobal
