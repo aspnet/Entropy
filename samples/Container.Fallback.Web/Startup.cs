@@ -13,7 +13,7 @@ namespace Container.Fallback.Web
     {
         public void Configure(IApplicationBuilder app)
         {
-            app.UseRequestServices(DefineServices().BuildServiceProvider(app.ApplicationServices));
+            app.UseRequestServices(DefineServices().BuildServiceProvider());
 
             app.UseMiddleware(typeof(MyMiddleware));
             app.UseMiddleware(typeof(MyMiddleware));
