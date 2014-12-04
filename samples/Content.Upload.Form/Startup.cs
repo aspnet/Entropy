@@ -13,12 +13,13 @@ namespace Content.Upload.Form
                 context.Response.ContentType = "text/html";
                 await context.Response.WriteAsync("<html><body>");
 
-                if (context.Request.HasFormContentType())
+                if (context.Request.HasFormContentType)
                 {
-                    var form = await context.Request.ReadFormBodyAsync();
+                    var form = await context.Request.ReadFormAsync();
                     await context.Response.WriteAsync("Form received: " + form.Count() + " entries.<br>");
 
-                    foreach (var part in form)
+                    // Once the form has been read we can access it directly.
+                    foreach (var part in context.Request.Form)
                     {
                         await context.Response.WriteAsync("- Key: " + part.Key + "; Value(s): " + string.Join(", ", part.Value) + "<br>");
                     }

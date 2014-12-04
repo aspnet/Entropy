@@ -10,19 +10,10 @@
         "**.vspscc"
     ],
     "dependencies": {
-        "Microsoft.AspNet.Server.IIS": "1.0.0-*",
-        "Microsoft.AspNet.Http.Extensions": "1.0.0-*"
+        "Microsoft.AspNet.Server.IIS": "1.0.0-*"
     },
     "frameworks": {
-        "aspnet50": {
-            "frameworkAssemblies": {
-                "System.Net.Http": ""
-            }
-        },
-        "aspnetcore50": {
-            dependencies: {
-                "System.Net.Http": "4.0.0-beta-*"
-            }
-        }
+        "aspnet50": { },
+        "aspnetcore50": { }
     }
 }
