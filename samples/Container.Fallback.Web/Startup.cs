@@ -31,8 +31,8 @@ namespace Container.Fallback.Web
 
             yield return describer.Transient<ITypeActivator, TypeActivator>();
             yield return describer.Describe(
-                typeof(IContextAccessor<>),
-                typeof(ContextAccessor<>),
+                typeof(IScopedInstance<>),
+                typeof(ScopedInstance<>),
                 lifecycle: LifecycleKind.Scoped);
         }
     }
