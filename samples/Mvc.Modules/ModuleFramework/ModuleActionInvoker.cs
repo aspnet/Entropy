@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Mvc.ModelBinding;
 using Microsoft.Framework.DependencyInjection;
 
 namespace Microsoft.AspNet.Mvc.ModuleFramework
@@ -18,8 +19,20 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             ActionContext actionContext,
             INestedProviderManager<FilterProviderContext> filterProvider,
             IModuleFactory moduleFactory,
-            ModuleActionDescriptor descriptor)
-            : base(actionContext, filterProvider)
+            ModuleActionDescriptor descriptor,
+            IInputFormattersProvider inputFormatterProvider,
+            IModelBinderProvider modelBinderProvider,
+            IModelValidatorProviderProvider modelValidatorProviderProvider,
+            IValueProviderFactoryProvider valueProviderFactoryProvider,
+            IScopedInstance<ActionBindingContext> actionBindingContextAccessor)
+            : base(
+                  actionContext,
+                  filterProvider,
+                  inputFormatterProvider,
+                  modelBinderProvider,
+                  modelValidatorProviderProvider,
+                  valueProviderFactoryProvider,
+                  actionBindingContextAccessor)
         {
             _descriptor = descriptor;
             _moduleFactory = moduleFactory;
@@ -61,9 +74,12 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             }
         }
 
-        protected override Task<IDictionary<string, object>> GetActionArgumentsAsync(ActionContext context)
+        protected override Task<IDictionary<string, object>> GetActionArgumentsAsync(
+            ActionContext context,
+            ActionBindingContext actionBindingContext)
         {
-            throw new NotImplementedException();
+            return Task.FromResult<IDictionary<string, object>>(
+                new Dictionary<string, object>(StringComparer.Ordinal));
         }
     }
 }
