@@ -38,12 +38,14 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             _moduleFactory = moduleFactory;
         }
 
-        public override Task InvokeAsync()
+        protected override object CreateInstance()
         {
             _module = (MvcModule)_moduleFactory.CreateModule(ActionContext);
-            ActionContext.Controller = _module;
+            return _module;
+        }
 
-            return base.InvokeAsync();
+        protected override void ReleaseInstance(object instance)
+        {
         }
 
         protected override Task<IActionResult> InvokeActionAsync(ActionExecutingContext actionExecutingContext)
