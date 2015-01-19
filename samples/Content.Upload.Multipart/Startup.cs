@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Http;
-using Microsoft.AspNet.HttpFeature;
+using Microsoft.AspNet.Http.Interfaces;
 using Microsoft.AspNet.WebUtilities;
 
 namespace Content.Upload.Multipart
