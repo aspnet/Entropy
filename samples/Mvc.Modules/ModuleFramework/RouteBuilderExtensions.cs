@@ -1,4 +1,6 @@
-﻿namespace Microsoft.AspNet.Routing
+﻿using Microsoft.AspNet.Routing;
+
+namespace Microsoft.AspNet.Builder
 {
     public static class RouteBuilderExtensions
     {
