@@ -19,7 +19,7 @@ namespace Data.SqlServer
             {
                 // TODO Remove when identity columns work end-to-end
                 var nextId = db.Blogs.Any() ? db.Blogs.Max(b => b.BlogId) + 1 : 1;
-                await db.AddAsync(new Blog { BlogId = nextId, Name = "Another Blog", Url = "http://example.com" });
+                db.Add(new Blog { BlogId = nextId, Name = "Another Blog", Url = "http://example.com" });
                 await db.SaveChangesAsync();
            
                 var blogs = db.Blogs.OrderBy(b => b.Name);
