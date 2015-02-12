@@ -15,7 +15,7 @@ namespace NamespaceRouting
             {
                 services.Configure<MvcOptions>(options =>
                 {
-                    options.ApplicationModelConventions.Add(new NameSpaceRoutingConvention());
+                    options.Conventions.Add(new NameSpaceRoutingConvention());
                 });
 
                 // Add MVC services to the services container
