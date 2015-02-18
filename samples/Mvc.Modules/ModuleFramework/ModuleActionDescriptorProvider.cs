@@ -37,7 +37,10 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
                         typeof(MvcModule).IsAssignableFrom(type) &&
                         type != typeof(MvcModule))
                     {
-                        context.Results.AddRange(GetActions(type));
+                        foreach (var action in GetActions(type))
+                        {
+                            context.Results.Add(action);
+                        }
                     }
                 }
             }
