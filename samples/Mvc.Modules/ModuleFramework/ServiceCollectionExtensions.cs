@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.Mvc;
+﻿using Microsoft.AspNet.Mvc.Core;
 using Microsoft.AspNet.Mvc.ModuleFramework;
 
 namespace Microsoft.Framework.DependencyInjection
@@ -7,8 +7,8 @@ namespace Microsoft.Framework.DependencyInjection
     {
         public static void AddModules(this IServiceCollection services)
         {
-            services.AddTransient<INestedProvider<ActionDescriptorProviderContext>, ModuleActionDescriptorProvider>();
-            services.AddTransient<INestedProvider<ActionInvokerProviderContext>, ModuleActionInvokerProvider>();
+            services.AddTransient<IActionDescriptorProvider, ModuleActionDescriptorProvider>();
+            services.AddTransient<IActionInvokerProvider, ModuleActionInvokerProvider>();
             services.AddTransient<IModuleFactory, ModuleFactory>();
         }
     }

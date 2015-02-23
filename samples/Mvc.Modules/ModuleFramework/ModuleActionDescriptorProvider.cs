@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Microsoft.AspNet.Mvc.Core;
 using Microsoft.Framework.DependencyInjection;
 
 namespace Microsoft.AspNet.Mvc.ModuleFramework
@@ -24,7 +25,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
 
         public int Order { get { return 0; } }
 
-        public void Invoke(ActionDescriptorProviderContext context, Action callNext)
+        public void OnProvidersExecuting(ActionDescriptorProviderContext context)
         {
             foreach (var assembly in _assemblyProvider.CandidateAssemblies)
             {
@@ -44,8 +45,10 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
                     }
                 }
             }
+        }
 
-            callNext();
+        public void OnProvidersExecuted(ActionDescriptorProviderContext context)
+        {
         }
 
         private IEnumerable<ActionDescriptor> GetActions(Type type)

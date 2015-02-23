@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.AspNet.Mvc.Core;
 using Microsoft.AspNet.Mvc.ModelBinding;
 using Microsoft.Framework.DependencyInjection;
 
@@ -7,7 +10,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
     public class ModuleActionInvokerProvider : IActionInvokerProvider
     {
         private readonly IModuleFactory _moduleFactory;
-        private readonly INestedProviderManager<FilterProviderContext> _filterProvider;
+        private readonly IReadOnlyList<IFilterProvider> _filterProviders;
         private readonly IServiceProvider _serviceProvider;
         private readonly IInputFormattersProvider _inputFormattersProvider;
         private readonly IModelBinderProvider _modelBinderProvider;
@@ -17,7 +20,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
 
         public ModuleActionInvokerProvider(
             IModuleFactory moduleFactory,
-            INestedProviderManager<FilterProviderContext> filterProvider,
+            IEnumerable<IFilterProvider> filterProviders,
             IInputFormattersProvider inputFormattersProvider,
             IModelBinderProvider modelBinderProvider,
             IModelValidatorProviderProvider modelValidatorProviderProvider,
@@ -26,7 +29,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             IServiceProvider serviceProvider)
         {
             _moduleFactory = moduleFactory;
-            _filterProvider = filterProvider;
+            _filterProviders = filterProviders.OrderBy(p => p.Order).ToList();
             _inputFormattersProvider = inputFormattersProvider;
             _modelBinderProvider = modelBinderProvider;
             _modelValidatorProviderProvider = modelValidatorProviderProvider;
@@ -38,7 +41,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
 
         public int Order { get { return 0; } }
 
-        public void Invoke(ActionInvokerProviderContext context, Action callNext)
+        public void OnProvidersExecuting(ActionInvokerProviderContext context)
         {
             var actionDescriptor = context.ActionContext.ActionDescriptor as ModuleActionDescriptor;
 
@@ -46,7 +49,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             {
                 context.Result = new ModuleActionInvoker(
                     context.ActionContext,
-                    _filterProvider,
+                    _filterProviders,
                     _moduleFactory,
                     actionDescriptor,
                     _inputFormattersProvider,
@@ -55,8 +58,10 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
                     _valueProviderFactoryProvider,
                     _actionBindingContextAccessor);
             }
+        }
 
-            callNext();
+        public void OnProvidersExecuted(ActionInvokerProviderContext context)
+        {
         }
     }
 }

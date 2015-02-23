@@ -4,6 +4,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Mvc.Core;
 using Microsoft.AspNet.Mvc.ModelBinding;
 using Microsoft.Framework.DependencyInjection;
 
@@ -17,7 +18,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
 
         public ModuleActionInvoker(
             ActionContext actionContext,
-            INestedProviderManager<FilterProviderContext> filterProvider,
+            IReadOnlyList<IFilterProvider> filterProviders,
             IModuleFactory moduleFactory,
             ModuleActionDescriptor descriptor,
             IInputFormattersProvider inputFormatterProvider,
@@ -27,7 +28,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             IScopedInstance<ActionBindingContext> actionBindingContextAccessor)
             : base(
                   actionContext,
-                  filterProvider,
+                  filterProviders,
                   inputFormatterProvider,
                   modelBinderProvider,
                   modelValidatorProviderProvider,
