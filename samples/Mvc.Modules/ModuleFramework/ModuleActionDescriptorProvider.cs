@@ -11,16 +11,13 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
     {
         private readonly IAssemblyProvider _assemblyProvider;
         private readonly IServiceProvider _services;
-        private readonly ITypeActivator _typeActivator;
 
         public ModuleActionDescriptorProvider(
             IAssemblyProvider assemblyProvider,
-            IServiceProvider services,
-            ITypeActivator typeActivator)
+            IServiceProvider services)
         {
             _assemblyProvider = assemblyProvider;
             _services = services;
-            _typeActivator = typeActivator;
         }
 
         public int Order { get { return 0; } }
@@ -53,7 +50,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
 
         private IEnumerable<ActionDescriptor> GetActions(Type type)
         {
-            var prototype = (MvcModule)_typeActivator.CreateInstance(_services, type);
+            var prototype = (MvcModule)ActivatorUtilities.CreateInstance(_services, type);
 
             int i = 0;
             foreach (var action in prototype.Actions)

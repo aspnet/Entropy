@@ -7,12 +7,10 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
     public class ModuleFactory : IModuleFactory
     {
         private readonly IServiceProvider _services;
-        private readonly ITypeActivator _activator;
 
-        public ModuleFactory(IServiceProvider services, ITypeActivator activator)
+        public ModuleFactory(IServiceProvider services)
         {
             _services = services;
-            _activator = activator;
         }
 
         public object CreateModule(ActionContext context)
@@ -23,7 +21,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
                 throw new InvalidOperationException("Not a module.");
             }
 
-            var module = _activator.CreateInstance(_services, actionDescriptor.ModuleType);
+            var module = ActivatorUtilities.CreateInstance(_services, actionDescriptor.ModuleType);
             return module;
         }
 
