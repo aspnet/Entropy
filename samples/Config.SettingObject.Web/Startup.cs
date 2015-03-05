@@ -7,8 +7,7 @@ public class Startup
 {
     public void Configure(IApplicationBuilder app)
     {
-        var config = new Configuration
-        {
+        var config = new Configuration(
             new MemoryConfigurationSource
             {
                 {"MySettings:RetryCount", "42"},
@@ -17,8 +16,7 @@ public class Startup
                 {"MySettings:AdBlock:House:Origin", "blob-456"},
                 {"MySettings:AdBlock:Contoso:ProductCode", "contoso2014"},
                 {"MySettings:AdBlock:Contoso:Origin", "sql-789"},
-            }
-        };
+            });
 
         var mySettings = new MySettings();
         mySettings.Read(config.GetSubKey("MySettings"));
