@@ -27,10 +27,10 @@ namespace ElmSampleApp
             app.UseElmPage(); // Shows the logs at the specified path
             app.UseElmCapture(); // Adds the ElmLoggerProvider
 
-            var logger = factory.Create<Startup>();
+            var logger = factory.CreateLogger<Startup>();
             using (logger.BeginScope("startup"))
             {
-                logger.WriteWarning("Starting up");
+                logger.LogWarning("Starting up");
             }
 
             app.Run(async context =>
@@ -38,16 +38,16 @@ namespace ElmSampleApp
                 await context.Response.WriteAsync("Hello world");
                 using (logger.BeginScope("world"))
                 {
-                    logger.WriteInformation("Hello world!");
-                    logger.WriteError("Mort");
+                    logger.LogInformation("Hello world!");
+                    logger.LogError("Mort");
                 }
                 // This will not get logged because the filter has been set to LogLevel.Information and above
                 using (logger.BeginScope("verbose"))
                 {
-                    logger.WriteVerbose("some verbose stuff");
+                    logger.LogVerbose("some verbose stuff");
                 }
             });
-            logger.WriteInformation("This message is not in a scope");
+            logger.LogInformation("This message is not in a scope");
         }
     }
 }

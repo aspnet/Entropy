@@ -16,7 +16,7 @@ namespace Logging.Serilog
             IHostingEnvironment hostingEnvironment,
             ILoggerFactory loggerFactory)
         {
-            _logger = loggerFactory.Create<Startup>();
+            _logger = loggerFactory.CreateLogger<Startup>();
 
             var configuration = new Configuration();
             configuration.AddJsonFile("config.json");
@@ -49,22 +49,22 @@ namespace Logging.Serilog
             {
                 using (_logger.BeginScope(new RequestScope(ctx)))
                 {
-                    _logger.WriteInformation(new BeginRequest(ctx));
+                    _logger.LogInformation(new BeginRequest(ctx));
                     try
                     {
                         await next(ctx);
                     }
                     finally
                     {
-                        _logger.WriteInformation(new EndRequest(ctx));
+                        _logger.LogInformation(new EndRequest(ctx));
                     }
                 }
             });
 
-            _logger.WriteWarning("Boo!");
+            _logger.LogWarning("Boo!");
         }
 
-        private class RequestScope : LoggerStructureBase
+        private class RequestScope : ReflectionBasedLogValues
         {
             private readonly HttpContext _context;
             private readonly string _activityId = Guid.NewGuid().ToString("n");
@@ -83,7 +83,7 @@ namespace Logging.Serilog
             }
         }
 
-        private class BeginRequest : LoggerStructureBase
+        private class BeginRequest : ReflectionBasedLogValues
         {
             private readonly HttpContext _context;
 
@@ -108,7 +108,7 @@ namespace Logging.Serilog
             }
         }
 
-        private class EndRequest : LoggerStructureBase
+        private class EndRequest : ReflectionBasedLogValues
         {
             private readonly HttpContext _context;
 
