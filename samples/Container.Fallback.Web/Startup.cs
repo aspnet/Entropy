@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Http;
 using Microsoft.Framework.DependencyInjection;
-using Microsoft.Framework.DependencyInjection.Fallback;
 
 namespace Container.Fallback.Web
 {
@@ -22,18 +21,16 @@ namespace Container.Fallback.Web
                 await context.Response.WriteAsync("---------- Done\r\n"));
         }
 
-        public IEnumerable<IServiceDescriptor> DefineServices()
+        public IServiceCollection DefineServices()
         {
-            var describer = new ServiceDescriber();
-            yield return describer.Singleton<ICall, CallOne>();
-            yield return describer.Scoped<ICall, CallTwo>();
-            yield return describer.Transient<ICall, CallThree>();
+            var services = new ServiceCollection();
+            services.AddSingleton<ICall, CallOne>();
+            services.AddScoped<ICall, CallTwo>();
+            services.AddTransient<ICall, CallThree>();
 
-            yield return describer.Transient<ITypeActivator, TypeActivator>();
-            yield return describer.Describe(
-                typeof(IScopedInstance<>),
-                typeof(ScopedInstance<>),
-                lifecycle: LifecycleKind.Scoped);
+            services.AddTransient<ITypeActivator, TypeActivator>();
+            services.AddScoped(typeof(IScopedInstance<>), typeof(ScopedInstance<>));
+            return services;
         }
     }
 

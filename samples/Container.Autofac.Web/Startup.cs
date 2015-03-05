@@ -20,7 +20,7 @@ namespace Container.Autofac.Web
             containerBuilder.RegisterType<CallTwo>().As<ICall>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<CallThree>().As<ICall>().InstancePerDependency();
 
-            AutofacRegistration.Populate(containerBuilder, Enumerable.Empty<IServiceDescriptor>());
+            AutofacRegistration.Populate(containerBuilder, Enumerable.Empty<ServiceDescriptor>());
             var container = containerBuilder.Build();
 
             app.UseRequestServices(container.Resolve<IServiceProvider>());
