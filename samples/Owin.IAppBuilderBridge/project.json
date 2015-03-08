@@ -20,6 +20,6 @@
         "Microsoft.Owin": "3.0.0"
     },
     "frameworks" : {
-        "aspnet50" : { }
+        "dnx451" : { }
     }
 }

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +16,7 @@ namespace Runtime.AsyncEntryPoint
                 Console.WriteLine(i);
             }
 
-#if ASPNET50
+#if DNX451
             Console.ReadKey();
 #endif
 

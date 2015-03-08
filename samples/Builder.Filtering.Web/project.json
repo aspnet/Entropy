@@ -1,12 +1,12 @@
-{
+﻿{
   "dependencies": {
     "Microsoft.AspNet.Http": "1.0.0-*",
     "Microsoft.AspNet.Server.IIS" : "1.0.0-*",
     "Microsoft.AspNet.Server.WebListener" : "1.0.0-*"
   },
   "frameworks": {
-    "aspnet50": { },
-    "aspnetcore50" : { }
+    "dnx451": { },
+    "dnxcore50" : { }
   },
   "commands": {
     "web": "Microsoft.AspNet.Hosting server=Microsoft.AspNet.Server.WebListener server.urls=http://localhost:5001"
