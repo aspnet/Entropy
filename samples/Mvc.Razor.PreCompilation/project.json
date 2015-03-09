@@ -1,4 +1,4 @@
-﻿{
+{
     "bundleExclude": [],
     "dependencies": {
         "Microsoft.AspNet.Mvc": "6.0.0-*",

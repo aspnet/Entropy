@@ -1,4 +1,4 @@
-﻿{
+{
     "dependencies": {
         "Newtonsoft.Json": "5.0.8",
         "Project.ProjectReference": "1.0.0-*",
