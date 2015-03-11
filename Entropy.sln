@@ -22,77 +22,77 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{D1BD8FFA-E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mvc", "Mvc", "{5BCA2B8A-37DA-4A88-A221-3D5B4796B07F}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Mvc.Modules", "samples\Mvc.Modules\Mvc.Modules.kproj", "{181C52C4-E916-416E-96BA-2B645841807F}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Mvc.Modules", "samples\Mvc.Modules\Mvc.Modules.xproj", "{181C52C4-E916-416E-96BA-2B645841807F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OWIN", "OWIN", "{9BB0CAA1-33AB-464C-8EDE-C9D033EAD645}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Owin.HelloWorld", "samples\Owin.HelloWorld\Owin.HelloWorld.kproj", "{D7E8DEFE-56B4-4F8F-8E51-CCAD010B9414}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Owin.HelloWorld", "samples\Owin.HelloWorld\Owin.HelloWorld.xproj", "{D7E8DEFE-56B4-4F8F-8E51-CCAD010B9414}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Owin.OwinWebSockets", "samples\Owin.OwinWebSockets\Owin.OwinWebSockets.kproj", "{7333FA5C-D9B2-4151-A19D-41DAADA19266}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Owin.OwinWebSockets", "samples\Owin.OwinWebSockets\Owin.OwinWebSockets.xproj", "{7333FA5C-D9B2-4151-A19D-41DAADA19266}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Owin.Nowin.HelloWorld", "samples\Owin.Nowin.HelloWorld\Owin.Nowin.HelloWorld.kproj", "{6989F059-B43A-4F7B-8A37-CEF6CB5D8B0B}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Owin.Nowin.HelloWorld", "samples\Owin.Nowin.HelloWorld\Owin.Nowin.HelloWorld.xproj", "{6989F059-B43A-4F7B-8A37-CEF6CB5D8B0B}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Owin.Nowin.WebSockets", "samples\Owin.Nowin.WebSockets\Owin.Nowin.WebSockets.kproj", "{0233F61B-1458-4BFB-81CE-D47F1557015F}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Owin.Nowin.WebSockets", "samples\Owin.Nowin.WebSockets\Owin.Nowin.WebSockets.xproj", "{0233F61B-1458-4BFB-81CE-D47F1557015F}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Builder.Filtering.Web", "samples\Builder.Filtering.Web\Builder.Filtering.Web.kproj", "{1CFEC7E8-736E-4986-B0C4-9EBB5D449387}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Builder.Filtering.Web", "samples\Builder.Filtering.Web\Builder.Filtering.Web.xproj", "{1CFEC7E8-736E-4986-B0C4-9EBB5D449387}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Builder.HelloWorld.Web", "samples\Builder.HelloWorld.Web\Builder.HelloWorld.Web.kproj", "{53F1AB0E-3C08-4D90-92D8-17E4E13BD2F3}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Builder.HelloWorld.Web", "samples\Builder.HelloWorld.Web\Builder.HelloWorld.Web.xproj", "{53F1AB0E-3C08-4D90-92D8-17E4E13BD2F3}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Builder.Middleware.Web", "samples\Builder.Middleware.Web\Builder.Middleware.Web.kproj", "{8F0418B5-8D2D-4425-8028-21A6F798818B}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Builder.Middleware.Web", "samples\Builder.Middleware.Web\Builder.Middleware.Web.xproj", "{8F0418B5-8D2D-4425-8028-21A6F798818B}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Config.ChangeNotification.Web", "samples\Config.ChangeNotification.Web\Config.ChangeNotification.Web.kproj", "{8F0FC7A9-092B-40BC-9435-959764579A40}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Config.ChangeNotification.Web", "samples\Config.ChangeNotification.Web\Config.ChangeNotification.Web.xproj", "{8F0FC7A9-092B-40BC-9435-959764579A40}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Config.CustomSource.Web", "samples\Config.CustomSource.Web\Config.CustomSource.Web.kproj", "{D418FACC-8699-462C-ABDA-2D0D10317550}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Config.CustomSource.Web", "samples\Config.CustomSource.Web\Config.CustomSource.Web.xproj", "{D418FACC-8699-462C-ABDA-2D0D10317550}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Config.SettingObject.Web", "samples\Config.SettingObject.Web\Config.SettingObject.Web.kproj", "{8DF7CB64-4F53-46EB-98A6-00CEC691735E}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Config.SettingObject.Web", "samples\Config.SettingObject.Web\Config.SettingObject.Web.xproj", "{8DF7CB64-4F53-46EB-98A6-00CEC691735E}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Config.Sources.Web", "samples\Config.Sources.Web\Config.Sources.Web.kproj", "{8F833D1D-8914-4CD3-8248-AB33A4D972C5}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Config.Sources.Web", "samples\Config.Sources.Web\Config.Sources.Web.xproj", "{8F833D1D-8914-4CD3-8248-AB33A4D972C5}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Config.WalkingValues.Web", "samples\Config.WalkingValues.Web\Config.WalkingValues.Web.kproj", "{E24B9ABC-9FA0-4303-AD7B-562FACCE6181}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Config.WalkingValues.Web", "samples\Config.WalkingValues.Web\Config.WalkingValues.Web.xproj", "{E24B9ABC-9FA0-4303-AD7B-562FACCE6181}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Container.Autofac.Web", "samples\Container.Autofac.Web\Container.Autofac.Web.kproj", "{CF6A9AC4-8BA0-41F6-BA05-FF435D9C48B8}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Container.Autofac.Web", "samples\Container.Autofac.Web\Container.Autofac.Web.xproj", "{CF6A9AC4-8BA0-41F6-BA05-FF435D9C48B8}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Container.Fallback.Web", "samples\Container.Fallback.Web\Container.Fallback.Web.kproj", "{0CA4A090-BFE3-43C7-BAB1-6CB2272F35AB}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Container.Fallback.Web", "samples\Container.Fallback.Web\Container.Fallback.Web.xproj", "{0CA4A090-BFE3-43C7-BAB1-6CB2272F35AB}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Data.InMemory", "samples\Data.InMemory\Data.InMemory.kproj", "{025C278E-BB7A-4CD0-8E63-FBBBD6F7D790}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Data.InMemory", "samples\Data.InMemory\Data.InMemory.xproj", "{025C278E-BB7A-4CD0-8E63-FBBBD6F7D790}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Data.SqlServer", "samples\Data.SqlServer\Data.SqlServer.kproj", "{78AE016B-2581-4A63-A381-3716475987F6}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Data.SqlServer", "samples\Data.SqlServer\Data.SqlServer.xproj", "{78AE016B-2581-4A63-A381-3716475987F6}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Project.CompilerSettings", "samples\Project.CompilerSettings\Project.CompilerSettings.kproj", "{5A5862CD-1C06-451E-8F4E-07A7361D1A69}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Project.CompilerSettings", "samples\Project.CompilerSettings\Project.CompilerSettings.xproj", "{5A5862CD-1C06-451E-8F4E-07A7361D1A69}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Project.Dependencies", "samples\Project.Dependencies\Project.Dependencies.kproj", "{EA4BF08C-0D6D-452D-9208-D4D2D0586131}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Project.Dependencies", "samples\Project.Dependencies\Project.Dependencies.xproj", "{EA4BF08C-0D6D-452D-9208-D4D2D0586131}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Project.SharedFiles", "samples\Project.SharedFiles\Project.SharedFiles.kproj", "{799DF256-2813-4918-925B-17948471380C}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Project.SharedFiles", "samples\Project.SharedFiles\Project.SharedFiles.xproj", "{799DF256-2813-4918-925B-17948471380C}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Project.ProjectReference", "samples\Project.ProjectReference\Project.ProjectReference.kproj", "{553D2419-8CCE-44CC-9561-E94D2145850A}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Project.ProjectReference", "samples\Project.ProjectReference\Project.ProjectReference.xproj", "{553D2419-8CCE-44CC-9561-E94D2145850A}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Project.WildcardSources", "samples\Project.WildcardSources\Project.WildcardSources.kproj", "{28B788B4-1CD5-47A7-B840-4C9A63C5F0B1}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Project.WildcardSources", "samples\Project.WildcardSources\Project.WildcardSources.xproj", "{28B788B4-1CD5-47A7-B840-4C9A63C5F0B1}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Runtime.ApplicationEnvironment", "samples\Runtime.ApplicationEnvironment\Runtime.ApplicationEnvironment.kproj", "{F516F026-23C8-4A10-93D7-E55141797F86}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Runtime.ApplicationEnvironment", "samples\Runtime.ApplicationEnvironment\Runtime.ApplicationEnvironment.xproj", "{F516F026-23C8-4A10-93D7-E55141797F86}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Runtime.AsyncEntryPoint", "samples\Runtime.AsyncEntryPoint\Runtime.AsyncEntryPoint.kproj", "{916ADD8F-362D-4DFD-8367-1C578131A79A}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Runtime.AsyncEntryPoint", "samples\Runtime.AsyncEntryPoint\Runtime.AsyncEntryPoint.xproj", "{916ADD8F-362D-4DFD-8367-1C578131A79A}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Mvc.CustomRoutingConvention", "samples\Mvc.CustomRoutingConvention\Mvc.CustomRoutingConvention.kproj", "{FAC6DC00-3824-4708-819A-DE8702017E39}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Mvc.CustomRoutingConvention", "samples\Mvc.CustomRoutingConvention\Mvc.CustomRoutingConvention.xproj", "{FAC6DC00-3824-4708-819A-DE8702017E39}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Mvc.Razor.PreCompilation", "samples\Mvc.Razor.PreCompilation\Mvc.Razor.PreCompilation.kproj", "{4CAD6F98-9947-4AB4-81EF-5068B2F98ABD}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Mvc.Razor.PreCompilation", "samples\Mvc.Razor.PreCompilation\Mvc.Razor.PreCompilation.xproj", "{4CAD6F98-9947-4AB4-81EF-5068B2F98ABD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logging", "Logging", "{C5053B6C-73B6-4B82-A686-E7948DAFC2F5}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Logging.Serilog", "samples\Logging.Serilog\Logging.Serilog.kproj", "{B4463127-48DC-488B-B1D9-E9D288F55D95}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Logging.Serilog", "samples\Logging.Serilog\Logging.Serilog.xproj", "{B4463127-48DC-488B-B1D9-E9D288F55D95}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Owin.IAppBuilderBridge", "samples\Owin.IAppBuilderBridge\Owin.IAppBuilderBridge.kproj", "{10F1507A-B17C-4CCA-AEE8-9B9DEF4E2D94}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Owin.IAppBuilderBridge", "samples\Owin.IAppBuilderBridge\Owin.IAppBuilderBridge.xproj", "{10F1507A-B17C-4CCA-AEE8-9B9DEF4E2D94}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Runtime.CustomLoader", "samples\Runtime.CustomLoader\Runtime.CustomLoader.kproj", "{09032DF5-A611-477E-B59E-AE7FFB952CBB}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Runtime.CustomLoader", "samples\Runtime.CustomLoader\Runtime.CustomLoader.xproj", "{09032DF5-A611-477E-B59E-AE7FFB952CBB}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Logging.Elm", "samples\Logging.Elm\Logging.Elm.kproj", "{98EEC3E1-D447-42E1-B533-3BD1E24C1733}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Logging.Elm", "samples\Logging.Elm\Logging.Elm.xproj", "{98EEC3E1-D447-42E1-B533-3BD1E24C1733}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{B9C5D624-F771-4E9D-882C-4CD42A12CAD1}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Content.Upload.Multipart", "samples\Content.Upload.Multipart\Content.Upload.Multipart.kproj", "{1B9F52B7-F3B7-4C62-99FD-6ABA65D70C2F}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Content.Upload.Multipart", "samples\Content.Upload.Multipart\Content.Upload.Multipart.xproj", "{1B9F52B7-F3B7-4C62-99FD-6ABA65D70C2F}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Content.Upload.Form", "samples\Content.Upload.Form\Content.Upload.Form.kproj", "{B025FC81-BAFF-4752-A638-64B02BFF78A2}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Content.Upload.Form", "samples\Content.Upload.Form\Content.Upload.Form.xproj", "{B025FC81-BAFF-4752-A638-64B02BFF78A2}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Content.Upload.Files", "samples\Content.Upload.Files\Content.Upload.Files.kproj", "{744E5BDC-3E71-4F0E-B78E-129937716AAC}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Content.Upload.Files", "samples\Content.Upload.Files\Content.Upload.Files.xproj", "{744E5BDC-3E71-4F0E-B78E-129937716AAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
