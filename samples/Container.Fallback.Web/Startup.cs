@@ -28,7 +28,6 @@ namespace Container.Fallback.Web
             services.AddScoped<ICall, CallTwo>();
             services.AddTransient<ICall, CallThree>();
             
-            services.AddScoped(typeof(IScopedInstance<>), typeof(ScopedInstance<>));
             return services;
         }
     }
