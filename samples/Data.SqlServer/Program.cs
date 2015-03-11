@@ -35,9 +35,9 @@ namespace Data.SqlServer
     {
         public DbSet<Blog> Blogs { get; set; }
 
-        protected override void OnConfiguring(DbContextOptions builder)
+        protected override void OnConfiguring(DbContextOptions optionsBuilder)
         {
-            builder.UseSqlServer(@"Server=(localdb)\v11.0;Database=Blogging;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\v11.0;Database=Blogging;Trusted_Connection=True;");
         }
     }
 

@@ -33,9 +33,9 @@ namespace Data.InMemory
     {
         public DbSet<Blog> Blogs { get; set; }
 
-        protected override void OnConfiguring(DbContextOptions builder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            builder.UseInMemoryStore();
+            optionsBuilder.UseInMemoryStore();
         }
     }
 
