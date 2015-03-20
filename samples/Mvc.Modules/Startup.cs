@@ -7,17 +7,17 @@ namespace Mvc.Modules
 {
     public class Startup
     {
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddMvc();
+            services.AddModules();
+        }
+
         public void Configure(IApplicationBuilder app)
         {
             var configuration = new Configuration();
             configuration.AddJsonFile("config.json");
             configuration.AddEnvironmentVariables();
-
-            app.UseServices(services =>
-            {
-                services.AddMvc();
-                services.AddModules();
-            });
 
             app.UseStaticFiles();
 

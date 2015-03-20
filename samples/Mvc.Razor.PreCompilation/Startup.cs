@@ -5,13 +5,13 @@ namespace RazorPre
 {
     public class Startup
     {
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddMvc();
+        }
+
         public void Configure(IApplicationBuilder app)
         {
-            app.UseServices(services =>
-            {
-                services.AddMvc();
-            });
-
             app.UseMvc();
         }
     }

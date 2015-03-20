@@ -8,20 +8,19 @@ namespace NamespaceRouting
 {
     public class Startup
     {
-        public void Configure(IApplicationBuilder app)
+        public void ConfigureServices(IServiceCollection services)
         {
-            // Set up application services
-            app.UseServices(services =>
+            services.ConfigureMvc(options =>
             {
-                services.Configure<MvcOptions>(options =>
-                {
-                    options.Conventions.Add(new NameSpaceRoutingConvention());
-                });
-
-                // Add MVC services to the services container
-                services.AddMvc();
+                options.Conventions.Add(new NameSpaceRoutingConvention());
             });
 
+            // Add MVC services to the services container
+            services.AddMvc();
+        }
+
+        public void Configure(IApplicationBuilder app)
+        {
             // Add MVC to the request pipeline
             app.UseMvc();            
         }
