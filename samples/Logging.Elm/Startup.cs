@@ -13,9 +13,8 @@ namespace ElmSampleApp
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddOptions();
-            services.AddSingleton<ElmStore>(); // add the store so the ElmLogger can write to it
-            services.AddElm(options =>
+            services.AddElm();
+            services.ConfigureElm(options =>
             {
                 options.Path = new PathString("/foo");  // defaults to "/Elm"
                 options.Filter = (name, level) => level >= LogLevel.Information;
