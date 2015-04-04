@@ -47,7 +47,7 @@ namespace Logging.Serilog
         {
             app.Use(next => async ctx =>
             {
-                using (_logger.BeginScope(new RequestScope(ctx)))
+                using (_logger.BeginScopeImpl(new RequestScope(ctx)))
                 {
                     _logger.LogInformation(new BeginRequest(ctx));
                     try
@@ -77,7 +77,7 @@ namespace Logging.Serilog
             public string ActivityId { get { return _activityId; } }
             public string ActivityPath { get { return _context.Request.Path.Value; } }
 
-            public override string Format()
+            public override string ToString()
             {
                 return string.Format("Scope {0} {1}", ActivityId, ActivityPath);
             }
@@ -100,7 +100,7 @@ namespace Logging.Serilog
             public string Query { get { return _context.Request.QueryString.Value; } }
             public string Method { get { return _context.Request.Method; } }
 
-            public override string Format()
+            public override string ToString()
             {
                 return string.Format(
                     "Request starting {0} {1}://{2}{3}{4}{5} {6}",
@@ -120,7 +120,7 @@ namespace Logging.Serilog
             public int StatusCode { get { return _context.Response.StatusCode; } }
             public string ContentType { get { return _context.Response.ContentType; } }
 
-            public override string Format()
+            public override string ToString()
             {
                 return string.Format(
                     "Request ending {0} {1}",
