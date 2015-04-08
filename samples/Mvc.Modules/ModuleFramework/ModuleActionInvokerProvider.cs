@@ -13,28 +13,28 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
         private readonly IModuleFactory _moduleFactory;
         private readonly IReadOnlyList<IFilterProvider> _filterProviders;
         private readonly IServiceProvider _serviceProvider;
-        private readonly IInputFormattersProvider _inputFormattersProvider;
-        private readonly IModelBinderProvider _modelBinderProvider;
-        private readonly IModelValidatorProviderProvider _modelValidatorProviderProvider;
-        private readonly IValueProviderFactoryProvider _valueProviderFactoryProvider;
+        private readonly IReadOnlyList<IInputFormatter> _inputFormatters;
+        private readonly IReadOnlyList<IModelBinder> _modelBinders;
+        private readonly IReadOnlyList<IModelValidatorProvider> _modelValidatorProviders;
+        private readonly IReadOnlyList<IValueProviderFactory> _valueProviderFactories;
         private readonly IScopedInstance<ActionBindingContext> _actionBindingContextAccessor;
 
         public ModuleActionInvokerProvider(
             IModuleFactory moduleFactory,
             IEnumerable<IFilterProvider> filterProviders,
-            IInputFormattersProvider inputFormattersProvider,
-            IModelBinderProvider modelBinderProvider,
-            IModelValidatorProviderProvider modelValidatorProviderProvider,
-            IValueProviderFactoryProvider valueProviderFactoryProvider,
+            IReadOnlyList<IInputFormatter> inputFormatters,
+            IReadOnlyList<IModelBinder> modelBinders,
+            IReadOnlyList<IModelValidatorProvider> modelValidatorProviders,
+            IReadOnlyList<IValueProviderFactory> valueProviderFactories,
             IScopedInstance<ActionBindingContext> actionBindingContextAccessor,
             IServiceProvider serviceProvider)
         {
             _moduleFactory = moduleFactory;
             _filterProviders = filterProviders.OrderBy(p => p.Order).ToList();
-            _inputFormattersProvider = inputFormattersProvider;
-            _modelBinderProvider = modelBinderProvider;
-            _modelValidatorProviderProvider = modelValidatorProviderProvider;
-            _valueProviderFactoryProvider = valueProviderFactoryProvider;
+            _inputFormatters = inputFormatters;
+            _modelBinders = modelBinders;
+            _modelValidatorProviders = modelValidatorProviders;
+            _valueProviderFactories = valueProviderFactories;
             _actionBindingContextAccessor = actionBindingContextAccessor;
             _serviceProvider = serviceProvider;
         }
@@ -53,10 +53,10 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
                     _filterProviders,
                     _moduleFactory,
                     actionDescriptor,
-                    _inputFormattersProvider,
-                    _modelBinderProvider, 
-                    _modelValidatorProviderProvider,
-                    _valueProviderFactoryProvider,
+                    _inputFormatters,
+                    _modelBinders,
+                    _modelValidatorProviders,
+                    _valueProviderFactories,
                     _actionBindingContextAccessor);
             }
         }

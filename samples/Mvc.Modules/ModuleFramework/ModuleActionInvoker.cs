@@ -22,18 +22,18 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             IReadOnlyList<IFilterProvider> filterProviders,
             IModuleFactory moduleFactory,
             ModuleActionDescriptor descriptor,
-            IInputFormattersProvider inputFormatterProvider,
-            IModelBinderProvider modelBinderProvider,
-            IModelValidatorProviderProvider modelValidatorProviderProvider,
-            IValueProviderFactoryProvider valueProviderFactoryProvider,
+            IReadOnlyList<IInputFormatter> inputFormatters,
+            IReadOnlyList<IModelBinder> modelBinders,
+            IReadOnlyList<IModelValidatorProvider> modelValidatorProviders,
+            IReadOnlyList<IValueProviderFactory> valueProviderFactories,
             IScopedInstance<ActionBindingContext> actionBindingContextAccessor)
             : base(
                   actionContext,
                   filterProviders,
-                  inputFormatterProvider,
-                  modelBinderProvider,
-                  modelValidatorProviderProvider,
-                  valueProviderFactoryProvider,
+                  inputFormatters,
+                  modelBinders,
+                  modelValidatorProviders,
+                  valueProviderFactories,
                   actionBindingContextAccessor)
         {
             _descriptor = descriptor;
