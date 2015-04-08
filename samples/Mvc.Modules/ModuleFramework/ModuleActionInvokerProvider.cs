@@ -14,6 +14,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
         private readonly IReadOnlyList<IFilterProvider> _filterProviders;
         private readonly IServiceProvider _serviceProvider;
         private readonly IReadOnlyList<IInputFormatter> _inputFormatters;
+        private readonly IReadOnlyList<IOutputFormatter> _outputFormatters;
         private readonly IReadOnlyList<IModelBinder> _modelBinders;
         private readonly IReadOnlyList<IModelValidatorProvider> _modelValidatorProviders;
         private readonly IReadOnlyList<IValueProviderFactory> _valueProviderFactories;
@@ -23,6 +24,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             IModuleFactory moduleFactory,
             IEnumerable<IFilterProvider> filterProviders,
             IReadOnlyList<IInputFormatter> inputFormatters,
+            IReadOnlyList<IOutputFormatter> outputFormatters,
             IReadOnlyList<IModelBinder> modelBinders,
             IReadOnlyList<IModelValidatorProvider> modelValidatorProviders,
             IReadOnlyList<IValueProviderFactory> valueProviderFactories,
@@ -32,6 +34,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             _moduleFactory = moduleFactory;
             _filterProviders = filterProviders.OrderBy(p => p.Order).ToList();
             _inputFormatters = inputFormatters;
+            _outputFormatters = outputFormatters;
             _modelBinders = modelBinders;
             _modelValidatorProviders = modelValidatorProviders;
             _valueProviderFactories = valueProviderFactories;
@@ -54,6 +57,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
                     _moduleFactory,
                     actionDescriptor,
                     _inputFormatters,
+                    _outputFormatters,
                     _modelBinders,
                     _modelValidatorProviders,
                     _valueProviderFactories,
