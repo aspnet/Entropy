@@ -13,18 +13,21 @@ namespace Container.Autofac.Web
 {
     public class Startup
     {
-        public void Configure(IApplicationBuilder app)
+        public IServiceProvider ConfigureServices(IServiceCollection services) 
         {
             var containerBuilder = new ContainerBuilder();
             containerBuilder.RegisterType<CallOne>().As<ICall>().SingleInstance();
             containerBuilder.RegisterType<CallTwo>().As<ICall>().InstancePerLifetimeScope();
             containerBuilder.RegisterType<CallThree>().As<ICall>().InstancePerDependency();
 
-            AutofacRegistration.Populate(containerBuilder, Enumerable.Empty<ServiceDescriptor>());
+            AutofacRegistration.Populate(containerBuilder, services);
             var container = containerBuilder.Build();
 
-            app.UseRequestServices(container.Resolve<IServiceProvider>());
+            return container.Resolve<IServiceProvider>();
+        }
 
+        public void Configure(IApplicationBuilder app)
+        {
             app.UseMiddleware(typeof(MyMiddleware));
             app.UseMiddleware(typeof(MyMiddleware));
 

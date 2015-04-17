@@ -12,8 +12,6 @@ namespace Container.Fallback.Web
     {
         public void Configure(IApplicationBuilder app)
         {
-            app.UseRequestServices(DefineServices().BuildServiceProvider());
-
             app.UseMiddleware(typeof(MyMiddleware));
             app.UseMiddleware(typeof(MyMiddleware));
 
@@ -21,14 +19,11 @@ namespace Container.Fallback.Web
                 await context.Response.WriteAsync("---------- Done\r\n"));
         }
 
-        public IServiceCollection DefineServices()
+        public void ConfigureServices(IServiceCollection services)
         {
-            var services = new ServiceCollection();
             services.AddSingleton<ICall, CallOne>();
             services.AddScoped<ICall, CallTwo>();
             services.AddTransient<ICall, CallThree>();
-            
-            return services;
         }
     }
 
