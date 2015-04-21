@@ -27,7 +27,8 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             IReadOnlyList<IModelBinder> modelBinders,
             IReadOnlyList<IModelValidatorProvider> modelValidatorProviders,
             IReadOnlyList<IValueProviderFactory> valueProviderFactories,
-            IScopedInstance<ActionBindingContext> actionBindingContextAccessor)
+            IScopedInstance<ActionBindingContext> actionBindingContextAccessor,
+            int maxModelValidationErrors)
             : base(
                   actionContext,
                   filterProviders,
@@ -36,7 +37,8 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
                   modelBinders,
                   modelValidatorProviders,
                   valueProviderFactories,
-                  actionBindingContextAccessor)
+                  actionBindingContextAccessor,
+                  maxModelValidationErrors)
         {
             _descriptor = descriptor;
             _moduleFactory = moduleFactory;

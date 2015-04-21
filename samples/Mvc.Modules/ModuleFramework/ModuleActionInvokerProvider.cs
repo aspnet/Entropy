@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.AspNet.Mvc.Core;
 using Microsoft.AspNet.Mvc.ModelBinding;
 using Microsoft.AspNet.Mvc.ModelBinding.Validation;
-using Microsoft.Framework.DependencyInjection;
+using Microsoft.Framework.OptionsModel;
 
 namespace Microsoft.AspNet.Mvc.ModuleFramework
 {
@@ -19,6 +19,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
         private readonly IReadOnlyList<IModelValidatorProvider> _modelValidatorProviders;
         private readonly IReadOnlyList<IValueProviderFactory> _valueProviderFactories;
         private readonly IScopedInstance<ActionBindingContext> _actionBindingContextAccessor;
+        private readonly IOptions<MvcOptions> _optionsAccessor;
 
         public ModuleActionInvokerProvider(
             IModuleFactory moduleFactory,
@@ -29,6 +30,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             IReadOnlyList<IModelValidatorProvider> modelValidatorProviders,
             IReadOnlyList<IValueProviderFactory> valueProviderFactories,
             IScopedInstance<ActionBindingContext> actionBindingContextAccessor,
+            IOptions<MvcOptions> optionsAccessor,
             IServiceProvider serviceProvider)
         {
             _moduleFactory = moduleFactory;
@@ -39,6 +41,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             _modelValidatorProviders = modelValidatorProviders;
             _valueProviderFactories = valueProviderFactories;
             _actionBindingContextAccessor = actionBindingContextAccessor;
+            _optionsAccessor = optionsAccessor;
             _serviceProvider = serviceProvider;
         }
 
@@ -61,7 +64,8 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
                     _modelBinders,
                     _modelValidatorProviders,
                     _valueProviderFactories,
-                    _actionBindingContextAccessor);
+                    _actionBindingContextAccessor,
+                    _optionsAccessor.Options.MaxModelValidationErrors);
             }
         }
 
