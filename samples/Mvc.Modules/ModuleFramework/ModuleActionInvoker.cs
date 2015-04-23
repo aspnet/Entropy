@@ -8,6 +8,7 @@ using Microsoft.AspNet.Mvc.Core;
 using Microsoft.AspNet.Mvc.ModelBinding;
 using Microsoft.AspNet.Mvc.ModelBinding.Validation;
 using Microsoft.Framework.Internal;
+using Microsoft.Framework.Logging;
 
 namespace Microsoft.AspNet.Mvc.ModuleFramework
 {
@@ -28,6 +29,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             IReadOnlyList<IModelValidatorProvider> modelValidatorProviders,
             IReadOnlyList<IValueProviderFactory> valueProviderFactories,
             IScopedInstance<ActionBindingContext> actionBindingContextAccessor,
+            ILoggerFactory loggerFactory,
             int maxModelValidationErrors)
             : base(
                   actionContext,
@@ -38,6 +40,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
                   modelValidatorProviders,
                   valueProviderFactories,
                   actionBindingContextAccessor,
+                  loggerFactory,
                   maxModelValidationErrors)
         {
             _descriptor = descriptor;
