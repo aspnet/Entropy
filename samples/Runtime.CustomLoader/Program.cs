@@ -9,21 +9,18 @@ namespace Runtime.CustomLoader
     {
         private readonly IAssemblyLoadContextAccessor _loadContextAccessor;
         private readonly IAssemblyLoaderContainer _loaderContainer;
-        private readonly IApplicationShutdown _shutdown;
 
         public Program(IAssemblyLoaderContainer container,
-                       IAssemblyLoadContextAccessor accessor,
-                       IApplicationShutdown shutdown)
+                       IAssemblyLoadContextAccessor accessor)
         {
             _loaderContainer = container;
             _loadContextAccessor = accessor;
-            _shutdown = shutdown;
         }
 
         public void Main(string[] args)
         {
-            // Use the load context of the current assembly (the default context)
-            var loadContext = _loadContextAccessor.GetLoadContext(typeof(Program).GetTypeInfo().Assembly);
+            // Use the default load context
+            var loadContext = _loadContextAccessor.Default;
 
             // Add the loader to the container so that any call to Assembly.Load will
             // call the load context back (if it's not already loaded)
@@ -34,6 +31,11 @@ namespace Runtime.CustomLoader
 
                 // Or call load on the context directly
                 var assembly2 = loadContext.Load("SomethingElse");
+
+                foreach (var definedType in assembly1.DefinedTypes)
+                {
+                    Console.WriteLine("Found type {0}", definedType.FullName);
+                }
 
                 Console.ReadLine();
             }
