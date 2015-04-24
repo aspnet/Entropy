@@ -13,9 +13,9 @@ namespace NowinWebSockets
         {
             app.Use(async (context, next) =>
             {
-                if (context.IsWebSocketRequest)
+                if (context.WebSockets.IsWebSocketRequest)
                 {
-                    WebSocket webSocket = await context.AcceptWebSocketAsync();
+                    WebSocket webSocket = await context.WebSockets.AcceptWebSocketAsync();
                     await EchoWebSocket(webSocket);
                 }
                 else
