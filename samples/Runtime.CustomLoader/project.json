@@ -1,7 +1,7 @@
 {
     "version": "1.0.0-*",
     "dependencies": {
-        "Microsoft.Framework.Runtime.Interfaces": { "version": "1.0.0-*", "type": "build" }
+        "Microsoft.Framework.Runtime.Abstractions": { "version": "1.0.0-*", "type": "build" }
     },
     "commands": { 
         "run" : "run"
