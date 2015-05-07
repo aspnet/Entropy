@@ -78,7 +78,7 @@ namespace Content.Upload.Multipart
 
                 // For the purposes of the sample we're going to issue a multipart request to ourselves and then tunnel the response to the user.
                 var client = new HttpClient();
-                client.BaseAddress = new Uri("http://localhost:" + context.GetFeature<IHttpConnectionFeature>().LocalPort);
+                client.BaseAddress = new Uri("http://localhost:" + context.Connection.LocalPort);
 
                 var content = new MultipartContent("stuff");
                 content.Add(new StringContent("Hello World"));
