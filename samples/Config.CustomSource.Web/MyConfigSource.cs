@@ -26,7 +26,7 @@ namespace Config.CustomSource.Web
             // no loading or reloading, this source is all hardcoded
         }
         
-        public IEnumerable<string> ProduceSubKeys(IEnumerable<string> earlierKeys, string prefix, string delimiter)
+        public IEnumerable<string> ProduceConfigurationSections(IEnumerable<string> earlierKeys, string prefix, string delimiter)
         {
             // TODO: ProduceSubKeys method signature is pretty bad
 

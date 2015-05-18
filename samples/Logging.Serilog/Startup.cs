@@ -21,7 +21,7 @@ namespace Logging.Serilog
             var configuration = new Configuration();
             configuration.AddJsonFile("config.json");
             configuration.AddEnvironmentVariables();
-            var loggingConfiguration = configuration.GetSubKey("Logging");
+            var loggingConfiguration = configuration.GetConfigurationSection("Logging");
 
             var serilog = new LoggerConfiguration()
                 .MinimumLevel.Verbose()

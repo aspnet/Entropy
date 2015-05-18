@@ -30,7 +30,7 @@ namespace Config.SettingObject.Web
             }
 
             var items = new List<AdBlock>();
-            foreach (var subConfig in configuration.GetSubKeys("AdBlock"))
+            foreach (var subConfig in configuration.GetConfigurationSections("AdBlock"))
             {
                 var item = new AdBlock { Name = subConfig.Key };
                 if (subConfig.Value.TryGet("Origin", out value))

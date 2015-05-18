@@ -19,7 +19,7 @@ public class Startup
             });
 
         var mySettings = new MySettings();
-        mySettings.Read(config.GetSubKey("MySettings"));
+        mySettings.Read(config.GetConfigurationSection("MySettings"));
 
         app.Run(async ctx =>
         {

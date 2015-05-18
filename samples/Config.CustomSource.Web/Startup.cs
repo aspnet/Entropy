@@ -19,7 +19,7 @@ public class Startup
 
     private static async Task DumpConfig(HttpResponse response, IConfiguration config, string indentation = "")
     {
-        foreach (var child in config.GetSubKeys())
+        foreach (var child in config.GetConfigurationSections())
         {
             await response.WriteAsync(indentation + "[" + child.Key + "] " + config.Get(child.Key) + "\r\n");
             await DumpConfig(response, child.Value, indentation + "  ");
