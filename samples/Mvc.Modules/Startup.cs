@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Routing;
-using Microsoft.Framework.ConfigurationModel;
+using Microsoft.Framework.Configuration;
 using Microsoft.Framework.DependencyInjection;
 
 namespace Mvc.Modules
@@ -15,7 +15,7 @@ namespace Mvc.Modules
 
         public void Configure(IApplicationBuilder app)
         {
-            var configuration = new Configuration();
+            var configuration = new ConfigurationSection();
             configuration.AddJsonFile("config.json");
             configuration.AddEnvironmentVariables();
 

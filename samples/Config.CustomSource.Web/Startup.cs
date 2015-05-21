@@ -2,13 +2,13 @@ using System.Threading.Tasks;
 using Config.CustomSource.Web;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Http;
-using Microsoft.Framework.ConfigurationModel;
+using Microsoft.Framework.Configuration;
 
 public class Startup
 {
     public void Configure(IApplicationBuilder app)
     {
-        var config = new Configuration(new MyConfigSource());
+        var config = new ConfigurationSection(new MyConfigSource());
 
         app.Run(async ctx =>
         {

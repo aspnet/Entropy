@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.Framework.ConfigurationModel;
+using Microsoft.Framework.Configuration;
 
 namespace Config.SettingObject.Web
 {

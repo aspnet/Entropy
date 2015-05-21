@@ -14,7 +14,7 @@
     "Microsoft.AspNet.Server.WebListener": "1.0.0-*",
     "Microsoft.Framework.Logging.Abstractions": "1.0.0-*",
     "Microsoft.Framework.Logging.Serilog": "1.0.0-*",
-    "Microsoft.Framework.ConfigurationModel.Json": "1.0.0-*",
+    "Microsoft.Framework.Configuration.Json": "1.0.0-*",
     "Serilog.Sinks.ElasticSearch": "1.4.18"
   },
   "commands": { "web": "Microsoft.AspNet.Hosting server=Microsoft.AspNet.Server.WebListener server.urls=http://localhost:5001" },

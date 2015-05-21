@@ -1,13 +1,13 @@
 using Config.SettingObject.Web;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Http;
-using Microsoft.Framework.ConfigurationModel;
+using Microsoft.Framework.Configuration;
 
 public class Startup
 {
     public void Configure(IApplicationBuilder app)
     {
-        var config = new Configuration(
+        var config = new ConfigurationSection(
             new MemoryConfigurationSource
             {
                 {"MySettings:RetryCount", "42"},

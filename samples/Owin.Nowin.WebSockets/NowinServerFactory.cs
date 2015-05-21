@@ -6,7 +6,7 @@ using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.FeatureModel;
 using Microsoft.AspNet.Hosting.Server;
 using Microsoft.AspNet.Owin;
-using Microsoft.Framework.ConfigurationModel;
+using Microsoft.Framework.Configuration;
 using Nowin;
 
 namespace NowinWebSockets

@@ -2,13 +2,13 @@ using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Http;
-using Microsoft.Framework.ConfigurationModel;
+using Microsoft.Framework.Configuration;
 
 public class Startup
 {
     public void Configure(IApplicationBuilder app)
     {
-        var config = new Configuration();
+        var config = new ConfigurationSection();
         config.AddIniFile("Config.Sources.ini");
         config.AddEnvironmentVariables();
 

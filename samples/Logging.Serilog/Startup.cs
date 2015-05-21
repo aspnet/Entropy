@@ -2,7 +2,7 @@
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
-using Microsoft.Framework.ConfigurationModel;
+using Microsoft.Framework.Configuration;
 using Microsoft.Framework.Logging;
 using Serilog;
 
@@ -18,7 +18,7 @@ namespace Logging.Serilog
         {
             _logger = loggerFactory.CreateLogger<Startup>();
 
-            var configuration = new Configuration();
+            var configuration = new ConfigurationSection();
             configuration.AddJsonFile("config.json");
             configuration.AddEnvironmentVariables();
             var loggingConfiguration = configuration.GetConfigurationSection("Logging");
