@@ -53,9 +53,9 @@ namespace Runtime.CustomLoader
             _context = context;
         }
 
-        public Assembly Load(string name)
+        public Assembly Load(AssemblyName assemblyName)
         {
-            return _context.LoadFile(Path.Combine(_path, name + ".dll"));
+            return _context.LoadFile(Path.Combine(_path, assemblyName.Name + ".dll"));
         }
     }
 }
