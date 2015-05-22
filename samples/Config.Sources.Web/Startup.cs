@@ -9,9 +9,10 @@ public class Startup
 {
     public void Configure(IApplicationBuilder app)
     {
-        var config = new ConfigurationSection();
-        config.AddIniFile("Config.Sources.ini");
-        config.AddEnvironmentVariables();
+        var builder = new ConfigurationBuilder();
+        builder.AddIniFile("Config.Sources.ini");
+        builder.AddEnvironmentVariables();
+        var config = builder.Build();
 
         app.Run(async ctx =>
         {

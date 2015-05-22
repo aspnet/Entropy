@@ -18,9 +18,11 @@ namespace Logging.Serilog
         {
             _logger = loggerFactory.CreateLogger<Startup>();
 
-            var configuration = new ConfigurationSection();
-            configuration.AddJsonFile("config.json");
-            configuration.AddEnvironmentVariables();
+            var builder = new ConfigurationBuilder();
+            builder.AddJsonFile("config.json");
+            builder.AddEnvironmentVariables();
+            var configuration = builder.Build();
+
             var loggingConfiguration = configuration.GetConfigurationSection("Logging");
 
             var serilog = new LoggerConfiguration()

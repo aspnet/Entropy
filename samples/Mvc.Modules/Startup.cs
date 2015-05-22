@@ -15,10 +15,10 @@ namespace Mvc.Modules
 
         public void Configure(IApplicationBuilder app)
         {
-            var configuration = new ConfigurationSection();
-            configuration.AddJsonFile("config.json");
-            configuration.AddEnvironmentVariables();
-
+            var builder = new ConfigurationBuilder();
+            builder.AddJsonFile("config.json");
+            builder.AddEnvironmentVariables();
+            var configuration = builder.Build();
             app.UseStaticFiles();
 
             app.UseMvc(routes =>

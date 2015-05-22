@@ -8,7 +8,8 @@ public class Startup
 {
     public void Configure(IApplicationBuilder app)
     {
-        var config = new ConfigurationSection(new MyConfigSource());
+        var builder = new ConfigurationBuilder(new MyConfigSource());
+        var config = builder.Build();
 
         app.Run(async ctx =>
         {
