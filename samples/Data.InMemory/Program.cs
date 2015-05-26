@@ -33,7 +33,7 @@ namespace Data.InMemory
     {
         public DbSet<Blog> Blogs { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(EntityOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseInMemoryStore();
         }
