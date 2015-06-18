@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Security.DataProtection;
+using Microsoft.AspNet.DataProtection;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Owin.Builder;
 using Owin;
