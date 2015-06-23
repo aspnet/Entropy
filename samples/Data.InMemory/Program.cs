@@ -35,7 +35,7 @@ namespace Data.InMemory
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseInMemoryStore();
+            optionsBuilder.UseInMemoryDatabase();
         }
     }
 
