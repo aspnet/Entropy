@@ -57,7 +57,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             {
                 var filters = type.GetTypeInfo()
                     .GetCustomAttributes(inherit: true)
-                    .OfType<IFilter>()
+                    .OfType<IFilterMetadata>()
                     .Select(filter => new FilterDescriptor(filter, FilterScope.Controller))
                     .OrderBy(d => d, FilterDescriptorOrderComparer.Comparer)
                     .ToList();
