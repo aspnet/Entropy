@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.FeatureModel;
 using Microsoft.AspNet.Hosting.Server;
+using Microsoft.AspNet.Http.Features;
 using Microsoft.AspNet.Owin;
 using Microsoft.Framework.Configuration;
 using Nowin;
