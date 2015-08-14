@@ -19,25 +19,28 @@ namespace Config.SettingObject.Web
 
         public void Read(IConfiguration configuration)
         {
-            string value;
-            if (configuration.TryGet("RetryCount", out value))
+            var value = configuration["RetryCount"];
+            if (!string.IsNullOrEmpty(value))
             {
                 RetryCount = int.Parse(value);
             }
-            if (configuration.TryGet("DefaultAdBlock", out value))
+			value = configuration["DefaultAdBlock"];
+            if (!string.IsNullOrEmpty(value))
             {
                 DefaultAdBlock = value;
             }
 
             var items = new List<AdBlock>();
-            foreach (var subConfig in configuration.GetConfigurationSections("AdBlock"))
+            foreach (var subConfig in configuration.GetSection("AdBlock").GetChildren())
             {
                 var item = new AdBlock { Name = subConfig.Key };
-                if (subConfig.Value.TryGet("Origin", out value))
+				value = subConfig["Origin"];
+                if (!string.IsNullOrEmpty(value))
                 {
                     item.Origin = value;
                 }
-                if (subConfig.Value.TryGet("ProductCode", out value))
+				value = subConfig["ProductCode"];
+                if (!string.IsNullOrEmpty(value))
                 {
                     item.ProductCode = value;
                 }

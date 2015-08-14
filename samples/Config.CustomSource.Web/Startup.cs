@@ -20,10 +20,10 @@ public class Startup
 
     private static async Task DumpConfig(HttpResponse response, IConfiguration config, string indentation = "")
     {
-        foreach (var child in config.GetConfigurationSections())
+        foreach (var child in config.GetChildren())
         {
-            await response.WriteAsync(indentation + "[" + child.Key + "] " + config.Get(child.Key) + "\r\n");
-            await DumpConfig(response, child.Value, indentation + "  ");
+            await response.WriteAsync(indentation + "[" + child.Key + "] " + config[child.Key] + "\r\n");
+            await DumpConfig(response, child, indentation + "  ");
         }
     }
 }

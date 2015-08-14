@@ -18,7 +18,7 @@ public class Startup
         {
             ctx.Response.ContentType = "text/plain";
 
-            Func<String, String> formatKeyValue = key => "[" + key + "] " + config.Get(key) + "\r\n\r\n";
+            Func<String, String> formatKeyValue = key => "[" + key + "] " + config[key] + "\r\n\r\n";
             await ctx.Response.WriteAsync(formatKeyValue("Services:One.Two"));
             await ctx.Response.WriteAsync(formatKeyValue("Services:One.Two:Six"));
             await ctx.Response.WriteAsync(formatKeyValue("Data:DefaultConnecection:ConnectionString"));
@@ -32,10 +32,10 @@ public class Startup
 
     private static async Task DumpConfig(HttpResponse response, IConfiguration config, string indentation = "")
     {
-        foreach (var child in config.GetConfigurationSections())
+        foreach (var child in config.GetChildren())
         {
-            await response.WriteAsync(indentation + "[" + child.Key + "] " + config.Get(child.Key) + "\r\n");
-            await DumpConfig(response, child.Value, indentation + "  ");
+            await response.WriteAsync(indentation + "[" + child.Key + "] " + config[child.Key] + "\r\n");
+            await DumpConfig(response, child, indentation + "  ");
         }
     }
 }

@@ -19,9 +19,9 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
         private readonly IReadOnlyList<IModelBinder> _modelBinders;
         private readonly IReadOnlyList<IModelValidatorProvider> _modelValidatorProviders;
         private readonly IReadOnlyList<IValueProviderFactory> _valueProviderFactories;
-        private readonly IScopedInstance<ActionBindingContext> _actionBindingContextAccessor;
+        private readonly ActionBindingContextAccessor _actionBindingContextAccessor;
         private readonly IOptions<MvcOptions> _optionsAccessor;
-        private readonly ILoggerFactory _loggerFactory;
+        private readonly ILogger _logger;
 
         public ModuleActionInvokerProvider(
             IModuleFactory moduleFactory,
@@ -31,9 +31,9 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             IReadOnlyList<IModelBinder> modelBinders,
             IReadOnlyList<IModelValidatorProvider> modelValidatorProviders,
             IReadOnlyList<IValueProviderFactory> valueProviderFactories,
-            IScopedInstance<ActionBindingContext> actionBindingContextAccessor,
+            ActionBindingContextAccessor actionBindingContextAccessor,
             IOptions<MvcOptions> optionsAccessor,
-            ILoggerFactory loggerFactory,
+            ILogger logger,
             IServiceProvider serviceProvider)
         {
             _moduleFactory = moduleFactory;
@@ -45,7 +45,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             _valueProviderFactories = valueProviderFactories;
             _actionBindingContextAccessor = actionBindingContextAccessor;
             _optionsAccessor = optionsAccessor;
-            _loggerFactory = loggerFactory;
+            _logger = logger;
             _serviceProvider = serviceProvider;
         }
 
@@ -69,7 +69,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
                     _modelValidatorProviders,
                     _valueProviderFactories,
                     _actionBindingContextAccessor,
-                    _loggerFactory,
+                    _logger,
                     _optionsAccessor.Options.MaxModelValidationErrors);
             }
         }

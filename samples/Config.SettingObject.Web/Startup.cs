@@ -21,7 +21,7 @@ public class Startup
         var config = builder.Build();
 
         var mySettings = new MySettings();
-        mySettings.Read(config.GetConfigurationSection("MySettings"));
+        mySettings.Read(config.GetSection("MySettings"));
 
         app.Run(async ctx =>
         {

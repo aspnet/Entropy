@@ -28,8 +28,8 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             IReadOnlyList<IModelBinder> modelBinders,
             IReadOnlyList<IModelValidatorProvider> modelValidatorProviders,
             IReadOnlyList<IValueProviderFactory> valueProviderFactories,
-            IScopedInstance<ActionBindingContext> actionBindingContextAccessor,
-            ILoggerFactory loggerFactory,
+            ActionBindingContextAccessor actionBindingContextAccessor,
+            ILogger logger,
             int maxModelValidationErrors)
             : base(
                   actionContext,
@@ -40,7 +40,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
                   modelValidatorProviders,
                   valueProviderFactories,
                   actionBindingContextAccessor,
-                  loggerFactory,
+                  logger,
                   maxModelValidationErrors)
         {
             _descriptor = descriptor;
