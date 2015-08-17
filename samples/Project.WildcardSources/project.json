@@ -1,7 +1,7 @@
 {
-    "code": "*.cs",
+    "compile": "*.cs",
     "exclude": "buggy/**/*.cs",
-    "resources": "embed/**/*.*",
+    "resource": "embed/**/*.*",
     "frameworks": {
         "dnx451": { },
         "dnxcore50": {
