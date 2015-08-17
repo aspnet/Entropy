@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+      "Microsoft.Dnx.Compilation.CSharp.Abstractions": { "version": "1.0.0-*", "type": "build" }
+  },
+  "frameworks": {
+    "dnx451": {
+        "frameworkAssemblies": {
+            "System.Runtime": "",
+            "System.Text.Encoding": "",
+            "System.Threading.Tasks": ""
+        }
+    },
+    "dnxcore50": {
+        "dependencies": {
+            "System.Console": "4.0.0-beta-*",
+        }
+    }
+  }
+}
