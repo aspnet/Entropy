@@ -5,6 +5,7 @@ using Microsoft.AspNet.Mvc.Core;
 using Microsoft.AspNet.Mvc.ModelBinding;
 using Microsoft.AspNet.Mvc.ModelBinding.Validation;
 using Microsoft.Framework.Logging;
+using Microsoft.Framework.Notification;
 using Microsoft.Framework.OptionsModel;
 
 namespace Microsoft.AspNet.Mvc.ModuleFramework
@@ -22,6 +23,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
         private readonly ActionBindingContextAccessor _actionBindingContextAccessor;
         private readonly IOptions<MvcOptions> _optionsAccessor;
         private readonly ILogger _logger;
+        private readonly INotifier _notifier;
 
         public ModuleActionInvokerProvider(
             IModuleFactory moduleFactory,
@@ -34,6 +36,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             ActionBindingContextAccessor actionBindingContextAccessor,
             IOptions<MvcOptions> optionsAccessor,
             ILogger logger,
+            INotifier notifier,
             IServiceProvider serviceProvider)
         {
             _moduleFactory = moduleFactory;
@@ -46,6 +49,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             _actionBindingContextAccessor = actionBindingContextAccessor;
             _optionsAccessor = optionsAccessor;
             _logger = logger;
+            _notifier = notifier;
             _serviceProvider = serviceProvider;
         }
 
@@ -70,6 +74,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
                     _valueProviderFactories,
                     _actionBindingContextAccessor,
                     _logger,
+                    _notifier,
                     _optionsAccessor.Options.MaxModelValidationErrors);
             }
         }

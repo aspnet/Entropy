@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc.Core;
 using Microsoft.AspNet.Mvc.ModelBinding;
 using Microsoft.AspNet.Mvc.ModelBinding.Validation;
-using Microsoft.Framework.Internal;
 using Microsoft.Framework.Logging;
+using Microsoft.Framework.Notification;
 
 namespace Microsoft.AspNet.Mvc.ModuleFramework
 {
@@ -30,6 +30,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             IReadOnlyList<IValueProviderFactory> valueProviderFactories,
             ActionBindingContextAccessor actionBindingContextAccessor,
             ILogger logger,
+            INotifier notifier,
             int maxModelValidationErrors)
             : base(
                   actionContext,
@@ -41,6 +42,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
                   valueProviderFactories,
                   actionBindingContextAccessor,
                   logger,
+                  notifier,
                   maxModelValidationErrors)
         {
             _descriptor = descriptor;

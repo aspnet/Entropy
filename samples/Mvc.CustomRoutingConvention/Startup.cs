@@ -1,8 +1,5 @@
-﻿using System;
-using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Routing;
+﻿using Microsoft.AspNet.Builder;
 using Microsoft.Framework.DependencyInjection;
-using Microsoft.AspNet.Mvc;
 
 namespace NamespaceRouting
 {
@@ -10,13 +7,11 @@ namespace NamespaceRouting
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.ConfigureMvc(options =>
+            // Add MVC services to the services container
+            services.AddMvc(options =>
             {
                 options.Conventions.Add(new NameSpaceRoutingConvention());
             });
-
-            // Add MVC services to the services container
-            services.AddMvc();
         }
 
         public void Configure(IApplicationBuilder app)
