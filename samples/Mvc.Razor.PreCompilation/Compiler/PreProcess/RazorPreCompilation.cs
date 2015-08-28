@@ -1,5 +1,5 @@
 ﻿using System;
-using Microsoft.AspNet.Mvc;
+using Microsoft.AspNet.Mvc.Razor.Precompilation;
 
 namespace RazorPre
 {
