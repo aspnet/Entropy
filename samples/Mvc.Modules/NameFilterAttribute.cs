@@ -8,7 +8,7 @@ namespace Mvc.Modules
     {
         public override void OnActionExecuting(ActionExecutingContext context)
         {
-            var names = context.HttpContext.Request.Query.GetValues("name");
+            var names = context.HttpContext.Request.Query["name"];
             if (names != null && names.Any())
             {
                 var module = (MvcModule)context.Controller;
