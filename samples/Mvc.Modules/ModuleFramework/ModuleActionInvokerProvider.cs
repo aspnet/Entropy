@@ -78,7 +78,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
                     _actionBindingContextAccessor,
                     _logger,
                     _notifier,
-                    _optionsAccessor.Options.MaxModelValidationErrors);
+                    _optionsAccessor.Value.MaxModelValidationErrors);
             }
         }
 
