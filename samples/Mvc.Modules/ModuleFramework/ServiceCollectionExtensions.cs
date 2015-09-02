@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.Mvc.Core;
+﻿using Microsoft.AspNet.Mvc.Actions;
 using Microsoft.AspNet.Mvc.ModuleFramework;
 
 namespace Microsoft.Framework.DependencyInjection

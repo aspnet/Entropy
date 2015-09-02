@@ -1,5 +1,6 @@
 ﻿
 using System;
+using Microsoft.AspNet.Mvc.Actions;
 
 namespace Microsoft.AspNet.Mvc.ModuleFramework
 {

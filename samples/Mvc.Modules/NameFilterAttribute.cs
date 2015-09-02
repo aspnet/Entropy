@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using Microsoft.AspNet.Mvc;
+using Microsoft.AspNet.Mvc.Filters;
 using Microsoft.AspNet.Mvc.ModuleFramework;
 
 namespace Mvc.Modules
