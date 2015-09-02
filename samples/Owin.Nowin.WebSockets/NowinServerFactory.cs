@@ -19,42 +19,22 @@ namespace NowinWebSockets
             return _callback(new OwinFeatureCollection(env));
         }
 
-        public IServerInformation Initialize(IConfiguration configuration)
+        public IFeatureCollection Initialize(IConfiguration configuration)
         {
             // TODO: Parse config
+            return new FeatureCollection();
+        }
+
+        public IDisposable Start(IFeatureCollection serverFeatures, Func<IFeatureCollection, Task> application)
+        {
             var builder = ServerBuilder.New()
                                        .SetAddress(IPAddress.Any)
                                        .SetPort(5000)
                                        .SetOwinApp(OwinWebSocketAcceptAdapter.AdaptWebSockets(HandleRequest));
-
-            return new NowinServerInformation(builder);
-        }
-
-        public IDisposable Start(IServerInformation serverInformation, Func<IFeatureCollection, Task> application)
-        {
-            var information = (NowinServerInformation)serverInformation;
             _callback = application;
-            INowinServer server = information.Builder.Build();
+            var server = builder.Build();
             server.Start();
             return server;
-        }
-
-        private class NowinServerInformation : IServerInformation
-        {
-            public NowinServerInformation(ServerBuilder builder)
-            {
-                Builder = builder;
-            }
-
-            public ServerBuilder Builder { get; private set; }
-
-            public string Name
-            {
-                get
-                {
-                    return "Nowin";
-                }
-            }
         }
     }
 }
