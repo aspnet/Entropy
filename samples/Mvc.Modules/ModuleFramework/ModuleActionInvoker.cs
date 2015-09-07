@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc.ActionResults;
 using Microsoft.AspNet.Mvc.Actions;
@@ -11,7 +12,6 @@ using Microsoft.AspNet.Mvc.Formatters;
 using Microsoft.AspNet.Mvc.ModelBinding;
 using Microsoft.AspNet.Mvc.ModelBinding.Validation;
 using Microsoft.Framework.Logging;
-using Microsoft.Framework.Notification;
 
 namespace Microsoft.AspNet.Mvc.ModuleFramework
 {
@@ -33,7 +33,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             IReadOnlyList<IValueProviderFactory> valueProviderFactories,
             ActionBindingContextAccessor actionBindingContextAccessor,
             ILogger logger,
-            INotifier notifier,
+            TelemetrySource telemetry,
             int maxModelValidationErrors)
             : base(
                   actionContext,
@@ -45,7 +45,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
                   valueProviderFactories,
                   actionBindingContextAccessor,
                   logger,
-                  notifier,
+                  telemetry,
                   maxModelValidationErrors)
         {
             _descriptor = descriptor;

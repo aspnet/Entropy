@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using System.Linq;
 using Microsoft.AspNet.Mvc.Actions;
-using Microsoft.AspNet.Mvc.Core;
 using Microsoft.AspNet.Mvc.Filters;
 using Microsoft.AspNet.Mvc.Formatters;
 using Microsoft.AspNet.Mvc.ModelBinding;
 using Microsoft.AspNet.Mvc.ModelBinding.Validation;
 using Microsoft.Framework.Logging;
-using Microsoft.Framework.Notification;
 using Microsoft.Framework.OptionsModel;
 
 namespace Microsoft.AspNet.Mvc.ModuleFramework
@@ -26,7 +25,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
         private readonly ActionBindingContextAccessor _actionBindingContextAccessor;
         private readonly IOptions<MvcOptions> _optionsAccessor;
         private readonly ILogger _logger;
-        private readonly INotifier _notifier;
+        private readonly TelemetrySource _telemetry;
 
         public ModuleActionInvokerProvider(
             IModuleFactory moduleFactory,
@@ -39,7 +38,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             ActionBindingContextAccessor actionBindingContextAccessor,
             IOptions<MvcOptions> optionsAccessor,
             ILogger logger,
-            INotifier notifier,
+            TelemetrySource telemetry,
             IServiceProvider serviceProvider)
         {
             _moduleFactory = moduleFactory;
@@ -52,7 +51,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             _actionBindingContextAccessor = actionBindingContextAccessor;
             _optionsAccessor = optionsAccessor;
             _logger = logger;
-            _notifier = notifier;
+            _telemetry = telemetry;
             _serviceProvider = serviceProvider;
         }
 
@@ -77,7 +76,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
                     _valueProviderFactories,
                     _actionBindingContextAccessor,
                     _logger,
-                    _notifier,
+                    _telemetry,
                     _optionsAccessor.Value.MaxModelValidationErrors);
             }
         }
