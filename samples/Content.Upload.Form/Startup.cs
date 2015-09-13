@@ -40,7 +40,7 @@ namespace Content.Upload.Form
 <INPUT type=""submit"" value=""Send"" /><INPUT type=""reset"" />
 </P>
 </FORM>");
-                      await context.Response.WriteAsync("</body></html>");
+                await context.Response.WriteAsync("</body></html>");
             });
         }
     }

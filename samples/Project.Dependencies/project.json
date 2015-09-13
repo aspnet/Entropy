@@ -1,23 +1,23 @@
 {
-    "dependencies": {
-        "Newtonsoft.Json": "6.0.8",
-        "Project.ProjectReference": "1.0.0-*",
-        "Project.SharedFiles": "1.0.0-*"
+  "dependencies": {
+    "Newtonsoft.Json": "6.0.8",
+    "Project.ProjectReference": "1.0.0-*",
+    "Project.SharedFiles": "1.0.0-*"
+  },
+  "frameworks": {
+    "dnx451": {
+      "frameworkAssemblies": {
+        "System.Web": ""
+      }
     },
-    "frameworks": {
-        "dnx451": { 
-            "frameworkAssemblies": {
-                "System.Web": ""
-            }
-        },
-        "dnxcore50" : {
-            "dependencies": {
-                "System.Console": "4.0.0-beta-*",
-                "System.Linq": "4.0.1-beta-*",
-                "System.Threading.Tasks": "4.0.11-beta-*",
-                "System.Runtime": "4.0.21-beta-*",
-                "System.Runtime.Extensions": "4.0.11-beta-*"
-            }
-        }
+    "dnxcore50": {
+      "dependencies": {
+        "System.Console": "4.0.0-beta-*",
+        "System.Linq": "4.0.1-beta-*",
+        "System.Threading.Tasks": "4.0.11-beta-*",
+        "System.Runtime": "4.0.21-beta-*",
+        "System.Runtime.Extensions": "4.0.11-beta-*"
+      }
     }
+  }
 }

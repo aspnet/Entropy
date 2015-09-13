@@ -17,7 +17,7 @@ namespace NamespaceRouting
         public void Configure(IApplicationBuilder app)
         {
             // Add MVC to the request pipeline
-            app.UseMvc();            
+            app.UseMvc();
         }
     }
 }

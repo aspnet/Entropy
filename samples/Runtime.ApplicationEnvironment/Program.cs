@@ -1,5 +1,5 @@
 using System;
-using Microsoft.Net.Runtime;
+using Microsoft.Dnx.Runtime;
 
 namespace Runtime.ApplicationEnvironment
 {
@@ -17,8 +17,8 @@ namespace Runtime.ApplicationEnvironment
             Console.WriteLine("======================================================");
             Console.WriteLine("ApplicationName: {0}", _environment.ApplicationName);
             Console.WriteLine("ApplicationBasePath: {0}", _environment.ApplicationBasePath);
-            Console.WriteLine("TargetFramework: {0}", _environment.TargetFramework);
-            Console.WriteLine("Version: {0}", _environment.Version);
+            Console.WriteLine("TargetFramework: {0}", _environment.RuntimeFramework);
+            Console.WriteLine("Version: {0}", _environment.ApplicationVersion);
             Console.WriteLine("======================================================");
             Console.ReadLine();
         }

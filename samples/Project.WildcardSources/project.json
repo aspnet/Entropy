@@ -1,16 +1,16 @@
 {
-    "compile": "*.cs",
-    "exclude": "buggy/**/*.cs",
-    "resource": "embed/**/*.*",
-    "frameworks": {
-        "dnx451": { },
-        "dnxcore50": {
-            "dependencies": {
-                "System.Console": "4.0.0-beta-*",
-                "System.IO": "4.0.11-beta-*",
-                "System.Reflection": "4.0.11-beta-*",
-                "System.Runtime": "4.0.21-beta-*"
-            }
-        }
+  "compile": "*.cs",
+  "exclude": "buggy/**/*.cs",
+  "resource": "embed/**/*.*",
+  "frameworks": {
+    "dnx451": { },
+    "dnxcore50": {
+      "dependencies": {
+        "System.Console": "4.0.0-beta-*",
+        "System.IO": "4.0.11-beta-*",
+        "System.Reflection": "4.0.11-beta-*",
+        "System.Runtime": "4.0.21-beta-*"
+      }
     }
+  }
 }

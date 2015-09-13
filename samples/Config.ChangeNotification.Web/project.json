@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "Microsoft.AspNet.FileSystems": "1.0.0-*",
     "Microsoft.AspNet.Http": "1.0.0-*",
     "Microsoft.AspNet.Server.IIS" : "1.0.0-*",
     "Microsoft.Framework.Configuration": "1.0.0-*"

@@ -1,25 +1,25 @@
 {
-    "webroot": "wwwroot",
-    "version": "1.0.0-*",
-    "exclude": [
-        "wwwroot"
-    ],
-    "publishExclude": [
-        "**.kproj",
-        "**.user",
-        "**.vspscc"
-    ],
-    "commands": {
-        "Katana": "run"
-    },
-    "dependencies": {
-        "Microsoft.AspNet.Owin": "1.0.0-*",
-        "Microsoft.AspNet.DataProtection": "1.0.0-*",
-        "Microsoft.AspNet.Server.IIS": "1.0.0-*",
-        "Microsoft.Framework.DependencyInjection": "1.0.0-*",
-        "Microsoft.Owin": "3.0.0"     
-    },
-    "frameworks" : {
-        "dnx451" : { }
-    }
+  "webroot": "wwwroot",
+  "version": "1.0.0-*",
+  "exclude": [
+    "wwwroot"
+  ],
+  "publishExclude": [
+    "**.kproj",
+    "**.user",
+    "**.vspscc"
+  ],
+  "commands": {
+    "Katana": "run"
+  },
+  "dependencies": {
+    "Microsoft.AspNet.Owin": "1.0.0-*",
+    "Microsoft.AspNet.DataProtection": "1.0.0-*",
+    "Microsoft.AspNet.Server.IIS": "1.0.0-*",
+    "Microsoft.Framework.DependencyInjection": "1.0.0-*",
+    "Microsoft.Owin": "3.0.0"
+  },
+  "frameworks": {
+    "dnx451": { }
+  }
 }

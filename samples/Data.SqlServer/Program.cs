@@ -21,7 +21,7 @@ namespace Data.SqlServer
                 var nextId = db.Blogs.Any() ? db.Blogs.Max(b => b.BlogId) + 1 : 1;
                 db.Add(new Blog { BlogId = nextId, Name = "Another Blog", Url = "http://example.com" });
                 await db.SaveChangesAsync();
-           
+
                 var blogs = db.Blogs.OrderBy(b => b.Name);
                 foreach (var item in blogs)
                 {

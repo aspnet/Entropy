@@ -12,9 +12,9 @@ namespace Data.InMemory
         {
             using (var db = new MyContext())
             {
-                db.Add(new Blog {BlogId = 1, Name = "ADO.NET", Url = "http://blogs.msdn.com/adonet"});
-                db.Add(new Blog {BlogId = 2, Name = ".NET Framework", Url = "http://blogs.msdn.com/dotnet"});
-                db.Add(new Blog {BlogId = 3, Name = "Visual Studio", Url = "http://blogs.msdn.com/visualstudio"});
+                db.Add(new Blog { BlogId = 1, Name = "ADO.NET", Url = "http://blogs.msdn.com/adonet" });
+                db.Add(new Blog { BlogId = 2, Name = ".NET Framework", Url = "http://blogs.msdn.com/dotnet" });
+                db.Add(new Blog { BlogId = 3, Name = "Visual Studio", Url = "http://blogs.msdn.com/visualstudio" });
                 await db.SaveChangesAsync();
             }
 
