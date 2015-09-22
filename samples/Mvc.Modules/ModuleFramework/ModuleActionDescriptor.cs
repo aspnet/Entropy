@@ -1,6 +1,6 @@
 ﻿
 using System;
-using Microsoft.AspNet.Mvc.Actions;
+using Microsoft.AspNet.Mvc.Abstractions;
 
 namespace Microsoft.AspNet.Mvc.ModuleFramework
 {

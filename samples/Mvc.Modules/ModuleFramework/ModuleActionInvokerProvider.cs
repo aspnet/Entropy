@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using System.Linq;
-using Microsoft.AspNet.Mvc.Actions;
+using Microsoft.AspNet.Mvc.Abstractions;
 using Microsoft.AspNet.Mvc.Filters;
 using Microsoft.AspNet.Mvc.Formatters;
+using Microsoft.AspNet.Mvc.Infrastructure;
 using Microsoft.AspNet.Mvc.ModelBinding;
 using Microsoft.AspNet.Mvc.ModelBinding.Validation;
 using Microsoft.Framework.Logging;
@@ -22,7 +23,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
         private readonly IReadOnlyList<IModelBinder> _modelBinders;
         private readonly IReadOnlyList<IModelValidatorProvider> _modelValidatorProviders;
         private readonly IReadOnlyList<IValueProviderFactory> _valueProviderFactories;
-        private readonly ActionBindingContextAccessor _actionBindingContextAccessor;
+        private readonly IActionBindingContextAccessor _actionBindingContextAccessor;
         private readonly IOptions<MvcOptions> _optionsAccessor;
         private readonly ILogger _logger;
         private readonly TelemetrySource _telemetry;
@@ -35,7 +36,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             IReadOnlyList<IModelBinder> modelBinders,
             IReadOnlyList<IModelValidatorProvider> modelValidatorProviders,
             IReadOnlyList<IValueProviderFactory> valueProviderFactories,
-            ActionBindingContextAccessor actionBindingContextAccessor,
+            IActionBindingContextAccessor actionBindingContextAccessor,
             IOptions<MvcOptions> optionsAccessor,
             ILogger logger,
             TelemetrySource telemetry,
