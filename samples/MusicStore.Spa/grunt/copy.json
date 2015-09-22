@@ -1,0 +1,15 @@
+﻿{
+    "assets": {
+        "files": [
+            {
+                "expand": true,
+                "cwd": "ng-apps/",
+                "src": [
+                    "<%= staticFilePattern %>"
+                ],
+                "dest": "wwwroot/ng-apps",
+                "options": { "force": true }
+            }
+        ]
+    }
+}

@@ -94,6 +94,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Diagnostics", "Diagnostics"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Diagnostics.StatusCodes.Mvc", "samples\Diagnostics.StatusCodes.Mvc\Diagnostics.StatusCodes.Mvc.xproj", "{F9D07591-3B9C-4DCE-82E9-4FA8FB63D4AD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MusicStore", "MusicStore", "{C9CC6168-80AE-44CC-8700-CD858256CB5B}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MusicStore.Spa", "samples\MusicStore.Spa\MusicStore.Spa.xproj", "{83C88F80-BD05-4314-ACD3-0834EB385695}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -228,6 +232,10 @@ Global
 		{F9D07591-3B9C-4DCE-82E9-4FA8FB63D4AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9D07591-3B9C-4DCE-82E9-4FA8FB63D4AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9D07591-3B9C-4DCE-82E9-4FA8FB63D4AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83C88F80-BD05-4314-ACD3-0834EB385695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83C88F80-BD05-4314-ACD3-0834EB385695}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83C88F80-BD05-4314-ACD3-0834EB385695}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83C88F80-BD05-4314-ACD3-0834EB385695}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -265,5 +273,6 @@ Global
 		{B025FC81-BAFF-4752-A638-64B02BFF78A2} = {B9C5D624-F771-4E9D-882C-4CD42A12CAD1}
 		{744E5BDC-3E71-4F0E-B78E-129937716AAC} = {B9C5D624-F771-4E9D-882C-4CD42A12CAD1}
 		{F9D07591-3B9C-4DCE-82E9-4FA8FB63D4AD} = {CAC7BEE3-5101-446C-84A4-4120BE2DEE18}
+		{83C88F80-BD05-4314-ACD3-0834EB385695} = {C9CC6168-80AE-44CC-8700-CD858256CB5B}
 	EndGlobalSection
 EndGlobal
