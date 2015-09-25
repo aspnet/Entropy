@@ -10,7 +10,7 @@ public class Startup
     public void Configure(IApplicationBuilder app)
     {
         var builder = new ConfigurationBuilder();
-        builder.AddIniFile("Config.Sources.ini");
+        builder.AddIniFile("Config.Providers.ini");
         builder.AddEnvironmentVariables();
         var config = builder.Build();
 

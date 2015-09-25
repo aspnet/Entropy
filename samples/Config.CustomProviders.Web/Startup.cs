@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using Config.CustomSource.Web;
+using Config.CustomProvider.Web;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Http;
 using Microsoft.Framework.Configuration;
@@ -8,7 +8,7 @@ public class Startup
 {
     public void Configure(IApplicationBuilder app)
     {
-        var builder = new ConfigurationBuilder(new MyConfigSource());
+        var builder = new ConfigurationBuilder(new MyConfigProvider());
         var config = builder.Build();
 
         app.Run(async ctx =>

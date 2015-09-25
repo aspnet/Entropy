@@ -9,7 +9,7 @@ public class Startup
     public void Configure(IApplicationBuilder app)
     {
         var builder = new ConfigurationBuilder(
-            new MemoryConfigurationSource
+            new MemoryConfigurationProvider
             {
                 {"MySettings:RetryCount", "42"},
                 {"MySettings:DefaultAdBlock", "House"},

@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Framework.Configuration;
 
-namespace Config.CustomSource.Web
+namespace Config.CustomProvider.Web
 {
-    public class MyConfigSource : IConfigurationSource
+    public class MyConfigProvider : IConfigurationProvider
     {
         public bool TryGet(string key, out string value)
         {
@@ -26,9 +26,9 @@ namespace Config.CustomSource.Web
             // no loading or reloading, this source is all hardcoded
         }
         
-        public IEnumerable<string> ProduceConfigurationSections(IEnumerable<string> earlierKeys, string prefix, string delimiter)
+        public IEnumerable<string> GetChildKeys(IEnumerable<string> earlierKeys, string prefix, string delimiter)
         {
-            // TODO: ProduceSubKeys method signature is pretty bad
+            // TODO: This method signature is pretty bad
 
             if (prefix == "" && delimiter == ":")
             {
