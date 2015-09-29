@@ -25,3 +25,8 @@ nuget.exe
 *.ipch
 /Entropy.sln.ide
 project.lock.json
+.vs/
+bower_components/
+node_modules/
+*/*.Spa/public/*
+*/*.Spa/wwwroot/lib
