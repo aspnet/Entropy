@@ -1,8 +1,8 @@
 using Config.SettingObject.Web;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Http;
-using Microsoft.Framework.Configuration;
-using Microsoft.Framework.Configuration.Memory;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.Memory;
 
 public class Startup
 {

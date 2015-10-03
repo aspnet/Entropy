@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Hosting.Server;
 using Microsoft.AspNet.Http.Features;
 using Microsoft.AspNet.Owin;
-using Microsoft.Framework.Configuration;
+using Microsoft.Extensions.Configuration;
 using Nowin;
 
 namespace NowinWebSockets

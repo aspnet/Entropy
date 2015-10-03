@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using System.Linq;
@@ -8,8 +8,8 @@ using Microsoft.AspNet.Mvc.Formatters;
 using Microsoft.AspNet.Mvc.Infrastructure;
 using Microsoft.AspNet.Mvc.ModelBinding;
 using Microsoft.AspNet.Mvc.ModelBinding.Validation;
-using Microsoft.Framework.Logging;
-using Microsoft.Framework.OptionsModel;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.OptionsModel;
 
 namespace Microsoft.AspNet.Mvc.ModuleFramework
 {

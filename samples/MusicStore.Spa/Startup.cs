@@ -1,10 +1,10 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Microsoft.AspNet.Authorization;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Data.Entity;
-using Microsoft.Framework.Configuration;
-using Microsoft.Framework.DependencyInjection;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Dnx.Runtime;
 using MusicStore.Apis;
 using MusicStore.Models;
@@ -22,7 +22,7 @@ namespace MusicStore.Spa
             Configuration = builder.Build();
         }
 
-        public Microsoft.Framework.Configuration.IConfiguration Configuration { get; set; }
+        public Microsoft.Extensions.Configuration.IConfiguration Configuration { get; set; }
 
         public void ConfigureServices(IServiceCollection services)
         {

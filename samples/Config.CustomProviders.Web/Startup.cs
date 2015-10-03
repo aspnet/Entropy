@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using Config.CustomProvider.Web;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Http;
-using Microsoft.Framework.Configuration;
+using Microsoft.Extensions.Configuration;
 
 public class Startup
 {

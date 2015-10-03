@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNet.Mvc.Abstractions;
+using Microsoft.AspNet.Mvc.Abstractions;
 using Microsoft.AspNet.Mvc.ModuleFramework;
 
-namespace Microsoft.Framework.DependencyInjection
+namespace Microsoft.Extensions.DependencyInjection
 {
     public static class ServiceCollectionExtensions
     {

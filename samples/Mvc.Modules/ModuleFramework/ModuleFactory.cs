@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNet.Mvc.ModelBinding;
-using Microsoft.Framework.DependencyInjection;
+using Microsoft.AspNet.Mvc.ModelBinding;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 
 namespace Microsoft.AspNet.Mvc.ModuleFramework

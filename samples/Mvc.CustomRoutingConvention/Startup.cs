@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNet.Builder;
-using Microsoft.Framework.DependencyInjection;
+using Microsoft.AspNet.Builder;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace NamespaceRouting
 {

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -7,8 +7,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Data.Entity;
 using Microsoft.Data.Entity.Storage;
-using Microsoft.Framework.DependencyInjection;
-using Microsoft.Framework.OptionsModel;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.OptionsModel;
 using MusicStore.Spa;
 
 namespace MusicStore.Models

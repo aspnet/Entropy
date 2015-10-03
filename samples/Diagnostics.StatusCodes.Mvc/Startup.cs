@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNet.Builder;
+using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Diagnostics;
 using Microsoft.AspNet.Routing;
-using Microsoft.Framework.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Diagnostics.StatusCodes.Mvc
 {
