@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "EntityFramework.SqlServer": "7.0.0-*"
+    "EntityFramework.MicrosoftSqlServer": "7.0.0-*"
   },
   "frameworks": {
     "dnx451": {

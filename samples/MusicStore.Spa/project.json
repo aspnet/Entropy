@@ -30,7 +30,7 @@
     "Microsoft.AspNet.Server.WebListener": "1.0.0-*",
     "Microsoft.AspNet.StaticFiles": "1.0.0-*",
     "EntityFramework.InMemory": "7.0.0-*",
-    "EntityFramework.SqlServer": "7.0.0-*",
+    "EntityFramework.MicrosoftSqlServer": "7.0.0-*",
     "Microsoft.AspNet.Authentication.Cookies": "1.0.0-*",
     "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-*",
     "Microsoft.Extensions.Configuration": "1.0.0-*",
