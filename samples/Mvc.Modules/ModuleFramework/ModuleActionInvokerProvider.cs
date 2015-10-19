@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.Tracing;
+using System.Diagnostics;
 using System.Linq;
 using Microsoft.AspNet.Mvc.Abstractions;
 using Microsoft.AspNet.Mvc.Filters;
@@ -26,7 +26,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
         private readonly IActionBindingContextAccessor _actionBindingContextAccessor;
         private readonly IOptions<MvcOptions> _optionsAccessor;
         private readonly ILogger _logger;
-        private readonly TelemetrySource _telemetry;
+        private readonly DiagnosticSource _diagnostic;
 
         public ModuleActionInvokerProvider(
             IModuleFactory moduleFactory,
@@ -39,7 +39,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             IActionBindingContextAccessor actionBindingContextAccessor,
             IOptions<MvcOptions> optionsAccessor,
             ILogger logger,
-            TelemetrySource telemetry,
+            DiagnosticSource diagnostic,
             IServiceProvider serviceProvider)
         {
             _moduleFactory = moduleFactory;
@@ -52,7 +52,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             _actionBindingContextAccessor = actionBindingContextAccessor;
             _optionsAccessor = optionsAccessor;
             _logger = logger;
-            _telemetry = telemetry;
+            _diagnostic = diagnostic;
             _serviceProvider = serviceProvider;
         }
 
@@ -77,7 +77,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
                     _valueProviderFactories,
                     _actionBindingContextAccessor,
                     _logger,
-                    _telemetry,
+                    _diagnostic,
                     _optionsAccessor.Value.MaxModelValidationErrors);
             }
         }

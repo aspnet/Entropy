@@ -3,7 +3,7 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.Tracing;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc.Controllers;
 using Microsoft.AspNet.Mvc.Filters;
@@ -33,7 +33,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             IReadOnlyList<IValueProviderFactory> valueProviderFactories,
             IActionBindingContextAccessor actionBindingContextAccessor,
             ILogger logger,
-            TelemetrySource telemetry,
+            DiagnosticSource diagnostic,
             int maxModelValidationErrors)
             : base(
                   actionContext,
@@ -45,7 +45,7 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
                   valueProviderFactories,
                   actionBindingContextAccessor,
                   logger,
-                  telemetry,
+                  diagnostic,
                   maxModelValidationErrors)
         {
             _descriptor = descriptor;
