@@ -8,9 +8,8 @@ public class Startup
 {
     public void Configure(IApplicationBuilder app)
     {
-        var builder = new ConfigurationBuilder(
-            new MemoryConfigurationProvider
-            {
+        var builder = new ConfigurationBuilder();
+        builder.Add(new MemoryConfigurationProvider {
                 {"MySettings:RetryCount", "42"},
                 {"MySettings:DefaultAdBlock", "House"},
                 {"MySettings:AdBlock:House:ProductCode", "123"},
