@@ -4,6 +4,9 @@
     "Project.ProjectReference": "1.0.0-*",
     "Project.SharedFiles": "1.0.0-*"
   },
+  "compilationOptions": {
+    "emitEntryPoint": true
+  },
   "frameworks": {
     "dnx451": {
       "frameworkAssemblies": {

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Reflection;
 using Microsoft.Dnx.Runtime;
@@ -7,24 +7,14 @@ namespace Runtime.CustomLoader
 {
     public class Program
     {
-        private readonly IAssemblyLoadContextAccessor _loadContextAccessor;
-        private readonly IAssemblyLoaderContainer _loaderContainer;
-
-        public Program(IAssemblyLoaderContainer container,
-                       IAssemblyLoadContextAccessor accessor)
-        {
-            _loaderContainer = container;
-            _loadContextAccessor = accessor;
-        }
-
-        public void Main(string[] args)
+        public static void Main(string[] args)
         {
             // Use the default load context
-            var loadContext = _loadContextAccessor.Default;
+            var loadContext = PlatformServices.Default.AssemblyLoadContextAccessor.Default;
 
             // Add the loader to the container so that any call to Assembly.Load will
             // call the load context back (if it's not already loaded)
-            using (_loaderContainer.AddLoader(new DirectoryLoader(@"", loadContext)))
+            using (PlatformServices.Default.AssemblyLoaderContainer.AddLoader(new DirectoryLoader(@"", loadContext)))
             {
                 // You should be able to use Assembly.Load()
                 var assembly1 = Assembly.Load(new AssemblyName("SomethingElse"));
@@ -56,6 +46,11 @@ namespace Runtime.CustomLoader
         public Assembly Load(AssemblyName assemblyName)
         {
             return _context.LoadFile(Path.Combine(_path, assemblyName.Name + ".dll"));
+        }
+
+        public IntPtr LoadUnmanagedLibrary(string name)
+        {
+            throw new NotImplementedException();
         }
     }
 }

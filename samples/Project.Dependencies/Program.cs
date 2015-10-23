@@ -11,7 +11,7 @@ namespace Project.Dependencies
 {
     public class Program
     {
-        public void Main()
+        public static void Main()
         {
             // Dependency shared
             var data = JsonConvert.SerializeObject(new { message = "Hello World".ToLower2() });

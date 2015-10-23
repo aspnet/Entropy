@@ -4,7 +4,7 @@ namespace Project.CompilerSettings
 {
     public class Program
     {
-        public void Main()
+        public static void Main()
         {
 #if SOMETHING
             Console.WriteLine("Something");

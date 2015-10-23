@@ -5,20 +5,15 @@ namespace Runtime.ApplicationEnvironment
 {
     public class Program
     {
-        private readonly IApplicationEnvironment _environment;
-
-        public Program(IApplicationEnvironment environment)
+        public static void Main()
         {
-            _environment = environment;
-        }
-
-        public void Main()
-        {
+            var environment = PlatformServices.Default.Application;
+            
             Console.WriteLine("======================================================");
-            Console.WriteLine("ApplicationName: {0}", _environment.ApplicationName);
-            Console.WriteLine("ApplicationBasePath: {0}", _environment.ApplicationBasePath);
-            Console.WriteLine("TargetFramework: {0}", _environment.RuntimeFramework);
-            Console.WriteLine("Version: {0}", _environment.ApplicationVersion);
+            Console.WriteLine("ApplicationName: {0}", environment.ApplicationName);
+            Console.WriteLine("ApplicationBasePath: {0}", environment.ApplicationBasePath);
+            Console.WriteLine("TargetFramework: {0}", environment.RuntimeFramework);
+            Console.WriteLine("Version: {0}", environment.ApplicationVersion);
             Console.WriteLine("======================================================");
             Console.ReadLine();
         }

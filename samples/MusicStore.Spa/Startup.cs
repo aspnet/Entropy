@@ -5,7 +5,6 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Data.Entity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Dnx.Runtime;
 using MusicStore.Apis;
 using MusicStore.Models;
 
@@ -13,10 +12,9 @@ namespace MusicStore.Spa
 {
     public class Startup
     {
-        public Startup(IApplicationEnvironment env)
+        public Startup()
         {
             var builder = new ConfigurationBuilder()
-                        .SetBasePath(env.ApplicationBasePath)
                         .AddJsonFile("Config.json")
                         .AddEnvironmentVariables();
             Configuration = builder.Build();

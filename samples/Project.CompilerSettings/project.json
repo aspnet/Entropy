@@ -2,7 +2,8 @@
   "compilationOptions": {
     "define": [ "SOMETHING" ],
     "allowUnsafe": true,
-    "warningsAsErrors": true
+    "warningsAsErrors": true,
+    "emitEntryPoint": true
   },
   "frameworks": {
     "dnx451": { },
