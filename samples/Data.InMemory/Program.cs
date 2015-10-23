@@ -7,14 +7,14 @@ namespace Data.InMemory
 {
     public class Program
     {
-        public static async Task Main()
+        public static void Main()
         {
             using (var db = new MyContext())
             {
                 db.Add(new Blog { BlogId = 1, Name = "ADO.NET", Url = "http://blogs.msdn.com/adonet" });
                 db.Add(new Blog { BlogId = 2, Name = ".NET Framework", Url = "http://blogs.msdn.com/dotnet" });
                 db.Add(new Blog { BlogId = 3, Name = "Visual Studio", Url = "http://blogs.msdn.com/visualstudio" });
-                await db.SaveChangesAsync();
+                db.SaveChangesAsync().Wait();
             }
 
             using (var db = new MyContext())
