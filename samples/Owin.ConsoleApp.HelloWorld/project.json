@@ -1,0 +1,17 @@
+﻿{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "Microsoft.Extensions.DependencyInjection": "1.0.0-*",
+    "Microsoft.AspNet.Owin": "1.0.0-*",
+    "Nowin": "0.11.0"
+  },
+
+  "commands": {
+    "Owin.ConsoleApp.HelloWorld": "Owin.ConsoleApp.HelloWorld"
+  },
+
+  "frameworks": {
+    "dnx451": { }
+  }
+}
