@@ -11,11 +11,17 @@ namespace MusicStore.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        [FromServices]
-        public UserManager<ApplicationUser> UserManager { get; set; }
+        public AccountController(
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager)
+        {
+            UserManager = userManager;
+            SignInManager = signInManager;
+        }
 
-        [FromServices]
-        public SignInManager<ApplicationUser> SignInManager { get; set; }
+        public UserManager<ApplicationUser> UserManager { get; }
+
+        public SignInManager<ApplicationUser> SignInManager { get; }
 
         [AllowAnonymous]
         //Bug: https://github.com/aspnet/WebFx/issues/339
