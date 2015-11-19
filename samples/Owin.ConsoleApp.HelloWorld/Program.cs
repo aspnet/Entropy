@@ -51,7 +51,7 @@ namespace Owin.ConsoleApp.HelloWorld
             {
                 appBuilder.Run(async context =>
                 {
-                    context.ApplicationServices.GetService<DiagnosticLogger>().Log("Returning Hello World");
+                    context.RequestServices.GetService<DiagnosticLogger>().Log("Returning Hello World");
                     context.Response.ContentType = "text/plain";
                     await context.Response.WriteAsync("Hello World!");
                 });
