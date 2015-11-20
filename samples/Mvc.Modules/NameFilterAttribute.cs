@@ -1,17 +1,24 @@
-﻿using System.Linq;
-using Microsoft.AspNet.Mvc.Filters;
+﻿// Copyright (c) .NET Foundation. All rights reserved.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
+using System;
+using System.Linq;
 using Microsoft.AspNet.Mvc.ModuleFramework;
 
 namespace Mvc.Modules
 {
-    public class NameFilterAttribute : ActionFilterAttribute
+    public class NameFilterAttribute : Attribute, IModuleFilter
     {
-        public override void OnActionExecuting(ActionExecutingContext context)
+        public void OnModuleExecuted(ModuleExecutedContext context)
+        {
+        }
+
+        public void OnModuleExecuting(ModuleExecutingContext context)
         {
             var names = context.HttpContext.Request.Query["name"];
             if (names.Any())
             {
-                var module = (MvcModule)context.Controller;
+                var module = context.Module;
                 module.ViewData.Add("name", names.First());
             }
         }

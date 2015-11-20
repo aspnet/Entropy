@@ -66,19 +66,9 @@ namespace Microsoft.AspNet.Mvc.ModuleFramework
             if (actionDescriptor != null)
             {
                 context.Result = new ModuleActionInvoker(
-                    context.ActionContext,
                     _filterProviders,
                     _moduleFactory,
-                    actionDescriptor,
-                    _inputFormatters,
-                    _outputFormatters,
-                    _modelBinders,
-                    _modelValidatorProviders,
-                    _valueProviderFactories,
-                    _actionBindingContextAccessor,
-                    _logger,
-                    _diagnostic,
-                    _optionsAccessor.Value.MaxModelValidationErrors);
+                    context.ActionContext);
             }
         }
 
