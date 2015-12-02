@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Builder", "Builder", "{097807B3-FE74-4DCD-B76B-2FCE1A272BE5}"
 EndProject
@@ -94,11 +94,17 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MusicStore.Spa", "samples\M
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Owin.ConsoleApp.HelloWorld", "samples\Owin.ConsoleApp.HelloWorld\Owin.ConsoleApp.HelloWorld.xproj", "{2CB93CF9-D432-4356-874F-3F897C2F291E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Localization", "Localization", "{2E7EBBE7-2B03-4D3E-81FF-590F081D8F79}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Localization.StarterWeb", "samples\Localization.StarterWeb\Localization.StarterWeb.xproj", "{09963892-0801-4FDD-8DEC-02F61E7C6D63}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{8B204FB8-31A6-4559-AE7F-0412F504983C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{C03BF7E1-ECDF-48D0-85CD-A454AA28D80C}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "FunctionalTests", "test\FunctionalTests\FunctionalTests.xproj", "{42409264-0678-4C62-A8E2-702DC1177F39}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.AspNet.Mvc.TagHelpers.Localization", "samples\Microsoft.AspNet.Mvc.TagHelpers.Localization\Microsoft.AspNet.Mvc.TagHelpers.Localization.xproj", "{DC951DD7-8F0C-4830-ACCD-43C4ED941C0E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -230,10 +236,18 @@ Global
 		{2CB93CF9-D432-4356-874F-3F897C2F291E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CB93CF9-D432-4356-874F-3F897C2F291E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CB93CF9-D432-4356-874F-3F897C2F291E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09963892-0801-4FDD-8DEC-02F61E7C6D63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09963892-0801-4FDD-8DEC-02F61E7C6D63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09963892-0801-4FDD-8DEC-02F61E7C6D63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09963892-0801-4FDD-8DEC-02F61E7C6D63}.Release|Any CPU.Build.0 = Release|Any CPU
 		{42409264-0678-4C62-A8E2-702DC1177F39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{42409264-0678-4C62-A8E2-702DC1177F39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42409264-0678-4C62-A8E2-702DC1177F39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42409264-0678-4C62-A8E2-702DC1177F39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC951DD7-8F0C-4830-ACCD-43C4ED941C0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC951DD7-8F0C-4830-ACCD-43C4ED941C0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC951DD7-8F0C-4830-ACCD-43C4ED941C0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC951DD7-8F0C-4830-ACCD-43C4ED941C0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -282,6 +296,9 @@ Global
 		{C9CC6168-80AE-44CC-8700-CD858256CB5B} = {8B204FB8-31A6-4559-AE7F-0412F504983C}
 		{83C88F80-BD05-4314-ACD3-0834EB385695} = {C9CC6168-80AE-44CC-8700-CD858256CB5B}
 		{2CB93CF9-D432-4356-874F-3F897C2F291E} = {9BB0CAA1-33AB-464C-8EDE-C9D033EAD645}
+		{2E7EBBE7-2B03-4D3E-81FF-590F081D8F79} = {8B204FB8-31A6-4559-AE7F-0412F504983C}
+		{09963892-0801-4FDD-8DEC-02F61E7C6D63} = {2E7EBBE7-2B03-4D3E-81FF-590F081D8F79}
 		{42409264-0678-4C62-A8E2-702DC1177F39} = {C03BF7E1-ECDF-48D0-85CD-A454AA28D80C}
+		{DC951DD7-8F0C-4830-ACCD-43C4ED941C0E} = {2E7EBBE7-2B03-4D3E-81FF-590F081D8F79}
 	EndGlobalSection
 EndGlobal
