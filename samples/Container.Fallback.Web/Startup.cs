@@ -13,8 +13,7 @@ namespace Container.Fallback.Web
         public void Configure(IApplicationBuilder app)
         {
             app.UseMiddleware(typeof(MyMiddleware));
-            app.UseMiddleware(typeof(MyMiddleware));
-
+            
             app.Run(async context =>
                 await context.Response.WriteAsync("---------- Done\r\n"));
         }

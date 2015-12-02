@@ -1,7 +1,8 @@
 {
   "dependencies": {
-    "Microsoft.AspNet.Server.IIS" : "1.0.0-*",
+    "Microsoft.AspNet.IISPlatformHandler": "1.0.0-*",
     "Microsoft.AspNet.Server.WebListener": "1.0.0-*",
+    "Microsoft.AspNet.Server.Kestrel": "1.0.0-*",
     "Microsoft.Extensions.DependencyInjection": "1.0.0-*"
   },
   "frameworks": {
@@ -9,6 +10,8 @@
     "dnxcore50" : { }
   },
   "commands": {
-    "web": "Microsoft.AspNet.Hosting server=Microsoft.AspNet.Server.WebListener server.urls=http://localhost:5001"
+    "kestrel": "Microsoft.AspNet.Server.Kestrel",
+    "web": "Microsoft.AspNet.Server.Kestrel",
+    "weblistener": "Microsoft.AspNet.Server.WebListener"
   }
 }
