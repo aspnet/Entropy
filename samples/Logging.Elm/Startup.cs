@@ -40,9 +40,9 @@ namespace ElmSampleApp
                     logger.LogError("Mort");
                 }
                 // This will not get logged because the filter has been set to LogLevel.Information and above
-                using (logger.BeginScope("verbose"))
+                using (logger.BeginScope("debug"))
                 {
-                    logger.LogVerbose("some verbose stuff");
+                    logger.LogDebug("some debug stuff");
                 }
             });
             logger.LogInformation("This message is not in a scope");
