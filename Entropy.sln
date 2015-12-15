@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Builder", "Builder", "{097807B3-FE74-4DCD-B76B-2FCE1A272BE5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Files", ".Files", "{388A9802-1EFC-46FA-B447-DE5EBA6E4495}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{388A9802-1EFC-46FA-B447-DE5EBA6E4495}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
 	EndProjectSection

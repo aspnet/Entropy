@@ -1,4 +1,4 @@
-﻿{
+{
   "compilationOptions": {
     "warningsAsErrors": true
   },
@@ -6,9 +6,12 @@
     "test": "xunit.runner.aspnet"
   },
   "dependencies": {
+    "Microsoft.AspNet.Hosting": "1.0.0-*",
     "Microsoft.AspNet.Server.Testing": "1.0.0-*",
-    "Microsoft.Extensions.Logging.Abstractions": "1.0.0-*",
+    "Microsoft.AspNet.TestHost": "1.0.0-*",
+    "Microsoft.AspNet.Testing": "1.0.0-*",
     "Microsoft.Extensions.Logging.Console": "1.0.0-*",
+    "Mvc.CustomRoutingConvention": "1.0.0",
     "xunit.runner.aspnet": "2.0.0-aspnet-*"
   },
   "frameworks": {

@@ -27,3 +27,4 @@ mono:
   - 4.0.5
 script:
   - ./build.sh --quiet verify
+osx_image: xcode7.2
