@@ -1,5 +1,4 @@
 {
-  "webroot": "wwwroot",
   "exclude": [
     "wwwroot",
     "bower_components",
@@ -19,15 +18,14 @@
   ],
   "description": "Music store application on K as a SPA",
   "compilationOptions": {
+    "emitEntryPoint": true,
     "define": [
       "DEBUG"
     ]
   },
   "dependencies": {
     "Microsoft.AspNet.Server.Kestrel": "1.0.0-*",
-    "Microsoft.AspNet.Server.IIS": "1.0.0-*",
     "Microsoft.AspNet.Mvc": "6.0.0-*",
-    "Microsoft.AspNet.Server.WebListener": "1.0.0-*",
     "Microsoft.AspNet.StaticFiles": "1.0.0-*",
     "EntityFramework.InMemory": "7.0.0-*",
     "EntityFramework.MicrosoftSqlServer": "7.0.0-*",
@@ -39,12 +37,10 @@
     "AutoMapper": "4.0.0-alpha1"
   },
   "commands": {
-    "WebListener": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5102",
-    "Kestrel": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.Kestrel --server.urls http://localhost:5104",
-    "run": "run server.urls=http://localhost:5103"
+    "web": "MusicStore.Spa"
   },
   "frameworks": {
-    "dnx451": {},
-    "dnxcore50": {}
+    "dnx451": { },
+    "dnxcore50": { }
   }
 }

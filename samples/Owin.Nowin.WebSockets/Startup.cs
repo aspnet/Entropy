@@ -1,9 +1,10 @@
 ﻿using System;
-using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Http;
 using System.Net.WebSockets;
 using System.Threading.Tasks;
 using System.Threading;
+using Microsoft.AspNet.Builder;
+using Microsoft.AspNet.Hosting;
+using Microsoft.AspNet.Http;
 
 namespace NowinWebSockets
 {
@@ -44,6 +45,16 @@ namespace NowinWebSockets
             }
 
             await webSocket.CloseAsync(webSocket.CloseStatus.Value, webSocket.CloseStatusDescription, CancellationToken.None);
+        }
+
+        public static void Main(string[] args)
+        {
+            var application = new WebApplicationBuilder()
+                .UseConfiguration(WebApplicationConfiguration.GetDefault(args))
+                .UseStartup<Startup>()
+                .Build();
+
+            application.Run();
         }
     }
 }

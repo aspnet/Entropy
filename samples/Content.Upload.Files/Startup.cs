@@ -1,7 +1,6 @@
-﻿using System;
-using System.IO;
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.AspNet.Builder;
+using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
 
 namespace Content.Upload.Files
@@ -63,6 +62,16 @@ namespace Content.Upload.Files
 
                 await context.Response.WriteAsync("</body></html>");
             });
+        }
+
+        public static void Main(string[] args)
+        {
+            var application = new WebApplicationBuilder()
+                .UseConfiguration(WebApplicationConfiguration.GetDefault(args))
+                .UseStartup<Startup>()
+                .Build();
+
+            application.Run();
         }
     }
 }

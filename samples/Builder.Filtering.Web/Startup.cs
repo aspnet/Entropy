@@ -1,6 +1,7 @@
 using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Builder;
+using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
 
 namespace Builder.Filtering.Web
@@ -41,6 +42,16 @@ namespace Builder.Filtering.Web
         {
             context.Response.ContentType = "text/plain";
             await context.Response.WriteAsync("Hello world\r\n");
+        }
+
+        public static void Main(string[] args)
+        {
+            var application = new WebApplicationBuilder()
+                .UseConfiguration(WebApplicationConfiguration.GetDefault(args))
+                .UseStartup<Startup>()
+                .Build();
+
+            application.Run();
         }
     }
 }

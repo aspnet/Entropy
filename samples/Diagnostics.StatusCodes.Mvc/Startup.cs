@@ -1,6 +1,5 @@
 using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Diagnostics;
-using Microsoft.AspNet.Routing;
+using Microsoft.AspNet.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Diagnostics.StatusCodes.Mvc
@@ -25,6 +24,16 @@ namespace Diagnostics.StatusCodes.Mvc
                 routes.MapRoute("ActionAsMethod", "{controller}/{action}",
                     defaults: new { controller = "Home", action = "Index" });
             });
+        }
+
+        public static void Main(string[] args)
+        {
+            var application = new WebApplicationBuilder()
+                .UseConfiguration(WebApplicationConfiguration.GetDefault(args))
+                .UseStartup<Startup>()
+                .Build();
+
+            application.Run();
         }
     }
 }

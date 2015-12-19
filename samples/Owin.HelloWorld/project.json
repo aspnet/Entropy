@@ -2,9 +2,14 @@
   "dependencies": {
     "Microsoft.AspNet.Hosting": "1.0.0-*",
     "Microsoft.AspNet.Owin": "1.0.0-*",
-    "Microsoft.AspNet.Server.WebListener": "1.0.0-*"
+    "Microsoft.AspNet.Server.Kestrel": "1.0.0-*"
   },
-  "commands": { "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:8080" },
+  "compilationOptions": {
+    "emitEntryPoint": true
+  },
+  "commands": {
+    "web": "Owin.HelloWorld"
+  },
   "frameworks": {
     "dnx451": { },
     "dnxcore50": { }

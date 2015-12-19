@@ -1,14 +1,16 @@
 {
   "dependencies": {
     "Microsoft.AspNet.Mvc": "6.0.0-*",
-    "Microsoft.AspNet.Server.IIS": "1.0.0-*",
-    "Microsoft.AspNet.Server.WebListener": "1.0.0-*",
+    "Microsoft.AspNet.Server.Kestrel": "1.0.0-*",
     "Microsoft.AspNet.StaticFiles": "1.0.0-*",
     "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0-*",
     "Microsoft.Extensions.Configuration.Json": "1.0.0-*"
   },
+  "compilationOptions": {
+    "emitEntryPoint": true
+  },
   "commands": {
-    "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5000"
+    "web": "Mvc.Modules"
   },
   "frameworks": {
     "dnx451": { },

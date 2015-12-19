@@ -1,5 +1,6 @@
 using Config.SettingObject.Web;
 using Microsoft.AspNet.Builder;
+using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Memory;
@@ -35,5 +36,15 @@ public class Startup
                     adBlock.Name, adBlock.Origin, adBlock.ProductCode));                
             }
         });
+    }
+
+    public static void Main(string[] args)
+    {
+        var application = new WebApplicationBuilder()
+            .UseConfiguration(WebApplicationConfiguration.GetDefault(args))
+            .UseStartup<Startup>()
+            .Build();
+
+        application.Run();
     }
 }

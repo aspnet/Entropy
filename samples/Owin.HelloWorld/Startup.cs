@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Builder;
+using Microsoft.AspNet.Hosting;
 
 public class Startup
 {
@@ -32,5 +33,15 @@ public class Startup
         responseHeaders["Content-Type"] = new string[] { "text/plain" };
 
         return responseStream.WriteAsync(responseBytes, 0, responseBytes.Length);
+    }
+
+    public static void Main(string[] args)
+    {
+        var application = new WebApplicationBuilder()
+            .UseConfiguration(WebApplicationConfiguration.GetDefault(args))
+            .UseStartup<Startup>()
+            .Build();
+
+        application.Run();
     }
 }

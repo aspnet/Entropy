@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Builder;
+using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
 
 namespace Builder.Middleware.Web
@@ -11,6 +12,16 @@ namespace Builder.Middleware.Web
         {
             app.UseXHttpHeaderOverride();
             app.UseMiddleware(typeof(MyMiddleware), "Yo");
+        }
+
+        public static void Main(string[] args)
+        {
+            var application = new WebApplicationBuilder()
+                .UseConfiguration(WebApplicationConfiguration.GetDefault(args))
+                .UseStartup<Startup>()
+                .Build();
+
+            application.Run();
         }
     }
 

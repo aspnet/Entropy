@@ -1,5 +1,4 @@
 {
-  "webroot": "wwwroot",
   "version": "1.0.0-*",
   "exclude": [
     "wwwroot"
@@ -9,13 +8,16 @@
     "**.user",
     "**.vspscc"
   ],
+  "compilationOptions": {
+    "emitEntryPoint": true
+  },
   "commands": {
-    "Katana": "run"
+    "web": "Owin.IAppBuilderBridge"
   },
   "dependencies": {
     "Microsoft.AspNet.Owin": "1.0.0-*",
     "Microsoft.AspNet.DataProtection": "1.0.0-*",
-    "Microsoft.AspNet.Server.IIS": "1.0.0-*",
+    "Microsoft.AspNet.Server.Kestrel": "1.0.0-*",
     "Microsoft.Extensions.DependencyInjection": "1.0.0-*",
     "Microsoft.Owin": "3.0.0"
   },
