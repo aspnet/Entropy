@@ -7,7 +7,7 @@ using Microsoft.AspNet.Server.Testing;
 using Microsoft.Extensions.Logging;
 using Xunit.Sdk;
 
-namespace ServerTests
+namespace EntropyTests
 {
     public static class TestServices
     {
