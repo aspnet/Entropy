@@ -4,7 +4,7 @@ using Microsoft.AspNet.Server.Testing;
 using Microsoft.AspNet.Testing.xunit;
 using Xunit;
 
-namespace ServerTests.ContainerTests
+namespace EntropyTests.ContainerTests
 {
     public class ContainerFallbackWebTests
     {

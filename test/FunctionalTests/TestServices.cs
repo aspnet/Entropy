@@ -40,7 +40,6 @@ namespace ServerTests
                 var deploymentParameters = new DeploymentParameters(GetPathToApplication(siteName), serverType, runtimeFlavor, architecture)
                 {
                     ApplicationBaseUriHint = applicationBaseUrl,
-                    Command = serverType == ServerType.WebListener ? "weblistener" : "web",
                     SiteName = "HttpTestSite",
                 };
 

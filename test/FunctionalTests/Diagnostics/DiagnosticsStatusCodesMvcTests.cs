@@ -4,7 +4,7 @@ using Microsoft.AspNet.Server.Testing;
 using Microsoft.AspNet.Testing.xunit;
 using Xunit;
 
-namespace ServerTests.Diagnostics
+namespace EntropyTests.Diagnostics
 {
     public class DiagnosticsStatusCodesMvcTests
     {

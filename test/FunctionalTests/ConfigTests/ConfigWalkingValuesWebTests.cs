@@ -3,7 +3,7 @@ using Microsoft.AspNet.Server.Testing;
 using Microsoft.AspNet.Testing.xunit;
 using Xunit;
 
-namespace ServerTests.ConfigTests
+namespace EntropyTests.ConfigTests
 {
     public class ConfigWalkingValuesWebTests
     {

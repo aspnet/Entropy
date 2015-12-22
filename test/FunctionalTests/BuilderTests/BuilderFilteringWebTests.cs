@@ -4,7 +4,7 @@ using Microsoft.AspNet.Server.Testing;
 using Microsoft.AspNet.Testing.xunit;
 using Xunit;
 
-namespace ServerTests.BuilderTests
+namespace EntropyTests.BuilderTests
 {
     public class BuilderFilteringWebTests
     {
