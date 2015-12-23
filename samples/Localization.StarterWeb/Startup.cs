@@ -108,7 +108,7 @@ namespace Localization.StarterWeb
             loggerFactory.AddDebug();
 
             var locOptions = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
-            app.UseRequestLocalization(options => { options = locOptions.Value; });
+            app.UseRequestLocalization(locOptions.Value);
 
             if (env.IsDevelopment())
             {
