@@ -106,6 +106,10 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "FunctionalTests", "test\Fun
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.AspNet.Mvc.TagHelpers.Localization", "samples\Microsoft.AspNet.Mvc.TagHelpers.Localization\Microsoft.AspNet.Mvc.TagHelpers.Localization.xproj", "{DC951DD7-8F0C-4830-ACCD-43C4ED941C0E}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Config.Providers.Web", "samples\Config.Providers.Web\Config.Providers.Web.xproj", "{8F833D1D-8914-4CD3-8248-AB33A4D972C5}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Config.CustomProviders.Web", "samples\Config.CustomProviders.Web\Config.CustomProviders.Web.xproj", "{D418FACC-8699-462C-ABDA-2D0D10317550}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -248,6 +252,14 @@ Global
 		{DC951DD7-8F0C-4830-ACCD-43C4ED941C0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC951DD7-8F0C-4830-ACCD-43C4ED941C0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC951DD7-8F0C-4830-ACCD-43C4ED941C0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F833D1D-8914-4CD3-8248-AB33A4D972C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F833D1D-8914-4CD3-8248-AB33A4D972C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F833D1D-8914-4CD3-8248-AB33A4D972C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F833D1D-8914-4CD3-8248-AB33A4D972C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D418FACC-8699-462C-ABDA-2D0D10317550}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D418FACC-8699-462C-ABDA-2D0D10317550}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D418FACC-8699-462C-ABDA-2D0D10317550}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D418FACC-8699-462C-ABDA-2D0D10317550}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -300,5 +312,7 @@ Global
 		{09963892-0801-4FDD-8DEC-02F61E7C6D63} = {2E7EBBE7-2B03-4D3E-81FF-590F081D8F79}
 		{42409264-0678-4C62-A8E2-702DC1177F39} = {C03BF7E1-ECDF-48D0-85CD-A454AA28D80C}
 		{DC951DD7-8F0C-4830-ACCD-43C4ED941C0E} = {2E7EBBE7-2B03-4D3E-81FF-590F081D8F79}
+		{8F833D1D-8914-4CD3-8248-AB33A4D972C5} = {F6CC3BDB-2CCE-4AD0-94B6-0C665169E2C2}
+		{D418FACC-8699-462C-ABDA-2D0D10317550} = {F6CC3BDB-2CCE-4AD0-94B6-0C665169E2C2}
 	EndGlobalSection
 EndGlobal

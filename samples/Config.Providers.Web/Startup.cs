@@ -1,7 +1,7 @@
 using System;
-using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Builder;
+using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
 using Microsoft.Extensions.Configuration;
 
@@ -28,6 +28,16 @@ public class Startup
             await ctx.Response.WriteAsync(formatKeyValue("PATH"));
             await ctx.Response.WriteAsync(formatKeyValue("COMPUTERNAME"));
         });
+    }
+
+    public static void Main(string[] args)
+    {
+        var application = new WebApplicationBuilder()
+            .UseConfiguration(WebApplicationConfiguration.GetDefault(args))
+            .UseStartup<Startup>()
+            .Build();
+
+        application.Run();
     }
 
     private static async Task DumpConfig(HttpResponse response, IConfiguration config, string indentation = "")
