@@ -42,15 +42,17 @@ namespace SelfHostServer
                 {
                     return async env =>
                     {
-                        var accept = env["websocket.Accept"] as WebSocketAccept;
-                        if (accept == null)
+                        object accept;
+                        env.TryGetValue("websocket.Accept", out accept);
+                        var webSocketAccept = accept as WebSocketAccept;
+                        if (webSocketAccept == null)
                         {
                             // Not a websocket request
                             await next(env);
                         }
                         else
                         {
-                            accept(null, WebSocketEcho);
+                            webSocketAccept(null, WebSocketEcho);
                         }
                     };
                 });
