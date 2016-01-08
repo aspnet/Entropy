@@ -27,7 +27,7 @@
                     name = "login",
                     app_prevent_submit = "login.$invalid",
                     ng_submit = "login.submitAttempted=true"
-                }))
+                }, null))
             {
                 @Html.AntiForgeryToken()
                 <h4>Use a local account to log in.</h4>
