@@ -11,7 +11,7 @@ addons:
     - libunwind8
     - zlib1g
 env:
-  - KOREBUILD_DNU_RESTORE_CORECLR=true KOREBUILD_TEST_DNXCORE=true
+  - KOREBUILD_DNU_RESTORE_CORECLR=true KOREBUILD_TEST_DNXCORE=true MONO_MANAGED_WATCHER=disabled
 os:
   - linux
   - osx
