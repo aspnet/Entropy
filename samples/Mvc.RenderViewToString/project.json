@@ -1,0 +1,19 @@
+﻿{
+  "compilationOptions": {
+    "emitEntryPoint": true
+  },
+
+  "dependencies": {
+    "Microsoft.AspNet.Mvc": "6.0.0-*",
+    "Microsoft.AspNet.Hosting": "1.0.0-*"
+  },
+
+  "commands": {
+    "Mvc.RenderViewToString": "Mvc.RenderViewToString"
+  },
+
+  "frameworks": {
+    "dnx451": { },
+    "dnxcore50": { }
+  }
+}
