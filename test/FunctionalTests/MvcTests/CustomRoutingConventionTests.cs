@@ -15,7 +15,7 @@ namespace BuilderTests.MvcTests
         public async Task CustomRouting_NameSpaceRouting()
         {
             // Arrange
-            var builder = new WebApplicationBuilder().UseStartup(typeof(NamespaceRouting.Startup));
+            var builder = new WebHostBuilder().UseStartup(typeof(NamespaceRouting.Startup));
             var client = new TestServer(builder).CreateClient();
 
             // Act
