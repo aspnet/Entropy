@@ -193,7 +193,7 @@ namespace Localization.StarterWeb.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl = null)
         {
-            if (User.IsSignedIn())
+            if (_signInManager.IsSignedIn(User))
             {
                 return RedirectToAction(nameof(ManageController.Index), "Manage");
             }
@@ -447,7 +447,7 @@ namespace Localization.StarterWeb.Controllers
 
         private async Task<ApplicationUser> GetCurrentUserAsync()
         {
-            return await _userManager.FindByIdAsync(HttpContext.User.GetUserId());
+            return await _userManager.FindByIdAsync(_userManager.GetUserId(User));
         }
 
         private IActionResult RedirectToLocal(string returnUrl)

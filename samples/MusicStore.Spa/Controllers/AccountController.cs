@@ -147,7 +147,7 @@ namespace MusicStore.Controllers
 
         private async Task<ApplicationUser> GetCurrentUserAsync()
         {
-            return await UserManager.FindByIdAsync(HttpContext.User.GetUserId());
+            return await UserManager.FindByIdAsync(UserManager.GetUserId(User));
         }
 
         public enum ManageMessageId
