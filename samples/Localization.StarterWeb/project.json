@@ -4,19 +4,18 @@
   "compilationOptions": {
     "emitEntryPoint": true
   },
-
   "dependencies": {
-    "Microsoft.EntityFrameworkCore.Commands": "7.0.0-*",
-    "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0-*",
-    "Microsoft.AspNetCore.Mvc.TagHelpers.Localization": "0.1.0-*",
+    "Microsoft.EntityFrameworkCore.Commands": "1.0.0-*",
+    "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0-*",
+    "Microsoft.AspNetCore.Mvc.TagHelpers.Localization": "1.0.0-*",
     "Microsoft.AspNetCore.Authentication.Cookies": "1.0.0-*",
-    "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "7.0.0-*",
-    "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.0.0-*",
+    "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "1.0.0-*",
+    "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.0.0-*",
     "Microsoft.AspNetCore.IISPlatformHandler": "1.0.0-*",
-    "Microsoft.AspNetCore.Mvc": "6.0.0-*",
-    "Microsoft.AspNetCore.Mvc.Localization": "6.0.0-*",
-    "Microsoft.AspNetCore.Mvc.Razor": "6.0.0-*",
-    "Microsoft.AspNetCore.Mvc.TagHelpers": "6.0.0-*",
+    "Microsoft.AspNetCore.Mvc": "1.0.0-*",
+    "Microsoft.AspNetCore.Mvc.Localization": "1.0.0-*",
+    "Microsoft.AspNetCore.Mvc.Razor": "1.0.0-*",
+    "Microsoft.AspNetCore.Mvc.TagHelpers": "1.0.0-*",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-*",
     "Microsoft.AspNetCore.StaticFiles": "1.0.0-*",
     "Microsoft.AspNetCore.Tooling.Razor": "1.0.0-*",
@@ -29,18 +28,15 @@
     "Microsoft.Extensions.Logging.Debug": "1.0.0-*",
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-*"
   },
-
   "commands": {
     "Localization.StarterWeb": "Localization.StarterWeb",
     "web": "Localization.StarterWeb",
     "ef": "Microsoft.EntityFrameworkCore.Commands"
   },
-
   "frameworks": {
-    "dnx451": { },
-    "dnxcore50": { }
+    "dnx451": {},
+    "dnxcore50": {}
   },
-
   "exclude": [
     "wwwroot",
     "node_modules"
@@ -50,6 +46,11 @@
     "**.vspscc"
   ],
   "scripts": {
-    "prepublish": [ "npm install", "bower install", "gulp clean", "gulp min" ]
+    "prepublish": [
+      "npm install",
+      "bower install",
+      "gulp clean",
+      "gulp min"
+    ]
   }
 }

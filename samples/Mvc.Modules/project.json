@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "Microsoft.AspNetCore.Mvc": "6.0.0-*",
+    "Microsoft.AspNetCore.Mvc": "1.0.0-*",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-*",
     "Microsoft.AspNetCore.StaticFiles": "1.0.0-*",
     "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0-*",
@@ -13,7 +13,7 @@
     "web": "Mvc.Modules"
   },
   "frameworks": {
-    "dnx451": { },
-    "dnxcore50": { }
+    "dnx451": {},
+    "dnxcore50": {}
   }
 }

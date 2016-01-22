@@ -1,9 +1,9 @@
 {
   "dependencies": {
-    "Microsoft.EntityFrameworkCore.InMemory": "7.0.0-*"
+    "Microsoft.EntityFrameworkCore.InMemory": "1.0.0-*"
   },
   "frameworks": {
-    "dnx451": { },
+    "dnx451": {},
     "dnxcore50": {
       "dependencies": {
         "System.Console": "4.0.0-*"
