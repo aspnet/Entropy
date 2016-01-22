@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using Microsoft.AspNet.Mvc.ViewFeatures;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
-namespace Microsoft.AspNet.Mvc.ModuleFramework
+namespace Microsoft.AspNetCore.Mvc.ModuleFramework
 {
     public abstract class MvcModule
     {

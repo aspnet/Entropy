@@ -1,10 +1,10 @@
-﻿// Copyright (c) .NET Foundation. All rights reserved.
+// Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
 using System.Diagnostics;
-using Microsoft.AspNet.Hosting;
-using Microsoft.AspNet.Hosting.Internal;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Hosting.Internal;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.PlatformAbstractions;
@@ -45,7 +45,7 @@ namespace Mvc.RenderViewToString
                 WebRootFileProvider = new PhysicalFileProvider(viewLocationBasePath ?? applicationEnvironment.ApplicationBasePath)
             });
             services.AddSingleton(applicationEnvironment);
-            var diagnosticSource = new DiagnosticListener("Microsoft.AspNet");
+            var diagnosticSource = new DiagnosticListener("Microsoft.AspNetCore");
             services.AddSingleton<DiagnosticSource>(diagnosticSource);
             services.AddLogging();
             services.AddMvc();

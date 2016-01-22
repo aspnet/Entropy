@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Net.WebSockets;
 using System.Threading.Tasks;
 using System.Threading;
-using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Hosting;
-using Microsoft.AspNet.Http;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 
 namespace NowinWebSockets
 {

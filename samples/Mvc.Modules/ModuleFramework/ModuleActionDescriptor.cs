@@ -1,8 +1,8 @@
-﻿
-using System;
-using Microsoft.AspNet.Mvc.Abstractions;
 
-namespace Microsoft.AspNet.Mvc.ModuleFramework
+using System;
+using Microsoft.AspNetCore.Mvc.Abstractions;
+
+namespace Microsoft.AspNetCore.Mvc.ModuleFramework
 {
     public class ModuleActionDescriptor : ActionDescriptor
     {

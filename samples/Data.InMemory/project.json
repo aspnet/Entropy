@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "EntityFramework.InMemory": "7.0.0-*"
+    "Microsoft.EntityFrameworkCore.InMemory": "7.0.0-*"
   },
   "frameworks": {
     "dnx451": { },

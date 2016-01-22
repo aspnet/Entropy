@@ -1,4 +1,4 @@
-﻿{
+{
   "description": "Tag Helpers to aid with localizing ASP.NET MVC applications.",
   "version": "0.1.0-pre-*",
   "repository": {
@@ -9,8 +9,8 @@
     "warningsAsErrors": true
   },
   "dependencies": {
-    "Microsoft.AspNet.Mvc.Localization": "6.0.0-*",
-    "Microsoft.AspNet.Mvc.Razor": "6.0.0-*"
+    "Microsoft.AspNetCore.Mvc.Localization": "6.0.0-*",
+    "Microsoft.AspNetCore.Mvc.Razor": "6.0.0-*"
   },
   "frameworks": {
     "net451": { },

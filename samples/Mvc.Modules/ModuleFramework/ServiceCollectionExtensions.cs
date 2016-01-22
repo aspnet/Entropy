@@ -1,5 +1,5 @@
-using Microsoft.AspNet.Mvc.Abstractions;
-using Microsoft.AspNet.Mvc.ModuleFramework;
+using Microsoft.AspNetCore.Mvc.Abstractions;
+using Microsoft.AspNetCore.Mvc.ModuleFramework;
 
 namespace Microsoft.Extensions.DependencyInjection
 {

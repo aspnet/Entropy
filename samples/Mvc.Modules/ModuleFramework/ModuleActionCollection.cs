@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
-namespace Microsoft.AspNet.Mvc.ModuleFramework
+namespace Microsoft.AspNetCore.Mvc.ModuleFramework
 {
     public class ModuleActionCollection
     {

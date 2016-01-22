@@ -1,11 +1,11 @@
-﻿{
+{
   "compilationOptions": {
     "emitEntryPoint": true
   },
 
   "dependencies": {
-    "Microsoft.AspNet.Mvc": "6.0.0-*",
-    "Microsoft.AspNet.Hosting": "1.0.0-*"
+    "Microsoft.AspNetCore.Mvc": "6.0.0-*",
+    "Microsoft.AspNetCore.Hosting": "1.0.0-*"
   },
 
   "commands": {

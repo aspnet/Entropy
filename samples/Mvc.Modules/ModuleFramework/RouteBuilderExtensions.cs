@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNet.Routing;
+using Microsoft.AspNetCore.Routing;
 
-namespace Microsoft.AspNet.Builder
+namespace Microsoft.AspNetCore.Builder
 {
     public static class RouteBuilderExtensions
     {

@@ -1,4 +1,4 @@
-﻿namespace Microsoft.AspNet.Mvc.ModuleFramework
+namespace Microsoft.AspNetCore.Mvc.ModuleFramework
 {
     public interface IModuleFactory
     {

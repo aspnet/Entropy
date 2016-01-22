@@ -1,5 +1,5 @@
-﻿using System;
-using Microsoft.AspNet.Mvc.Filters;
+using System;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace MusicStore.Spa.Infrastructure
 {

@@ -1,5 +1,5 @@
 using System.Net;
-using Microsoft.AspNet.Hosting.Server;
+using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.Extensions.Configuration;
 using Nowin;
 

@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.Mvc.ModuleFramework;
+using Microsoft.AspNetCore.Mvc.ModuleFramework;
 
 namespace Mvc.Modules
 {

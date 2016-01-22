@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Hosting.Server;
-using Microsoft.AspNet.Http.Features;
-using Microsoft.AspNet.Owin;
+using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Owin;
 using Nowin;
 
 namespace NowinWebSockets

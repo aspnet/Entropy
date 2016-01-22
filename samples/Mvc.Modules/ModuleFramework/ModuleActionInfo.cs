@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 
-namespace Microsoft.AspNet.Mvc.ModuleFramework
+namespace Microsoft.AspNetCore.Mvc.ModuleFramework
 {
     public class ModuleActionInfo
     {

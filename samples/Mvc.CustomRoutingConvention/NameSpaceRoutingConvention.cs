@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.Mvc.ApplicationModels;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 
 namespace NamespaceRouting
 {

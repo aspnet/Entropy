@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using Microsoft.AspNet.Routing;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Routing;
 using Newtonsoft.Json;
-using Microsoft.AspNet.Html;
-using Microsoft.AspNet.Mvc.ViewFeatures;
+using Microsoft.AspNetCore.Html;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
-namespace Microsoft.AspNet.Mvc.Rendering
+namespace Microsoft.AspNetCore.Mvc.Rendering
 {
     public static class JsonExtensions
     {

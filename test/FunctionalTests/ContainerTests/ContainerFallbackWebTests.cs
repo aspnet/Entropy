@@ -1,7 +1,7 @@
-﻿using System.Text.RegularExpressions;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Server.Testing;
-using Microsoft.AspNet.Testing.xunit;
+using Microsoft.AspNetCore.Server.Testing;
+using Microsoft.AspNetCore.Testing.xunit;
 using Xunit;
 
 namespace EntropyTests.ContainerTests

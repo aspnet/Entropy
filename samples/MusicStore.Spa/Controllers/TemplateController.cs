@@ -1,5 +1,5 @@
-﻿using System;
-using Microsoft.AspNet.Mvc;
+using System;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MusicStore.Controllers
 {
