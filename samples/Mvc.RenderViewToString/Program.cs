@@ -3,10 +3,10 @@
 
 using System;
 using System.Diagnostics;
-using Microsoft.AspNet.FileProviders;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Hosting.Internal;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.PlatformAbstractions;
 
 namespace Mvc.RenderViewToString
