@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.AspNetCore.Mvc.ViewFeatures.Internal;
 
 namespace Microsoft.AspNetCore.Mvc.Rendering
 {
@@ -208,7 +209,7 @@ namespace Microsoft.AspNetCore.Mvc.Rendering
 
             var displayFieldNameParts = displayFieldName.Split('.');
             displayFieldName = displayFieldNameParts[displayFieldNameParts.Length - 1];
-            
+
             tag.Attributes["id"] = html.Id(propertyExpressionText);
             tag.Attributes["name"] = valueFieldName;
             tag.Attributes["ng-model"] = valueFieldName;
