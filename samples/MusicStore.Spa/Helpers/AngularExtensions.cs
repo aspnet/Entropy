@@ -88,47 +88,35 @@ namespace Microsoft.AspNetCore.Mvc.Rendering
             }
 
             // Add attributes for Angular validation
-            var clientValidators = html.GetClientValidationRules(modelExplorer, null);
-
-            foreach (var validator in clientValidators)
+            foreach (var validator in modelExplorer.Metadata.ValidatorMetadata.OfType<ValidationAttribute>())
             {
-                if (string.Equals(validator.ValidationType, "length"))
+                if (validator is StringLengthAttribute)
                 {
-                    if (validator.ValidationParameters.ContainsKey("min"))
+                    var lengthValidator = (StringLengthAttribute)validator;
+                    if (lengthValidator.MinimumLength != 0)
                     {
-                        ngAttributes["ng-minlength"] = validator.ValidationParameters["min"];
+                        ngAttributes["ng-minlength"] = lengthValidator.MinimumLength;
                     }
-                    if (validator.ValidationParameters.ContainsKey("max"))
+                    if (lengthValidator.MaximumLength != int.MaxValue)
                     {
-                        ngAttributes["ng-maxlength"] = validator.ValidationParameters["max"];
+                        ngAttributes["ng-maxlength"] = lengthValidator.MaximumLength;
                     }
                 }
-                else if (string.Equals(validator.ValidationType, "required"))
+                else if (validator is RequiredAttribute)
                 {
                     ngAttributes["required"] = null;
                 }
-                else if (string.Equals(validator.ValidationType, "range"))
+                else if (validator is RangeAttribute)
                 {
-                    if (validator.ValidationParameters.ContainsKey("min"))
-                    {
-                        ngAttributes["min"] = validator.ValidationParameters["min"];
-                    }
-                    if (validator.ValidationParameters.ContainsKey("max"))
-                    {
-                        ngAttributes["max"] = validator.ValidationParameters["max"];
-                    }
+                    var rangeValidator = (RangeAttribute)validator;
+                    ngAttributes["min"] = rangeValidator.Minimum;
+                    ngAttributes["max"] = rangeValidator.Maximum;
                 }
-                else if (string.Equals(validator.ValidationType, "equalto"))
+                else if (validator is CompareAttribute)
                 {
                     // CompareAttribute validator
-                    var fieldToCompare = validator.ValidationParameters["other"]; // e.g. *.NewPassword
-                    var other = validator.ValidationParameters["other"].ToString();
-                    if (other.StartsWith("*."))
-                    {
-                        // The built-in CompareAttributeAdapter prepends *. to the property name so we strip it off here
-                        other = other.Substring("*.".Length);
-                    }
-                    ngAttributes["app-equal-to"] = other;
+                    var compareValidator = (CompareAttribute)validator;
+                    ngAttributes["app-equal-to"] = compareValidator.OtherProperty;
                     // TODO: Actually write the Angular directive to use this
                 }
                 // TODO: Regex, Phone(regex)
@@ -226,8 +214,7 @@ namespace Microsoft.AspNetCore.Mvc.Rendering
                 tag.InnerHtml.SetContent(nullOptionTag);
             }
 
-            var clientValidators = html.GetClientValidationRules(metadata, null);
-            var isRequired = clientValidators.SingleOrDefault(cv => string.Equals(cv.ValidationType, "required", StringComparison.OrdinalIgnoreCase)) != null;
+            var isRequired = metadata.Metadata.ValidatorMetadata.OfType<RequiredAttribute>().Any();
             if (isRequired)
             {
                 tag.Attributes["required"] = string.Empty;
@@ -254,31 +241,28 @@ namespace Microsoft.AspNetCore.Mvc.Rendering
             var metadata = ExpressionMetadataProvider.FromLambdaExpression(expression, html.ViewData, html.MetadataProvider);
             var modelName = html.ViewData.TemplateInfo.GetFullHtmlFieldName(expressionText);
 
-            //var clientValidators = metadata.GetValidators(html.ViewContext.Controller.ControllerContext)
-            //                               .SelectMany(v => v.GetClientValidationRules());
-            var clientValidators = html.GetClientValidationRules(metadata, null);
             var tags = new List<TagBuilder>();
 
             // Get validation messages from data type
             // TODO: How to get validation messages from model metadata? All methods/properties required seem protected internal :(
 
-            foreach (var validator in clientValidators)
+            foreach (var validator in metadata.Metadata.ValidatorMetadata.OfType<ValidationAttribute>())
             {
                 var tag = new TagBuilder("span");
                 tag.Attributes["ng-cloak"] = string.Empty;
 
-                if (string.Equals(validator.ValidationType, "required"))
+                if (validator is RequiredAttribute)
                 {
                     tag.Attributes["ng-show"] = string.Format("({0}.submitAttempted || {0}.{1}.$dirty || {0}.{1}.visited) && {0}.{1}.$error.{2}", formName, modelName, "required");
                     tag.InnerHtml.SetContent(validator.ErrorMessage);
                 }
-                else if (string.Equals(validator.ValidationType, "length"))
+                else if (validator is StringLengthAttribute)
                 {
                     tag.Attributes["ng-show"] = string.Format("({0}.submitAttempted || {0}.{1}.$dirty || {0}.{1}.visited) && ({0}.{1}.$error.minlength || {0}.{1}.$error.maxlength)",
                         formName, modelName);
                     tag.InnerHtml.SetContent(validator.ErrorMessage);
                 }
-                else if (string.Equals(validator.ValidationType, "range"))
+                else if (validator is RangeAttribute)
                 {
                     tag.Attributes["ng-show"] = string.Format("({0}.submitAttempted || {0}.{1}.$dirty || {0}.{1}.visited) && ({0}.{1}.$error.min || {0}.{1}.$error.max)",
                         formName, modelName);
