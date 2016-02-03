@@ -5,6 +5,9 @@
     "warningsAsErrors": true,
     "emitEntryPoint": true
   },
+  "dependencies": {
+    "Microsoft.NETCore.Platforms": "1.0.1-*"
+  },
   "frameworks": {
     "dnx451": { },
     "dnxcore50": {

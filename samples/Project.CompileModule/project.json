@@ -1,19 +1,20 @@
 {
   "dependencies": {
-      "Microsoft.Dnx.Compilation.CSharp.Abstractions": { "version": "1.0.0-*", "type": "build" }
+    "Microsoft.Dnx.Compilation.CSharp.Abstractions": { "version": "1.0.0-*", "type": "build" },
+    "Microsoft.NETCore.Platforms": "1.0.1-*"
   },
   "frameworks": {
     "dnx451": {
-        "frameworkAssemblies": {
-            "System.Runtime": "",
-            "System.Text.Encoding": "",
-            "System.Threading.Tasks": ""
-        }
+      "frameworkAssemblies": {
+        "System.Runtime": "",
+        "System.Text.Encoding": "",
+        "System.Threading.Tasks": ""
+      }
     },
     "dnxcore50": {
-        "dependencies": {
-            "System.Console": "4.0.0-*"
-        }
+      "dependencies": {
+        "System.Console": "4.0.0-*"
+      }
     }
   }
 }

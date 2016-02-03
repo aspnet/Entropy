@@ -2,6 +2,9 @@
   "compile": "*.cs",
   "exclude": "buggy/**/*.cs",
   "resource": "embed/**/*.*",
+  "dependencies": {
+    "Microsoft.NETCore.Platforms": "1.0.1-*"
+  },
   "frameworks": {
     "dnx451": { },
     "dnxcore50": {
