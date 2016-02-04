@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "Newtonsoft.Json": "6.0.8",
+    "Newtonsoft.Json": "8.0.2",
     "Project.ProjectReference": "1.0.0-*",
     "Project.SharedFiles": "1.0.0-*",
     "Microsoft.NETCore.Platforms": "1.0.1-*"
