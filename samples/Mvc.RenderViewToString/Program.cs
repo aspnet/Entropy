@@ -5,6 +5,7 @@ using System;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.Internal;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.PlatformAbstractions;
@@ -17,7 +18,7 @@ namespace Mvc.RenderViewToString
         {
             // Initialize the necessary services
             var services = new ServiceCollection();
-            ConfigureDefaultServices(services, viewLocationBasePath: null);
+            ConfigureDefaultServices(services, customApplicationBasePath: null);
 
             // Add a custom service that is used in the view.
             services.AddSingleton<EmailReportGenerator>();
@@ -37,14 +38,19 @@ namespace Mvc.RenderViewToString
             Console.ReadLine();
         }
 
-        private static void ConfigureDefaultServices(IServiceCollection services, string viewLocationBasePath)
+        private static void ConfigureDefaultServices(IServiceCollection services, string customApplicationBasePath)
         {
             var applicationEnvironment = PlatformServices.Default.Application;
+            services.AddSingleton(applicationEnvironment);
             services.AddSingleton<IHostingEnvironment>(new HostingEnvironment
             {
-                WebRootFileProvider = new PhysicalFileProvider(viewLocationBasePath ?? applicationEnvironment.ApplicationBasePath)
+                WebRootFileProvider = new PhysicalFileProvider(customApplicationBasePath ?? applicationEnvironment.ApplicationBasePath)
             });
-            services.AddSingleton(applicationEnvironment);
+            services.Configure<RazorViewEngineOptions>(options =>
+            {
+                options.FileProviders.Clear();
+                options.FileProviders.Add(new PhysicalFileProvider(customApplicationBasePath ?? applicationEnvironment.ApplicationBasePath));
+            });
             var diagnosticSource = new DiagnosticListener("Microsoft.AspNetCore");
             services.AddSingleton<DiagnosticSource>(diagnosticSource);
             services.AddLogging();
