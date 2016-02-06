@@ -19,7 +19,6 @@
         "System.Console": "4.0.0-*",
         "System.Linq": "4.0.1-*",
         "System.Threading.Tasks": "4.0.11-*",
-        "System.Runtime": "4.0.21-*",
         "System.Runtime.Extensions": "4.0.11-*"
       }
     }
