@@ -40,15 +40,18 @@ namespace Microsoft.AspNetCore.Mvc.TagHelpers
 
             var localizeAttributes = output.Attributes.Where(attr => attr.Name.StartsWith("asp-loc-", StringComparison.OrdinalIgnoreCase)).ToList();
 
-            foreach (var attribute in localizeAttributes)
+            for (var i = 0; i < localizeAttributes.Count; i++)
             {
-                var attributeToLocalize = output.Attributes[attribute.Name.Substring("asp-loc-".Length)];
-                if (attributeToLocalize != null)
+                var attribute = localizeAttributes[i];
+                var attributeToLocalizeIndex = output.Attributes.IndexOfName(attribute.Name.Substring("asp-loc-".Length));
+                if (attributeToLocalizeIndex != -1)
                 {
+                    var attributeToLocalize = output.Attributes[attributeToLocalizeIndex];
                     var resourceKey = attribute.Minimized
                         ? attributeToLocalize.Value.ToString()
                         : attribute.Value.ToString();
-                    attributeToLocalize.Value = localizer.GetHtml(resourceKey);
+                    var value = localizer.GetHtml(resourceKey);
+                    output.Attributes[attributeToLocalizeIndex] = new TagHelperAttribute(attributeToLocalize.Name, value, attributeToLocalize.Minimized);
                 }
                 output.Attributes.Remove(attribute);
             }
