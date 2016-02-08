@@ -51,7 +51,7 @@ namespace NowinWebSockets
         {
             var host = new WebHostBuilder()
                 .UseDefaultConfiguration(args)
-                .UseServer("Microsoft.AspNetCore.Server.Kestrel")
+                .UseServer("Owin.Nowin.WebSockets")
                 .UseStartup<Startup>()
                 .Build();
 
