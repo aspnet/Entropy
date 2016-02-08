@@ -24,7 +24,7 @@ namespace Owin.ConsoleApp.HelloWorld
     {
         static AppFunc notFound = async env => env["owin.ResponseStatusCode"] = 404;
 
-        public void Main(string[] args)
+        public static void Main(string[] args)
         {
             // List.Add is same signature as AddMiddleware
             IList<CreateMiddleware> list = new List<CreateMiddleware>();
@@ -41,7 +41,7 @@ namespace Owin.ConsoleApp.HelloWorld
             }
         }
 
-        public void Configure(AddMiddleware build)
+        public static void Configure(AddMiddleware build)
         {
             var services = new ServiceCollection();
             services.AddSingleton(new DiagnosticLogger("Owin Diagnostic Logger: "));

@@ -37,7 +37,7 @@ namespace EFLocalizationSample
                     new CultureInfo("fr-FR"),
                     new CultureInfo("zh"),
                     new CultureInfo("zh-CN"),
-                    new CultureInfo("zh-CHT")
+                    new CultureInfo("zh-HanT")
                 },
                 SupportedUICultures = new List<CultureInfo>
                 {
@@ -49,7 +49,7 @@ namespace EFLocalizationSample
                     new CultureInfo("fr-FR"),
                     new CultureInfo("zh"),
                     new CultureInfo("zh-CN"),
-                    new CultureInfo("zh-CHT")
+                    new CultureInfo("zh-HanT")
                 }
 
                 // Optionally create an app-specific provider with just a delegate, e.g. look up user preference from DB.
@@ -157,7 +157,7 @@ $@"<!doctype html>
             await context.Response.WriteAsync($"    <option value=\"{new CultureInfo("zh").Name}\">{new CultureInfo("zh").DisplayName}</option>");
             await context.Response.WriteAsync($"    <option value=\"{new CultureInfo("zh-CN").Name}\">{new CultureInfo("zh-CN").DisplayName}</option>");
 #if DNX451
-            await context.Response.WriteAsync($"    <option value=\"{new CultureInfo("zh-CHT").Name}\">{new CultureInfo("zh-CHT").DisplayName}</option>");
+            await context.Response.WriteAsync($"    <option value=\"{new CultureInfo("zh-HanT").Name}\">{new CultureInfo("zh-HanT").DisplayName}</option>");
 #endif
             await context.Response.WriteAsync($"    <option value=\"en-NOTREAL\">English (Not a real locale)</option>");
             await context.Response.WriteAsync($"    <option value=\"pp-NOTREAL\">Made-up (Not a real anything)</option>");

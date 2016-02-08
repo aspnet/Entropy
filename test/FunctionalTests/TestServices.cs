@@ -41,6 +41,7 @@ namespace EntropyTests
                 {
                     ApplicationBaseUriHint = applicationBaseUrl,
                     SiteName = "HttpTestSite",
+                    PublishApplicationBeforeDeployment = true
                 };
 
                 using (var deployer = ApplicationDeployerFactory.Create(deploymentParameters, logger))
@@ -60,7 +61,7 @@ namespace EntropyTests
 
         private static string GetPathToApplication(string applicationName)
         {
-            return Path.GetFullPath(Path.Combine("..", "..", "samples", applicationName));
+            return Path.GetFullPath(Path.Combine("..", "..", "..", "..", "samples", applicationName));
         }
     }
 }

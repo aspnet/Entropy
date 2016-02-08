@@ -12,7 +12,8 @@
     "dnx451": { },
     "dnxcore50": {
       "dependencies": {
-        "System.Console": "4.0.0-*",
+        "NETStandard.Library": "1.0.0-*",
+        "System.Console": "4.0.0-*"
       }
     }
   }

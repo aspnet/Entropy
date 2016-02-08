@@ -16,7 +16,9 @@
     "dnx451": {
     },
     "dnxcore50": {
-      "dependencies": { }
+      "dependencies": {
+        "NETStandard.Library": "1.0.0-*"
+      }
     }
   }
 }

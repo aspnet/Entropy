@@ -6,11 +6,11 @@ namespace Project.WildcardSources
 {
     public class Program
     {
-        public void Main()
+        public static void Main()
         {
             var me = Assembly.Load(new AssemblyName("Project.WildcardSources"));
 
-            using (var stream = me.GetManifestResourceStream("SomeText.txt"))
+            using (var stream = me.GetManifestResourceStream("Project.WildcardSources.embed.SomeText.txt"))
             {
                 var sr = new StreamReader(stream);
                 Console.WriteLine(sr.ReadToEnd());

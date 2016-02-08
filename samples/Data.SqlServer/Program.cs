@@ -16,9 +16,7 @@ namespace Data.SqlServer
 
             using (var db = new MyContext())
             {
-                // TODO Remove when identity columns work end-to-end
-                var nextId = db.Blogs.Any() ? db.Blogs.Max(b => b.BlogId) + 1 : 1;
-                db.Add(new Blog { BlogId = nextId, Name = "Another Blog", Url = "http://example.com" });
+                db.Add(new Blog { Name = "Another Blog", Url = "http://example.com" });
                 db.SaveChangesAsync().Wait();
 
                 var blogs = db.Blogs.OrderBy(b => b.Name);
@@ -36,7 +34,7 @@ namespace Data.SqlServer
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\v11.0;Database=Blogging;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Blogging;Trusted_Connection=True;");
         }
     }
 

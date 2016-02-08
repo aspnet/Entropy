@@ -2,7 +2,8 @@
   "userSecretsId": "aspnet5-Localization.StarterWeb-4772c50f-56f3-4058-bd61-75f1352aeca7",
   "version": "1.0.0-*",
   "compilationOptions": {
-    "emitEntryPoint": true
+    "emitEntryPoint": true,
+    "preserveCompilationContext": true
   },
   "dependencies": {
     "Microsoft.EntityFrameworkCore.Commands": "1.0.0-*",
@@ -19,7 +20,6 @@
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-*",
     "Microsoft.AspNetCore.StaticFiles": "1.0.0-*",
     "Microsoft.AspNetCore.Tooling.Razor": "1.0.0-*",
-    "Microsoft.Extensions.CodeGenerators.Mvc": "1.0.0-*",
     "Microsoft.Extensions.Configuration.FileProviderExtensions": "1.0.0-*",
     "Microsoft.Extensions.Configuration.Json": "1.0.0-*",
     "Microsoft.Extensions.Configuration.UserSecrets": "1.0.0-*",
@@ -36,7 +36,12 @@
   },
   "frameworks": {
     "dnx451": {},
-    "dnxcore50": {}
+    "dnxcore50": {
+      "dependencies": {
+        "NETStandard.Library": "1.0.0-*"
+      },
+      "imports": "portable-net451+win8"
+    }
   },
   "exclude": [
     "wwwroot",
@@ -53,5 +58,9 @@
       "gulp clean",
       "gulp min"
     ]
-  }
+  },
+  "content": [
+    "appsettings.json",
+    "Views"
+  ]
 }

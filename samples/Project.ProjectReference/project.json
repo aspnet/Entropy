@@ -6,6 +6,7 @@
     "dnx451": { },
     "dnxcore50": {
       "dependencies": {
+        "NETStandard.Library": "1.0.0-*",
         "System.Console": "4.0.0-*",
         "System.Linq": "4.0.2-*",
         "System.Threading.Tasks": "4.0.11-*",

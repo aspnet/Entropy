@@ -1,4 +1,7 @@
 {
+  "compilationOptions": {
+    "emitEntryPoint": true
+  },
   "dependencies": {
     "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0-*",
     "Microsoft.NETCore.Platforms": "1.0.1-*"
@@ -11,8 +14,10 @@
     },
     "dnxcore50": {
       "dependencies": {
+        "NETStandard.Library": "1.0.0-*",
         "System.Console": "4.0.0-*"
-      }
+      },
+      "imports": "portable-net451+win8"
     }
   }
 }

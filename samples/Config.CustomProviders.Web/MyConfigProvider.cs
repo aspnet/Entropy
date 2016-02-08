@@ -30,15 +30,15 @@ namespace Config.CustomProvider.Web
         {
             // TODO: This method signature is pretty bad
 
-            if (prefix == "" && delimiter == ":")
+            if (string.IsNullOrEmpty(prefix) && delimiter == ":")
             {
                 return earlierKeys.Concat(new[] { "Hardcoded" });
             }
-            if (prefix == "Hardcoded:" && delimiter == ":")
+            if (prefix == "Hardcoded" && delimiter == ":")
             {
                 return earlierKeys.Concat(new[] { "1", "2" });
             }
-            if (prefix == "Hardcoded:1:" || prefix == "Hardcoded:2:")
+            if (prefix == "Hardcoded:1" || prefix == "Hardcoded:2")
             {
                 return earlierKeys.Concat(new[] { "Caption" });
             }

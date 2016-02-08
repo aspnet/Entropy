@@ -31,3 +31,5 @@ node_modules/
 */*.Spa/public/*
 */*.Spa/wwwroot/lib
 *launchSettings.json
+.testPublish/
+.build/
