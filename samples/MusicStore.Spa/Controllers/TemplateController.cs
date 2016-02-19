@@ -13,7 +13,7 @@ namespace MusicStore.Controllers
         {
             if (!IsValidPath(path))
             {
-                return HttpNotFound();
+                return NotFound();
             }
 
             return View(_templateBasePath + path);
