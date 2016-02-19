@@ -26,15 +26,15 @@ namespace Config.CustomProvider.Web
             // no loading or reloading, this source is all hardcoded
         }
         
-        public IEnumerable<string> GetChildKeys(IEnumerable<string> earlierKeys, string prefix, string delimiter)
+        public IEnumerable<string> GetChildKeys(IEnumerable<string> earlierKeys, string prefix)
         {
             // TODO: This method signature is pretty bad
 
-            if (string.IsNullOrEmpty(prefix) && delimiter == ":")
+            if (string.IsNullOrEmpty(prefix))
             {
                 return earlierKeys.Concat(new[] { "Hardcoded" });
             }
-            if (prefix == "Hardcoded" && delimiter == ":")
+            if (prefix == "Hardcoded")
             {
                 return earlierKeys.Concat(new[] { "1", "2" });
             }
