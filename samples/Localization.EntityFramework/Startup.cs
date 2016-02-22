@@ -22,43 +22,33 @@ namespace EFLocalizationSample
 
         public void Configure(IApplicationBuilder app, IStringLocalizerFactory localizerFactory)
         {
-            app.UseRequestLocalization(new RequestLocalizationOptions
+            var supportedCultures = new List<CultureInfo>
             {
+                new CultureInfo("en-US"),
+                new CultureInfo("en-AU"),
+                new CultureInfo("en-GB"),
+                new CultureInfo("es-ES"),
+                new CultureInfo("ja-JP"),
+                new CultureInfo("fr-FR"),
+                new CultureInfo("zh"),
+                new CultureInfo("zh-CN")
+            };
+#if !DNXCORE50
+            supportedCultures.Add(new CultureInfo("zh-CHT"));
+#endif 
+            var options = new RequestLocalizationOptions {
                 DefaultRequestCulture = new RequestCulture("en-US"),
+                SupportedCultures = supportedCultures,
+                SupportedUICultures = supportedCultures
+            };
+            // Optionally create an app-specific provider with just a delegate, e.g. look up user preference from DB.
+            // Inserting it as position 0 ensures it has priority over any of the default providers.
+            //options.RequestCultureProviders.Insert(0, new CustomRequestCultureProvider(async context =>
+            //{
 
-                // Set options here to change middleware behavior
-                SupportedCultures = new List<CultureInfo>
-                {
-                    new CultureInfo("en-US"),
-                    new CultureInfo("en-AU"),
-                    new CultureInfo("en-GB"),
-                    new CultureInfo("es-ES"),
-                    new CultureInfo("ja-JP"),
-                    new CultureInfo("fr-FR"),
-                    new CultureInfo("zh"),
-                    new CultureInfo("zh-CN"),
-                    new CultureInfo("zh-HanT")
-                },
-                SupportedUICultures = new List<CultureInfo>
-                {
-                    new CultureInfo("en-US"),
-                    new CultureInfo("en-AU"),
-                    new CultureInfo("en-GB"),
-                    new CultureInfo("es-ES"),
-                    new CultureInfo("ja-JP"),
-                    new CultureInfo("fr-FR"),
-                    new CultureInfo("zh"),
-                    new CultureInfo("zh-CN"),
-                    new CultureInfo("zh-HanT")
-                }
+            //}));
 
-                // Optionally create an app-specific provider with just a delegate, e.g. look up user preference from DB.
-                // Inserting it as position 0 ensures it has priority over any of the default providers.
-                //RequestCultureProviders.Insert(0, new CustomRequestCultureProvider(async context =>
-                //{
-
-                //}))
-            });
+            app.UseRequestLocalization(options);
 
             var SR = localizerFactory.Create(null);
 
