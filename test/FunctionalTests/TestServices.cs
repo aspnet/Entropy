@@ -61,7 +61,11 @@ namespace EntropyTests
 
         private static string GetPathToApplication(string applicationName)
         {
+#if DNXCORE50
+            return Path.GetFullPath(Path.Combine("..", "..", "samples", applicationName));
+#else
             return Path.GetFullPath(Path.Combine("..", "..", "..", "..", "samples", applicationName));
+#endif
         }
     }
 }
