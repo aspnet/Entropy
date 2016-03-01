@@ -11,16 +11,19 @@
     "Microsoft.NETCore.Platforms": "1.0.1-*"
   },
   "frameworks": {
-    "dnx451": { },
-    "dnxcore50": {
+    "dnx451": {},
+    "netstandardapp1.5": {
       "dependencies": {
         "NETStandard.Library": "1.0.0-*"
-      }
+      },
+      "imports": [
+        "dnxcore50"
+      ]
     }
   },
   "commands": {
     "web": "Config.Providers.Web"
-  }, 
+  },
   "content": [
     "Config.Providers.ini"
   ]

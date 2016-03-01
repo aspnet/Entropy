@@ -1,7 +1,7 @@
 {
   "compilationOptions": {
-      "emitEntryPoint": true
-    },
+    "emitEntryPoint": true
+  },
   "compile": "*.cs",
   "exclude": "buggy/**/*.cs",
   "resource": "embed/**/*.*",
@@ -9,14 +9,17 @@
     "Microsoft.NETCore.Platforms": "1.0.1-*"
   },
   "frameworks": {
-    "dnx451": { },
-    "dnxcore50": {
+    "dnx451": {},
+    "netstandardapp1.5": {
       "dependencies": {
         "NETStandard.Library": "1.0.0-*",
         "System.Console": "4.0.0-*",
         "System.IO": "4.0.11-*",
-        "System.Reflection": "4.0.11-*",
-      }
+        "System.Reflection": "4.0.11-*"
+      },
+      "imports": [
+        "dnxcore50"
+      ]
     }
   }
 }
