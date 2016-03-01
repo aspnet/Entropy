@@ -24,5 +24,8 @@ install:
   - make install
   - export LD_LIBRARY_PATH="$HOME/libuvinstall/lib"
   - cd $OLDPWD
+before_script:
+  - npm install -g bower
+  - npm install -g gulp
 script:
   - ./build.sh --quiet verify
