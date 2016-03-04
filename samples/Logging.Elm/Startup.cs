@@ -13,8 +13,7 @@ namespace ElmSampleApp
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddElm();
-            services.ConfigureElm(options =>
+            services.AddElm(options =>
             {
                 options.Path = new PathString("/foo");  // defaults to "/Elm"
                 options.Filter = (name, level) => level >= LogLevel.Information;
