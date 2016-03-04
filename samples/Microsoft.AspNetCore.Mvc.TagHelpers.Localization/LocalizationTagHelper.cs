@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using Microsoft.AspNetCore.Mvc.ViewFeatures.Internal;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -61,7 +60,7 @@ namespace Microsoft.AspNetCore.Mvc.TagHelpers
         {
             var localizer = ViewContext.HttpContext.RequestServices.GetService<IViewLocalizer>();
 
-            (localizer as ICanHasViewContext)?.Contextualize(ViewContext);
+            (localizer as IViewContextAware)?.Contextualize(ViewContext);
 
             return localizer;
         }
