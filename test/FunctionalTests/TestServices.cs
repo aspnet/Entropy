@@ -65,7 +65,7 @@ namespace EntropyTests
 #if NETSTANDARDAPP1_5
             return Path.GetFullPath(Path.Combine("..", "..", "samples", applicationName));
 #else
-            return Path.GetFullPath(Path.Combine("..", "..", "..", "..", "samples", applicationName));
+            return Path.GetFullPath(Path.Combine("..", "..", "..", "..", "..", "..", "samples", applicationName));
 #endif
         }
     }
