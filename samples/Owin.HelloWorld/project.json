@@ -12,7 +12,7 @@
     "web": "Owin.HelloWorld"
   },
   "frameworks": {
-    "dnx451": {},
+    "net451": {},
     "netstandardapp1.5": {
       "dependencies": {
         "NETStandard.Library": "1.0.0-*"

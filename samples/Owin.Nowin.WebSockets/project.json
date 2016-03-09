@@ -13,7 +13,7 @@
     "web": "Owin.Nowin.WebSockets"
   },
   "frameworks": {
-    "dnx451": {
+    "net451": {
       "dependencies": {
       }
     }

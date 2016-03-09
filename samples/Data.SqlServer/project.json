@@ -7,7 +7,7 @@
     "Microsoft.NETCore.Platforms": "1.0.1-*"
   },
   "frameworks": {
-    "dnx451": {
+    "net451": {
       "frameworkAssemblies": {
         "System.Threading.Tasks": ""
       }

@@ -22,16 +22,7 @@
         "portable-net451+win8"
       ]
     },
-    "dnx451": {
-      "dependencies": {
-        "xunit.runner.console": "2.1.0"
-      },
-      "frameworkAssemblies": {
-        "System.Data": "",
-        "System.Net.Http": "",
-        "System.Xml": ""
-      }
-    }
+    "net451": { }
   },
   "testRunner": "xunit"
 }

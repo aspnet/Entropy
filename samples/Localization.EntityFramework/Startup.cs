@@ -156,7 +156,7 @@ $@"<!doctype html>
             await context.Response.WriteAsync($"    <option value=\"{new CultureInfo("ja-JP").Name}\">{new CultureInfo("ja-JP").DisplayName}</option>");
             await context.Response.WriteAsync($"    <option value=\"{new CultureInfo("zh").Name}\">{new CultureInfo("zh").DisplayName}</option>");
             await context.Response.WriteAsync($"    <option value=\"{new CultureInfo("zh-CN").Name}\">{new CultureInfo("zh-CN").DisplayName}</option>");
-#if DNX451
+#if NET451
             await context.Response.WriteAsync($"    <option value=\"{new CultureInfo("zh-HanT").Name}\">{new CultureInfo("zh-HanT").DisplayName}</option>");
 #endif
             await context.Response.WriteAsync($"    <option value=\"en-NOTREAL\">English (Not a real locale)</option>");

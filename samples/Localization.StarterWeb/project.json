@@ -25,8 +25,7 @@
     "Microsoft.Extensions.Logging": "1.0.0-*",
     "Microsoft.Extensions.Logging.Console": "1.0.0-*",
     "Microsoft.Extensions.Logging.Debug": "1.0.0-*",
-    "Microsoft.NETCore.Platforms": "1.0.1-*",
-    "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-*"
+    "Microsoft.NETCore.Platforms": "1.0.1-*"
   },
   "commands": {
     "Localization.StarterWeb": "Localization.StarterWeb",
@@ -34,7 +33,7 @@
     "ef": "Microsoft.EntityFrameworkCore.Commands"
   },
   "frameworks": {
-    "dnx451": {},
+    "net451": {},
     "netstandardapp1.5": {
       "dependencies": {
         "NETStandard.Library": "1.0.0-*"

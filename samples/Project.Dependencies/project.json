@@ -9,7 +9,7 @@
     "emitEntryPoint": true
   },
   "frameworks": {
-    "dnx451": {
+    "net451": {
       "frameworkAssemblies": {
         "System.Web": ""
       }

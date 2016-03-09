@@ -42,7 +42,7 @@ namespace EntropyTests
                     ApplicationBaseUriHint = applicationBaseUrl,
                     SiteName = "HttpTestSite",
                     PublishApplicationBeforeDeployment = true,
-                    PublishTargetFramework = runtimeFlavor == RuntimeFlavor.Clr ? "dnx451" : "netstandardapp1.5"
+                    PublishTargetFramework = runtimeFlavor == RuntimeFlavor.Clr ? "net451" : "netstandardapp1.5"
                 };
 
                 using (var deployer = ApplicationDeployerFactory.Create(deploymentParameters, logger))
