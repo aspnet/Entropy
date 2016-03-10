@@ -35,9 +35,7 @@ namespace MusicStore.Spa
             services.AddMvc();
 
             // Add EF services to the service container
-            services.AddEntityFramework()
-                .AddSqlServer()
-                .AddDbContext<MusicStoreContext>(options =>
+            services.AddDbContext<MusicStoreContext>(options =>
                 {
                     options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]);
                 });
