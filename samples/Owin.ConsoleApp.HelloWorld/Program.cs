@@ -22,7 +22,9 @@ namespace Owin.ConsoleApp.HelloWorld
 
     public class Program
     {
+#pragma warning disable CS1998
         static AppFunc notFound = async env => env["owin.ResponseStatusCode"] = 404;
+#pragma warning restore CS1998
 
         public static void Main(string[] args)
         {

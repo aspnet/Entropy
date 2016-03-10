@@ -2,8 +2,7 @@
   "dependencies": {
     "Newtonsoft.Json": "8.0.2",
     "Project.ProjectReference": "1.0.0-*",
-    "Project.SharedFiles": "1.0.0-*",
-    "Microsoft.NETCore.Platforms": "1.0.1-*"
+    "Project.SharedFiles": "1.0.0-*"
   },
   "compilationOptions": {
     "emitEntryPoint": true
@@ -16,11 +15,7 @@
     },
     "netstandardapp1.5": {
       "dependencies": {
-        "NETStandard.Library": "1.0.0-*",
-        "System.Console": "4.0.0-*",
-        "System.Linq": "4.1.0-*",
-        "System.Threading.Tasks": "4.0.11-*",
-        "System.Runtime.Extensions": "4.0.11-*"
+        "NETStandard.Library": "1.0.0-*"
       },
       "imports": [
         "dnxcore50"
