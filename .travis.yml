@@ -27,5 +27,11 @@ install:
 before_script:
   - npm install -g bower
   - npm install -g gulp
+branches:
+  only:
+    - master
+    - release
+    - dev
+    - /^(.*\\/)?ci-.*$/
 script:
   - ./build.sh --quiet verify
