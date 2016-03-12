@@ -1,0 +1,43 @@
+﻿{
+  "version": "1.0.0-*",
+
+  "compilationOptions": {
+    "emitEntryPoint": true
+  },
+
+  "content": [
+    "Web*.config"
+  ],
+
+  "dependencies": {
+    "Microsoft.Extensions.Configuration": "1.0.0-*",
+    "Microsoft.Extensions.Configuration.Abstractions": "1.0.0-*",
+    "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-*",
+    "Microsoft.Extensions.Logging.Abstractions": "1.0.0-*",
+    "System.Collections.Immutable": "1.2.0-*",
+    "System.Xml.XDocument": "4.0.11-*"
+  },
+
+  "commands": {
+    "Config.CustomConfigurationProviders.Sample": "Config.CustomConfigurationProviders.Sample"
+  },
+
+  "frameworks": {
+    "net451": {
+      "frameworkAssemblies": {
+        "System.Runtime": "4.0.10.0",
+        "System.Xml": "4.0.0.0",
+        "System.Xml.Linq": "4.0.0.0",
+        "System.Xml.XmlSerializer": "4.0.0.0"
+      }
+    },
+    "netstandardapp1.5": {
+      "dependencies": {
+        "NETStandard.Library": "1.0.0-*"
+      },
+      "imports": [
+        "dnxcore50"
+      ]
+    }
+  }
+}
