@@ -5,13 +5,15 @@ using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
+using Microsoft.AspNetCore.Testing.xunit;
 using Xunit;
 
 namespace BuilderTests.MvcTests
 {
     public class CustomRoutingConventionTests
     {
-        [Fact]
+        [ConditionalFact]
+        [FrameworkSkipCondition(RuntimeFrameworks.Mono)]
         public async Task CustomRouting_NameSpaceRouting()
         {
             // Arrange
