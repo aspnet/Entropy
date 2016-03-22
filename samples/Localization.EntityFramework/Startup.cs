@@ -156,7 +156,7 @@ $@"<!doctype html>
         public static void Main(string[] args)
         {
             var application = new WebHostBuilder()
-                .UseDefaultConfiguration(args)
+                .UseDefaultHostingConfiguration(args)
                 .UseServer("Microsoft.AspNetCore.Server.Kestrel")
                 .UseIISPlatformHandlerUrl()
                 .UseStartup("Localization.EntityFramework")
