@@ -21,7 +21,6 @@
     },
     "netstandardapp1.5": {
       "dependencies": {
-        "NETStandard.Library": "1.0.0-*",
         "System.Net.Http": "4.0.1-*"
       },
       "imports": [
