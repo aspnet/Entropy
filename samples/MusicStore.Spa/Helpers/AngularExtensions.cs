@@ -211,7 +211,7 @@ namespace Microsoft.AspNetCore.Mvc.Rendering
                 var nullOptionTag = new TagBuilder("option");
                 nullOptionTag.Attributes["value"] = string.Empty;
                 nullOptionTag.InnerHtml.SetContent(nullOption);
-                tag.InnerHtml.SetContent(nullOptionTag);
+                tag.InnerHtml.SetHtmlContent(nullOptionTag);
             }
 
             var isRequired = metadata.Metadata.ValidatorMetadata.OfType<RequiredAttribute>().Any();

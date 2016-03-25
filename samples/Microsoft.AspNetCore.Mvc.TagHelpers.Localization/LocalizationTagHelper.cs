@@ -27,13 +27,13 @@ namespace Microsoft.AspNetCore.Mvc.TagHelpers
             var localizer = Localizer ?? GetViewLocalizer();
 
             var aspLocAttr = output.Attributes["asp-loc"];
-            
+
             if (aspLocAttr != null)
             {
                 var resourceKey = aspLocAttr.Minimized
                     ? (await output.GetChildContentAsync()).GetContent()
                     : aspLocAttr.Value.ToString();
-                output.Content.SetContent(localizer.GetHtml(resourceKey));
+                output.Content.SetHtmlContent(localizer.GetHtml(resourceKey));
                 output.Attributes.Remove(aspLocAttr);
             }
 
