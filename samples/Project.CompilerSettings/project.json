@@ -7,14 +7,11 @@
     "warningsAsErrors": true,
     "emitEntryPoint": true
   },
-  "dependencies": {
-    "Microsoft.NETCore.Platforms": "1.0.1-*"
-  },
   "frameworks": {
     "net451": {},
     "netstandardapp1.5": {
       "dependencies": {
-        "System.Console": "4.0.0-*"
+        "NETStandard.Library": "1.5.0-*"
       },
       "imports": [
         "dnxcore50"

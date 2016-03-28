@@ -3,7 +3,6 @@
     "Microsoft.AspNetCore.Hosting": "1.0.0-*",
     "Microsoft.AspNetCore.Owin": "1.0.0-*",
     "Microsoft.AspNetCore.Http": "1.0.0-*",
-    "Microsoft.NETCore.Platforms": "1.0.1-*",
     "Nowin": "0.11.0"
   },
   "compilationOptions": {
@@ -13,9 +12,6 @@
     "web": "Owin.Nowin.WebSockets"
   },
   "frameworks": {
-    "net451": {
-      "dependencies": {
-      }
-    }
+    "net451": { }
   }
 }

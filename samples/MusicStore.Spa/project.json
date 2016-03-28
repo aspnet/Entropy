@@ -36,7 +36,6 @@
     "Microsoft.Extensions.Configuration": "1.0.0-*",
     "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0-*",
     "Microsoft.Extensions.Configuration.Json": "1.0.0-*",
-    "Microsoft.NETCore.Platforms": "1.0.1-*",
     "AutoMapper": "4.0.0-alpha1"
   },
   "commands": {
@@ -45,6 +44,9 @@
   "frameworks": {
     "net451": {},
     "netstandardapp1.5": {
+      "dependencies": {
+        "NETStandard.Library": "1.5.0-*"
+      },
       "imports": [
         "dnxcore50",
         "portable-net451+win8"

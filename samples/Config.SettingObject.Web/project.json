@@ -4,12 +4,14 @@
     "Microsoft.AspNetCore.IISPlatformHandler": "1.0.0-*",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-*",
     "Microsoft.Extensions.Configuration": "1.0.0-*",
-    "Microsoft.AspNetCore.Server.WebListener": "0.1.0-*",
-    "Microsoft.NETCore.Platforms": "1.0.1-*"
+    "Microsoft.AspNetCore.Server.WebListener": "0.1.0-*"
   },
   "frameworks": {
     "net451": {},
     "netstandardapp1.5": {
+      "dependencies": {
+        "NETStandard.Library": "1.5.0-*"
+      },
       "imports": [
         "dnxcore50"
       ]

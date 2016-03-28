@@ -15,7 +15,7 @@
     },
     "netstandardapp1.5": {
       "dependencies": {
-          "NETStandard.Library": "1.5.0-*"
+        "NETStandard.Library": "1.5.0-*"
       },
       "imports": [
         "dnxcore50"

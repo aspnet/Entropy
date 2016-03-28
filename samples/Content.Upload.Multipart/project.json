@@ -10,8 +10,7 @@
   ],
   "dependencies": {
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-*",
-    "Microsoft.AspNetCore.WebUtilities": "1.0.0-*",
-    "Microsoft.NETCore.Platforms": "1.0.1-*"
+    "Microsoft.AspNetCore.WebUtilities": "1.0.0-*"
   },
   "frameworks": {
     "net451": {
@@ -21,6 +20,7 @@
     },
     "netstandardapp1.5": {
       "dependencies": {
+        "NETStandard.Library": "1.5.0-*",
         "System.Net.Http": "4.0.1-*"
       },
       "imports": [
