@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Config.SettingObject.Web;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,14 +12,16 @@ public class Startup
     public void Configure(IApplicationBuilder app)
     {
         var builder = new ConfigurationBuilder();
-        builder.Add(new MemoryConfigurationProvider {
-                {"MySettings:RetryCount", "42"},
-                {"MySettings:DefaultAdBlock", "House"},
-                {"MySettings:AdBlock:House:ProductCode", "123"},
-                {"MySettings:AdBlock:House:Origin", "blob-456"},
-                {"MySettings:AdBlock:Contoso:ProductCode", "contoso2014"},
-                {"MySettings:AdBlock:Contoso:Origin", "sql-789"},
-            });
+        List<KeyValuePair<string, string>> data = new Dictionary<string, string>
+        {
+            { "MySettings:RetryCount", "42"},
+            { "MySettings:DefaultAdBlock", "House"},
+            { "MySettings:AdBlock:House:ProductCode", "123"},
+            { "MySettings:AdBlock:House:Origin", "blob-456"},
+            { "MySettings:AdBlock:Contoso:ProductCode", "contoso2014"},
+            { "MySettings:AdBlock:Contoso:Origin", "sql-789"},
+        }.ToList();
+        builder.Add(new MemoryConfigurationSource { InitialData = data });
         var config = builder.Build();
 
         var mySettings = new MySettings();

@@ -10,7 +10,7 @@ public class Startup
     public void Configure(IApplicationBuilder app)
     {
         var builder = new ConfigurationBuilder();
-        builder.Add(new MyConfigProvider());
+        builder.Add(new MyConfigSource());
         var config = builder.Build();
 
         app.Run(async ctx =>

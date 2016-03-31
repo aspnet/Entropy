@@ -1,11 +1,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Primitives;
 
 namespace Config.CustomProvider.Web
 {
     public class MyConfigProvider : IConfigurationProvider
     {
+        public IChangeToken GetReloadToken()
+        {
+            return null;
+        }
+
         public bool TryGet(string key, out string value)
         {
             switch (key)
