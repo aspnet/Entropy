@@ -30,7 +30,7 @@ namespace Owin.IAppBuilderBridge
         {
             var host = new WebHostBuilder()
                 .UseDefaultHostingConfiguration(args)
-                .UseServer("Microsoft.AspNetCore.Server.Kestrel")
+                .UseKestrel()
                 .UseStartup<Startup>()
                 .Build();
 
@@ -38,3 +38,4 @@ namespace Owin.IAppBuilderBridge
         }
     }
 }
+

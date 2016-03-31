@@ -39,10 +39,11 @@ public class Startup
     {
         var host = new WebHostBuilder()
             .UseDefaultHostingConfiguration(args)
-            .UseServer("Microsoft.AspNetCore.Server.Kestrel")
+            .UseKestrel()
             .UseStartup<Startup>()
             .Build();
 
         host.Run();
     }
 }
+

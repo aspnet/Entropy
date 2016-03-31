@@ -49,7 +49,7 @@ namespace Content.Upload.Form
         {
             var host = new WebHostBuilder()
                 .UseDefaultHostingConfiguration(args)
-                .UseServer("Microsoft.AspNetCore.Server.Kestrel")
+                .UseKestrel()
                 .UseStartup<Startup>()
                 .Build();
 
@@ -57,3 +57,4 @@ namespace Content.Upload.Form
         }
     }
 }
+

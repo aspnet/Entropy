@@ -85,7 +85,7 @@ namespace MusicStore.Spa
         {
             var host = new WebHostBuilder()
                 .UseDefaultHostingConfiguration(args)
-                .UseServer("Microsoft.AspNetCore.Server.Kestrel")
+                .UseKestrel()
                 .UseIISPlatformHandlerUrl()
                 .UseStartup<Startup>()
                 .Build();
@@ -94,3 +94,4 @@ namespace MusicStore.Spa
         }
     }
 }
+

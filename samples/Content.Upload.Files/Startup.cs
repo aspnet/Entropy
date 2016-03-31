@@ -68,7 +68,7 @@ namespace Content.Upload.Files
         {
             var host = new WebHostBuilder()
                 .UseDefaultHostingConfiguration(args)
-                .UseServer("Microsoft.AspNetCore.Server.Kestrel")
+                .UseKestrel()
                 .UseStartup<Startup>()
                 .Build();
 
@@ -76,3 +76,4 @@ namespace Content.Upload.Files
         }
     }
 }
+

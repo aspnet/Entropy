@@ -157,7 +157,7 @@ $@"<!doctype html>
         {
             var application = new WebHostBuilder()
                 .UseDefaultHostingConfiguration(args)
-                .UseServer("Microsoft.AspNetCore.Server.Kestrel")
+                .UseKestrel()
                 .UseIISPlatformHandlerUrl()
                 .UseStartup("Localization.EntityFramework")
                 .Build();
@@ -166,3 +166,4 @@ $@"<!doctype html>
         }
     }
 }
+

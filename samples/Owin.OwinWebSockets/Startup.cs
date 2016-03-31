@@ -90,7 +90,7 @@ namespace SelfHostServer
         public static void Main(string[] args)
         {
             var host = new WebHostBuilder()
-                .UseServer("Microsoft.AspNetCore.Server.Kestrel")
+                .UseKestrel()
                 .UseDefaultHostingConfiguration(args)
                 .UseStartup<Startup>()
                 .Build();
@@ -99,3 +99,4 @@ namespace SelfHostServer
         }
     }
 }
+
