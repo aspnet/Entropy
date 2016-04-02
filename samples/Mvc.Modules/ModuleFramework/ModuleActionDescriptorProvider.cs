@@ -4,8 +4,8 @@ using System.Linq;
 using System.Reflection;
 using Microsoft.AspNetCore.Mvc.Abstractions;
 using Microsoft.AspNetCore.Mvc.ActionConstraints;
+using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Internal;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,14 +14,14 @@ namespace Microsoft.AspNetCore.Mvc.ModuleFramework
 {
     public class ModuleActionDescriptorProvider : IActionDescriptorProvider
     {
-        private readonly IAssemblyProvider _assemblyProvider;
+        private readonly ApplicationPartManager _applicationPartManager;
         private readonly IServiceProvider _services;
 
         public ModuleActionDescriptorProvider(
-            IAssemblyProvider assemblyProvider,
+            ApplicationPartManager applicationPartManager,
             IServiceProvider services)
         {
-            _assemblyProvider = assemblyProvider;
+            _applicationPartManager = applicationPartManager;
             _services = services;
         }
 
@@ -29,11 +29,11 @@ namespace Microsoft.AspNetCore.Mvc.ModuleFramework
 
         public void OnProvidersExecuting(ActionDescriptorProviderContext context)
         {
-            foreach (var assembly in _assemblyProvider.CandidateAssemblies)
+            foreach (var part in _applicationPartManager.ApplicationParts.OfType<IApplicationPartTypeProvider>())
             {
-                foreach (var type in assembly.GetExportedTypes())
+                foreach (var typeInfo in part.Types)
                 {
-                    var typeInfo = type.GetTypeInfo();
+                    var type = typeInfo.AsType();
                     if (typeInfo.IsClass &&
                         !typeInfo.IsAbstract &&
                         !typeInfo.ContainsGenericParameters &&
