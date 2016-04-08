@@ -130,10 +130,6 @@ namespace Localization.StarterWeb
                 catch { }
             }
 
-            var options = new IISPlatformHandlerOptions();
-            options.AuthenticationDescriptions.Clear();
-            app.UseIISPlatformHandler(options);
-
             app.UseStaticFiles();
 
             app.UseIdentity();
@@ -154,7 +150,7 @@ namespace Localization.StarterWeb
             var host = new WebHostBuilder()
                 .UseDefaultHostingConfiguration(args)
                 .UseKestrel()
-                .UseIISPlatformHandlerUrl()
+                .UseIISIntegration()
                 .UseStartup<Startup>()
                 .Build();
 

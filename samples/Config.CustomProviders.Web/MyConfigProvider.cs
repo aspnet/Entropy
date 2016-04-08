@@ -7,9 +7,11 @@ namespace Config.CustomProvider.Web
 {
     public class MyConfigProvider : IConfigurationProvider
     {
+        private ConfigurationReloadToken _reloadToken = new ConfigurationReloadToken();
+
         public IChangeToken GetReloadToken()
         {
-            return null;
+            return _reloadToken;
         }
 
         public bool TryGet(string key, out string value)

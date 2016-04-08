@@ -18,6 +18,7 @@ public class Startup
         var host = new WebHostBuilder()
             .UseDefaultHostingConfiguration(args)
             .UseServer("Owin.Nowin.HelloWorld")
+            .UseIISIntegration()
             .UseStartup<Startup>()
             .Build();
 

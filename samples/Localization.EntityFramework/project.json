@@ -1,16 +1,12 @@
 {
-  "webroot": "wwwroot",
   "version": "1.0.0-*",
   "dependencies": {
-    "Microsoft.AspNetCore.IISPlatformHandler": "1.0.0-*",
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-*",
     "Microsoft.AspNetCore.Localization": "1.0.0-*",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-*",
     "Microsoft.EntityFrameworkCore.InMemory": "1.0.0-*",
     "Microsoft.Extensions.Localization": "1.0.0-*",
     "Microsoft.NETCore.Platforms": "1.0.1-*"
-  },
-  "commands": {
-    "web": "Localization.EntityFramework"
   },
   "compilationOptions": {
     "warningsAsErrors": true,
@@ -27,5 +23,8 @@
         "portable-net451+win8"
       ]
     }
-  }
+  },
+  "content": [
+    "web.config"
+  ]
 }

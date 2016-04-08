@@ -1,21 +1,14 @@
 {
   "version": "1.0.0-*",
-
   "compilationOptions": {
     "emitEntryPoint": true
   },
-
   "dependencies": {
     "Microsoft.Extensions.DependencyInjection": "1.0.0-*",
     "Microsoft.AspNetCore.Owin": "1.0.0-*",
     "Microsoft.NETCore.Platforms": "1.0.1-*",
     "Nowin": "0.11.0"
   },
-
-  "commands": {
-    "Owin.ConsoleApp.HelloWorld": "Owin.ConsoleApp.HelloWorld"
-  },
-
   "frameworks": {
     "net451": { }
   }

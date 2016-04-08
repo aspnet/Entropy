@@ -4,6 +4,7 @@
   },
   "dependencies": {
     "Microsoft.AspNetCore.Http": "1.0.0-*",
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-*",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-*",
     "Microsoft.Extensions.Configuration": "1.0.0-*",
     "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0-*",
@@ -21,10 +22,8 @@
       ]
     }
   },
-  "commands": {
-    "web": "Config.Providers.Web"
-  },
   "content": [
-    "Config.Providers.ini"
+    "Config.Providers.ini",
+    "web.config"
   ]
 }

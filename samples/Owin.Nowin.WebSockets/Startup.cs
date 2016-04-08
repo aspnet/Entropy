@@ -16,8 +16,11 @@ namespace NowinWebSockets
             {
                 if (context.WebSockets.IsWebSocketRequest)
                 {
+                    Console.WriteLine("It's a websocket!");
                     WebSocket webSocket = await context.WebSockets.AcceptWebSocketAsync();
+                    Console.WriteLine("Accepted websocket.");
                     await EchoWebSocket(webSocket);
+                    Console.WriteLine("Socket closed.");
                 }
                 else
                 {
@@ -52,6 +55,7 @@ namespace NowinWebSockets
             var host = new WebHostBuilder()
                 .UseDefaultHostingConfiguration(args)
                 .UseServer("Owin.Nowin.WebSockets")
+                .UseIISIntegration()
                 .UseStartup<Startup>()
                 .Build();
 

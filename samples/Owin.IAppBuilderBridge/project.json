@@ -1,22 +1,12 @@
 {
   "version": "1.0.0-*",
-  "exclude": [
-    "wwwroot"
-  ],
-  "publishExclude": [
-    "**.kproj",
-    "**.user",
-    "**.vspscc"
-  ],
   "compilationOptions": {
     "emitEntryPoint": true
-  },
-  "commands": {
-    "web": "Owin.IAppBuilderBridge"
   },
   "dependencies": {
     "Microsoft.AspNetCore.Owin": "1.0.0-*",
     "Microsoft.AspNetCore.DataProtection": "1.0.0-*",
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-*",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-*",
     "Microsoft.Extensions.DependencyInjection": "1.0.0-*",
     "Microsoft.NETCore.Platforms": "1.0.1-*",
@@ -24,5 +14,8 @@
   },
   "frameworks": {
     "net451": { }
-  }
+  },
+  "content": [
+    "web.config"
+  ]
 }

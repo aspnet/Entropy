@@ -6,33 +6,27 @@
     "preserveCompilationContext": true
   },
   "dependencies": {
-    "Microsoft.EntityFrameworkCore.Commands": "1.0.0-*",
-    "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0-*",
-    "Microsoft.AspNetCore.Mvc.TagHelpers.Localization": "1.0.0-*",
     "Microsoft.AspNetCore.Authentication.Cookies": "1.0.0-*",
     "Microsoft.AspNetCore.Diagnostics": "1.0.0-*",
     "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "1.0.0-*",
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.0.0-*",
-    "Microsoft.AspNetCore.IISPlatformHandler": "1.0.0-*",
     "Microsoft.AspNetCore.Mvc": "1.0.0-*",
     "Microsoft.AspNetCore.Mvc.Localization": "1.0.0-*",
     "Microsoft.AspNetCore.Mvc.Razor": "1.0.0-*",
     "Microsoft.AspNetCore.Mvc.TagHelpers": "1.0.0-*",
+    "Microsoft.AspNetCore.Mvc.TagHelpers.Localization": "1.0.0-*",
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-*",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-*",
     "Microsoft.AspNetCore.StaticFiles": "1.0.0-*",
+    "Microsoft.EntityFrameworkCore.Commands": "1.0.0-*",
+    "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0-*",
     "Microsoft.Extensions.Configuration.FileProviderExtensions": "1.0.0-*",
     "Microsoft.Extensions.Configuration.Json": "1.0.0-*",
     "Microsoft.Extensions.Configuration.UserSecrets": "1.0.0-*",
     "Microsoft.Extensions.Logging": "1.0.0-*",
     "Microsoft.Extensions.Logging.Console": "1.0.0-*",
     "Microsoft.Extensions.Logging.Debug": "1.0.0-*",
-    "Microsoft.NETCore.Platforms": "1.0.1-*",
-    "System.IO": "4.1.0-*"
-  },
-  "commands": {
-    "Localization.StarterWeb": "Localization.StarterWeb",
-    "web": "Localization.StarterWeb",
-    "ef": "Microsoft.EntityFrameworkCore.Commands"
+    "Microsoft.NETCore.Platforms": "1.0.1-*"
   },
   "frameworks": {
     "net451": {},
@@ -46,17 +40,6 @@
       ]
     }
   },
-  "tools": {
-    "dotnet-razor-tooling": "1.0.0-*"
-  },
-  "exclude": [
-    "wwwroot",
-    "node_modules"
-  ],
-  "publishExclude": [
-    "**.user",
-    "**.vspscc"
-  ],
   "scripts": {
     "prepublish": [
       "npm install",
@@ -67,6 +50,7 @@
   },
   "content": [
     "appsettings.json",
-    "Views"
+    "Views",
+    "web.config"
   ]
 }

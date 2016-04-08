@@ -35,6 +35,7 @@ public class Startup
         var host = new WebHostBuilder()
             .UseDefaultHostingConfiguration(args)
             .UseKestrel()
+            .UseIISIntegration()
             .UseStartup<Startup>()
             .Build();
 

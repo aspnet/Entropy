@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "Microsoft.AspNetCore.Mvc": "1.0.0-*",
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-*",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-*",
     "Microsoft.AspNetCore.StaticFiles": "1.0.0-*",
     "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0-*",
@@ -10,9 +11,6 @@
   "compilationOptions": {
     "emitEntryPoint": true,
     "preserveCompilationContext": true
-  },
-  "commands": {
-    "web": "Mvc.Modules"
   },
   "frameworks": {
     "net451": {},
@@ -28,6 +26,7 @@
   },
   "content": [
     "config.json",
-    "Views"
+    "Views",
+    "web.config"
   ]
 }

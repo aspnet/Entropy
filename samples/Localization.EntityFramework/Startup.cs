@@ -33,7 +33,7 @@ namespace EFLocalizationSample
                 new CultureInfo("zh"),
                 new CultureInfo("zh-CN")
             };
-#if !DNXCORE50
+#if NET451
             supportedCultures.Add(new CultureInfo("zh-CHT"));
 #endif 
             var options = new RequestLocalizationOptions {
@@ -158,7 +158,7 @@ $@"<!doctype html>
             var application = new WebHostBuilder()
                 .UseDefaultHostingConfiguration(args)
                 .UseKestrel()
-                .UseIISPlatformHandlerUrl()
+                .UseIISIntegration()
                 .UseStartup("Localization.EntityFramework")
                 .Build();
 

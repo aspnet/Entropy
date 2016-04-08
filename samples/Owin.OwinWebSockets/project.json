@@ -9,9 +9,6 @@
   "compilationOptions": {
     "emitEntryPoint": true
   },
-  "commands": {
-    "web": "Owin.OwinWebSockets"
-  },
   "frameworks": {
     "net451": {},
     "netstandardapp1.5": {
