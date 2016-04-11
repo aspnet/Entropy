@@ -1,23 +1,12 @@
 {
   "version": "1.0.0-*",
-  "exclude": [
-    "wwwroot"
-  ],
-  "publishExclude": [
-    "**.kproj",
-    "**.user",
-    "**.vspscc"
-  ],
   "compilationOptions": {
     "emitEntryPoint": true
-  },
-  "commands": {
-    "web": "Logging.Elm"
   },
   "dependencies": {
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-*",
     "Microsoft.AspNetCore.Diagnostics.Elm": "0.1.0-*",
-    "Microsoft.AspNetCore.IISPlatformHandler": "1.0.0-*",
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-*",
     "Microsoft.NETCore.Platforms": "1.0.1-*"
   },
   "frameworks": {
@@ -30,5 +19,8 @@
         "dnxcore50"
       ]
     }
-  }
+  },
+  "content": [
+    "web.config"
+  ]
 }

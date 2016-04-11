@@ -1,4 +1,7 @@
+using System;
+using System.Linq;
 using System.Net;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.Extensions.Configuration;
 using Nowin;
@@ -9,7 +12,8 @@ namespace NowinWebSockets
     {
         public IServer CreateServer(IConfiguration configuration)
         {
-            return new NowinServer(ServerBuilder.New().SetAddress(IPAddress.Any).SetPort(5000));
+            var port = configuration["PORT"];
+            return new NowinServer(ServerBuilder.New().SetAddress(IPAddress.Any).SetPort(string.IsNullOrEmpty(port) ? 5000 : int.Parse(port)));
         }
     }
 }

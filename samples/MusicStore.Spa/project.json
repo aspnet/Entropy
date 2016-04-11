@@ -1,22 +1,8 @@
 {
-  "exclude": [
-    "wwwroot",
-    "bower_components",
-    "node_modules",
-    "grunt"
-  ],
-  "publishExclude": [
-    "bower.json",
-    "package.json",
-    "gruntfile.js",
-    "bower_components",
-    "node_modules",
-    "grunt"
-  ],
   "authors": [
     "Microsoft"
   ],
-  "description": "Music store application on K as a SPA",
+  "description": "Music store application on ASP.NET Core as a SPA",
   "compilationOptions": {
     "emitEntryPoint": true,
     "preserveCompilationContext": true,
@@ -25,7 +11,7 @@
     ]
   },
   "dependencies": {
-    "Microsoft.AspNetCore.IISPlatformHandler": "1.0.0-*",
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-*",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-*",
     "Microsoft.AspNetCore.Mvc": "1.0.0-*",
     "Microsoft.AspNetCore.StaticFiles": "1.0.0-*",
@@ -38,9 +24,6 @@
     "Microsoft.Extensions.Configuration.Json": "1.0.0-*",
     "Microsoft.NETCore.Platforms": "1.0.1-*",
     "AutoMapper": "4.0.0-alpha1"
-  },
-  "commands": {
-    "web": "MusicStore.Spa"
   },
   "frameworks": {
     "net451": {},
@@ -57,6 +40,7 @@
   "content": [
     "config.json",
     "Views",
-    "Pages"
+    "Pages",
+    "web.config"
   ]
 }

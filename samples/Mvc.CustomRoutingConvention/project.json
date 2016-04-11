@@ -1,13 +1,11 @@
 {
-  "commands": {
-    "web": "Mvc.CustomRoutingConvention"
-  },
   "compilationOptions": {
     "emitEntryPoint": true,
     "preserveCompilationContext": true
   },
   "dependencies": {
     "Microsoft.AspNetCore.Mvc": "1.0.0-*",
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-*",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-*",
     "Microsoft.NETCore.Platforms": "1.0.1-*"
   },
@@ -22,5 +20,8 @@
         "portable-net451+win8"
       ]
     }
-  }
+  },
+  "content": [
+    "web.config"
+  ]
 }

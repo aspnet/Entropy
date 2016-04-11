@@ -2,14 +2,12 @@
   "dependencies": {
     "Microsoft.AspNetCore.Hosting": "1.0.0-*",
     "Microsoft.AspNetCore.Owin": "1.0.0-*",
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-*",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-*",
     "Microsoft.NETCore.Platforms": "1.0.1-*"
   },
   "compilationOptions": {
     "emitEntryPoint": true
-  },
-  "commands": {
-    "web": "Owin.HelloWorld"
   },
   "frameworks": {
     "net451": {},
@@ -21,5 +19,8 @@
         "dnxcore50"
       ]
     }
-  }
+  },
+  "content": [
+    "web.config"
+  ]
 }

@@ -1,5 +1,5 @@
 {
-  "description": "Tag Helpers to aid with localizing ASP.NET MVC applications.",
+  "description": "Tag Helpers to aid with localizing ASP.NET Core MVC applications.",
   "version": "1.0.0-*",
   "repository": {
     "type": "git",
@@ -24,10 +24,5 @@
         "portable-net451+win8"
       ]
     }
-  },
-  "exclude": [
-    "wwwroot",
-    "node_modules",
-    "bower_components"
-  ]
+  }
 }

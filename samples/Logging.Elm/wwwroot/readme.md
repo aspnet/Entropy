@@ -1,1 +1,0 @@
-﻿Sample app demonstrating the Elm Logger
