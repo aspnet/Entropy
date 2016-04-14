@@ -3,10 +3,11 @@
 
 using System;
 using System.IO;
+using Microsoft.Extensions.Configuration.ConfigFile;
 
-namespace Microsoft.Extensions.Configuration.ConfigFile
+namespace Microsoft.Extensions.Configuration
 {
-    public static class ConfigFileConfigurationProviderExtensions
+    public static class ConfigFileConfigurationExtensions
     {
         /// <summary>
         /// Adds configuration values of a *.config file to the ConfigurationBuilder
@@ -25,7 +26,7 @@ namespace Microsoft.Extensions.Configuration.ConfigFile
                 throw new ArgumentException("Contents for configuration cannot be empty.", nameof(configContents));
             }
 
-            return builder.Add(new ConfigFileConfigurationProvider(configContents, false, false, parsers));
+            return builder.Add(new ConfigFileConfigurationSource(configContents, false, false, parsers));
         }
 
         /// <summary>
@@ -56,14 +57,12 @@ namespace Microsoft.Extensions.Configuration.ConfigFile
                 throw new ArgumentException("Path for configuration cannot be null/empty.", nameof(path));
             }
 
-            var fullPath = Path.Combine(builder.GetBasePath(), path);
-
-            if (!optional && !File.Exists(fullPath))
+            if (!optional && !File.Exists(path))
             {
-                throw new FileNotFoundException($"Could not find configuration file. File: [{fullPath}]", fullPath);
+                throw new FileNotFoundException($"Could not find configuration file. File: [{path}]", path);
             }
 
-            return builder.Add(new ConfigFileConfigurationProvider(fullPath, true, optional, parsers));
+            return builder.Add(new ConfigFileConfigurationSource(path, true, optional, parsers));
         }
     }
 }

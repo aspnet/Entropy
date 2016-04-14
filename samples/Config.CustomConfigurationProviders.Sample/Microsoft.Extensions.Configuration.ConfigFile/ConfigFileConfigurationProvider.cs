@@ -1,11 +1,11 @@
 ﻿// Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Linq;
+using Microsoft.Extensions.Logging;
 
 namespace Microsoft.Extensions.Configuration.ConfigFile
 {
@@ -57,25 +57,13 @@ namespace Microsoft.Extensions.Configuration.ConfigFile
 
         private readonly IEnumerable<IConfigurationParser> _parsers;
 
-        public ConfigFileConfigurationProvider(string configuration, bool loadFromFile, bool optional, params IConfigurationParser[] parsers)
-            : this(configuration, loadFromFile, optional, null, parsers)
-        { }
-
-        public ConfigFileConfigurationProvider(string configuration, bool loadFromFile, bool optional, ILogger logger, params IConfigurationParser[] parsers)
+        public ConfigFileConfigurationProvider(string configuration, bool loadFromFile, bool optional, ILogger logger, IEnumerable<IConfigurationParser> parsers)
         {
             _loadFromFile = loadFromFile;
             _configuration = configuration;
             _isOptional = optional;
             _logger = logger;
-
-            var parsersToUse = new List<IConfigurationParser> {
-                new KeyValueParser(),
-                new KeyValueParser("name", "connectionString")
-            };
-
-            parsersToUse.AddRange(parsers);
-
-            _parsers = parsersToUse.ToArray();
+            _parsers = parsers;
         }
 
         public override void Load()

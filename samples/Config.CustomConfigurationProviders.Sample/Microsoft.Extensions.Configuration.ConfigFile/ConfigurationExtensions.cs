@@ -4,9 +4,9 @@
 using System;
 using System.Collections.Immutable;
 
-namespace Microsoft.Extensions.Configuration.ConfigFile
+namespace Microsoft.Extensions.Configuration
 {
-    public static class ConfigurationFileExtensions
+    public static class ConfigurationExtensions
     {
         public const string AppSettings = "appSettings";
 
