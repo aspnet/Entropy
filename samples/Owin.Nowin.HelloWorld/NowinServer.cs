@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Owin;
 using Nowin;
@@ -12,17 +15,12 @@ namespace NowinWebSockets
     {
         private Func<IFeatureCollection, Task> _callback;
         private INowinServer _nowinServer;
-        private ServerBuilder _serverBuilder;
 
-        IFeatureCollection IServer.Features { get; } = new FeatureCollection();
+        public IFeatureCollection Features { get; } = new FeatureCollection();
 
-        public NowinServer(ServerBuilder serverBuilder)
+        public NowinServer()
         {
-            if (serverBuilder == null)
-            {
-                throw new ArgumentNullException(nameof(serverBuilder));
-            }
-            _serverBuilder = serverBuilder;
+            Features.Set<IServerAddressesFeature>(new ServerAddressesFeature());
         }
 
         public void Start<TContext>(IHttpApplication<TContext> application)
@@ -43,7 +41,12 @@ namespace NowinWebSockets
                 }
                 application.DisposeContext(context, null);
             };
-            _nowinServer = _serverBuilder.SetOwinApp(OwinWebSocketAcceptAdapter.AdaptWebSockets(HandleRequest)).Build();
+
+            var address = Features.Get<IServerAddressesFeature>().Addresses.First();
+            var port = new Uri(address).Port;
+            var serverBuilder = ServerBuilder.New().SetAddress(IPAddress.Loopback).SetPort(port);
+
+            _nowinServer = serverBuilder.SetOwinApp(OwinWebSocketAcceptAdapter.AdaptWebSockets(HandleRequest)).Build();
             _nowinServer.Start();
         }
 
