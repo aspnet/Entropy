@@ -37,6 +37,7 @@ namespace EntropyTests.BuilderTests
         [OSSkipCondition(OperatingSystems.Windows)]
         //[InlineData(ServerType.Kestrel, RuntimeFlavor.Clr, RuntimeArchitecture.x64, "http://localhost:5709")] // Disabled due to https://github.com/dotnet/corefx/issues/9012
         [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, "http://localhost:5710")]
+        [InlineData(ServerType.Nginx, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, "http://localhost:5711")]
         public async Task RunSite_NonWindowsOnly(ServerType server, RuntimeFlavor runtimeFlavor, RuntimeArchitecture architecture, string applicationBaseUrl)
         {
             await RunSite(server, runtimeFlavor, architecture, applicationBaseUrl);

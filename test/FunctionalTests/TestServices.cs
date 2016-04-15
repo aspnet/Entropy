@@ -45,6 +45,7 @@ namespace EntropyTests
                 {
                     ApplicationBaseUriHint = applicationBaseUrl,
                     SiteName = "HttpTestSite",
+                    ServerConfigTemplateContent = serverType == ServerType.Nginx ? File.ReadAllText("nginx.conf") : string.Empty,
                     PublishApplicationBeforeDeployment = true,
                     TargetFramework = runtimeFlavor == RuntimeFlavor.Clr ? "net451" : "netcoreapp1.0",
                     ApplicationType = runtimeFlavor == RuntimeFlavor.Clr ? ApplicationType.Standalone : ApplicationType.Portable
@@ -60,7 +61,10 @@ namespace EntropyTests
                         Timeout = TimeSpan.FromSeconds(10)
                     };
 
-                    await validator(httpClient, logger, deploymentResult.HostShutdownToken);
+                    using (httpClient)
+                    {
+                        await validator(httpClient, logger, deploymentResult.HostShutdownToken);
+                    }
                 }
             }
         }

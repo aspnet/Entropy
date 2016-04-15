@@ -41,5 +41,8 @@
     },
     "net451": {}
   },
+  "content": [
+    "nginx.conf"
+  ],
   "testRunner": "xunit"
 }
