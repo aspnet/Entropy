@@ -2,26 +2,17 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 
-public class Startup
+namespace Owin.Nowin.HelloWorld
 {
-    public void Configure(IApplicationBuilder app)
+    public class Startup
     {
-        app.Run(context =>
+        public void Configure(IApplicationBuilder app)
         {
-            context.Response.ContentType = "text/plain";
-            return context.Response.WriteAsync("Hello World");
-        });
-    }
-
-    public static void Main(string[] args)
-    {
-        var host = new WebHostBuilder()
-            .UseDefaultHostingConfiguration(args)
-            .UseServer("Owin.Nowin.HelloWorld")
-            .UseIISIntegration()
-            .UseStartup<Startup>()
-            .Build();
-
-        host.Run();
+            app.Run(context =>
+            {
+                context.Response.ContentType = "text/plain";
+                return context.Response.WriteAsync("Hello World");
+            });
+        }
     }
 }
