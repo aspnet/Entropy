@@ -62,7 +62,7 @@ namespace EntropyTests
 
         private static string GetPathToApplication(string applicationName)
         {
-#if NETSTANDARDAPP1_5
+#if NETCOREAPP1_0
             return Path.GetFullPath(Path.Combine("..", "..", "samples", applicationName));
 #else
             return Path.GetFullPath(Path.Combine("..", "..", "..", "..", "..", "..", "samples", applicationName));
