@@ -42,7 +42,8 @@ namespace EntropyTests
                     ApplicationBaseUriHint = applicationBaseUrl,
                     SiteName = "HttpTestSite",
                     PublishApplicationBeforeDeployment = true,
-                    PublishTargetFramework = runtimeFlavor == RuntimeFlavor.Clr ? "net451" : "netstandardapp1.5"
+                    PublishTargetFramework = runtimeFlavor == RuntimeFlavor.Clr ? "net451" : "netcoreapp1.0",
+                    ApplicationType = runtimeFlavor == RuntimeFlavor.Clr ? ApplicationType.Standalone : ApplicationType.Portable
                 };
 
                 using (var deployer = ApplicationDeployerFactory.Create(deploymentParameters, logger))
@@ -62,7 +63,7 @@ namespace EntropyTests
 
         private static string GetPathToApplication(string applicationName)
         {
-#if NETSTANDARDAPP1_5
+#if NETCOREAPP1_0
             return Path.GetFullPath(Path.Combine("..", "..", "samples", applicationName));
 #else
             return Path.GetFullPath(Path.Combine("..", "..", "..", "..", "..", "..", "samples", applicationName));
