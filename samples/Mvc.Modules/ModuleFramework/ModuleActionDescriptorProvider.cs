@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc.ActionConstraints;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Internal;
-using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Microsoft.AspNetCore.Mvc.ModuleFramework
@@ -67,16 +66,6 @@ namespace Microsoft.AspNetCore.Mvc.ModuleFramework
                     .OrderBy(d => d, FilterDescriptorOrderComparer.Comparer)
                     .ToList();
 
-                RouteDataActionConstraint pathConstraint;
-                if (action.Path == "/")
-                {
-                    pathConstraint = new RouteDataActionConstraint("modulepath", string.Empty);
-                }
-                else
-                {
-                    pathConstraint = new RouteDataActionConstraint("modulepath", action.Path.Substring(1));
-                }
-
                 yield return new ModuleActionDescriptor()
                 {
                     FilterDescriptors = filters,
@@ -87,10 +76,10 @@ namespace Microsoft.AspNetCore.Mvc.ModuleFramework
                     },
                     ModuleType = type,
                     Parameters = new List<ParameterDescriptor>(), // No Parameter support in this sample
-                    RouteConstraints = new List<RouteDataActionConstraint>()
+                    RouteValues =
                     {
-                        new RouteDataActionConstraint("module", "true"), // only match a 'module' route
-                        pathConstraint,
+                        { "module", "true"}, // only match a 'module' route
+                        { "modulepath", action.Path == "/" ? string.Empty : action.Path.Substring(1)}
                     }
                 };
             }
