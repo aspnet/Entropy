@@ -18,7 +18,10 @@
     "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-*",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-*",
     "Microsoft.AspNetCore.StaticFiles": "1.0.0-*",
-    "Microsoft.EntityFrameworkCore.Commands": "1.0.0-*",
+    "Microsoft.EntityFrameworkCore.Tools": {
+      "version": "1.0.0-*",
+      "type": "build"
+    },
     "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0-*",
     "Microsoft.Extensions.Configuration.FileProviderExtensions": "1.0.0-*",
     "Microsoft.Extensions.Configuration.Json": "1.0.0-*",
@@ -52,6 +55,10 @@
     "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
       "version": "1.0.0-*",
       "imports": "portable-net45+wp80+win8+wpa81+dnxcore50"
+    },
+    "Microsoft.EntityFrameworkCore.Tools": {
+      "version": "1.0.0-*",
+      "imports": "portable-net451+win8"
     }
   },
   "scripts": {
