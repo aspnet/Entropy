@@ -33,3 +33,5 @@ node_modules/
 *launchSettings.json
 .testPublish/
 .build/
+web.Debug.config
+web.Release.config

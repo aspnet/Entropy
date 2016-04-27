@@ -1,3 +1,6 @@
+// Copyright (c) .NET Foundation. All rights reserved.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
 using System;
 using System.IO;
 using System.Net.Http;
@@ -5,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Server.Testing;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.PlatformAbstractions;
 using Xunit.Sdk;
 
 namespace EntropyTests
@@ -32,12 +36,12 @@ namespace EntropyTests
             Func<HttpClient, ILogger, CancellationToken, Task> validator)
         {
             var logger = new LoggerFactory()
-                            .AddConsole()
-                            .CreateLogger(string.Format("{0}:{1}:{2}:{3}", siteName, serverType, runtimeFlavor, architecture));
+                .AddConsole()
+                .CreateLogger(string.Format("{0}:{1}:{2}:{3}", siteName, serverType, runtimeFlavor, architecture));
 
             using (logger.BeginScope("RunSiteTest"))
             {
-                var deploymentParameters = new DeploymentParameters(GetPathToApplication(siteName), serverType, runtimeFlavor, architecture)
+                var deploymentParameters = new DeploymentParameters(GetApplicationDirectory(siteName), serverType, runtimeFlavor, architecture)
                 {
                     ApplicationBaseUriHint = applicationBaseUrl,
                     SiteName = "HttpTestSite",
@@ -61,13 +65,23 @@ namespace EntropyTests
             }
         }
 
-        private static string GetPathToApplication(string applicationName)
+        public static string GetApplicationDirectory(string applicationName)
         {
-#if NETCOREAPP1_0
-            return Path.GetFullPath(Path.Combine("..", "..", "samples", applicationName));
-#else
-            return Path.GetFullPath(Path.Combine("..", "..", "..", "..", "..", "..", "samples", applicationName));
-#endif
+            var applicationBasePath = PlatformServices.Default.Application.ApplicationBasePath;
+            var directoryInfo = new DirectoryInfo(applicationBasePath);
+            do
+            {
+                var slnFile = new FileInfo(Path.Combine(directoryInfo.FullName, "Entropy.sln"));
+                if (slnFile.Exists)
+                {
+                    return Path.Combine(directoryInfo.FullName, "samples", applicationName);
+                }
+
+                directoryInfo = directoryInfo.Parent;
+            }
+            while (directoryInfo.Parent != null);
+
+            throw new Exception($"Solution root could not be located using application root {applicationBasePath}.");
         }
     }
 }
