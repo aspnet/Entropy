@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Container.Fallback.Web
@@ -28,11 +29,13 @@ namespace Container.Fallback.Web
 
         public static void Main(string[] args)
         {
+            var config = new ConfigurationBuilder().AddCommandLine(args).Build();
+            
             var host = new WebHostBuilder()
                 // We set the server by name before default args so that command line arguments can override it.
                 // This is used to allow deployers to choose the server for testing.
                 .UseServer("Microsoft.AspNetCore.Server.Kestrel")
-                .UseDefaultHostingConfiguration(args)
+                .UseConfiguration(config)
                 .UseIISIntegration()
                 .UseStartup<Startup>()
                 .Build();

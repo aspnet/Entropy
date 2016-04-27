@@ -53,7 +53,6 @@ namespace NowinWebSockets
         public static void Main(string[] args)
         {
             var host = new WebHostBuilder()
-                .UseDefaultHostingConfiguration(args)
                 .UseServer("Owin.Nowin.WebSockets")
                 .UseIISIntegration()
                 .UseStartup<Startup>()

@@ -31,9 +31,11 @@ public class Startup
 
     public static void Main(string[] args)
     {
+        var config = new ConfigurationBuilder().AddCommandLine(args).Build();
+        
         var host = new WebHostBuilder()
-            .UseDefaultHostingConfiguration(args)
             .UseKestrel()
+            .UseConfiguration(config)
             .UseIISIntegration()
             .UseStartup<Startup>()
             .Build();
