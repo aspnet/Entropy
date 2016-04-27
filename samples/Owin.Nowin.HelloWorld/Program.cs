@@ -11,7 +11,6 @@ namespace Owin.Nowin.HelloWorld
         {
             var host = new WebHostBuilder()
                 .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseDefaultHostingConfiguration(args)
                 .UseUrls("http://localhost:5003")
                 .UseNowin()
                 .UseIISIntegration()

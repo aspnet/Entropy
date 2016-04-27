@@ -156,7 +156,6 @@ $@"<!doctype html>
         public static void Main(string[] args)
         {
             var application = new WebHostBuilder()
-                .UseDefaultHostingConfiguration(args)
                 .UseKestrel()
                 .UseIISIntegration()
                 .UseStartup("Localization.EntityFramework")
