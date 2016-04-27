@@ -1,0 +1,66 @@
+﻿@model Mvc.FileUpload.Models.User
+
+@{
+    ViewBag.Title = "Request Form Limits Home Page";
+}
+
+<h2>Request Form Limits</h2>
+<div>
+    <para style="font-size:large">
+        The following form posts to an action which has set a form field key limit to only 2.
+        So when this form is posted, the request would fail with an exception
+    </para>
+
+    <form>
+        @Html.AntiForgeryToken()
+        <div asp-validation-summary="All"></div>
+        <div>
+            <div>
+                <label asp-for="Name"></label>
+                <div>
+                    <input asp-for="Name" />
+                    <span asp-validation-for="Name"></span>
+                </div>
+            </div>
+            <br />
+            <div>
+                <label asp-for="Age"></label>
+                <div>
+                    <input asp-for="Age" />
+                    <span asp-validation-for="Age"></span>
+                </div>
+            </div>
+            <br />
+            <div>
+                <label asp-for="Zipcode"></label>
+                <div>
+                    <input asp-for="Zipcode" />
+                    <span asp-validation-for="Zipcode"></span>
+                </div>
+            </div>
+            <br />
+            <div>
+                <div>
+                    <input type="submit" value="Action with limits" onclick="postTo('@Url.Action("ActionSpecificLimits")');" />
+                    <span>This posts to an action which has set a form field key limit to only 2. So when this form is posted, the request would fail with an exception</span>
+                </div>
+                <br />
+                <div>
+                    <input type="submit" value="Application wide limits" onclick="postTo('@Url.Action("ApplicationWideLimits")');" />
+                    <span>This posts to an action which uses application wide limits and has a key limit of 10, so this request would succeed.</span>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        function postTo(action) {
+            var form = document.forms[0];
+            form.action = action;
+            form.enctype = "application/x-www-form-urlencoded";
+            form.method = "post";
+        }
+    </script>
+}

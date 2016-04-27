@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        <label style="font-weight: bold">This sample demonstrates:</label><br />
+        <a asp-controller="RequestFormLimits" asp-action="Index">Request Form Limits</a><br />
+        <a asp-controller="File" asp-action="FormToUpload">Upload files using Ajax and multipart/form-data</a>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
