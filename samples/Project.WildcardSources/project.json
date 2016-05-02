@@ -1,10 +1,12 @@
 {
-  "compilationOptions": {
-    "emitEntryPoint": true
+  "buildOptions": {
+    "emitEntryPoint": true,
+    "embed": {
+      "include": "embed/**/*.*"
+    }
   },
   "compile": "*.cs",
   "exclude": "buggy/**/*.cs",
-  "resource": "embed/**/*.*",
   "frameworks": {
     "net451": {},
     "netcoreapp1.0": {

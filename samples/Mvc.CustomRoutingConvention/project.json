@@ -1,5 +1,5 @@
 {
-  "compilationOptions": {
+  "buildOptions": {
     "emitEntryPoint": true,
     "preserveCompilationContext": true
   },
@@ -24,9 +24,11 @@
       ]
     }
   },
-  "content": [
-    "web.config"
-  ],
+  "publishOptions": {
+    "include": [
+      "web.config"
+    ]
+  },
   "tools": {
     "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
       "version": "1.0.0-*",

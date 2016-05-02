@@ -1,5 +1,5 @@
 {
-  "compilationOptions": {
+  "buildOptions": {
     "emitEntryPoint": true,
     "preserveCompilationContext": true
   },
@@ -23,7 +23,9 @@
       ]
     }
   },
-  "content": [
-    "Views"
-  ]
+  "publishOptions": {
+    "include": [
+      "Views"
+    ]
+  }
 }

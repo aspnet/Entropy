@@ -23,13 +23,15 @@
       ]
     }
   },
-  "compilationOptions": {
+  "buildOptions": {
     "emitEntryPoint": true
   },
-  "content": [
-    "Config.Sources.ini",
-    "web.config"
-  ],
+  "publishOptions": {
+    "include": [
+      "Config.Sources.ini",
+      "web.config"
+    ]
+  },
   "tools": {
     "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
       "version": "1.0.0-*",

@@ -6,7 +6,7 @@
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-*",
     "Microsoft.NETCore.Platforms": "1.0.1-*"
   },
-  "compilationOptions": {
+  "buildOptions": {
     "emitEntryPoint": true
   },
   "frameworks": {
@@ -23,9 +23,11 @@
       ]
     }
   },
-  "content": [
-    "web.config"
-  ],
+  "publishOptions": {
+    "include": [
+      "web.config"
+    ]
+  },
   "tools": {
     "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
       "version": "1.0.0-*",

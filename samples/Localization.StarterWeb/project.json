@@ -1,7 +1,7 @@
 {
   "userSecretsId": "aspnet5-Localization.StarterWeb-4772c50f-56f3-4058-bd61-75f1352aeca7",
   "version": "1.0.0-*",
-  "compilationOptions": {
+  "buildOptions": {
     "emitEntryPoint": true,
     "preserveCompilationContext": true
   },
@@ -48,11 +48,13 @@
       ]
     }
   },
-  "content": [
-    "appsettings.json",
-    "Views",
-    "web.config"
-  ],
+  "publishOptions": {
+    "include": [
+      "appsettings.json",
+      "Views",
+      "web.config"
+    ]
+  },
   "tools": {
     "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
       "version": "1.0.0-*",

@@ -3,7 +3,7 @@
     "Microsoft.Extensions.PlatformAbstractions": "1.0.0-*",
     "Microsoft.NETCore.Platforms": "1.0.1-*"
   },
-  "compilationOptions": {
+  "buildOptions": {
     "emitEntryPoint": true
   },
   "frameworks": {
