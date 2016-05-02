@@ -6,15 +6,17 @@
     "Microsoft.NETCore.Platforms": "1.0.1-*",
     "Nowin": "0.11.0"
   },
-  "compilationOptions": {
+  "buildOptions": {
     "emitEntryPoint": true
   },
   "frameworks": {
     "net451": {}
   },
-  "content": [
-    "web.config"
-  ],
+  "publishOptions": {
+    "include": [
+      "web.config"
+    ]
+  },
   "tools": {
     "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
       "version": "1.0.0-*",

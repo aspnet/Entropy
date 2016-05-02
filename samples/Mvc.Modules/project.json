@@ -8,7 +8,7 @@
     "Microsoft.Extensions.Configuration.Json": "1.0.0-*",
     "Microsoft.NETCore.Platforms": "1.0.1-*"
   },
-  "compilationOptions": {
+  "buildOptions": {
     "emitEntryPoint": true,
     "preserveCompilationContext": true
   },
@@ -27,11 +27,13 @@
       ]
     }
   },
-  "content": [
-    "config.json",
-    "Views",
-    "web.config"
-  ],
+  "publishOptions": {
+    "include": [
+      "config.json",
+      "Views",
+      "web.config"
+    ]
+  },
   "tools": {
     "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
       "version": "1.0.0-*",

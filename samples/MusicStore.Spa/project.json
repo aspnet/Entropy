@@ -3,7 +3,7 @@
     "Microsoft"
   ],
   "description": "Music store application on ASP.NET Core as a SPA",
-  "compilationOptions": {
+  "buildOptions": {
     "emitEntryPoint": true,
     "preserveCompilationContext": true,
     "define": [
@@ -40,12 +40,14 @@
       ]
     }
   },
-  "content": [
-    "config.json",
-    "Views",
-    "Pages",
-    "web.config"
-  ],
+  "publishOptions": {
+    "include": [
+      "config.json",
+      "Views",
+      "Pages",
+      "web.config"
+    ]
+  },
   "tools": {
     "Microsoft.AspNetCore.Server.IISIntegration.Tools": {
       "version": "1.0.0-*",
