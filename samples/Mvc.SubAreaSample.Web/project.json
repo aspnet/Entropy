@@ -38,7 +38,7 @@
       "version": "1.0.0-*",
       "imports": "portable-net45+wp80+win8+wpa81+dnxcore50"
     },
-    "dotnet-razor-tooling": {
+    "Microsoft.AspNetCore.Razor.Tools": {
       "version": "1.0.0-*",
       "imports": [
         "net45"
