@@ -46,7 +46,7 @@ namespace EntropyTests
                     ApplicationBaseUriHint = applicationBaseUrl,
                     SiteName = "HttpTestSite",
                     PublishApplicationBeforeDeployment = true,
-                    PublishTargetFramework = runtimeFlavor == RuntimeFlavor.Clr ? "net451" : "netcoreapp1.0",
+                    TargetFramework = runtimeFlavor == RuntimeFlavor.Clr ? "net451" : "netcoreapp1.0",
                     ApplicationType = runtimeFlavor == RuntimeFlavor.Clr ? ApplicationType.Standalone : ApplicationType.Portable
                 };
 
