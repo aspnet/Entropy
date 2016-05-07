@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+using Xunit;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -21,3 +22,6 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("42409264-0678-4c62-a8e2-702dc1177f39")]
+
+// Do not run tests in parallel
+[assembly: CollectionBehavior(CollectionBehavior.CollectionPerAssembly)]
