@@ -3,10 +3,12 @@
     "emitEntryPoint": true,
     "embed": {
       "include": "embed/**/*.*"
+    },
+    "compile": {
+      "include": "*.cs",
+      "exclude": "buggy/**/*.cs"
     }
   },
-  "compile": "*.cs",
-  "exclude": "buggy/**/*.cs",
   "frameworks": {
     "net451": {},
     "netcoreapp1.0": {

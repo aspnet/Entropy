@@ -1,9 +1,11 @@
 {
   "buildOptions": {
     "warningsAsErrors": true,
-    "define": [ "__RemoveThisBitTo__GENERATE_BASELINES" ]
+    "define": [ "__RemoveThisBitTo__GENERATE_BASELINES" ],
+    "embed": {
+      "include": "resources/*.*"
+    }
   },
-  "resource": "resources/*.*",
   "dependencies": {
     "dotnet-test-xunit": "1.0.0-*",
     "Microsoft.AspNetCore.Hosting": "1.0.0-*",
