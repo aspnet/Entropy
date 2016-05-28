@@ -30,7 +30,7 @@ namespace Microsoft.AspNetCore.Mvc.TagHelpers
 
             if (aspLocAttr != null)
             {
-                var resourceKey = aspLocAttr.Minimized
+                var resourceKey = aspLocAttr.ValueStyle == HtmlAttributeValueStyle.Minimized
                     ? (await output.GetChildContentAsync()).GetContent()
                     : aspLocAttr.Value.ToString();
                 output.Content.SetHtmlContent(localizer.GetHtml(resourceKey));
@@ -46,11 +46,11 @@ namespace Microsoft.AspNetCore.Mvc.TagHelpers
                 if (attributeToLocalizeIndex != -1)
                 {
                     var attributeToLocalize = output.Attributes[attributeToLocalizeIndex];
-                    var resourceKey = attribute.Minimized
+                    var resourceKey = attribute.ValueStyle == HtmlAttributeValueStyle.Minimized
                         ? attributeToLocalize.Value.ToString()
                         : attribute.Value.ToString();
                     var value = localizer.GetHtml(resourceKey);
-                    output.Attributes[attributeToLocalizeIndex] = new TagHelperAttribute(attributeToLocalize.Name, value, attributeToLocalize.Minimized);
+                    output.Attributes[attributeToLocalizeIndex] = new TagHelperAttribute(attributeToLocalize.Name, value, attributeToLocalize.ValueStyle);
                 }
                 output.Attributes.Remove(attribute);
             }
