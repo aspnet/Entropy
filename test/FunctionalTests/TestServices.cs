@@ -67,14 +67,20 @@ namespace EntropyTests
 
         public static string GetApplicationDirectory(string applicationName)
         {
+            var solutionRoot = GetSolutionDirectory();
+            return Path.Combine(solutionRoot, "samples", applicationName);
+        }
+
+        public static string GetSolutionDirectory()
+        {
             var applicationBasePath = PlatformServices.Default.Application.ApplicationBasePath;
             var directoryInfo = new DirectoryInfo(applicationBasePath);
             do
             {
-                var slnFile = new FileInfo(Path.Combine(directoryInfo.FullName, "Entropy.sln"));
-                if (slnFile.Exists)
+                var solutionFile = new FileInfo(Path.Combine(directoryInfo.FullName, "Entropy.sln"));
+                if (solutionFile.Exists)
                 {
-                    return Path.Combine(directoryInfo.FullName, "samples", applicationName);
+                    return directoryInfo.FullName;
                 }
 
                 directoryInfo = directoryInfo.Parent;

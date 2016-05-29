@@ -47,7 +47,7 @@ namespace EntropyTests
             AssertRedirectsToHome(createBobbyResponse);
 
             var expectedMediaType = MediaTypeHeaderValue.Parse("text/html; charset=utf-8");
-            var resourceFile = "FunctionalTests.resources.TagHelperSample.Web.Home.Index.html";
+            var resourceFile = "TagHelperSample.Web.Home.Index.html";
 
             // Act
             var response = await Client.GetAsync("http://localhost/");
@@ -69,7 +69,7 @@ namespace EntropyTests
             AssertRedirectsToHome(resetResponse);
 
             var expectedMediaType = MediaTypeHeaderValue.Parse("text/html; charset=utf-8");
-            var resourceFile = "FunctionalTests.resources.TagHelperSample.Web.Home.Index-Reset.html";
+            var resourceFile = "TagHelperSample.Web.Home.Index-Reset.html";
 
             // Act
             var response = await Client.GetAsync("http://localhost/");
@@ -194,7 +194,7 @@ namespace EntropyTests
         {
             // Arrange
             var expectedMediaType = MediaTypeHeaderValue.Parse("text/html; charset=utf-8");
-            var resourceFile = "FunctionalTests.resources.TagHelperSample.Web.TagHelper.ConditionalComment.html";
+            var resourceFile = "TagHelperSample.Web.TagHelper.ConditionalComment.html";
 
             // Act
             var response = await Client.GetAsync("http://localhost/TagHelper/ConditionalComment");
@@ -238,18 +238,18 @@ namespace EntropyTests
 #if GENERATE_BASELINES
             // Normalize line endings to '\r\n' for comparison. This removes Environment.NewLine from the equation. Not
             // worth updating files just because we generate baselines on a different system.
-            var normalizedPreviousContent = previousContent?.Replace("\r", "").Replace("\n", "\r\n");
-            var normalizedContent = content.Replace("\r", "").Replace("\n", "\r\n");
+            var normalizedPreviousContent = expected?.Replace("\r", "").Replace("\n", "\r\n");
+            var normalizedContent = actual.Replace("\r", "").Replace("\n", "\r\n");
 
             if (!string.Equals(normalizedPreviousContent, normalizedContent, StringComparison.Ordinal))
             {
-                var projectPath = Microsoft.Extensions.PlatformAbstractions.PlatformServices
-                    .Default.Application.ApplicationBasePath;
-                var fullPath = Path.Combine(projectPath, resourceName);
+                var solutionRoot = TestServices.GetSolutionDirectory();
+                var projectName = GetType().GetTypeInfo().Assembly.GetName().Name;
+                var fullPath = Path.Combine(solutionRoot, "test", GetProjectName(), "resources", resourceFile);
                 lock (_writeLock)
                 {
                     // Write content to the file, creating it if necessary.
-                    File.WriteAllText(fullPath, content);
+                    File.WriteAllText(fullPath, actual);
                 }
             }
 #else
@@ -259,6 +259,7 @@ namespace EntropyTests
 
         private static string GetResourceContent(string resourceFile)
         {
+            resourceFile = $"{GetProjectName()}.resources.{resourceFile}";
             var assembly = typeof(TagHelperSampleTest).GetTypeInfo().Assembly;
             using (var streamReader = new StreamReader(assembly.GetManifestResourceStream(resourceFile)))
             {
@@ -268,5 +269,7 @@ namespace EntropyTests
                 return streamReader.ReadToEnd().Replace("\r", "").Replace("\n", "\r\n");
             }
         }
+
+        private static string GetProjectName() => typeof(TagHelperSampleTest).GetTypeInfo().Assembly.GetName().Name;
     }
 }
