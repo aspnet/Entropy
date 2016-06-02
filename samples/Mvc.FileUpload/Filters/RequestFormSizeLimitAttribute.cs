@@ -12,11 +12,11 @@ namespace Mvc.FileUpload.Filters
     {
         private readonly FormOptions _formOptions;
 
-        public RequestFormSizeLimitAttribute(int keyCountLimit)
+        public RequestFormSizeLimitAttribute(int valueCountLimit)
         {
             _formOptions = new FormOptions()
             {
-                KeyCountLimit = keyCountLimit
+                ValueCountLimit = valueCountLimit
             };
         }
 

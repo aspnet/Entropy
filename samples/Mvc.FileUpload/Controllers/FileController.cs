@@ -104,10 +104,10 @@ namespace Mvc.FileUpload.Controllers
                         var value = await streamReader.ReadToEndAsync();
                         formAccumulator.Append(key, value);
 
-                        if (formAccumulator.Count > _defaultFormOptions.KeyCountLimit)
+                        if (formAccumulator.ValueCount > _defaultFormOptions.ValueCountLimit)
                         {
                             throw new InvalidDataException(
-                                $"Form key count limit {_defaultFormOptions.KeyCountLimit} exceeded.");
+                                $"Form key count limit {_defaultFormOptions.ValueCountLimit} exceeded.");
                         }
                     }
                 }

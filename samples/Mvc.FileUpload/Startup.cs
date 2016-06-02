@@ -31,7 +31,7 @@ namespace Mvc.FileUpload
             // These options are used by the FormFeature.
             services.Configure<FormOptions>(options =>
             {
-                options.KeyCountLimit = 10;
+                options.ValueCountLimit = 10;
             });
 
             services.AddMvc();

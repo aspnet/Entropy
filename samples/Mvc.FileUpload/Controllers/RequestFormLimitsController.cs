@@ -16,7 +16,7 @@ namespace Mvc.FileUpload.Controllers
         // limits are honored when the antiforgery validation filter tries to read the form. These form size limits
         // only apply to this action.
         [HttpPost]
-        [RequestFormSizeLimit(keyCountLimit: 3, Order = 1)]
+        [RequestFormSizeLimit(valueCountLimit: 3, Order = 1)]
         [ValidateAntiForgeryToken(Order = 2)]
         public IActionResult ActionSpecificLimits(User user)
         {
