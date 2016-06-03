@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "Microsoft.NETCore.Platforms": "1.0.1-*",
-    "Newtonsoft.Json": "8.0.3",
+    "Newtonsoft.Json": "9.0.1-beta1",
     "Project.ProjectReference": "1.0.0-*",
     "Project.SharedFiles": "1.0.0-*"
   },
