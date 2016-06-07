@@ -10,7 +10,8 @@ namespace CustomRouteSample.Web.Controllers
         [HttpGet("Orders/{id}")]
         public string Index(int id)
         {
-            return "Hello from " + RouteData.Values["locale"] + ".";
+            var locale = RouteData.Values["locale"] as string;
+            return "Hello from " + (string.IsNullOrEmpty(locale) ? "en-US" : locale) + ".";
         }
     }
 }

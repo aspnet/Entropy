@@ -37,8 +37,10 @@ namespace EntropyTests
         }
 
         [Theory]
-        [InlineData("Javier", "Hello from es-ES.")]
-        [InlineData("Doug", "Hello from en-CA.")]
+        // We removed the ability to inject a custom IRouter for attribute routing in 1.0.0. We're going to bring
+        // it back in the future. Leaving this test in place to verify that it doesn't work for the time being.
+        [InlineData("Javier", "Hello from es-US.")]
+        [InlineData("Doug", "Hello from en-US.")]
         [InlineData("Ryan", "Hello from en-US.")]
         public async Task RouteWithAttributeRoute_IncludesLocale_BasedOnUser(string user, string expected)
         {
