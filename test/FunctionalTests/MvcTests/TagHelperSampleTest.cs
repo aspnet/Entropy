@@ -154,24 +154,23 @@ namespace EntropyTests
         {
             get
             {
-                return new TheoryData<Func<HttpClient, Task<HttpResponseMessage>>>
+                return new TheoryData<Func<HttpClient, Task<IEnumerable<HttpResponseMessage>>>>
                 {
-                    async (client) =>  await client.GetAsync("http://localhost/Movies"),
-                    async (client) =>  await client.PostAsync(
+                    async (client) =>  new [] { await client.GetAsync("http://localhost/Movies") },
+                    async (client) =>  new [] { await client.PostAsync(
                         "http://localhost/Movies/UpdateMovieRatings",
-                        new FormUrlEncodedContent(Enumerable.Empty<KeyValuePair<string, string>>())),
-                    async (client) =>  await client.PostAsync(
+                        new FormUrlEncodedContent(Enumerable.Empty<KeyValuePair<string, string>>())) },
+                    async (client) => new [] { await client.PostAsync(
                         "http://localhost/Movies/UpdateCriticsQuotes",
-                        new FormUrlEncodedContent(Enumerable.Empty<KeyValuePair<string, string>>())),
-                    async (client) =>
-                    {
+                        new FormUrlEncodedContent(Enumerable.Empty<KeyValuePair<string, string>>())) },
+                    async (client) => new [] {
                         await client.PostAsync(
                             "http://localhost/Movies/UpdateCriticsQuotes",
-                            new FormUrlEncodedContent(Enumerable.Empty<KeyValuePair<string, string>>()));
+                            new FormUrlEncodedContent(Enumerable.Empty<KeyValuePair<string, string>>())),
                         await client.PostAsync(
                             "http://localhost/Movies/UpdateCriticsQuotes",
-                            new FormUrlEncodedContent(Enumerable.Empty<KeyValuePair<string, string>>()));
-                        return await client.GetAsync("http://localhost/Movies/Index");
+                            new FormUrlEncodedContent(Enumerable.Empty<KeyValuePair<string, string>>())),
+                        await client.GetAsync("http://localhost/Movies/Index")
                     }
                 };
             }
@@ -179,13 +178,16 @@ namespace EntropyTests
 
         [Theory]
         [MemberData(nameof(MoviesControllerPageData))]
-        public async Task MoviesController_Pages_ReturnSuccess(Func<HttpClient, Task<HttpResponseMessage>> requestPage)
+        public async Task MoviesController_Pages_ReturnSuccess(Func<HttpClient, Task<IEnumerable<HttpResponseMessage>>> requestPages)
         {
             // Act
-            var response = await requestPage(Client);
+            var responses = await requestPages(Client);
 
-            // Assert
-            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+            foreach (var response in responses)
+            {
+                // Assert
+                Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+            }
         }
 
         [Fact]
