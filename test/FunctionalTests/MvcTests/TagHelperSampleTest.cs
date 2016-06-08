@@ -171,7 +171,6 @@ namespace EntropyTests
                         await client.PostAsync(
                             "http://localhost/Movies/UpdateCriticsQuotes",
                             new FormUrlEncodedContent(Enumerable.Empty<KeyValuePair<string, string>>()));
-
                         return await client.GetAsync("http://localhost/Movies/Index");
                     }
                 };

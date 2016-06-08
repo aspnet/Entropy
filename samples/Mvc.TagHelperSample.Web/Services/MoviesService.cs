@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Primitives;
 using TagHelperSample.Web.Models;
 
@@ -12,30 +13,38 @@ namespace TagHelperSample.Web.Services
 {
     public class MoviesService
     {
+        private const string QuotesTokenKey = "quotes";
+        private const string FeaturedTokenKey = "featured";
+
         private readonly Random _random = new Random();
 
-        private CancellationTokenSource _featuredMoviesTokenSource;
-        private CancellationTokenSource _quotesTokenSource;
+        private readonly IMemoryCache _memoryCache;
+        private readonly ISignalTokenProviderService _tokenProviderService;
 
-        public IEnumerable<FeaturedMovies> GetFeaturedMovies(out IChangeToken expirationToken)
+        public MoviesService(IMemoryCache memoryCache, ISignalTokenProviderService tokenProviderService)
         {
-            _featuredMoviesTokenSource = new CancellationTokenSource();
+            _memoryCache = memoryCache;
+            _tokenProviderService = tokenProviderService;
+        }
 
-            expirationToken = new CancellationChangeToken(_featuredMoviesTokenSource.Token);
-            return GetMovies().OrderBy(m => m.Rank).Take(2);
+        public IEnumerable<FeaturedMovies> GetFeaturedMovies()
+        {
+            return _memoryCache.GetOrCreate(FeaturedTokenKey, (entry) =>
+                {
+                    entry.SetOptions(new MemoryCacheEntryOptions()
+                        .AddExpirationToken(_tokenProviderService.GetToken(FeaturedTokenKey)));
+                    return GetMovies().OrderBy(m => m.Rank).Take(2);
+                }
+            );
         }
 
         public void UpdateMovieRating()
         {
-            _featuredMoviesTokenSource.Cancel();
-            _featuredMoviesTokenSource.Dispose();
-            _featuredMoviesTokenSource = null;
+            _tokenProviderService.SignalToken(FeaturedTokenKey);
         }
 
-        public string GetCriticsQuote(out IChangeToken expirationToken)
+        public string GetCriticsQuote(string movieName)
         {
-            _quotesTokenSource = new CancellationTokenSource();
-
             var quotes = new[]
             {
                 "A must see for iguana lovers everywhere",
@@ -44,15 +53,18 @@ namespace TagHelperSample.Web.Services
                 "Bravo!"
             };
 
-            expirationToken = new CancellationChangeToken(_quotesTokenSource.Token);
-            return quotes[_random.Next(0, quotes.Length)];
+            return _memoryCache.GetOrCreate(movieName, (entry) =>
+                {
+                    entry.SetOptions(new MemoryCacheEntryOptions()
+                        .AddExpirationToken(_tokenProviderService.GetToken(QuotesTokenKey)));
+                    return quotes[_random.Next(0, quotes.Length)];
+                }
+            );
         }
 
         public void UpdateCriticsQuotes()
         {
-            _quotesTokenSource.Cancel();
-            _quotesTokenSource.Dispose();
-            _quotesTokenSource = null;
+            _tokenProviderService.SignalToken(QuotesTokenKey);
         }
 
         private IEnumerable<FeaturedMovies> GetMovies()

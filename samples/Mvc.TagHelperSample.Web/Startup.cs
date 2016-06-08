@@ -19,6 +19,7 @@ namespace TagHelperSample.Web
             services.AddMvc();
 
             services.AddSingleton<MoviesService>();
+            services.AddSingleton<ISignalTokenProviderService, SignalTokenProviderService>();
         }
 
         public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
@@ -27,8 +28,6 @@ namespace TagHelperSample.Web
                 name.StartsWith("Microsoft.AspNetCore.Mvc.TagHelpers", StringComparison.OrdinalIgnoreCase)
                 || (name.StartsWith("Microsoft.Net.Http.Server.WebListener", StringComparison.OrdinalIgnoreCase)
                     && logLevel >= LogLevel.Information));
-
-            app.UseDeveloperExceptionPage();
 
             app.UseStaticFiles();
 
