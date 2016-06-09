@@ -19,11 +19,7 @@
     "netstandard1.6": {
       "dependencies": {
         "NETStandard.Library": "1.5.0-*"
-      },
-      "imports": [
-        "dotnet5.6",
-        "portable-net451+win8"
-      ]
+      }
     }
   }
 }
