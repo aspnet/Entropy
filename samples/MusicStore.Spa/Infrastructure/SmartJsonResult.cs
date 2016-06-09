@@ -1,6 +1,6 @@
-using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Newtonsoft.Json;
 
 namespace Microsoft.AspNetCore.Mvc
@@ -9,7 +9,6 @@ namespace Microsoft.AspNetCore.Mvc
     {
         public SmartJsonResult() : base()
         {
-            
         }
 
         public JsonSerializerSettings Settings { get; set; }
@@ -29,8 +28,8 @@ namespace Microsoft.AspNetCore.Mvc
             //    context.HttpContext.Response.ContentType = "application/json";
             //    context.HttpContext.Response.ContentEncoding = Encoding.UTF8;
             //}
-            
-            return context.HttpContext.Response.WriteAsync(JsonConvert.SerializeObject(Data, Settings ?? new JsonSerializerSettings()));
+            var settings = Settings ?? JsonSerializerSettingsProvider.CreateSerializerSettings();
+            return context.HttpContext.Response.WriteAsync(JsonConvert.SerializeObject(Data, settings));
         }
     }
 }

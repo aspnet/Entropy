@@ -301,7 +301,7 @@ namespace EntropyTests
             // Assert
             var body = await response.Content.ReadAsStringAsync();
             dynamic d = JObject.Parse(body);
-            Assert.Equal("OrderTypeSetInConverter", (string)d.Orders[2].OrderType);
+            Assert.Equal("OrderTypeSetInConverter", (string)d.orders[2].orderType);
         }
 
         [Fact]
@@ -324,7 +324,7 @@ namespace EntropyTests
             // Assert
             var body = await response.Content.ReadAsStringAsync();
             dynamic d = JObject.Parse(body);
-            Assert.Equal("CategorySetInConverter", (string)d.ProductCategory.CategoryName);
+            Assert.Equal("CategorySetInConverter", (string)d.productCategory.CategoryName);
 
         }
     }

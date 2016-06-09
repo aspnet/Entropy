@@ -30,7 +30,7 @@ namespace EntropyTests
 
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-            Assert.Equal(@"{""SampleInt"":5}", await response.Content.ReadAsStringAsync());
+            Assert.Equal(@"{""sampleInt"":5}", await response.Content.ReadAsStringAsync());
         }
 
         [Fact]
@@ -41,7 +41,7 @@ namespace EntropyTests
 
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-            Assert.Equal(@"{""SampleInt"":5}", await response.Content.ReadAsStringAsync());
+            Assert.Equal(@"{""sampleInt"":5}", await response.Content.ReadAsStringAsync());
         }
 
         [Fact]
@@ -56,7 +56,7 @@ namespace EntropyTests
 
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-            Assert.Equal(@"{""SampleInt"":0}", await response.Content.ReadAsStringAsync());
+            Assert.Equal(@"{""sampleInt"":0}", await response.Content.ReadAsStringAsync());
         }
 
         [Fact]
@@ -107,7 +107,7 @@ namespace EntropyTests
 
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-            Assert.Equal(@"{""SampleInt"":5}", await response.Content.ReadAsStringAsync());
+            Assert.Equal(@"{""sampleInt"":5}", await response.Content.ReadAsStringAsync());
         }
 
         [Fact]
