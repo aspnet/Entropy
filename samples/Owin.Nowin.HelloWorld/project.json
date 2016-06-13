@@ -3,7 +3,6 @@
     "Microsoft.AspNetCore.Hosting": "1.0.0-*",
     "Microsoft.AspNetCore.Owin": "1.0.0-*",
     "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-*",
-    "Microsoft.NETCore.Platforms": "1.0.1-*",
     "Nowin": "0.11.0"
   },
   "buildOptions": {

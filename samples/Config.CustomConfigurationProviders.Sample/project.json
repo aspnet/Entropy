@@ -11,7 +11,6 @@
   "dependencies": {
     "Microsoft.Extensions.Configuration": "1.0.0-*",
     "Microsoft.Extensions.Logging.Abstractions": "1.0.0-*",
-    "Microsoft.NETCore.Platforms": "1.0.1-*",
     "System.Collections.Immutable": "1.2.0-*"
   },
   "frameworks": {
