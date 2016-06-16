@@ -1,15 +1,15 @@
 {
   "dependencies": {
-    "Microsoft.AspNetCore.Hosting": "1.0.0-*",
-    "Microsoft.AspNetCore.Owin": "1.0.0-*",
-    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-*",
+    "Microsoft.AspNetCore.Hosting": "1.1.0-*",
+    "Microsoft.AspNetCore.Owin": "1.1.0-*",
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.1.0-*",
     "Nowin": "0.11.0"
   },
   "buildOptions": {
     "emitEntryPoint": true
   },
   "frameworks": {
-    "net451": { }
+    "net451": {}
   },
   "publishOptions": {
     "include": [

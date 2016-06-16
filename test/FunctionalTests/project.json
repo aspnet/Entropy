@@ -1,18 +1,20 @@
 {
   "buildOptions": {
     "warningsAsErrors": true,
-    "define": [ "__RemoveThisBitTo__GENERATE_BASELINES" ],
+    "define": [
+      "__RemoveThisBitTo__GENERATE_BASELINES"
+    ],
     "embed": {
       "include": "resources/*.*"
     }
   },
   "dependencies": {
     "dotnet-test-xunit": "1.0.0-*",
-    "Microsoft.AspNetCore.Hosting": "1.0.0-*",
-    "Microsoft.AspNetCore.Server.Testing": "0.1.0-*",
-    "Microsoft.AspNetCore.TestHost": "1.0.0-*",
-    "Microsoft.AspNetCore.Testing": "1.0.0-*",
-    "Microsoft.Extensions.Logging.Console": "1.0.0-*",
+    "Microsoft.AspNetCore.Hosting": "1.1.0-*",
+    "Microsoft.AspNetCore.Server.Testing": "0.2.0-*",
+    "Microsoft.AspNetCore.TestHost": "1.1.0-*",
+    "Microsoft.AspNetCore.Testing": "1.1.0-*",
+    "Microsoft.Extensions.Logging.Console": "1.1.0-*",
     "Mvc.ActionConstraintSample.Web": "1.0.0",
     "Mvc.CustomRouteSample.Web": "1.0.0",
     "Mvc.CustomRoutingConvention": "1.0.0",

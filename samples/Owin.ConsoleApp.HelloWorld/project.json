@@ -1,11 +1,11 @@
 {
-  "version": "1.0.0-*",
+  "version": "1.1.0-*",
   "buildOptions": {
     "emitEntryPoint": true
   },
   "dependencies": {
-    "Microsoft.Extensions.DependencyInjection": "1.0.0-*",
-    "Microsoft.AspNetCore.Owin": "1.0.0-*",
+    "Microsoft.Extensions.DependencyInjection": "1.1.0-*",
+    "Microsoft.AspNetCore.Owin": "1.1.0-*",
     "Nowin": "0.11.0"
   },
   "frameworks": {
