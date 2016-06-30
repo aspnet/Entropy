@@ -6,10 +6,13 @@
     ],
     "embed": {
       "include": "resources/*.*"
+    },
+    "copyToOutput": {
+      "include": "nginx.conf"
     }
   },
   "dependencies": {
-    "dotnet-test-xunit": "1.0.0-*",
+    "dotnet-test-xunit": "2.2.0-*",
     "Microsoft.AspNetCore.Hosting": "1.1.0-*",
     "Microsoft.AspNetCore.Server.Testing": "0.2.0-*",
     "Microsoft.AspNetCore.TestHost": "1.1.0-*",
@@ -26,7 +29,7 @@
     "Mvc.SubAreaSample.Web": "1.0.0",
     "Mvc.TagHelperSample.Web": "1.0.0",
     "Mvc.UrlHelperSample.Web": "1.0.0",
-    "xunit": "2.1.0"
+    "xunit": "2.2.0-*"
   },
   "frameworks": {
     "netcoreapp1.0": {
@@ -35,16 +38,9 @@
           "version": "1.0.0-*",
           "type": "platform"
         }
-      },
-      "imports": [
-        "dnxcore50",
-        "portable-net451+win8"
-      ]
+      }
     },
     "net451": {}
   },
-  "content": [
-    "nginx.conf"
-  ],
   "testRunner": "xunit"
 }
