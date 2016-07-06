@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -20,10 +21,6 @@ namespace Mvc.FileUpload.Controllers
     {
         private readonly IHostingEnvironment _hostingEnvironment;
         private readonly ILogger<FileController> _logger;
-
-        // Get the default form options so that we can use them to set the default limits for
-        // request body data
-        private static readonly FormOptions _defaultFormOptions = new FormOptions();
 
         public FileController(IHostingEnvironment hostingEnvironment, ILogger<FileController> logger)
         {
@@ -47,7 +44,8 @@ namespace Mvc.FileUpload.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Upload()
         {
-            if (!MultipartRequestHelper.IsMultipartContentType(Request.ContentType))
+            var multipartBoundary = Request.GetMultipartBoundry();
+            if (string.IsNullOrEmpty(multipartBoundary))
             {
                 return BadRequest($"Expected a multipart request, but got '{Request.ContentType}'.");
             }
@@ -56,58 +54,41 @@ namespace Mvc.FileUpload.Controllers
             var formAccumulator = new KeyValueAccumulator();
             string targetFilePath = null;
 
-            var boundary = MultipartRequestHelper.GetBoundary(
-                MediaTypeHeaderValue.Parse(Request.ContentType), _defaultFormOptions.MultipartBoundaryLengthLimit);
-            var reader = new MultipartReader(boundary, HttpContext.Request.Body);
+            var reader = new MultipartReader(multipartBoundary, HttpContext.Request.Body);
 
             var section = await reader.ReadNextSectionAsync();
             while (section != null)
             {
-                ContentDispositionHeaderValue contentDisposition;
-                ContentDispositionHeaderValue.TryParse(section.ContentDisposition, out contentDisposition);
+                // This will reparse the content disposition header
+                // Create a FileMultipartSection using it's constructor to pass
+                // in a cached disposition header
+                var fileSection = section.AsFileSection();
+                if (fileSection !=null)
+                { 
+                    var fileName = fileSection.FileName;
 
-                if (MultipartRequestHelper.HasFileContentDisposition(contentDisposition))
-                {
-                    var name = HeaderUtilities.RemoveQuotes(contentDisposition.Name) ?? string.Empty;
-                    var fileName = HeaderUtilities.RemoveQuotes(contentDisposition.FileName) ?? string.Empty;
-
-                    // Here the uploaded file is being copied to local disk but you can also for example, copy the
-                    // stream directly to let's say Azure blob storage
                     targetFilePath = Path.Combine(_hostingEnvironment.ContentRootPath, Guid.NewGuid().ToString());
                     using (var targetStream = System.IO.File.Create(targetFilePath))
                     {
-                        await section.Body.CopyToAsync(targetStream);
+                        await fileSection.FileStream.CopyToAsync(targetStream);
 
                         _logger.LogInformation($"Copied the uploaded file '{fileName}' to '{targetFilePath}'.");
                     }
                 }
-                else if (MultipartRequestHelper.HasFormDataContentDisposition(contentDisposition))
+                else
                 {
-                    // Content-Disposition: form-data; name="key"
-                    //
-                    // value
-
-                    // Do not limit the key name length here because the mulipart headers length
-                    // limit is already in effect.
-                    var key = HeaderUtilities.RemoveQuotes(contentDisposition.Name);
-                    MediaTypeHeaderValue mediaType;
-                    MediaTypeHeaderValue.TryParse(section.ContentType, out mediaType);
-                    var encoding = FilterEncoding(mediaType?.Encoding);
-                    using (var streamReader = new StreamReader(
-                        section.Body,
-                        encoding,
-                        detectEncodingFromByteOrderMarks: true,
-                        bufferSize: 1024,
-                        leaveOpen: true))
+                    var formSection = section.AsFormDataSection();
+                    if (formSection != null)
                     {
-                        // The value length limit is enforced by MultipartBodyLengthLimit
-                        var value = await streamReader.ReadToEndAsync();
-                        formAccumulator.Append(key, value);
+                        var name = formSection.Name;
+                        var value = await formSection.GetValueAsync();
 
-                        if (formAccumulator.ValueCount > _defaultFormOptions.ValueCountLimit)
+                        formAccumulator.Append(name, value);
+
+                        if (formAccumulator.ValueCount > FormReader.DefaultValueCountLimit)
                         {
                             throw new InvalidDataException(
-                                $"Form key count limit {_defaultFormOptions.ValueCountLimit} exceeded.");
+                                $"Form key count limit {FormReader.DefaultValueCountLimit} exceeded.");
                         }
                     }
                 }
