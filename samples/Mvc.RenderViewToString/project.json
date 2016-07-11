@@ -1,7 +1,10 @@
 {
   "buildOptions": {
     "emitEntryPoint": true,
-    "preserveCompilationContext": true
+    "preserveCompilationContext": true,
+    "copyToOutput": {
+      "include": "Views"
+    }
   },
   "dependencies": {
     "Microsoft.AspNetCore.Mvc": "1.1.0-*",

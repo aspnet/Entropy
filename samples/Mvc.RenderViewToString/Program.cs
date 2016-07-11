@@ -3,11 +3,13 @@
 
 using System;
 using System.Diagnostics;
+using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.Internal;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.ObjectPool;
 using Microsoft.Extensions.PlatformAbstractions;
 
 namespace Mvc.RenderViewToString
@@ -16,9 +18,16 @@ namespace Mvc.RenderViewToString
     {
         public static void Main()
         {
+            var emailContent = RenderView();
+            Console.WriteLine(emailContent);
+            Console.ReadLine();
+        }
+
+        public static string RenderView(string customApplicationBasePath = null)
+        {
             // Initialize the necessary services
             var services = new ServiceCollection();
-            ConfigureDefaultServices(services, customApplicationBasePath: null);
+            ConfigureDefaultServices(services, customApplicationBasePath);
 
             // Add a custom service that is used in the view.
             services.AddSingleton<EmailReportGenerator>();
@@ -33,25 +42,38 @@ namespace Mvc.RenderViewToString
                 UserData1 = 1,
                 UserData2 = 2
             };
-            var emailContent = helper.RenderViewToString("EmailTemplate", model);
-            Console.WriteLine(emailContent);
-            Console.ReadLine();
+
+            return helper.RenderViewToString("EmailTemplate", model);
         }
 
         private static void ConfigureDefaultServices(IServiceCollection services, string customApplicationBasePath)
         {
             var applicationEnvironment = PlatformServices.Default.Application;
-            services.AddSingleton(applicationEnvironment);
+            string applicationName;
+            IFileProvider fileProvider;
+            if (!string.IsNullOrEmpty(customApplicationBasePath))
+            {
+                applicationName = Path.GetFileName(customApplicationBasePath);
+                fileProvider = new PhysicalFileProvider(customApplicationBasePath);
+            }
+            else
+            {
+                applicationName = applicationEnvironment.ApplicationName;
+                fileProvider = new PhysicalFileProvider(applicationEnvironment.ApplicationBasePath);
+            }
+
             services.AddSingleton<IHostingEnvironment>(new HostingEnvironment
             {
-                WebRootFileProvider = new PhysicalFileProvider(customApplicationBasePath ?? applicationEnvironment.ApplicationBasePath)
+                ApplicationName =  applicationName,
+                WebRootFileProvider = fileProvider,
             });
             services.Configure<RazorViewEngineOptions>(options =>
             {
                 options.FileProviders.Clear();
-                options.FileProviders.Add(new PhysicalFileProvider(customApplicationBasePath ?? applicationEnvironment.ApplicationBasePath));
+                options.FileProviders.Add(fileProvider);
             });
             var diagnosticSource = new DiagnosticListener("Microsoft.AspNetCore");
+            services.AddSingleton<ObjectPoolProvider, DefaultObjectPoolProvider>();
             services.AddSingleton<DiagnosticSource>(diagnosticSource);
             services.AddLogging();
             services.AddMvc();

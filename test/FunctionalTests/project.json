@@ -26,6 +26,7 @@
     "Mvc.InlineConstraintSample.Web": "1.0.0",
     "Mvc.JsonPatchSample.Web": "1.0.0",
     "Mvc.LocalizationSample.Web": "1.0.0",
+    "Mvc.RenderViewToString": "1.0.0",
     "Mvc.SubAreaSample.Web": "1.0.0",
     "Mvc.TagHelperSample.Web": "1.0.0",
     "Mvc.UrlHelperSample.Web": "1.0.0",
