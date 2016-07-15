@@ -44,7 +44,7 @@ namespace Mvc.FileUpload.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Upload()
         {
-            var multipartBoundary = Request.GetMultipartBoundry();
+            var multipartBoundary = Request.GetMultipartBoundary();
             if (string.IsNullOrEmpty(multipartBoundary))
             {
                 return BadRequest($"Expected a multipart request, but got '{Request.ContentType}'.");
