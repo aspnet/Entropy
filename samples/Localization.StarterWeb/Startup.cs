@@ -1,19 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Globalization;
+using System.IO;
+using Localization.StarterWeb.Models;
+using Localization.StarterWeb.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Localization.StarterWeb.Models;
-using Localization.StarterWeb.Services;
-using Microsoft.AspNetCore.Mvc.Razor;
-using Microsoft.AspNetCore.Localization;
-using System.Globalization;
 using Microsoft.Extensions.Options;
 
 namespace Localization.StarterWeb
@@ -24,6 +21,7 @@ namespace Localization.StarterWeb
         {
             // Set up configuration sources.
             var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json")
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
 
@@ -148,8 +146,9 @@ namespace Localization.StarterWeb
         public static void Main(string[] args)
         {
             var config = new ConfigurationBuilder().AddCommandLine(args).Build();
-            
+
             var host = new WebHostBuilder()
+                .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseKestrel()
                 .UseConfiguration(config)
                 .UseIISIntegration()
