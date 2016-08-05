@@ -148,6 +148,7 @@ namespace Localization.StarterWeb
             var config = new ConfigurationBuilder().AddCommandLine(args).Build();
 
             var host = new WebHostBuilder()
+                .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseKestrel()
                 .UseConfiguration(config)
                 .UseIISIntegration()
