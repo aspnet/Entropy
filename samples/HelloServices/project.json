@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "Microsoft.Extensions.Localization": "1.1.0-*"
+  },
+  "frameworks": {
+    "net451": {},
+    "netstandard1.3": {}
+  }
+}
