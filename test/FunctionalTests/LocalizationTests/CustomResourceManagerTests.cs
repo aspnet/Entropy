@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using EntropyTests;
-using Microsoft.AspNetCore.Server.Testing;
-using Microsoft.AspNetCore.Testing.xunit;
+using Microsoft.AspNetCore.Server.IntegrationTesting;
 using Xunit;
 
 namespace FunctionalTests.LocalizationTests
