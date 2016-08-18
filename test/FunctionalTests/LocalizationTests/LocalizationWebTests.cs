@@ -19,9 +19,9 @@ namespace EntropyTests.LocalizationTests
         [ConditionalTheory]
         [OSSkipCondition(OperatingSystems.Linux)]
         [OSSkipCondition(OperatingSystems.MacOSX)]
-        //[InlineData(ServerType.Kestrel, RuntimeFlavor.Clr, RuntimeArchitecture.x86, "http://localhost:6201")]
+        [InlineData(ServerType.Kestrel, RuntimeFlavor.Clr, RuntimeArchitecture.x86, "http://localhost:6201", Skip = "x86 not supported yet")]
         [InlineData(ServerType.Kestrel, RuntimeFlavor.Clr, RuntimeArchitecture.x64, "http://localhost:6202")]
-        //[InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x86, "http://localhost:6203")]
+        [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x86, "http://localhost:6203", Skip = "x86 not supported yet")]
         public async Task RunSite_WindowsOnly(ServerType server, RuntimeFlavor runtimeFlavor, RuntimeArchitecture architecture, string applicationBaseUrl)
         {
             await RunSite(server, runtimeFlavor, architecture, applicationBaseUrl);
@@ -29,7 +29,7 @@ namespace EntropyTests.LocalizationTests
 
         [ConditionalTheory]
         [OSSkipCondition(OperatingSystems.Windows)]
-        //[InlineData(ServerType.Kestrel, RuntimeFlavor.Clr, RuntimeArchitecture.x64, "http://localhost:6204")] // Disabled due to https://github.com/dotnet/corefx/issues/9012
+        [InlineData(ServerType.Kestrel, RuntimeFlavor.Clr, RuntimeArchitecture.x64, "http://localhost:6204", Skip = "Disabled due to https://github.com/dotnet/corefx/issues/9012")]
         [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, "http://localhost:6205")]
         [InlineData(ServerType.Nginx, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, "http://localhost:6206")]
         public async Task RunSite_NonWindowsOnly(ServerType server, RuntimeFlavor runtimeFlavor, RuntimeArchitecture architecture, string applicationBaseUrl)
@@ -65,7 +65,7 @@ namespace EntropyTests.LocalizationTests
                     }, logger, token, retryCount: 30);
 
                     responseText = await response.Content.ReadAsStringAsync();
-                    
+
                     headingIndex = responseText.IndexOf("<h2>Utilisations d'application</h2>");
                     Assert.True(headingIndex >= 0);
                 });
