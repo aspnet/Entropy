@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using EntropyTests;
 using Microsoft.AspNetCore.Server.IntegrationTesting;
+using Microsoft.AspNetCore.Testing.xunit;
 using Xunit;
 
 namespace FunctionalTests.LocalizationTests
@@ -11,16 +12,37 @@ namespace FunctionalTests.LocalizationTests
 
         [Theory]
         [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, "http://localhost:9200")]
-        [InlineData(ServerType.Kestrel, RuntimeFlavor.Clr, RuntimeArchitecture.x86, "http://localhost:9201", Skip = "x86 not supported yet")]
-        [InlineData(ServerType.Kestrel, RuntimeFlavor.Clr, RuntimeArchitecture.x64, "http://localhost:9202")]
-        [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x86, "http://localhost:9203", Skip = "x86 not supported yet")]
-        public async Task CustomResourceManagerFactory_ClassLibrarysReadCorrectly(
+        [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x86, "http://localhost:9201", Skip = "x86 not supported yet")]
+        public async Task CustomResourceManagerFactory_ClassLibrarysReadCorrectly_CoreClr(
             ServerType server,
             RuntimeFlavor runtimeFlavor,
             RuntimeArchitecture architecture,
             string applicationBaseUrl)
         {
-            await TestServices.RunSiteTest(
+            await CustomResourceManagerFactory_ClassLibrarysReadCorrectly(server, runtimeFlavor, architecture, applicationBaseUrl);
+        }
+
+        [ConditionalTheory]
+        [OSSkipCondition(OperatingSystems.Linux)]
+        [OSSkipCondition(OperatingSystems.MacOSX)]
+        [InlineData(ServerType.Kestrel, RuntimeFlavor.Clr, RuntimeArchitecture.x64, "http://localhost:9202")]
+        [InlineData(ServerType.Kestrel, RuntimeFlavor.Clr, RuntimeArchitecture.x86, "http://localhost:9203", Skip = "x86 not supported yet")]
+        public async Task CustomResourceManagerFactory_ClassLibrarysReadCorrectly_Clr(
+            ServerType server,
+            RuntimeFlavor runtimeFlavor,
+            RuntimeArchitecture architecture,
+            string applicationBaseUrl)
+        {
+            await CustomResourceManagerFactory_ClassLibrarysReadCorrectly(server, runtimeFlavor, architecture, applicationBaseUrl);
+        }
+
+        public Task CustomResourceManagerFactory_ClassLibrarysReadCorrectly(
+            ServerType server,
+            RuntimeFlavor runtimeFlavor,
+            RuntimeArchitecture architecture,
+            string applicationBaseUrl)
+        {
+            return TestServices.RunSiteTest(
                 SiteName,
                 server,
                 runtimeFlavor,
