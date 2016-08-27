@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Posting data in text/plain format";
+}
+<h2>Posting data in text/plain format</h2>
+<div>
+    <label>Sample text:</label>
+    <input type="text" id="sampleText" />
+    <button id="submitText">Submit</button>
+    <div id="divStatus" style="margin-top:20px">
+        <label style="font-weight:bold">Echoed value: </label>
+        <label id="lblStatus"></label>
+    </div>
+</div>
+@section Scripts{
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#divStatus").hide();
+            $('#submitText').on('click', submitData);
+        });
+
+        function submitData() {
+            $.ajax({
+                type: "POST",
+                url: '/api/values',
+                data: $('#sampleText').val(),
+                contentType: 'text/plain',
+            }).done(function (data) {
+                $('#lblStatus').text(data);
+            }).fail(function (jqXHR, textStatus) {
+                $('#lblStatus').text(jqXHR.status + ': ' + textStatus);
+            }).always(function () {
+                $("#divStatus").show();
+            });
+        }
+    </script>
+}
