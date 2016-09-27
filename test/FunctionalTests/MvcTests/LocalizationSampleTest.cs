@@ -121,7 +121,9 @@ mypartial
 <div class=""editor-field""><input class=""input-validation-error text-box single-line"" data-val=""true"" data-val-minlength=""Nom non valide. Longueur minimale de nom est 6"" data-val-minlength-min=""6"" id=""Name"" name=""Name"" type=""text"" value=""A"" /> <span class=""field-validation-error"" data-valmsg-for=""Name"" data-valmsg-replace=""true"">Nom non valide. Longueur minimale de nom est 6</span></div>
 
 <div class=""editor-label""><label for=""Product_ProductName"">ProductName</label></div>
-<div class=""editor-field""><input class=""input-validation-error text-box single-line"" data-val=""true"" data-val-required=""Nom du produit est invalide"" id=""Product_ProductName"" name=""Product.ProductName"" type=""text"" value="""" /> <span class=""field-validation-error"" data-valmsg-for=""Product.ProductName"" data-valmsg-replace=""true"">Nom du produit est invalide</span></div>";
+<div class=""editor-field""><input class=""input-validation-error text-box single-line"" data-val=""true"" data-val-required=""Nom du produit est invalide"" id=""Product_ProductName"" name=""Product.ProductName"" type=""text"" value="""" /> <span class=""field-validation-error"" data-valmsg-for=""Product.ProductName"" data-valmsg-replace=""true"">Nom du produit est invalide</span></div>
+<div class=""editor-label""><label for=""Product_ProductDescription"">ProductDescription</label></div>
+<div class=""editor-field""><input class=""input-validation-error text-box single-line"" data-val=""true"" data-val-minlength=""description doit &#xEA;tre d&#x27;au moins 6 caract&#xE8;res"" data-val-minlength-min=""6"" id=""Product_ProductDescription"" name=""Product.ProductDescription"" type=""text"" value="""" /> <span class=""field-validation-error"" data-valmsg-for=""Product.ProductDescription"" data-valmsg-replace=""true"">description doit &#xEA;tre d&#x27;au moins 6 caract&#xE8;res</span></div>";
 
             var cultureCookie = "c=fr|uic=fr";
             var request = new HttpRequestMessage(HttpMethod.Get, "http://localhost/Home/GetInvalidUser");

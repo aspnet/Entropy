@@ -7,6 +7,7 @@ using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.DataAnnotations;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Mvc.LocalizationSample.Web
@@ -19,6 +20,7 @@ namespace Mvc.LocalizationSample.Web
                 .AddMvc()
                 .AddViewLocalization(options => options.ResourcesPath = "Resources")
                 .AddDataAnnotationsLocalization();
+            services.AddSingleton<IValidationAttributeAdapterProvider, CustomValidationAttributeAdapterProvider>();
         }
 
         public void Configure(IApplicationBuilder app)

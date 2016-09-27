@@ -9,5 +9,8 @@ namespace Mvc.LocalizationSample.Web.Models
     {
         [Required(ErrorMessage = "ProductName")]
         public string ProductName { get; set; }
+
+        [MinLengthSix(ErrorMessage = "MinLengthSix")]
+        public string ProductDescription { get; set; }
     }
 }
