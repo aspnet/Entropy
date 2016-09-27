@@ -33,6 +33,12 @@ namespace Localization.CustomResourceManager
             return GetResourcePrefix(typeInfo, assemblyName, GetResourcePath(assemblyName));
         }
 
+        protected override string GetResourcePrefix(TypeInfo typeInfo, string baseNamespace, string resourcesRelativePath)
+        {
+            var assemblyName = new AssemblyName(typeInfo.Assembly.FullName);
+            return base.GetResourcePrefix(typeInfo, baseNamespace, GetResourcePath(assemblyName.Name));
+        }
+
         private string GetResourcePath(string assemblyName)
         {
             string resourcePath;
