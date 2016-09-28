@@ -12,14 +12,11 @@
   },
   "dependencies": {
     "Microsoft.AspNetCore.Mvc.Localization": "1.1.0-*",
-    "Microsoft.AspNetCore.Mvc.Razor": "1.1.0-*"
+    "Microsoft.AspNetCore.Mvc.Razor": "1.1.0-*",
+    "NETStandard.Library": "1.6.1-*"
   },
   "frameworks": {
     "net451": {},
-    "netstandard1.6": {
-      "dependencies": {
-        "NETStandard.Library": "1.5.0-*"
-      }
-    }
+    "netstandard1.6": {}
   }
 }

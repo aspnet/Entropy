@@ -4,12 +4,13 @@
     "emitEntryPoint": true
   },
   "dependencies": {
-    "Microsoft.AspNetCore.Owin": "1.1.0-*",
     "Microsoft.AspNetCore.DataProtection": "1.1.0-*",
+    "Microsoft.AspNetCore.Owin": "1.1.0-*",
     "Microsoft.AspNetCore.Server.IISIntegration": "1.1.0-*",
     "Microsoft.AspNetCore.Server.Kestrel": "1.1.0-*",
     "Microsoft.Extensions.DependencyInjection": "1.1.0-*",
-    "Microsoft.Owin": "3.0.0"
+    "Microsoft.Owin": "3.0.0",
+    "NETStandard.Library": "1.6.1-*"
   },
   "frameworks": {
     "net451": {}
