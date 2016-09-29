@@ -3,6 +3,7 @@
 
 using System;
 using System.IO;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Abstractions;
@@ -30,7 +31,7 @@ namespace Mvc.RenderViewToString
             _serviceProvider = serviceProvider;
         }
 
-        public string RenderViewToString<TModel>(string name, TModel model)
+        public async Task<string> RenderViewToStringAsync<TModel>(string name, TModel model)
         {
             var actionContext = GetActionContext();
 
@@ -60,7 +61,7 @@ namespace Mvc.RenderViewToString
                     output,
                     new HtmlHelperOptions());
 
-                view.RenderAsync(viewContext).GetAwaiter().GetResult();
+                await view.RenderAsync(viewContext);
 
                 return output.ToString();
             }

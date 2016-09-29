@@ -4,6 +4,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.Internal;
 using Microsoft.AspNetCore.Mvc.Razor;
@@ -18,12 +19,14 @@ namespace Mvc.RenderViewToString
     {
         public static void Main()
         {
-            var emailContent = RenderView();
+            var serviceScopeFactory = InitializeServices();
+            var emailContent = RenderViewAsync(serviceScopeFactory).Result;
+
             Console.WriteLine(emailContent);
             Console.ReadLine();
         }
 
-        public static string RenderView(string customApplicationBasePath = null)
+        public static IServiceScopeFactory InitializeServices(string customApplicationBasePath = null)
         {
             // Initialize the necessary services
             var services = new ServiceCollection();
@@ -32,18 +35,26 @@ namespace Mvc.RenderViewToString
             // Add a custom service that is used in the view.
             services.AddSingleton<EmailReportGenerator>();
 
-            var provider = services.BuildServiceProvider();
-            var helper = provider.GetRequiredService<RazorViewToStringRenderer>();
+            var serviceProvider = services.BuildServiceProvider();
+            return serviceProvider.GetRequiredService<IServiceScopeFactory>();
+        }
 
-            var model = new EmailViewModel
+        public static Task<string> RenderViewAsync(IServiceScopeFactory scopeFactory)
+        {
+            using (var serviceScope = scopeFactory.CreateScope())
             {
-                UserName = "User",
-                SenderName = "Sender",
-                UserData1 = 1,
-                UserData2 = 2
-            };
+                var helper = serviceScope.ServiceProvider.GetRequiredService<RazorViewToStringRenderer>();
 
-            return helper.RenderViewToString("EmailTemplate", model);
+                var model = new EmailViewModel
+                {
+                    UserName = "User",
+                    SenderName = "Sender",
+                    UserData1 = 1,
+                    UserData2 = 2
+                };
+
+                return helper.RenderViewToStringAsync("EmailTemplate", model);
+            }
         }
 
         private static void ConfigureDefaultServices(IServiceCollection services, string customApplicationBasePath)
@@ -77,7 +88,7 @@ namespace Mvc.RenderViewToString
             services.AddSingleton<DiagnosticSource>(diagnosticSource);
             services.AddLogging();
             services.AddMvc();
-            services.AddSingleton<RazorViewToStringRenderer>();
+            services.AddTransient<RazorViewToStringRenderer>();
         }
     }
 }
