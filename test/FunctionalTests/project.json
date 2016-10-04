@@ -17,6 +17,7 @@
     "Microsoft.AspNetCore.Server.IntegrationTesting": "0.2.0-*",
     "Microsoft.AspNetCore.TestHost": "1.1.0-*",
     "Microsoft.AspNetCore.Testing": "1.1.0-*",
+    "Microsoft.DotNet.InternalAbstractions": "1.0.0",
     "Microsoft.Extensions.Logging.Console": "1.1.0-*",
     "Mvc.ActionConstraintSample.Web": "1.0.0",
     "Mvc.CustomRouteSample.Web": "1.0.0",
