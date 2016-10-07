@@ -30,7 +30,7 @@ namespace EntropyTests
         {
             // Arrange
             var input = "[{ \"op\": \"add\", " +
-                "\"path\": \"Orders/2\", " +
+                "\"path\": \"Orders/-\", " +
                "\"value\": { \"OrderName\": \"Name2\" }}]";
             var request = new HttpRequestMessage
             {
@@ -161,11 +161,11 @@ namespace EntropyTests
         {
             // Arrange
             var input = "[{ \"op\": \"add\", "+
-                "\"path\": \"Orders/2\", " +
+                "\"path\": \"Orders/-\", " +
                "\"value\": { \"OrderName\": \"Name2\" }}, " +
                "{\"op\": \"copy\", " +
                "\"from\": \"Orders/2\", " +
-                "\"path\": \"Orders/3\" }, " +
+                "\"path\": \"Orders/-\" }, " +
                 "{\"op\": \"replace\", " +
                 "\"path\": \"Orders/2/OrderName\", " +
                 "\"value\": \"ReplacedName\" }]";
@@ -197,16 +197,14 @@ namespace EntropyTests
                         "[{ \"op\": \"add\", " +
                         "\"path\": \"Orders/5\", " +
                         "\"value\": { \"OrderName\": \"Name5\" }}]",
-                        "{\"Patch.Customer\":[\"For operation 'add' on array property at path " +
-                        "'Orders/5', the index is larger than the array size.\"]}"
+                        "{\"Patch.Customer\":[\"The index value provided by path segment '5' is out of bounds of the array size.\"]}"
                     },
                     new object[] {
                         "http://localhost/jsonpatch/JsonPatchWithModelState",
                         "[{ \"op\": \"add\", " +
                         "\"path\": \"Orders/5\", " +
                         "\"value\": { \"OrderName\": \"Name5\" }}]",
-                        "{\"Customer\":[\"For operation 'add' on array property at path " +
-                        "'Orders/5', the index is larger than the array size.\"]}"
+                        "{\"Customer\":[\"The index value provided by path segment '5' is out of bounds of the array size.\"]}"
                     },
                     new object[] {
                         "http://localhost/jsonpatch/JsonPatchWithModelStateAndPrefix?prefix=Patch",
@@ -219,8 +217,7 @@ namespace EntropyTests
                         "{\"op\": \"replace\", " +
                         "\"path\": \"Orders/2/OrderName\", " +
                         "\"value\": \"ReplacedName\" }]",
-                        "{\"Patch.Customer\":[\"For operation 'copy' on array property at path " +
-                        "'Orders/4', the index is larger than the array size.\"]}"
+                        "{\"Patch.Customer\":[\"The index value provided by path segment '2' is out of bounds of the array size.\"]}"
                     },
                     new object[] {
                         "http://localhost/jsonpatch/JsonPatchWithModelState",
@@ -233,8 +230,7 @@ namespace EntropyTests
                         "{\"op\": \"replace\", " +
                         "\"path\": \"Orders/2/OrderName\", " +
                         "\"value\": \"ReplacedName\" }]",
-                        "{\"Customer\":[\"For operation 'copy' on array property at path " +
-                        "'Orders/4', the index is larger than the array size.\"]}"
+                        "{\"Customer\":[\"The index value provided by path segment '2' is out of bounds of the array size.\"]}"
                     }
                 };
             }
@@ -286,7 +282,7 @@ namespace EntropyTests
         {
             // Arrange
             var input = "[{ \"op\": \"add\", " +
-                "\"path\": \"Orders/2\", " +
+                "\"path\": \"Orders/-\", " +
                "\"value\": { \"OrderType\": \"Type2\" }}]";
             var request = new HttpRequestMessage
             {
