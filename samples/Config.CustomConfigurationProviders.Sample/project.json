@@ -20,7 +20,7 @@
         "System.Xml.Linq": ""
       }
     },
-    "netcoreapp1.0": {
+    "netcoreapp1.1": {
       "dependencies": {
         "Microsoft.NETCore.App": {
           "version": "1.1.0-*",

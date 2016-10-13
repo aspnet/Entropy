@@ -47,7 +47,7 @@ namespace EntropyTests
                     SiteName = "HttpTestSite",
                     ServerConfigTemplateContent = serverType == ServerType.Nginx ? File.ReadAllText("nginx.conf") : string.Empty,
                     PublishApplicationBeforeDeployment = true,
-                    TargetFramework = runtimeFlavor == RuntimeFlavor.Clr ? "net451" : "netcoreapp1.0",
+                    TargetFramework = runtimeFlavor == RuntimeFlavor.Clr ? "net451" : "netcoreapp1.1",
                     ApplicationType = runtimeFlavor == RuntimeFlavor.Clr ? ApplicationType.Standalone : ApplicationType.Portable
                 };
 
