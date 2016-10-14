@@ -12,5 +12,8 @@ namespace Mvc.LocalizationSample.Web.Models
 
         [MinLengthSix(ErrorMessage = "MinLengthSix")]
         public string ProductDescription { get; set; }
+
+        [MaxLengthTwo]
+        public string ProductComment { get; set; }
     }
 }
