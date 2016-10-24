@@ -7,9 +7,11 @@ namespace Mvc.LocalizationSample.Web.Models
 {
     public class User
     {
-        [MinLength(6, ErrorMessage = "NameError")]
+        [Display(Name = "User Name")]
+        [MinLength(6, ErrorMessage = "Invalid {0}. {0} minimum length is {1}")]
         public string Name { get; set; }
 
+        [Display(Name = "Product")]
         public Product Product { get; set; }
     }
 }

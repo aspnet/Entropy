@@ -115,17 +115,17 @@ mypartial
         {
             // Arrange
             var expected =
-@"<span class=""field-validation-error"" data-valmsg-for=""Name"" data-valmsg-replace=""true"">Nom non valide. Longueur minimale de nom est 6</span>
+@"<span class=""field-validation-error"" data-valmsg-for=""Name"" data-valmsg-replace=""true"">Nom d&#x27;utilisateur non valide. Longueur minimale de Nom d&#x27;utilisateur est 6</span>
 <span class=""field-validation-error"" data-valmsg-for=""Product.ProductName"" data-valmsg-replace=""true"">Nom du produit est invalide</span>
-<div class=""editor-label""><label for=""Name"">Name</label></div>
-<div class=""editor-field""><input class=""input-validation-error text-box single-line"" data-val=""true"" data-val-minlength=""Nom non valide. Longueur minimale de nom est 6"" data-val-minlength-min=""6"" id=""Name"" name=""Name"" type=""text"" value=""A"" /> <span class=""field-validation-error"" data-valmsg-for=""Name"" data-valmsg-replace=""true"">Nom non valide. Longueur minimale de nom est 6</span></div>
+<div class=""editor-label""><label for=""Name"">Nom d&#x27;utilisateur</label></div>
+<div class=""editor-field""><input class=""input-validation-error text-box single-line"" data-val=""true"" data-val-minlength=""Nom d&#x27;utilisateur non valide. Longueur minimale de Nom d&#x27;utilisateur est 6"" data-val-minlength-min=""6"" id=""Name"" name=""Name"" type=""text"" value=""A"" /> <span class=""field-validation-error"" data-valmsg-for=""Name"" data-valmsg-replace=""true"">Nom d&#x27;utilisateur non valide. Longueur minimale de Nom d&#x27;utilisateur est 6</span></div>
 
-<div class=""editor-label""><label for=""Product_ProductName"">ProductName</label></div>
+<div class=""editor-label""><label for=""Product_ProductName"">Nom du produit</label></div>
 <div class=""editor-field""><input class=""input-validation-error text-box single-line"" data-val=""true"" data-val-required=""Nom du produit est invalide"" id=""Product_ProductName"" name=""Product.ProductName"" type=""text"" value="""" /> <span class=""field-validation-error"" data-valmsg-for=""Product.ProductName"" data-valmsg-replace=""true"">Nom du produit est invalide</span></div>
-<div class=""editor-label""><label for=""Product_ProductDescription"">ProductDescription</label></div>
-<div class=""editor-field""><input class=""input-validation-error text-box single-line"" data-val=""true"" data-val-minlength=""description doit &#xEA;tre d&#x27;au moins 6 caract&#xE8;res"" data-val-minlength-min=""6"" id=""Product_ProductDescription"" name=""Product.ProductDescription"" type=""text"" value="""" /> <span class=""field-validation-error"" data-valmsg-for=""Product.ProductDescription"" data-valmsg-replace=""true"">description doit &#xEA;tre d&#x27;au moins 6 caract&#xE8;res</span></div>
-<div class=""editor-label""><label for=""Product_ProductComment"">ProductComment</label></div>
-<div class=""editor-field""><input class=""input-validation-error text-box single-line"" data-val=""true"" data-val-maxlength=""ProductComment doivent avoir une longueur d&#x27;au plus deux."" data-val-maxlength-max=""2"" id=""Product_ProductComment"" name=""Product.ProductComment"" type=""text"" value="""" /> <span class=""field-validation-error"" data-valmsg-for=""Product.ProductComment"" data-valmsg-replace=""true"">ProductComment doivent avoir une longueur d&#x27;au plus deux.</span></div>";
+<div class=""editor-label""><label for=""Product_ProductDescription"">Description</label></div>
+<div class=""editor-field""><input class=""input-validation-error text-box single-line"" data-val=""true"" data-val-minlength=""Description doit &#xEA;tre d&#x27;au moins 6 caract&#xE8;res"" data-val-minlength-min=""6"" id=""Product_ProductDescription"" name=""Product.ProductDescription"" type=""text"" value="""" /> <span class=""field-validation-error"" data-valmsg-for=""Product.ProductDescription"" data-valmsg-replace=""true"">Description doit &#xEA;tre d&#x27;au moins 6 caract&#xE8;res</span></div>
+<div class=""editor-label""><label for=""Product_ProductComment"">Commentaire</label></div>
+<div class=""editor-field""><input class=""input-validation-error text-box single-line"" data-val=""true"" data-val-maxlength=""Commentaire doivent avoir une longueur d&#x27;au plus deux."" data-val-maxlength-max=""2"" id=""Product_ProductComment"" name=""Product.ProductComment"" type=""text"" value="""" /> <span class=""field-validation-error"" data-valmsg-for=""Product.ProductComment"" data-valmsg-replace=""true"">Commentaire doivent avoir une longueur d&#x27;au plus deux.</span></div>";
 
             var cultureCookie = "c=fr|uic=fr";
             var request = new HttpRequestMessage(HttpMethod.Get, "http://localhost/Home/GetInvalidUser");

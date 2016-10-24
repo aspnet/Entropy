@@ -7,12 +7,15 @@ namespace Mvc.LocalizationSample.Web.Models
 {
     public class Product
     {
-        [Required(ErrorMessage = "ProductName")]
+        [Display(Name = "Product Name")]
+        [Required(ErrorMessage = "{0} is invalid")]
         public string ProductName { get; set; }
 
-        [MinLengthSix(ErrorMessage = "MinLengthSix")]
+        [Display(Name = "Description")]
+        [MinLengthSix(ErrorMessage = "{0} must be at least 6 characters")]
         public string ProductDescription { get; set; }
 
+        [Display(Name = "Comment")]
         [MaxLengthTwo]
         public string ProductComment { get; set; }
     }

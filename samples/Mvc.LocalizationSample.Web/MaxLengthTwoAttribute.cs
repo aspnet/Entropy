@@ -12,7 +12,7 @@ namespace Mvc.LocalizationSample.Web
         AllowMultiple = false)]
     public class MaxLengthTwoAttribute : SelfContainedValidationAttribute
     {
-        private const string _errorMessage = "MaxLengthTwo";
+        private const string _errorMessage = "{0} must have a length of at most two.";
 
         public MaxLengthTwoAttribute()
         {
