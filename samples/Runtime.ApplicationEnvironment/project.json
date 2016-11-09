@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "Microsoft.Extensions.PlatformAbstractions": "1.1.0-*"
+    "Microsoft.Extensions.PlatformAbstractions": "1.2.0-*"
   },
   "buildOptions": {
     "emitEntryPoint": true

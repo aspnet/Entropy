@@ -11,8 +11,8 @@
     "warningsAsErrors": true
   },
   "dependencies": {
-    "Microsoft.AspNetCore.Mvc.Localization": "1.1.0-*",
-    "Microsoft.AspNetCore.Mvc.Razor": "1.1.0-*",
+    "Microsoft.AspNetCore.Mvc.Localization": "1.2.0-*",
+    "Microsoft.AspNetCore.Mvc.Razor": "1.2.0-*",
     "NETStandard.Library": "1.6.1-*"
   },
   "frameworks": {

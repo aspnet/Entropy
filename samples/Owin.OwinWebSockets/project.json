@@ -1,9 +1,9 @@
 {
   "dependencies": {
-    "Microsoft.AspNetCore.Hosting": "1.1.0-*",
-    "Microsoft.AspNetCore.Http": "1.1.0-*",
-    "Microsoft.AspNetCore.Owin": "1.1.0-*",
-    "Microsoft.AspNetCore.Server.Kestrel": "1.1.0-*"
+    "Microsoft.AspNetCore.Hosting": "1.2.0-*",
+    "Microsoft.AspNetCore.Http": "1.2.0-*",
+    "Microsoft.AspNetCore.Owin": "1.2.0-*",
+    "Microsoft.AspNetCore.Server.Kestrel": "1.2.0-*"
   },
   "buildOptions": {
     "emitEntryPoint": true

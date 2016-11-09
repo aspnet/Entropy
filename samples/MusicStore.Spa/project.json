@@ -12,17 +12,17 @@
   },
   "dependencies": {
     "AutoMapper": "5.0.0-beta-1",
-    "Microsoft.AspNetCore.Authentication.Cookies": "1.1.0-*",
-    "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.1.0-*",
-    "Microsoft.AspNetCore.Mvc": "1.1.0-*",
-    "Microsoft.AspNetCore.Server.IISIntegration": "1.1.0-*",
-    "Microsoft.AspNetCore.Server.Kestrel": "1.1.0-*",
-    "Microsoft.AspNetCore.StaticFiles": "1.1.0-*",
-    "Microsoft.EntityFrameworkCore.InMemory": "1.1.0-*",
-    "Microsoft.EntityFrameworkCore.SqlServer": "1.1.0-*",
-    "Microsoft.Extensions.Configuration": "1.1.0-*",
-    "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.1.0-*",
-    "Microsoft.Extensions.Configuration.Json": "1.1.0-*"
+    "Microsoft.AspNetCore.Authentication.Cookies": "1.2.0-*",
+    "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "1.2.0-*",
+    "Microsoft.AspNetCore.Mvc": "1.2.0-*",
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.2.0-*",
+    "Microsoft.AspNetCore.Server.Kestrel": "1.2.0-*",
+    "Microsoft.AspNetCore.StaticFiles": "1.2.0-*",
+    "Microsoft.EntityFrameworkCore.InMemory": "1.2.0-*",
+    "Microsoft.EntityFrameworkCore.SqlServer": "1.2.0-*",
+    "Microsoft.Extensions.Configuration": "1.2.0-*",
+    "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.2.0-*",
+    "Microsoft.Extensions.Configuration.Json": "1.2.0-*"
   },
   "frameworks": {
     "net451": {},

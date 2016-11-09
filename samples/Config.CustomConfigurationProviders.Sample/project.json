@@ -9,8 +9,8 @@
     ]
   },
   "dependencies": {
-    "Microsoft.Extensions.Configuration": "1.1.0-*",
-    "Microsoft.Extensions.Logging.Abstractions": "1.1.0-*",
+    "Microsoft.Extensions.Configuration": "1.2.0-*",
+    "Microsoft.Extensions.Logging.Abstractions": "1.2.0-*",
     "System.Collections.Immutable": "1.3.0-*"
   },
   "frameworks": {

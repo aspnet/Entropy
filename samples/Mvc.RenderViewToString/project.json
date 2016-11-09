@@ -7,8 +7,8 @@
     }
   },
   "dependencies": {
-    "Microsoft.AspNetCore.Hosting": "1.1.0-*",
-    "Microsoft.AspNetCore.Mvc": "1.1.0-*"
+    "Microsoft.AspNetCore.Hosting": "1.2.0-*",
+    "Microsoft.AspNetCore.Mvc": "1.2.0-*"
   },
   "frameworks": {
     "net451": {},
