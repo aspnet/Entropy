@@ -1,7 +1,7 @@
 {
   "dependencies": {
-    "Microsoft.Extensions.Localization": "1.1.0-*",
-    "NETStandard.Library": "1.6.1-*"
+    "Microsoft.Extensions.Localization": "1.1.0",
+    "NETStandard.Library": "1.6.1"
   },
   "frameworks": {
     "net451": {},
