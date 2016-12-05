@@ -10,7 +10,7 @@
     "Microsoft.AspNetCore.Server.Kestrel": "1.2.0-*",
     "Microsoft.Extensions.DependencyInjection": "1.2.0-*",
     "Microsoft.Owin": "3.0.0",
-    "NETStandard.Library": "1.6.1-*"
+    "NETStandard.Library": "1.6.2-*"
   },
   "frameworks": {
     "net451": {}

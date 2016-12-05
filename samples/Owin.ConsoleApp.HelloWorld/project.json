@@ -6,7 +6,7 @@
   "dependencies": {
     "Microsoft.AspNetCore.Owin": "1.2.0-*",
     "Microsoft.Extensions.DependencyInjection": "1.2.0-*",
-    "NETStandard.Library": "1.6.1-*",
+    "NETStandard.Library": "1.6.2-*",
     "Nowin": "0.11.0"
   },
   "frameworks": {
