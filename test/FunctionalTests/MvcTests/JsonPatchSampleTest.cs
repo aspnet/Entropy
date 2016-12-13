@@ -206,32 +206,32 @@ namespace EntropyTests
                         "\"value\": { \"OrderName\": \"Name5\" }}]",
                         "{\"Customer\":[\"The index value provided by path segment '5' is out of bounds of the array size.\"]}"
                     },
-                    //new object[] {
-                    //    "http://localhost/jsonpatch/JsonPatchWithModelStateAndPrefix?prefix=Patch",
-                    //    "[{ \"op\": \"add\", " +
-                    //    "\"path\": \"Orders/2\", " +
-                    //    "\"value\": { \"OrderName\": \"Name2\" }}, " +
-                    //    "{\"op\": \"copy\", " +
-                    //    "\"from\": \"Orders/4\", " +
-                    //    "\"path\": \"Orders/3\" }, " +
-                    //    "{\"op\": \"replace\", " +
-                    //    "\"path\": \"Orders/2/OrderName\", " +
-                    //    "\"value\": \"ReplacedName\" }]",
-                    //    "{\"Patch.Customer\":[\"The index value provided by path segment '2' is out of bounds of the array size.\"]}"
-                    //},
-                    //new object[] {
-                    //    "http://localhost/jsonpatch/JsonPatchWithModelState",
-                    //    "[{ \"op\": \"add\", " +
-                    //    "\"path\": \"Orders/2\", " +
-                    //    "\"value\": { \"OrderName\": \"Name2\" }}, " +
-                    //    "{\"op\": \"copy\", " +
-                    //    "\"from\": \"Orders/4\", " +
-                    //    "\"path\": \"Orders/3\" }, " +
-                    //    "{\"op\": \"replace\", " +
-                    //    "\"path\": \"Orders/2/OrderName\", " +
-                    //    "\"value\": \"ReplacedName\" }]",
-                    //    "{\"Customer\":[\"The index value provided by path segment '2' is out of bounds of the array size.\"]}"
-                    //}
+                    new object[] {
+                        "http://localhost/jsonpatch/JsonPatchWithModelStateAndPrefix?prefix=Patch",
+                        "[{ \"op\": \"add\", " +
+                        "\"path\": \"Orders/-\", " +
+                        "\"value\": { \"OrderName\": \"Name2\" }}, " +
+                        "{\"op\": \"copy\", " +
+                        "\"from\": \"Orders/4\", " +
+                        "\"path\": \"Orders/3\" }, " +
+                        "{\"op\": \"replace\", " +
+                        "\"path\": \"Orders/2/OrderName\", " +
+                        "\"value\": \"ReplacedName\" }]",
+                        "{\"Patch.Customer\":[\"The index value provided by path segment '4' is out of bounds of the array size.\"]}"
+                    },
+                    new object[] {
+                        "http://localhost/jsonpatch/JsonPatchWithModelState",
+                        "[{ \"op\": \"add\", " +
+                        "\"path\": \"Orders/-\", " +
+                        "\"value\": { \"OrderName\": \"Name2\" }}, " +
+                        "{\"op\": \"copy\", " +
+                        "\"from\": \"Orders/4\", " +
+                        "\"path\": \"Orders/3\" }, " +
+                        "{\"op\": \"replace\", " +
+                        "\"path\": \"Orders/2/OrderName\", " +
+                        "\"value\": \"ReplacedName\" }]",
+                        "{\"Customer\":[\"The index value provided by path segment '4' is out of bounds of the array size.\"]}"
+                    }
                 };
             }
         }
