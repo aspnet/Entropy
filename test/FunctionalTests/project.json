@@ -14,7 +14,7 @@
   "dependencies": {
     "dotnet-test-xunit": "2.2.0-*",
     "Microsoft.AspNetCore.Hosting": "1.2.0-*",
-    "Microsoft.AspNetCore.Server.IntegrationTesting": "0.2.0-*",
+    "Microsoft.AspNetCore.Server.IntegrationTesting": "0.3.0-*",
     "Microsoft.AspNetCore.TestHost": "1.2.0-*",
     "Microsoft.AspNetCore.Testing": "1.2.0-*",
     "Microsoft.DotNet.InternalAbstractions": "1.0.0",
@@ -28,7 +28,6 @@
     "Mvc.GenericControllers": "1.0.0",
     "Mvc.InlineConstraintSample.Web": "1.0.0",
     "Mvc.JsonPatchSample.Web": "1.0.0",
-    "Mvc.LocalizationSample.Web": "1.0.0",
     "Mvc.RenderViewToString": "1.0.0",
     "Mvc.SubAreaSample.Web": "1.0.0",
     "Mvc.TagHelperSample.Web": "1.0.0",
@@ -44,7 +43,11 @@
         }
       }
     },
-    "net451": {}
+    "net451": {
+      "dependencies": {
+        "Mvc.LocalizationSample.Web": "1.0.0"
+      }
+    }
   },
   "testRunner": "xunit"
 }
