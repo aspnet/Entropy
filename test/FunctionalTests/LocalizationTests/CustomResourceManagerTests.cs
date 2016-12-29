@@ -11,7 +11,7 @@ namespace FunctionalTests.LocalizationTests
         private const string SiteName = "Localization.CustomResourceManager";
 
         [Theory]
-        [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, "http://localhost:9200")]
+        [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, "http://localhost:9200", Skip = "https://github.com/aspnet/Entropy/issues/186")]
         [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x86, "http://localhost:9201", Skip = "x86 not supported yet")]
         public async Task CustomResourceManagerFactory_ClassLibrarysReadCorrectly_CoreClr(
             ServerType server,

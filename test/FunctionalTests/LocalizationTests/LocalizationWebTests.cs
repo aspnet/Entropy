@@ -9,7 +9,7 @@ namespace EntropyTests.LocalizationTests
     {
         private const string SiteName = "Localization.StarterWeb";
 
-        [Theory]
+        [Theory(Skip = "https://github.com/aspnet/Entropy/issues/186")]
         [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, "http://localhost:6200")]
         public async Task RunSite_AllPlatforms(ServerType server, RuntimeFlavor runtimeFlavor, RuntimeArchitecture architecture, string applicationBaseUrl)
         {
