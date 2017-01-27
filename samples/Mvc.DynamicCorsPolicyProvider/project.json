@@ -1,0 +1,23 @@
+{
+  "buildOptions": {
+    "emitEntryPoint": true
+  },
+  "dependencies": {
+    "Microsoft.AspNetCore": "1.2.0-*",
+    "Microsoft.AspNetCore.Mvc": "1.2.0-*",
+    "Microsoft.Extensions.Logging.Debug": "1.2.0-*",
+    "Microsoft.NETCore.App": {
+      "type": "platform",
+      "version": "1.2.0-*"
+    }
+  },
+  "frameworks": {
+    "netcoreapp1.1": {}
+  },
+  "tools": {
+    "Microsoft.AspNetCore.Server.IISIntegration.Tools": "1.1.0-preview4-final"
+  },
+  "scripts": {
+    "postpublish": "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%"
+  }
+}

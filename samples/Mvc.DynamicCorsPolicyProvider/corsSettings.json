@@ -1,0 +1,15 @@
+﻿[
+  {
+    "Name": "Policy1",
+    "AllowedOrigins": [
+      "http://example.com",
+      "http://site1.example.com",
+    ]
+  },
+  {
+    "Name": "Policy2",
+    "AllowedHeaders": [
+      "VERSION"
+    ]
+  }
+]
