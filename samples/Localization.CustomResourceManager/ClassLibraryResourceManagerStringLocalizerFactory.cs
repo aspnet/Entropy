@@ -4,7 +4,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 
@@ -19,10 +18,9 @@ namespace Localization.CustomResourceManager
         private IReadOnlyDictionary<string, string> _resourcePathMappings;
 
         public ClassLibraryStringLocalizerFactory(
-            IHostingEnvironment hostingEnvironment,
             IOptions<LocalizationOptions> localizationOptions,
             IOptions<ClassLibraryLocalizationOptions> classLibraryLocalizationOptions)
-                : base(hostingEnvironment, localizationOptions)
+                : base(localizationOptions)
         {
             _resourcePathMappings = classLibraryLocalizationOptions.Value.ResourcePaths;
         }

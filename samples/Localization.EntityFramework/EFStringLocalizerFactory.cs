@@ -52,7 +52,6 @@ namespace EFLocalizationSample
 
         public IStringLocalizer Create(Type resourceSource)
         {
-
             return new EFStringLocalizer(_db);
         }
 
