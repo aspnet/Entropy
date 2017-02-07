@@ -3,12 +3,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Server.IntegrationTesting;
 using Microsoft.AspNetCore.Testing.xunit;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace EntropyTests.ContainerTests
 {
     public class ContainerFallbackWebTests
     {
         private const string SiteName = "Container.Fallback.Web";
+        private readonly ITestOutputHelper _output;
+        public ContainerFallbackWebTests(ITestOutputHelper output)
+        {
+            _output = output;
+        }
 
         [Theory]
         [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, "http://localhost:6000")]
@@ -69,6 +75,7 @@ namespace EntropyTests.ContainerTests
                 runtimeFlavor,
                 architecture,
                 applicationBaseUrl,
+                _output,
                 async (httpClient, logger, token) =>
                 {
                     // ===== First call =====

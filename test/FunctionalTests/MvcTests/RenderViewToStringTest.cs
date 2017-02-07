@@ -3,11 +3,12 @@
 
 using System.Reflection;
 using System.Threading.Tasks;
-using Mvc.RenderViewToString;
 using Xunit;
 
 namespace EntropyTests
 {
+    using Program = Mvc.RenderViewToString.Program;
+
     public class RenderViewToStringTest
     {
         [Fact]

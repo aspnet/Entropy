@@ -2,12 +2,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Server.IntegrationTesting;
 using Microsoft.AspNetCore.Testing.xunit;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace EntropyTests.ConfigTests
 {
     public class ConfigWalkingValuesWebTests
     {
         private const string SiteName = "Config.WalkingValues.Web";
+        private readonly ITestOutputHelper _output;
+        public ConfigWalkingValuesWebTests(ITestOutputHelper output)
+        {
+            _output = output;
+        }
 
         [Theory]
         [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, "http://localhost:5900")]
@@ -51,6 +57,7 @@ namespace EntropyTests.ConfigTests
                 runtimeFlavor,
                 architecture,
                 applicationBaseUrl,
+                _output,
                 async (httpClient, logger, token) =>
                 {
                     var response = await RetryHelper.RetryRequest(async () =>

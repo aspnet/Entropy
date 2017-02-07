@@ -2,12 +2,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Server.IntegrationTesting;
 using Microsoft.AspNetCore.Testing.xunit;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace EntropyTests.BuilderTests
 {
     public class BuilderMiddlewareWebTests
     {
         private const string SiteName = "Builder.Middleware.Web";
+        private readonly ITestOutputHelper _output;
+        public BuilderMiddlewareWebTests(ITestOutputHelper output)
+        {
+            _output = output;
+        }
 
         [Theory]
         [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, "http://localhost:5700")]
@@ -51,6 +57,7 @@ namespace EntropyTests.BuilderTests
                 runtimeFlavor,
                 architecture,
                 applicationBaseUrl,
+                _output,
                 async (httpClient, logger, token) =>
                 {
                     var response = await RetryHelper.RetryRequest(async () =>

@@ -3,12 +3,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Server.IntegrationTesting;
 using Microsoft.AspNetCore.Testing.xunit;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace EntropyTests.Diagnostics
 {
     public class DiagnosticsStatusCodesMvcTests
     {
         private const string SiteName = "Diagnostics.StatusCodes.Mvc";
+        private readonly ITestOutputHelper _output;
+        public DiagnosticsStatusCodesMvcTests(ITestOutputHelper output)
+        {
+            _output = output;
+        }
 
         [Theory]
         [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, "http://localhost:6100")]
@@ -52,6 +58,7 @@ namespace EntropyTests.Diagnostics
                 runtimeFlavor,
                 architecture,
                 applicationBaseUrl,
+                _output,
                 async (httpClient, logger, token) =>
                 {
                     var response = await RetryHelper.RetryRequest(async () =>
@@ -112,6 +119,7 @@ namespace EntropyTests.Diagnostics
                 runtimeFlavor,
                 architecture,
                 applicationBaseUrl,
+                _output,
                 async (httpClient, logger, token) =>
                 {
                     var response = await RetryHelper.RetryRequest(async () =>
@@ -169,6 +177,7 @@ namespace EntropyTests.Diagnostics
                 runtimeFlavor,
                 architecture,
                 applicationBaseUrl,
+                _output,
                 async (httpClient, logger, token) =>
                 {
                     var response = await RetryHelper.RetryRequest(async () =>

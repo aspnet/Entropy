@@ -1,0 +1,70 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\build\common.props" />
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp1.1;net451</TargetFrameworks>
+    <DefineConstants>$(DefineConstants);__RemoveThisBitTo__GENERATE_BASELINES</DefineConstants>
+    <!-- set explicitly because some tests depend on this -->
+    <RootNamespace>FunctionalTests</RootNamespace>
+    <RuntimeIdentifier Condition=" '$(TargetFramework)' != 'netcoreapp1.1' ">win7-x64</RuntimeIdentifier>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="resources\**\*" />
+    <Content Include="nginx.conf" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\samples\Mvc.ActionConstraintSample.Web\Mvc.ActionConstraintSample.Web.csproj" />
+    <ProjectReference Include="..\..\samples\Mvc.AjaxAntiforgeryAuth.Web\Mvc.AjaxAntiforgeryAuth.Web.csproj" />
+    <ProjectReference Include="..\..\samples\Mvc.CustomRouteSample.Web\Mvc.CustomRouteSample.Web.csproj" />
+    <ProjectReference Include="..\..\samples\Mvc.CustomRoutingConvention\Mvc.CustomRoutingConvention.csproj" />
+    <ProjectReference Include="..\..\samples\Mvc.EmbeddedViewSample.Web\Mvc.EmbeddedViewSample.Web.csproj" />
+    <ProjectReference Include="..\..\samples\Mvc.FormatFilterSample.Web\Mvc.FormatFilterSample.Web.csproj" />
+    <ProjectReference Include="..\..\samples\Mvc.GenericControllers\Mvc.GenericControllers.csproj" />
+    <ProjectReference Include="..\..\samples\Mvc.InlineConstraintSample.Web\Mvc.InlineConstraintSample.Web.csproj" />
+    <ProjectReference Include="..\..\samples\Mvc.JsonPatchSample.Web\Mvc.JsonPatchSample.Web.csproj" />
+    <ProjectReference Include="..\..\samples\Mvc.RenderViewToString\Mvc.RenderViewToString.csproj" />
+    <ProjectReference Include="..\..\samples\Mvc.SubAreaSample.Web\Mvc.SubAreaSample.Web.csproj" />
+    <ProjectReference Include="..\..\samples\Mvc.TagHelperSample.Web\Mvc.TagHelperSample.Web.csproj" />
+    <ProjectReference Include="..\..\samples\Mvc.UrlHelperSample.Web\Mvc.UrlHelperSample.Web.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="1.2.0-*" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.IntegrationTesting" Version="0.3.0-*" />
+    <PackageReference Include="Microsoft.DotNet.InternalAbstractions" Version="1.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="1.2.0-*" />
+    <PackageReference Include="Microsoft.AspNetCore.Testing" Version="1.2.0-*" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.2.0-*" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0-*" />
+    <PackageReference Include="xunit" Version="2.2.0-*" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0-*" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net451' ">
+    <ProjectReference Include="..\..\samples\Mvc.LocalizationSample.Web\Mvc.LocalizationSample.Web.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
+  </ItemGroup>
+
+  <!--
+   Our functional tests utilize DependencyContext.Load which looks next to a dll for a deps.json. For each of our test
+   applications they need to have their corresponding deps.json placed next to their .dll in order to work.
+   -->
+  <Target Name="CopyDepsFiles" AfterTargets="Build" Condition="'$(TargetFramework)'!=''">
+    <ItemGroup>
+      <DepsFilePaths Include="$([System.IO.Path]::ChangeExtension('%(_ResolvedProjectReferencePaths.FullPath)', '.deps.json'))" />
+
+    </ItemGroup>
+
+    <Copy SourceFiles="%(DepsFilePaths.FullPath)" DestinationFolder="$(OutputPath)" Condition="Exists('%(DepsFilePaths.FullPath)')" />
+
+  </Target>
+
+</Project>

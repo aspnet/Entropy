@@ -10,11 +10,19 @@ using Microsoft.AspNetCore.Server.IntegrationTesting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.PlatformAbstractions;
 using Xunit.Sdk;
+using Xunit.Abstractions;
 
 namespace EntropyTests
 {
     public static class TestServices
     {
+        public static string WorkingDirectory { get; }
+#if NET451
+            = AppDomain.CurrentDomain.BaseDirectory;
+#else
+            = AppContext.BaseDirectory;
+#endif
+
         public static void LogResponseOnFailedAssert(this ILogger logger, HttpResponseMessage response, string responseText, Action assert)
         {
             try
@@ -32,12 +40,17 @@ namespace EntropyTests
             }
         }
 
-        public static async Task RunSiteTest(string siteName, ServerType serverType, RuntimeFlavor runtimeFlavor, RuntimeArchitecture architecture, string applicationBaseUrl,
+        public static async Task RunSiteTest(string siteName, ServerType serverType, RuntimeFlavor runtimeFlavor, RuntimeArchitecture architecture, string applicationBaseUrl, ITestOutputHelper xunitLogger,
             Func<HttpClient, ILogger, CancellationToken, Task> validator)
         {
-            var logger = new LoggerFactory()
-                .AddConsole()
-                .CreateLogger(string.Format("{0}:{1}:{2}:{3}", siteName, serverType, runtimeFlavor, architecture));
+            var factory = new LoggerFactory()
+                .AddConsole();
+            if (xunitLogger != null)
+            {
+                factory.AddProvider(new XunitLoggerProvider(xunitLogger));
+            }
+
+            var logger = factory.CreateLogger(string.Format("{0}:{1}:{2}:{3}", siteName, serverType, runtimeFlavor, architecture));
 
             using (logger.BeginScope("RunSiteTest"))
             {
@@ -45,7 +58,7 @@ namespace EntropyTests
                 {
                     ApplicationBaseUriHint = applicationBaseUrl,
                     SiteName = "HttpTestSite",
-                    ServerConfigTemplateContent = serverType == ServerType.Nginx ? File.ReadAllText("nginx.conf") : string.Empty,
+                    ServerConfigTemplateContent = serverType == ServerType.Nginx ? File.ReadAllText(Path.Combine(WorkingDirectory, "nginx.conf")) : string.Empty,
                     PublishApplicationBeforeDeployment = true,
                     TargetFramework = runtimeFlavor == RuntimeFlavor.Clr ? "net451" : "netcoreapp1.1",
                     ApplicationType = runtimeFlavor == RuntimeFlavor.Clr ? ApplicationType.Standalone : ApplicationType.Portable

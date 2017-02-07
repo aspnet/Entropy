@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\build\common.props" />
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <TargetFrameworks>net451;netcoreapp1.1</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="1.2.0-*" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="1.2.0-*" />
+  </ItemGroup>
+
+</Project>

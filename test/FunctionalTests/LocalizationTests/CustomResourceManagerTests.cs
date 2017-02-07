@@ -3,16 +3,23 @@ using EntropyTests;
 using Microsoft.AspNetCore.Server.IntegrationTesting;
 using Microsoft.AspNetCore.Testing.xunit;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace FunctionalTests.LocalizationTests
 {
     public class CustomResourceManagerTests
     {
         private const string SiteName = "Localization.CustomResourceManager";
+        private readonly ITestOutputHelper _output;
+        public CustomResourceManagerTests(ITestOutputHelper output)
+        {
+            _output = output;
+        }
 
-        [Theory]
-        [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, "http://localhost:9200", Skip = "https://github.com/aspnet/Entropy/issues/186")]
-        [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x86, "http://localhost:9201", Skip = "x86 not supported yet")]
+        // [Theory]
+        // TODO uncomment https://github.com/xunit/xunit/issues/1087
+        //[InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, "http://localhost:9200", Skip = "https://github.com/aspnet/Entropy/issues/186")]
+        //[InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x86, "http://localhost:9201", Skip = "x86 not supported yet")]
         public async Task CustomResourceManagerFactory_ClassLibrarysReadCorrectly_CoreClr(
             ServerType server,
             RuntimeFlavor runtimeFlavor,
@@ -48,6 +55,7 @@ namespace FunctionalTests.LocalizationTests
                 runtimeFlavor,
                 architecture,
                 applicationBaseUrl,
+                _output,
                 async (httpClient, logger, token) =>
                 {
                     var response = await RetryHelper.RetryRequest(async () =>

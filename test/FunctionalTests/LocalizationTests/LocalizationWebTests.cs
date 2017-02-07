@@ -2,12 +2,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Server.IntegrationTesting;
 using Microsoft.AspNetCore.Testing.xunit;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace EntropyTests.LocalizationTests
 {
     public class LocalizationWebTests
     {
         private const string SiteName = "Localization.StarterWeb";
+        private readonly ITestOutputHelper _output;
+        public LocalizationWebTests(ITestOutputHelper output)
+        {
+            _output = output;
+        }
 
         [Theory(Skip = "https://github.com/aspnet/Entropy/issues/186")]
         [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, "http://localhost:6200")]
@@ -45,6 +51,7 @@ namespace EntropyTests.LocalizationTests
                 runtimeFlavor,
                 architecture,
                 applicationBaseUrl,
+                _output,
                 async (httpClient, logger, token) =>
                 {
                     // ===== English =====

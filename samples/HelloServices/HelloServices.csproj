@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\build\common.props" />
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <TargetFrameworks>net451;netstandard1.3</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Localization" Version="1.2.0-*" />
+  </ItemGroup>
+
+</Project>

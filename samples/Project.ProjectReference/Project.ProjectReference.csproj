@@ -1,0 +1,10 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\build\common.props" />
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <TargetFramework>netstandard1.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>
