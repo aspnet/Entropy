@@ -4,7 +4,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Mvc.AjaxAntiforgeryAuth.Web.Controllers
+namespace Antiforgery.MvcWithAuthAndAjax.Controllers
 {
     public class HomeController : Controller
     {

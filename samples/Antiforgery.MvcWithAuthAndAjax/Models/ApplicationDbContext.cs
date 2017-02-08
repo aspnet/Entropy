@@ -4,7 +4,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Mvc.AjaxAntiforgeryAuth.Web.Models
+namespace Antiforgery.MvcWithAuthAndAjax.Models
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {

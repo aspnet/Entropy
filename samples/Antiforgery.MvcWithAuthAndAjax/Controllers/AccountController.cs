@@ -6,10 +6,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Mvc.AjaxAntiforgeryAuth.Web.Models;
-using Mvc.AjaxAntiforgeryAuth.Web.ViewModels.Account;
+using Antiforgery.MvcWithAuthAndAjax.Models;
+using Antiforgery.MvcWithAuthAndAjax.ViewModels.Account;
 
-namespace Mvc.AjaxAntiforgeryAuth.Web.Controllers
+namespace Antiforgery.MvcWithAuthAndAjax.Controllers
 {
     [Authorize]
     public class AccountController : Controller

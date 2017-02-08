@@ -3,7 +3,7 @@
 
 using System.ComponentModel.DataAnnotations;
 
-namespace Mvc.AjaxAntiforgeryAuth.Web.ViewModels.Account
+namespace Antiforgery.MvcWithAuthAndAjax.ViewModels.Account
 {
     public class LoginViewModel
     {

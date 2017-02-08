@@ -9,9 +9,9 @@ using Xunit;
 
 namespace FunctionalTests.MvcTests
 {
-    public class MvcAjaxAntiforgeryAuthWebTest : IClassFixture<SampleTestFixture<Mvc.AjaxAntiforgeryAuth.Web.Startup>>
+    public class MvcAjaxAntiforgeryAuthWebTest : IClassFixture<SampleTestFixture<Antiforgery.MvcWithAuthAndAjax.Startup>>
     {
-        public MvcAjaxAntiforgeryAuthWebTest(SampleTestFixture<Mvc.AjaxAntiforgeryAuth.Web.Startup> fixture)
+        public MvcAjaxAntiforgeryAuthWebTest(SampleTestFixture<Antiforgery.MvcWithAuthAndAjax.Startup> fixture)
         {
             Client = fixture.Client;
         }

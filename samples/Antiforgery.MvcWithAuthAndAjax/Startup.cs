@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Mvc.AjaxAntiforgeryAuth.Web.Models;
+using Antiforgery.MvcWithAuthAndAjax.Models;
 
-namespace Mvc.AjaxAntiforgeryAuth.Web
+namespace Antiforgery.MvcWithAuthAndAjax
 {
     public class Startup
     {

@@ -18,8 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\samples\Antiforgery.Angular1\Antiforgery.Angular1.csproj" />
+    <ProjectReference Include="..\..\samples\Antiforgery.MvcWithAuthAndAjax\Antiforgery.MvcWithAuthAndAjax.csproj" />
     <ProjectReference Include="..\..\samples\Mvc.ActionConstraintSample.Web\Mvc.ActionConstraintSample.Web.csproj" />
-    <ProjectReference Include="..\..\samples\Mvc.AjaxAntiforgeryAuth.Web\Mvc.AjaxAntiforgeryAuth.Web.csproj" />
     <ProjectReference Include="..\..\samples\Mvc.CustomRouteSample.Web\Mvc.CustomRouteSample.Web.csproj" />
     <ProjectReference Include="..\..\samples\Mvc.CustomRoutingConvention\Mvc.CustomRoutingConvention.csproj" />
     <ProjectReference Include="..\..\samples\Mvc.EmbeddedViewSample.Web\Mvc.EmbeddedViewSample.Web.csproj" />
