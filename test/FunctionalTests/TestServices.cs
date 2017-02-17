@@ -17,7 +17,7 @@ namespace EntropyTests
     public static class TestServices
     {
         public static string WorkingDirectory { get; }
-#if NET451
+#if NET452
             = AppDomain.CurrentDomain.BaseDirectory;
 #else
             = AppContext.BaseDirectory;
