@@ -135,7 +135,7 @@ $@"<!doctype html>
                 await context.Response.WriteAsync("</form>");
                 await context.Response.WriteAsync("<br />");
                 await context.Response.WriteAsync("<table><tbody>");
-                await context.Response.WriteAsync($"<tr><th>Winning provider:</th><td>{requestCultureFeature.Provider.GetType().Name}</td></tr>");
+                await context.Response.WriteAsync($"<tr><th>Winning provider:</th><td>{requestCultureFeature.Provider?.GetType()?.Name}</td></tr>");
                 await context.Response.WriteAsync($"<tr><th>{startupStringLocalizer["Current request culture:"]}</th><td>{requestCulture.Culture.DisplayName} ({requestCulture.Culture})</td></tr>");
                 await context.Response.WriteAsync($"<tr><th>{startupStringLocalizer["Current request UI culture:"]}</th><td>{requestCulture.UICulture.DisplayName} ({requestCulture.UICulture})</td></tr>");
                 await context.Response.WriteAsync($"<tr><th>{startupStringLocalizer["Current thread culture:"]}</th><td>{CultureInfo.CurrentCulture.DisplayName} ({CultureInfo.CurrentCulture})</td></tr>");

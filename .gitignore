@@ -35,3 +35,4 @@ node_modules/
 .build/
 web.Debug.config
 web.Release.config
+*/*Antiforgery*/wwwroot/lib

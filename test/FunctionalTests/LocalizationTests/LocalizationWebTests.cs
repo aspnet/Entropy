@@ -1,81 +1,38 @@
+using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Server.IntegrationTesting;
-using Microsoft.AspNetCore.Testing.xunit;
+using Microsoft.Extensions.Logging;
 using Xunit;
 using Xunit.Abstractions;
 
 namespace EntropyTests.LocalizationTests
 {
-    public class LocalizationWebTests
+    public class LocalizationWebTests : E2ETestBase
     {
-        private const string SiteName = "Localization.StarterWeb";
-        private readonly ITestOutputHelper _output;
         public LocalizationWebTests(ITestOutputHelper output)
+            : base(output, "Localization.StarterWeb", 6400)
         {
-            _output = output;
         }
 
-        [Theory(Skip = "https://github.com/aspnet/Entropy/issues/186")]
-        [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, "http://localhost:6200")]
-        public async Task RunSite_AllPlatforms(ServerType server, RuntimeFlavor runtimeFlavor, RuntimeArchitecture architecture, string applicationBaseUrl)
+        protected override async Task ValidateAsync(HttpClient httpClient, ILogger logger, CancellationToken token)
         {
-            await RunSite(server, runtimeFlavor, architecture, applicationBaseUrl);
-        }
+            var response = await RetryHelper.RetryRequest(async () =>
+            {
+                return await httpClient.GetAsync(string.Empty);
+            }, logger, token, retryCount: 30);
 
-        [ConditionalTheory]
-        [OSSkipCondition(OperatingSystems.Linux)]
-        [OSSkipCondition(OperatingSystems.MacOSX)]
-        [InlineData(ServerType.Kestrel, RuntimeFlavor.Clr, RuntimeArchitecture.x86, "http://localhost:6201", Skip = "x86 not supported yet")]
-        [InlineData(ServerType.Kestrel, RuntimeFlavor.Clr, RuntimeArchitecture.x64, "http://localhost:6202", Skip = "https://github.com/aspnet/Entropy/issues/186")]
-        [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x86, "http://localhost:6203", Skip = "x86 not supported yet")]
-        public async Task RunSite_WindowsOnly(ServerType server, RuntimeFlavor runtimeFlavor, RuntimeArchitecture architecture, string applicationBaseUrl)
-        {
-            await RunSite(server, runtimeFlavor, architecture, applicationBaseUrl);
-        }
+            var responseText = await response.Content.ReadAsStringAsync();
+            Assert.Contains("<h2>Application uses</h2>", responseText);
 
-        [ConditionalTheory]
-        [OSSkipCondition(OperatingSystems.Windows)]
-        [InlineData(ServerType.Kestrel, RuntimeFlavor.Clr, RuntimeArchitecture.x64, "http://localhost:6204", Skip = "Disabled due to https://github.com/dotnet/corefx/issues/9012")]
-        [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, "http://localhost:6205", Skip = "https://github.com/aspnet/Entropy/issues/186")]
-        [InlineData(ServerType.Nginx, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, "http://localhost:6206", Skip = "https://github.com/aspnet/Entropy/issues/186")]
-        public async Task RunSite_NonWindowsOnly(ServerType server, RuntimeFlavor runtimeFlavor, RuntimeArchitecture architecture, string applicationBaseUrl)
-        {
-            await RunSite(server, runtimeFlavor, architecture, applicationBaseUrl);
-        }
+            // ===== French =====
+            response = await RetryHelper.RetryRequest(async () =>
+            {
+                return await httpClient.GetAsync("?culture=fr&ui-culture=fr");
+            }, logger, token, retryCount: 30);
 
-        private async Task RunSite(ServerType server, RuntimeFlavor runtimeFlavor, RuntimeArchitecture architecture, string applicationBaseUrl)
-        {
-            await TestServices.RunSiteTest(
-                SiteName,
-                server,
-                runtimeFlavor,
-                architecture,
-                applicationBaseUrl,
-                _output,
-                async (httpClient, logger, token) =>
-                {
-                    // ===== English =====
-                    var response = await RetryHelper.RetryRequest(async () =>
-                    {
-                        return await httpClient.GetAsync(string.Empty);
-                    }, logger, token, retryCount: 30);
-
-                    var responseText = await response.Content.ReadAsStringAsync();
-
-                    var headingIndex = responseText.IndexOf("<h2>Application uses</h2>");
-                    Assert.True(headingIndex >= 0);
-
-                    // ===== French =====
-                    response = await RetryHelper.RetryRequest(async () =>
-                    {
-                        return await httpClient.GetAsync("?culture=fr&ui-culture=fr");
-                    }, logger, token, retryCount: 30);
-
-                    responseText = await response.Content.ReadAsStringAsync();
-
-                    headingIndex = responseText.IndexOf("<h2>Utilisations d'application</h2>");
-                    Assert.True(headingIndex >= 0);
-                });
+            responseText = await response.Content.ReadAsStringAsync();
+            Assert.Contains("<h2>Utilisations d'application</h2>", responseText);
         }
     }
 }
