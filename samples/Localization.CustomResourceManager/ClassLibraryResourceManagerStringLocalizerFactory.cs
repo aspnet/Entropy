@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 namespace Localization.CustomResourceManager
@@ -19,8 +20,9 @@ namespace Localization.CustomResourceManager
 
         public ClassLibraryStringLocalizerFactory(
             IOptions<LocalizationOptions> localizationOptions,
-            IOptions<ClassLibraryLocalizationOptions> classLibraryLocalizationOptions)
-                : base(localizationOptions)
+            IOptions<ClassLibraryLocalizationOptions> classLibraryLocalizationOptions,
+            ILoggerFactory loggerFactory)
+                : base(localizationOptions, loggerFactory)
         {
             _resourcePathMappings = classLibraryLocalizationOptions.Value.ResourcePaths;
         }
