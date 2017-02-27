@@ -7,10 +7,11 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Server.IntegrationTesting;
+using Microsoft.AspNetCore.Server.IntegrationTesting.Common;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.PlatformAbstractions;
-using Xunit.Sdk;
 using Xunit.Abstractions;
+using Xunit.Sdk;
 
 namespace EntropyTests
 {
@@ -40,7 +41,13 @@ namespace EntropyTests
             }
         }
 
-        public static async Task RunSiteTest(string siteName, ServerType serverType, RuntimeFlavor runtimeFlavor, RuntimeArchitecture architecture, string applicationBaseUrl, ITestOutputHelper xunitLogger,
+        public static async Task RunSiteTest(
+            string siteName,
+            ServerType serverType,
+            RuntimeFlavor runtimeFlavor,
+            RuntimeArchitecture architecture,
+            string applicationBaseUrl,
+            ITestOutputHelper xunitLogger,
             Func<HttpClient, ILogger, CancellationToken, Task> validator)
         {
             var factory = new LoggerFactory()
@@ -56,7 +63,7 @@ namespace EntropyTests
             {
                 var deploymentParameters = new DeploymentParameters(GetApplicationDirectory(siteName), serverType, runtimeFlavor, architecture)
                 {
-                    ApplicationBaseUriHint = applicationBaseUrl,
+                    ApplicationBaseUriHint = TestUriHelper.BuildTestUri(applicationBaseUrl).ToString(),
                     SiteName = "HttpTestSite",
                     ServerConfigTemplateContent = serverType == ServerType.Nginx ? File.ReadAllText(Path.Combine(WorkingDirectory, "nginx.conf")) : string.Empty,
                     PublishApplicationBeforeDeployment = true,
