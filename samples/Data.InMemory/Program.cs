@@ -34,7 +34,7 @@ namespace Data.InMemory
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseInMemoryDatabase();
+            optionsBuilder.UseInMemoryDatabase("Scratch");
         }
     }
 

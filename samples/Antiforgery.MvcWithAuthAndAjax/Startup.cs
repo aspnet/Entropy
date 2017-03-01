@@ -19,7 +19,7 @@ namespace Antiforgery.MvcWithAuthAndAjax
             services.AddMvc();
             services.AddAntiforgery();
             services.AddLogging();
-            services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase());
+            services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("Scratch"));
 
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
