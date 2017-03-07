@@ -5,8 +5,6 @@
   <PropertyGroup>
     <IsPackable>false</IsPackable>
     <TargetFramework>netcoreapp1.1</TargetFramework>
-    <PreserveCompilationContext>true</PreserveCompilationContext>
-    <OutputType>Exe</OutputType>
   </PropertyGroup>
 
   <ItemGroup>

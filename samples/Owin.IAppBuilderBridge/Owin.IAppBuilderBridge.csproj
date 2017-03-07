@@ -5,9 +5,6 @@
   <PropertyGroup>
     <IsPackable>false</IsPackable>
     <TargetFramework>net451</TargetFramework>
-    <!-- TODO remove when https://github.com/dotnet/sdk/issues/396 is resolved -->
-    <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
-    <OutputType>Exe</OutputType>
   </PropertyGroup>
 
   <ItemGroup>

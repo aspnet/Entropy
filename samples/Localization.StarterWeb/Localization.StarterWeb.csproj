@@ -5,10 +5,6 @@
   <PropertyGroup>
     <IsPackable>false</IsPackable>
     <TargetFrameworks>net451;netcoreapp1.1</TargetFrameworks>
-    <!-- TODO remove when https://github.com/dotnet/sdk/issues/396 is resolved -->
-    <RuntimeIdentifier Condition=" '$(TargetFramework)' != 'netcoreapp1.1' ">win7-x64</RuntimeIdentifier>
-    <PreserveCompilationContext>true</PreserveCompilationContext>
-    <OutputType>Exe</OutputType>
     <UserSecretsId>aspnet5-Localization.StarterWeb-4772c50f-56f3-4058-bd61-75f1352aeca7</UserSecretsId>
   </PropertyGroup>
 
@@ -22,9 +18,6 @@
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="1.2.0-*" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="1.2.0-*" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.2.0-*" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Localization" Version="1.2.0-*" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor" Version="1.2.0-*" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.TagHelpers" Version="1.2.0-*" />
     <PackageReference Include="Microsoft.AspNetCore.Server.IISIntegration" Version="1.2.0-*" />
     <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="1.2.0-*" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.2.0-*" />
