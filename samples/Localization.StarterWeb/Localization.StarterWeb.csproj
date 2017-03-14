@@ -35,7 +35,7 @@
 
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.2.0-*" />
-    <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="1.0.1-*" />
+    <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="1.2.0-*" />
   </ItemGroup>
 
 </Project>

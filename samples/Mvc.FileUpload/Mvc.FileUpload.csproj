@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="1.0.1-*" />
+    <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="1.2.0-*" />
   </ItemGroup>
 
 </Project>
