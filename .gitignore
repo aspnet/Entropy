@@ -36,3 +36,4 @@ node_modules/
 web.Debug.config
 web.Release.config
 */*Antiforgery*/wwwroot/lib
+.vscode/

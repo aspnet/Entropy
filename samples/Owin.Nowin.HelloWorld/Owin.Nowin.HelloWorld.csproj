@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <Import Project="..\..\build\common.props" />
+  <Import Project="..\..\build\dependencies.props" />
 
   <PropertyGroup>
     <IsPackable>false</IsPackable>
@@ -8,10 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="1.2.0-*" />
-    <PackageReference Include="Microsoft.AspNetCore.Owin" Version="1.2.0-*" />
-    <PackageReference Include="Microsoft.AspNetCore.Server.IISIntegration" Version="1.2.0-*" />
-    <PackageReference Include="Nowin" Version="0.11.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="$(AspNetCoreVersion)" />
+    <PackageReference Include="Microsoft.AspNetCore.Owin" Version="$(AspNetCoreVersion)" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.IISIntegration" Version="$(AspNetCoreVersion)" />
+    <PackageReference Include="Nowin" Version="$(NowinVersion)" />
   </ItemGroup>
 
 </Project>
