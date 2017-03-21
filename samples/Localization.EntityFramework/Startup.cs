@@ -33,7 +33,7 @@ namespace EFLocalizationSample
                 new CultureInfo("zh"),
                 new CultureInfo("zh-CN")
             };
-#if NET451
+#if NET46
             supportedCultures.Add(new CultureInfo("zh-CHT"));
 #endif 
             var options = new RequestLocalizationOptions {
@@ -146,7 +146,7 @@ $@"<!doctype html>
             await context.Response.WriteAsync($"    <option value=\"{new CultureInfo("ja-JP").Name}\">{new CultureInfo("ja-JP").DisplayName}</option>");
             await context.Response.WriteAsync($"    <option value=\"{new CultureInfo("zh").Name}\">{new CultureInfo("zh").DisplayName}</option>");
             await context.Response.WriteAsync($"    <option value=\"{new CultureInfo("zh-CN").Name}\">{new CultureInfo("zh-CN").DisplayName}</option>");
-#if NET451
+#if NET46
             await context.Response.WriteAsync($"    <option value=\"{new CultureInfo("zh-HanT").Name}\">{new CultureInfo("zh-HanT").DisplayName}</option>");
 #endif
             await context.Response.WriteAsync($"    <option value=\"en-NOTREAL\">English (Not a real locale)</option>");

@@ -93,7 +93,7 @@ namespace EntropyTests
         {
             return RunTestAsync(ServerType.Nginx, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, BasePort + 8);
         }
-#elif NET452
+#elif NET46
 // E2E tests only need to be defined for one TFM.
 #else
 #error NETCOREAPP1_1 is no longer defined. Update the TFMs in this file.

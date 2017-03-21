@@ -18,7 +18,7 @@ namespace EntropyTests
     public static class TestServices
     {
         public static string WorkingDirectory { get; }
-#if NET452
+#if NET46
             = AppDomain.CurrentDomain.BaseDirectory;
 #else
             = AppContext.BaseDirectory;
@@ -67,7 +67,7 @@ namespace EntropyTests
                     SiteName = "HttpTestSite",
                     ServerConfigTemplateContent = serverType == ServerType.Nginx ? File.ReadAllText(Path.Combine(WorkingDirectory, "nginx.conf")) : string.Empty,
                     PublishApplicationBeforeDeployment = true,
-                    TargetFramework = runtimeFlavor == RuntimeFlavor.Clr ? "net451" : "netcoreapp1.1",
+                    TargetFramework = runtimeFlavor == RuntimeFlavor.Clr ? "net46" : "netcoreapp1.1",
                     ApplicationType = runtimeFlavor == RuntimeFlavor.Clr ? ApplicationType.Standalone : ApplicationType.Portable
                 };
 

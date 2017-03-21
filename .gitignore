@@ -37,3 +37,4 @@ web.Debug.config
 web.Release.config
 */*Antiforgery*/wwwroot/lib
 .vscode/
+global.json

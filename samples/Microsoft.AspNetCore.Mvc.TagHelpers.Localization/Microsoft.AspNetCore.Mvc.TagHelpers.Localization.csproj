@@ -5,7 +5,7 @@
   <PropertyGroup>
     <IsPackable>false</IsPackable>
     <Description>Tag Helpers to aid with localizing ASP.NET Core MVC applications.</Description>
-    <TargetFrameworks>net451;netstandard1.6</TargetFrameworks>
+    <TargetFrameworks>net46;netstandard1.6</TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup>
