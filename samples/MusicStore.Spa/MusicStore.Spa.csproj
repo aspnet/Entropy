@@ -22,6 +22,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="$(AspNetCoreVersion)" />
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="$(AspNetCoreVersion)" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="$(AspNetCoreVersion)" />
+    <PackageReference Include="System.Security.Claims" Version="$(CoreFxVersion)" />
   </ItemGroup>
 
 </Project>
