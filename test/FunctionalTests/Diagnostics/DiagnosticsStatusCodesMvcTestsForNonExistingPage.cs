@@ -1,3 +1,6 @@
+// Copyright (c) .NET Foundation. All rights reserved.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -12,7 +15,7 @@ namespace EntropyTests.Diagnostics
         private const string SiteName = "Diagnostics.StatusCodes.Mvc";
 
         public DiagnosticsStatusCodesMvcTestsForNonExistingPage(ITestOutputHelper output)
-            : base(output, SiteName, 6200)
+            : base(output, SiteName)
         {
         }
 

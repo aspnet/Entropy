@@ -1,3 +1,6 @@
+// Copyright (c) .NET Foundation. All rights reserved.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
 using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -12,7 +15,7 @@ namespace EntropyTests.ContainerTests
     public class ContainerFallbackWebTests : E2ETestBase
     {
         public ContainerFallbackWebTests(ITestOutputHelper output)
-            : base(output, "Container.Fallback.Web", 6000)
+            : base(output, "Container.Fallback.Web")
         {
         }
 

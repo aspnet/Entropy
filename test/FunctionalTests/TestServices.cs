@@ -47,18 +47,12 @@ namespace EntropyTests
             RuntimeFlavor runtimeFlavor,
             RuntimeArchitecture architecture,
             string applicationBaseUrl,
-            ITestOutputHelper xunitLogger,
+            ITestOutputHelper xunitOutput,
             Func<HttpClient, ILogger, CancellationToken, Task> validator)
         {
-            var factory = new LoggerFactory()
-                .AddConsole();
-            if (xunitLogger != null)
-            {
-                factory.AddProvider(new XunitLoggerProvider(xunitLogger));
-            }
-
-            var logger = factory.CreateLogger(string.Format("{0}:{1}:{2}:{3}", siteName, serverType, runtimeFlavor, architecture));
-
+            var factory = new LoggerFactory().AddXunit(xunitOutput);
+            var logger = factory.CreateLogger(siteName);
+            
             using (logger.BeginScope("RunSiteTest"))
             {
                 var deploymentParameters = new DeploymentParameters(GetApplicationDirectory(siteName), serverType, runtimeFlavor, architecture)
@@ -73,6 +67,7 @@ namespace EntropyTests
 
                 using (var deployer = ApplicationDeployerFactory.Create(deploymentParameters, logger))
                 {
+                    Console.WriteLine($"Running deployment for {siteName}:{serverType}:{runtimeFlavor}:{architecture}");
                     var deploymentResult = deployer.Deploy();
                     var httpClientHandler = new HttpClientHandler();
                     var httpClient = new HttpClient(httpClientHandler)
