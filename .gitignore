@@ -38,3 +38,4 @@ web.Release.config
 */*Antiforgery*/wwwroot/lib
 .vscode/
 global.json
+nginx.*.log

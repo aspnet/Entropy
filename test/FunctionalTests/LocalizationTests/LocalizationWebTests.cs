@@ -1,4 +1,4 @@
-// Copyright (c) .NET Foundation. All rights reserved.
+﻿// Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System.Net.Http;
@@ -20,6 +20,7 @@ namespace EntropyTests.LocalizationTests
 
         protected override async Task ValidateAsync(HttpClient httpClient, ILogger logger, CancellationToken token)
         {
+            logger.LogInformation("English Request");
             var response = await RetryHelper.RetryRequest(async () =>
             {
                 return await httpClient.GetAsync(string.Empty);
@@ -29,6 +30,7 @@ namespace EntropyTests.LocalizationTests
             Assert.Contains("<h2>Application uses</h2>", responseText);
 
             // ===== French =====
+            logger.LogInformation("French Request");
             response = await RetryHelper.RetryRequest(async () =>
             {
                 return await httpClient.GetAsync("?culture=fr&ui-culture=fr");

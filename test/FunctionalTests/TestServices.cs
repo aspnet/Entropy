@@ -1,4 +1,4 @@
-// Copyright (c) .NET Foundation. All rights reserved.
+﻿// Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
@@ -46,18 +46,16 @@ namespace EntropyTests
             ServerType serverType,
             RuntimeFlavor runtimeFlavor,
             RuntimeArchitecture architecture,
-            string applicationBaseUrl,
             ITestOutputHelper xunitOutput,
             Func<HttpClient, ILogger, CancellationToken, Task> validator)
         {
-            var factory = new LoggerFactory().AddXunit(xunitOutput);
+            var factory = new LoggerFactory().AddConsole().AddXunit(xunitOutput, LogLevel.Debug);
             var logger = factory.CreateLogger(siteName);
-            
+
             using (logger.BeginScope("RunSiteTest"))
             {
                 var deploymentParameters = new DeploymentParameters(GetApplicationDirectory(siteName), serverType, runtimeFlavor, architecture)
                 {
-                    ApplicationBaseUriHint = TestUriHelper.BuildTestUri(applicationBaseUrl).ToString(),
                     SiteName = "HttpTestSite",
                     ServerConfigTemplateContent = serverType == ServerType.Nginx ? File.ReadAllText(Path.Combine(WorkingDirectory, "nginx.conf")) : string.Empty,
                     PublishApplicationBeforeDeployment = true,
@@ -65,10 +63,10 @@ namespace EntropyTests
                     ApplicationType = runtimeFlavor == RuntimeFlavor.Clr ? ApplicationType.Standalone : ApplicationType.Portable
                 };
 
-                using (var deployer = ApplicationDeployerFactory.Create(deploymentParameters, logger))
+                using (var deployer = ApplicationDeployerFactory.Create(deploymentParameters, factory))
                 {
-                    Console.WriteLine($"Running deployment for {siteName}:{serverType}:{runtimeFlavor}:{architecture}");
-                    var deploymentResult = deployer.Deploy();
+                    logger.LogInformation($"Running deployment for {siteName}:{serverType}:{runtimeFlavor}:{architecture}");
+                    var deploymentResult = await deployer.DeployAsync();
                     var httpClientHandler = new HttpClientHandler();
                     var httpClient = new HttpClient(httpClientHandler)
                     {
@@ -78,6 +76,7 @@ namespace EntropyTests
 
                     using (httpClient)
                     {
+                        logger.LogInformation($"Running validation for {siteName}:{serverType}:{runtimeFlavor}:{architecture}");
                         await validator(httpClient, logger, deploymentResult.HostShutdownToken);
                     }
                 }

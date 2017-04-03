@@ -1,4 +1,4 @@
-// Copyright (c) .NET Foundation. All rights reserved.
+﻿// Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System.Net.Http;
@@ -21,9 +21,9 @@ namespace EntropyTests.ContainerTests
 
         protected override async Task ValidateAsync(HttpClient httpClient, ILogger logger, CancellationToken token)
         {
-            // calltwo and callthree in the expression below 
+            // calltwo and callthree in the expression below
             // increment on every call.
-            // The test verifies that everything else stays the same 
+            // The test verifies that everything else stays the same
             // and that the two values that change are increasing in value
             var responseMatcher =
 @"---------- MyMiddleware ctor\r\n" +
@@ -40,6 +40,7 @@ namespace EntropyTests.ContainerTests
 
 
             // ===== First call =====
+            logger.LogInformation("First call");
             var response = await RetryHelper.RetryRequest(async () =>
             {
                 return await httpClient.GetAsync(string.Empty);
@@ -54,6 +55,7 @@ namespace EntropyTests.ContainerTests
             var callThree1 = int.Parse(match.Groups["callthree"].Value);
 
             // ===== Second call =====
+            logger.LogInformation("Second call");
             response = await RetryHelper.RetryRequest(async () =>
             {
                 return await httpClient.GetAsync(string.Empty);

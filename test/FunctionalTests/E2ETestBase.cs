@@ -2,9 +2,8 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System;
-using System.Net;
 using System.Net.Http;
-using System.Net.Sockets;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Server.IntegrationTesting;
@@ -96,7 +95,7 @@ namespace EntropyTests
             return RunTestAsync(ServerType.Nginx, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64);
         }
 #elif NET46
-// E2E tests only need to be defined for one TFM.
+        // E2E tests only need to be defined for one TFM.
 #else
 #error NETCOREAPP1_1 is no longer defined. Update the TFMs in this file.
 #endif
@@ -107,17 +106,25 @@ namespace EntropyTests
         private Task RunTestAsync(
             ServerType serverType,
             RuntimeFlavor runtimeFlavor,
-            RuntimeArchitecture architecture)
+            RuntimeArchitecture architecture,
+            [CallerMemberName] string testName = null)
         {
-            var applicationBaseUrl = $"http://localhost:{GetNextPort()}";
-            return TestServices.RunSiteTest(
-                _siteName,
-                serverType,
-                runtimeFlavor,
-                architecture,
-                applicationBaseUrl,
-                _output,
-                ValidateAsync);
+            testName = $"{GetType().FullName}.{testName}";
+            try
+            {
+                Console.WriteLine($"Starting test {testName}");
+                return TestServices.RunSiteTest(
+                    _siteName,
+                    serverType,
+                    runtimeFlavor,
+                    architecture,
+                    _output,
+                    ValidateAsync);
+            }
+            finally
+            {
+                Console.WriteLine($"Finished test {testName}");
+            }
         }
 
         protected virtual async Task ValidateAsync(
@@ -125,6 +132,7 @@ namespace EntropyTests
             ILogger logger,
             CancellationToken token)
         {
+            logger.LogInformation("Performing Request");
             var response = await RetryHelper.RetryRequest(() =>
             {
                 return GetResponse(httpClient);
@@ -141,20 +149,6 @@ namespace EntropyTests
         protected virtual void AssertResponse(HttpResponseMessage response, string responseText)
         {
             throw new NotImplementedException("Must be overriden in derived types.");
-        }
-
-        private static int GetNextPort()
-        {
-            using (var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp))
-            {
-                // Let the OS assign the next available port. Unless we cycle through all ports
-                // on a test run, the OS will always increment the port number when making these calls.
-                // This prevents races in parallel test runs where a test is already bound to
-                // a given port, and a new test is able to bind to the same port due to port
-                // reuse being enabled by default by the OS.
-                socket.Bind(new IPEndPoint(IPAddress.Loopback, 0));
-                return ((IPEndPoint)socket.LocalEndPoint).Port;
-            }
         }
     }
 }
