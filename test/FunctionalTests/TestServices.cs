@@ -17,12 +17,7 @@ namespace EntropyTests
 {
     public static class TestServices
     {
-        public static string WorkingDirectory { get; }
-#if NET46
-            = AppDomain.CurrentDomain.BaseDirectory;
-#else
-            = AppContext.BaseDirectory;
-#endif
+        public static string WorkingDirectory { get; } = AppContext.BaseDirectory;
 
         public static void LogResponseOnFailedAssert(this ILogger logger, HttpResponseMessage response, string responseText, Action assert)
         {
@@ -59,7 +54,7 @@ namespace EntropyTests
                     SiteName = "HttpTestSite",
                     ServerConfigTemplateContent = serverType == ServerType.Nginx ? File.ReadAllText(Path.Combine(WorkingDirectory, "nginx.conf")) : string.Empty,
                     PublishApplicationBeforeDeployment = true,
-                    TargetFramework = runtimeFlavor == RuntimeFlavor.Clr ? "net46" : "netcoreapp1.1",
+                    TargetFramework = runtimeFlavor == RuntimeFlavor.Clr ? "net46" : "netcoreapp2.0",
                     ApplicationType = runtimeFlavor == RuntimeFlavor.Clr ? ApplicationType.Standalone : ApplicationType.Portable
                 };
 

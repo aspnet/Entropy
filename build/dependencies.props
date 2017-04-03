@@ -10,6 +10,7 @@
     <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
     <NowinVersion>0.11.0</NowinVersion>
     <OwinVersion>3.0.1</OwinVersion>
+    <RuntimeFrameworkVersion>2.0.0-*</RuntimeFrameworkVersion>
     <TestSdkVersion>15.0.0</TestSdkVersion>
     <XunitVersion>2.2.0</XunitVersion>
   </PropertyGroup>

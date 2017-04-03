@@ -4,7 +4,7 @@
 
   <PropertyGroup>
     <IsPackable>false</IsPackable>
-    <TargetFrameworks>net46;netcoreapp1.1</TargetFrameworks>
+    <TargetFrameworks>net46;netcoreapp2.0</TargetFrameworks>
     <UserSecretsId>aspnet5-Localization.StarterWeb-4772c50f-56f3-4058-bd61-75f1352aeca7</UserSecretsId>
   </PropertyGroup>
 

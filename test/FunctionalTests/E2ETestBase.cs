@@ -25,7 +25,7 @@ namespace EntropyTests
             _siteName = siteName;
         }
 
-#if NETCOREAPP1_1
+#if NETCOREAPP2_0
         [Fact]
         public Task KestrelX64CoreCLR()
         {
@@ -95,9 +95,8 @@ namespace EntropyTests
             return RunTestAsync(ServerType.Nginx, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64);
         }
 #elif NET46
-        // E2E tests only need to be defined for one TFM.
 #else
-#error NETCOREAPP1_1 is no longer defined. Update the TFMs in this file.
+#error Target framework needs to be updated
 #endif
 
         protected virtual Task<HttpResponseMessage> GetResponse(HttpClient client)
