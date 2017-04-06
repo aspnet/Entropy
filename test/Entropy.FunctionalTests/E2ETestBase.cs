@@ -11,17 +11,16 @@ using Microsoft.AspNetCore.Testing.xunit;
 using Microsoft.Extensions.Logging;
 using Xunit;
 using Xunit.Abstractions;
+using Microsoft.AspNetCore.Server.IntegrationTesting.xunit;
 
 namespace EntropyTests
 {
-    public abstract class E2ETestBase
+    public abstract class E2ETestBase : LoggedTest
     {
         private string _siteName;
-        private ITestOutputHelper _output;
 
-        protected E2ETestBase(ITestOutputHelper output, string siteName)
+        protected E2ETestBase(ITestOutputHelper output, string siteName) : base(output)
         {
-            _output = output;
             _siteName = siteName;
         }
 
@@ -109,20 +108,15 @@ namespace EntropyTests
             [CallerMemberName] string testName = null)
         {
             testName = $"{GetType().FullName}.{testName}";
-            try
+            using (StartLog(out var loggerFactory, testName))
             {
-                Console.WriteLine($"Starting test {testName}");
                 return TestServices.RunSiteTest(
                     _siteName,
                     serverType,
                     runtimeFlavor,
                     architecture,
-                    _output,
+                    loggerFactory,
                     ValidateAsync);
-            }
-            finally
-            {
-                Console.WriteLine($"Finished test {testName}");
             }
         }
 

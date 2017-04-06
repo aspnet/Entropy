@@ -1,16 +1,14 @@
 ﻿// Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using Microsoft.AspNetCore.Server.IntegrationTesting;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.PlatformAbstractions;
 using System;
 using System.IO;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Server.IntegrationTesting;
-using Microsoft.AspNetCore.Server.IntegrationTesting.Common;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.PlatformAbstractions;
-using Xunit.Abstractions;
 using Xunit.Sdk;
 
 namespace EntropyTests
@@ -41,40 +39,28 @@ namespace EntropyTests
             ServerType serverType,
             RuntimeFlavor runtimeFlavor,
             RuntimeArchitecture architecture,
-            ITestOutputHelper xunitOutput,
+            ILoggerFactory loggerFactory,
             Func<HttpClient, ILogger, CancellationToken, Task> validator)
         {
-            var factory = new LoggerFactory().AddConsole().AddXunit(xunitOutput, LogLevel.Debug);
-            var logger = factory.CreateLogger(siteName);
+            var logger = loggerFactory.CreateLogger(siteName);
 
-            using (logger.BeginScope("RunSiteTest"))
+            var deploymentParameters = new DeploymentParameters(GetApplicationDirectory(siteName), serverType, runtimeFlavor, architecture)
             {
-                var deploymentParameters = new DeploymentParameters(GetApplicationDirectory(siteName), serverType, runtimeFlavor, architecture)
-                {
-                    SiteName = "HttpTestSite",
-                    ServerConfigTemplateContent = serverType == ServerType.Nginx ? File.ReadAllText(Path.Combine(WorkingDirectory, "nginx.conf")) : string.Empty,
-                    PublishApplicationBeforeDeployment = true,
-                    TargetFramework = runtimeFlavor == RuntimeFlavor.Clr ? "net46" : "netcoreapp2.0",
-                    ApplicationType = runtimeFlavor == RuntimeFlavor.Clr ? ApplicationType.Standalone : ApplicationType.Portable
-                };
+                SiteName = "HttpTestSite",
+                ServerConfigTemplateContent = serverType == ServerType.Nginx ? File.ReadAllText(Path.Combine(WorkingDirectory, "nginx.conf")) : string.Empty,
+                PublishApplicationBeforeDeployment = true,
+                TargetFramework = runtimeFlavor == RuntimeFlavor.Clr ? "net46" : "netcoreapp2.0",
+                ApplicationType = runtimeFlavor == RuntimeFlavor.Clr ? ApplicationType.Standalone : ApplicationType.Portable
+            };
 
-                using (var deployer = ApplicationDeployerFactory.Create(deploymentParameters, factory))
-                {
-                    logger.LogInformation($"Running deployment for {siteName}:{serverType}:{runtimeFlavor}:{architecture}");
-                    var deploymentResult = await deployer.DeployAsync();
-                    var httpClientHandler = new HttpClientHandler();
-                    var httpClient = new HttpClient(httpClientHandler)
-                    {
-                        BaseAddress = new Uri(deploymentResult.ApplicationBaseUri),
-                        Timeout = TimeSpan.FromSeconds(10)
-                    };
+            using (var deployer = ApplicationDeployerFactory.Create(deploymentParameters, loggerFactory))
+            {
+                logger.LogInformation($"Running deployment for {siteName}:{serverType}:{runtimeFlavor}:{architecture}");
+                var deploymentResult = await deployer.DeployAsync();
+                deploymentResult.HttpClient.Timeout = TimeSpan.FromSeconds(10);
 
-                    using (httpClient)
-                    {
-                        logger.LogInformation($"Running validation for {siteName}:{serverType}:{runtimeFlavor}:{architecture}");
-                        await validator(httpClient, logger, deploymentResult.HostShutdownToken);
-                    }
-                }
+                logger.LogInformation($"Running validation for {siteName}:{serverType}:{runtimeFlavor}:{architecture}");
+                await validator(deploymentResult.HttpClient, logger, deploymentResult.HostShutdownToken);
             }
         }
 
