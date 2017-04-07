@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace EntropyTests.LocalizationTests
+namespace Entropy.FunctionalTests.LocalizationTests
 {
     public class LocalizationWebTests : E2ETestBase
     {

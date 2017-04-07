@@ -11,7 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xunit.Sdk;
 
-namespace EntropyTests
+namespace Entropy.FunctionalTests
 {
     public static class TestServices
     {

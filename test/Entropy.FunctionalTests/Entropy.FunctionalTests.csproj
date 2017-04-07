@@ -10,7 +10,7 @@
     <DefineConstants>$(DefineConstants);__RemoveThisBitTo__GENERATE_BASELINES</DefineConstants>
 
     <!-- set explicitly because some tests depend on this -->
-    <RootNamespace>FunctionalTests</RootNamespace>
+    <RootNamespace>Entropy.FunctionalTests</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(TargetFramework)' != 'netcoreapp2.0' ">

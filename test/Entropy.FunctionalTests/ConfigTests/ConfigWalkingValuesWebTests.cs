@@ -5,7 +5,7 @@ using System.Net.Http;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace EntropyTests.ConfigTests
+namespace Entropy.FunctionalTests.ConfigTests
 {
     public class ConfigWalkingValuesWebTests : E2ETestBase
     {

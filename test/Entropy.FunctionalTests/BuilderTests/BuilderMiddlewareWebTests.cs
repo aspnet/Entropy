@@ -5,7 +5,7 @@ using System.Net.Http;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace EntropyTests.BuilderTests
+namespace Entropy.FunctionalTests.BuilderTests
 {
     public class BuilderMiddlewareWebTests : E2ETestBase
     {

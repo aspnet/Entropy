@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace EntropyTests.ContainerTests
+namespace Entropy.FunctionalTests.ContainerTests
 {
     public class ContainerFallbackWebTests : E2ETestBase
     {

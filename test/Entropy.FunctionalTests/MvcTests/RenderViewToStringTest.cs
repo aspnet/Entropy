@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EntropyTests
+namespace Entropy.FunctionalTests
 {
     using Program = Mvc.RenderViewToString.Program;
 

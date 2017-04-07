@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EntropyTests
+namespace Entropy.FunctionalTests
 {
     public class ActionConstraintSampleTest : IClassFixture<SampleTestFixture<ActionConstraintSample.Web.Startup>>
     {

@@ -5,7 +5,7 @@ using System.IO;
 using System.Reflection;
 using Xunit;
 
-namespace EntropyTests
+namespace Entropy.FunctionalTests
 {
     public static class RazorEmbeddedResource
     {

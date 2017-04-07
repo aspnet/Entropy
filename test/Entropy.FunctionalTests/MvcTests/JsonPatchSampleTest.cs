@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Xunit;
 
-namespace EntropyTests
+namespace Entropy.FunctionalTests
 {
     public class JsonPatchSampleTest : IClassFixture<SampleTestFixture<JsonPatchSample.Web.Startup>>
     {

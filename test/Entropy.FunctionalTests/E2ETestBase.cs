@@ -13,7 +13,7 @@ using Xunit;
 using Xunit.Abstractions;
 using Microsoft.AspNetCore.Server.IntegrationTesting.xunit;
 
-namespace EntropyTests
+namespace Entropy.FunctionalTests
 {
     public abstract class E2ETestBase : LoggedTest
     {
@@ -101,7 +101,7 @@ namespace EntropyTests
         protected virtual Task<HttpResponseMessage> GetResponse(HttpClient client)
             => client.GetAsync(string.Empty);
 
-        private Task RunTestAsync(
+        private async Task RunTestAsync(
             ServerType serverType,
             RuntimeFlavor runtimeFlavor,
             RuntimeArchitecture architecture,
@@ -110,7 +110,7 @@ namespace EntropyTests
             testName = $"{GetType().FullName}.{testName}";
             using (StartLog(out var loggerFactory, testName))
             {
-                return TestServices.RunSiteTest(
+                await TestServices.RunSiteTest(
                     _siteName,
                     serverType,
                     runtimeFlavor,

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Xunit;
 
-namespace EntropyTests
+namespace Entropy.FunctionalTests
 {
     public class InlineConstraintSampleTest : IClassFixture<SampleTestFixture<InlineConstraintSample.Web.Startup>>
     {

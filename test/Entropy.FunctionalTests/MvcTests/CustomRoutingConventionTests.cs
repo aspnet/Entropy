@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.TestHost;
 using Microsoft.AspNetCore.Testing.xunit;
 using Xunit;
 
-namespace BuilderTests.MvcTests
+namespace Entropy.FunctionalTests
 {
     public class CustomRoutingConventionTests
     {

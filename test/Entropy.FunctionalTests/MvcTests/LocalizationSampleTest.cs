@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Testing;
 using Microsoft.Net.Http.Headers;
 using Xunit;
 
-namespace EntropyTests
+namespace Entropy.FunctionalTests
 {
     public class LocalizationSampleTest : IClassFixture<SampleTestFixture<global::Mvc.LocalizationSample.Web.Startup>>
     {

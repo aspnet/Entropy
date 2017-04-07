@@ -6,7 +6,7 @@ using System.Net.Http;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace EntropyTests.Diagnostics
+namespace Entropy.FunctionalTests.Diagnostics
 {
     [Collection(SiteName)]
     public class DiagnosticsStatusCodesMvcTestsForExistingPage : E2ETestBase

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace EntropyTests.Diagnostics
+namespace Entropy.FunctionalTests.Diagnostics
 {
     [Collection(SiteName)]
     public class DiagnosticsStatusCodesMvcTestsForNonExistingPage : E2ETestBase

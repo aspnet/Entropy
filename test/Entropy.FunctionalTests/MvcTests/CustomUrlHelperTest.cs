@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EntropyTests
+namespace Entropy.FunctionalTests
 {
     /// <summary>
     /// The tests here verify the extensibility of <see cref="UrlHelper"/>.

@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
 using Antiforgery.Angular1;
 
-namespace Microsoft.AspNetCore.Antiforgery.FunctionalTests
+namespace Entropy.FunctionalTests
 {
     public class AntiForgeryAngular1TestFixture : IDisposable
     {

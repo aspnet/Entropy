@@ -10,7 +10,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace EntropyTests
+namespace Entropy.FunctionalTests
 {
     public class TagHelperSampleTest : IClassFixture<SampleTestFixture<TagHelperSample.Web.Startup>>
     {

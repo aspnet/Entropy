@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace EntropyTests
+namespace Entropy.FunctionalTests
 {
     public class SampleTestFixture<TStartup> : IDisposable
     {

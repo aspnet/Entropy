@@ -3,11 +3,10 @@
 
 using System.Net.Http;
 using System.Threading.Tasks;
-using EntropyTests;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace FunctionalTests.LocalizationTests
+namespace Entropy.FunctionalTests.LocalizationTests
 {
     public class CustomResourceManagerTests : E2ETestBase
     {
