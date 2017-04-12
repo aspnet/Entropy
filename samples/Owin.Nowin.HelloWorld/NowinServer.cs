@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Hosting.Server.Features;
@@ -24,7 +25,7 @@ namespace Nowin
             _builder = options.Value;
         }
 
-        public void Start<TContext>(IHttpApplication<TContext> application)
+        public Task StartAsync<TContext>(IHttpApplication<TContext> application, CancellationToken cancellationToken)
         {
             // Note that this example does not take into account of Nowin's "server.OnSendingHeaders" callback.
             // Ideally we should ensure this method is fired before disposing the context. 
@@ -68,11 +69,19 @@ namespace Nowin
                                     .SetOwinApp(appFunc)
                                     .Build();
             _nowinServer.Start();
+
+            return Task.CompletedTask;
+        }
+
+        public Task StopAsync(CancellationToken cancellationToken)
+        {
+            _nowinServer?.Dispose();
+            return Task.CompletedTask;
         }
 
         public void Dispose()
         {
-            _nowinServer?.Dispose();
+            StopAsync(CancellationToken.None).GetAwaiter().GetResult();
         }
     }
 }
