@@ -39,6 +39,7 @@ namespace Entropy.FunctionalTests
             ServerType serverType,
             RuntimeFlavor runtimeFlavor,
             RuntimeArchitecture architecture,
+            ApplicationType applicationType,
             ILoggerFactory loggerFactory,
             Func<HttpClient, ILogger, CancellationToken, Task> validator)
         {
@@ -50,7 +51,7 @@ namespace Entropy.FunctionalTests
                 ServerConfigTemplateContent = serverType == ServerType.Nginx ? File.ReadAllText(Path.Combine(WorkingDirectory, "nginx.conf")) : string.Empty,
                 PublishApplicationBeforeDeployment = true,
                 TargetFramework = runtimeFlavor == RuntimeFlavor.Clr ? "net46" : "netcoreapp2.0",
-                ApplicationType = runtimeFlavor == RuntimeFlavor.Clr ? ApplicationType.Standalone : ApplicationType.Portable
+                ApplicationType = applicationType
             };
 
             using (var deployer = ApplicationDeployerFactory.Create(deploymentParameters, loggerFactory))
