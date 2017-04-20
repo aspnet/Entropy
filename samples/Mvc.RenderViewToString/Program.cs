@@ -4,6 +4,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.Internal;
@@ -11,7 +12,6 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.ObjectPool;
-using Microsoft.Extensions.PlatformAbstractions;
 
 namespace Mvc.RenderViewToString
 {
@@ -59,7 +59,6 @@ namespace Mvc.RenderViewToString
 
         private static void ConfigureDefaultServices(IServiceCollection services, string customApplicationBasePath)
         {
-            var applicationEnvironment = PlatformServices.Default.Application;
             string applicationName;
             IFileProvider fileProvider;
             if (!string.IsNullOrEmpty(customApplicationBasePath))
@@ -69,8 +68,8 @@ namespace Mvc.RenderViewToString
             }
             else
             {
-                applicationName = applicationEnvironment.ApplicationName;
-                fileProvider = new PhysicalFileProvider(applicationEnvironment.ApplicationBasePath);
+                applicationName = Assembly.GetEntryAssembly().GetName().Name;
+                fileProvider = new PhysicalFileProvider(AppContext.BaseDirectory);
             }
 
             services.AddSingleton<IHostingEnvironment>(new HostingEnvironment
