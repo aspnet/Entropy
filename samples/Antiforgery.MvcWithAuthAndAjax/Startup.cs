@@ -21,7 +21,7 @@ namespace Antiforgery.MvcWithAuthAndAjax
             services.AddLogging();
             services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("Scratch"));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>())
+            services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
             services.ConfigureApplicationCookie(options => options.Cookies.ApplicationCookie.AccessDeniedPath = "/Home/AccessDenied");
