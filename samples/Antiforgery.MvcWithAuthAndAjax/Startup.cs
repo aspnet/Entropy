@@ -21,19 +21,17 @@ namespace Antiforgery.MvcWithAuthAndAjax
             services.AddLogging();
             services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("Scratch"));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
-            {
-                options.Cookies.ApplicationCookie.AccessDeniedPath = "/Home/AccessDenied";
-            })
+            services.AddIdentity<ApplicationUser, IdentityRole>())
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+            services.ConfigureApplicationCookie(options => options.Cookies.ApplicationCookie.AccessDeniedPath = "/Home/AccessDenied");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
         {
             app.UseStaticFiles();
-            app.UseIdentity();
+            app.UseAuthentication();
             loggerFactory.AddConsole();
 
             app.UseMvc(routes =>

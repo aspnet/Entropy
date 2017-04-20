@@ -75,7 +75,7 @@ namespace MusicStore.Spa
             // Configure the HTTP request pipeline
 
             // Add cookie auth
-            app.UseIdentity();
+            app.UseAuthentication();
 
             // Add static files
             app.UseStaticFiles();
