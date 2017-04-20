@@ -24,7 +24,7 @@ namespace Antiforgery.MvcWithAuthAndAjax
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
-            services.ConfigureApplicationCookie(options => options.Cookies.ApplicationCookie.AccessDeniedPath = "/Home/AccessDenied");
+            services.ConfigureApplicationCookie(options => options.AccessDeniedPath = "/Home/AccessDenied");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
