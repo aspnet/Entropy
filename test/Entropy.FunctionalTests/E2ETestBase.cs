@@ -24,73 +24,57 @@ namespace Entropy.FunctionalTests
             _siteName = siteName;
         }
 
-#if NETCOREAPP2_0
         [ConditionalTheory]
         [OSSkipCondition(OperatingSystems.Linux)]
         [OSSkipCondition(OperatingSystems.MacOSX)]
-        [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, ApplicationType.Portable)]
-        [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, ApplicationType.Standalone)]
-        [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x86, ApplicationType.Standalone,
+        [InlineData(ServerType.Kestrel, RuntimeArchitecture.x64, ApplicationType.Portable)]
+        [InlineData(ServerType.Kestrel, RuntimeArchitecture.x64, ApplicationType.Standalone)]
+        [InlineData(ServerType.Kestrel, RuntimeArchitecture.x86, ApplicationType.Standalone,
             Skip = "https://github.com/aspnet/Hosting/issues/949")]
-        [InlineData(ServerType.WebListener, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, ApplicationType.Portable)]
-        [InlineData(ServerType.WebListener, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, ApplicationType.Standalone)]
-        [InlineData(ServerType.WebListener, RuntimeFlavor.CoreClr, RuntimeArchitecture.x86, ApplicationType.Standalone,
-            Skip = "https://github.com/aspnet/Hosting/issues/949")]
-        [InlineData(ServerType.Kestrel, RuntimeFlavor.Clr, RuntimeArchitecture.x64, ApplicationType.Standalone)]
-        [InlineData(ServerType.Kestrel, RuntimeFlavor.Clr, RuntimeArchitecture.x86, ApplicationType.Standalone,
-            Skip = "https://github.com/aspnet/Hosting/issues/949")]
-        [InlineData(ServerType.WebListener, RuntimeFlavor.Clr, RuntimeArchitecture.x64, ApplicationType.Standalone)]
-        [InlineData(ServerType.WebListener, RuntimeFlavor.Clr, RuntimeArchitecture.x86, ApplicationType.Standalone,
+        [InlineData(ServerType.WebListener, RuntimeArchitecture.x64, ApplicationType.Portable)]
+        [InlineData(ServerType.WebListener, RuntimeArchitecture.x64, ApplicationType.Standalone)]
+        [InlineData(ServerType.WebListener, RuntimeArchitecture.x86, ApplicationType.Standalone,
             Skip = "https://github.com/aspnet/Hosting/issues/949")]
         public Task WindowsOS(
             ServerType serverType,
-            RuntimeFlavor runtimeFlavor,
             RuntimeArchitecture architecture,
             ApplicationType applicationType)
         {
-            return RunTestAsync(serverType, runtimeFlavor, architecture, applicationType);
+            return RunTestAsync(serverType, architecture, applicationType);
         }
 
         [ConditionalTheory]
         [OSSkipCondition(OperatingSystems.Windows)]
-        [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, ApplicationType.Portable)]
-        [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, ApplicationType.Standalone,
+        [InlineData(ServerType.Kestrel, RuntimeArchitecture.x64, ApplicationType.Portable)]
+        [InlineData(ServerType.Kestrel, RuntimeArchitecture.x64, ApplicationType.Standalone,
             Skip = "https://github.com/dotnet/cli/issues/6397")]
-        [InlineData(ServerType.Nginx, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, ApplicationType.Portable)]
-        [InlineData(ServerType.Nginx, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, ApplicationType.Standalone,
+        [InlineData(ServerType.Nginx, RuntimeArchitecture.x64, ApplicationType.Portable)]
+        [InlineData(ServerType.Nginx, RuntimeArchitecture.x64, ApplicationType.Standalone,
             Skip = "https://github.com/dotnet/cli/issues/6397")]
         public Task NonWindowsOS(
             ServerType serverType,
-            RuntimeFlavor runtimeFlavor,
             RuntimeArchitecture architecture,
             ApplicationType applicationType)
         {
-            return RunTestAsync(serverType, runtimeFlavor, architecture, applicationType);
+            return RunTestAsync(serverType, architecture, applicationType);
         }
-
-#elif NET46
-#else
-#error Target framework needs to be updated
-#endif
 
         protected virtual Task<HttpResponseMessage> GetResponse(HttpClient client)
             => client.GetAsync(string.Empty);
 
         private async Task RunTestAsync(
             ServerType serverType,
-            RuntimeFlavor runtimeFlavor,
             RuntimeArchitecture architecture,
             ApplicationType applicationType,
             [CallerMemberName] string testName = null)
         {
-            testName = $"{GetType().Name}_{testName}_{serverType}_{runtimeFlavor}_{architecture}_{applicationType}";
+            testName = $"{GetType().Name}_{testName}_{serverType}_{architecture}_{applicationType}";
 
             using (StartLog(out var loggerFactory, testName))
             {
                 await TestServices.RunSiteTest(
                     _siteName,
                     serverType,
-                    runtimeFlavor,
                     architecture,
                     applicationType,
                     loggerFactory,
