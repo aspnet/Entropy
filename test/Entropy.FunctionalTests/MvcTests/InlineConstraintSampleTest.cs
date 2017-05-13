@@ -42,9 +42,9 @@ namespace Entropy.FunctionalTests
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
             var result = await GetResponseValues(response);
-            Assert.Equal(result["id"], "5");
-            Assert.Equal(result["controller"], "Products");
-            Assert.Equal(result["action"], "GetProductById");
+            Assert.Equal("5", result["id"]);
+            Assert.Equal("Products", result["controller"]);
+            Assert.Equal("GetProductById", result["action"]);
         }
 
         [Fact]
@@ -56,8 +56,8 @@ namespace Entropy.FunctionalTests
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             var result = await GetResponseValues(response);
-            Assert.Equal(result["controller"], "Products");
-            Assert.Equal(result["action"], "GetProductById");
+            Assert.Equal("Products", result["controller"]);
+            Assert.Equal("GetProductById", result["action"]);
         }
 
         [Fact]
@@ -79,9 +79,9 @@ namespace Entropy.FunctionalTests
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             var result = await GetResponseValues(response);
-            Assert.Equal(result["name"], "asdf");
-            Assert.Equal(result["controller"], "Products");
-            Assert.Equal(result["action"], "GetProductByName");
+            Assert.Equal("asdf", result["name"]);
+            Assert.Equal("Products", result["controller"]);
+            Assert.Equal("GetProductByName", result["action"]);
         }
 
         [Fact]
@@ -116,8 +116,8 @@ namespace Entropy.FunctionalTests
 
             var result = await GetResponseValues(response);
             Assert.Equal(result["dateTime"], new DateTime(2014, 10, 11, 13, 45, 30));
-            Assert.Equal(result["controller"], "Products");
-            Assert.Equal(result["action"], "GetProductByManufacturingDate");
+            Assert.Equal("Products", result["controller"]);
+            Assert.Equal("GetProductByManufacturingDate", result["action"]);
         }
 
         [Fact]
@@ -129,9 +129,9 @@ namespace Entropy.FunctionalTests
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             var result = await GetResponseValues(response);
-            Assert.Equal(result["name"], "Sports");
-            Assert.Equal(result["controller"], "Products");
-            Assert.Equal(result["action"], "GetProductByCategoryName");
+            Assert.Equal("Sports", result["name"]);
+            Assert.Equal("Products", result["controller"]);
+            Assert.Equal("GetProductByCategoryName", result["action"]);
         }
 
         [Fact]
@@ -154,8 +154,8 @@ namespace Entropy.FunctionalTests
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             var result = await GetResponseValues(response);
-            Assert.Equal(result["controller"], "Products");
-            Assert.Equal(result["action"], "GetProductByCategoryName");
+            Assert.Equal("Products", result["controller"]);
+            Assert.Equal("GetProductByCategoryName", result["action"]);
         }
 
         [Fact]
@@ -167,9 +167,9 @@ namespace Entropy.FunctionalTests
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             var result = await GetResponseValues(response);
-            Assert.Equal(result["catId"], "40");
-            Assert.Equal(result["controller"], "Products");
-            Assert.Equal(result["action"], "GetProductByCategoryId");
+            Assert.Equal("40", result["catId"]);
+            Assert.Equal("Products", result["controller"]);
+            Assert.Equal("GetProductByCategoryId", result["action"]);
         }
 
         [Fact]
@@ -201,9 +201,9 @@ namespace Entropy.FunctionalTests
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             var result = await GetResponseValues(response);
-            Assert.Equal(result["price"], "4023.23423");
-            Assert.Equal(result["controller"], "Products");
-            Assert.Equal(result["action"], "GetProductByPrice");
+            Assert.Equal("4023.23423", result["price"]);
+            Assert.Equal("Products", result["controller"]);
+            Assert.Equal("GetProductByPrice", result["action"]);
         }
 
         [Fact]
@@ -215,8 +215,8 @@ namespace Entropy.FunctionalTests
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             var result = await GetResponseValues(response);
-            Assert.Equal(result["controller"], "Products");
-            Assert.Equal(result["action"], "GetProductByPrice");
+            Assert.Equal("Products", result["controller"]);
+            Assert.Equal("GetProductByPrice", result["action"]);
         }
 
         [Fact]
@@ -228,9 +228,9 @@ namespace Entropy.FunctionalTests
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             var result = await GetResponseValues(response);
-            Assert.Equal(result["manId"], "57");
-            Assert.Equal(result["controller"], "Products");
-            Assert.Equal(result["action"], "GetProductByManufacturerId");
+            Assert.Equal("57", result["manId"]);
+            Assert.Equal("Products", result["controller"]);
+            Assert.Equal("GetProductByManufacturerId", result["action"]);
         }
 
         [Fact]
@@ -242,8 +242,8 @@ namespace Entropy.FunctionalTests
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             var result = await GetResponseValues(response);
-            Assert.Equal(result["controller"], "Products");
-            Assert.Equal(result["action"], "GetProductByManufacturerId");
+            Assert.Equal("Products", result["controller"]);
+            Assert.Equal("GetProductByManufacturerId", result["action"]);
         }
 
         [Fact]
@@ -255,9 +255,9 @@ namespace Entropy.FunctionalTests
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             var result = await GetResponseValues(response);
-            Assert.Equal(result["controller"], "Products");
-            Assert.Equal(result["action"], "GetUserByName");
-            Assert.Equal(result["name"], "abc");
+            Assert.Equal("Products", result["controller"]);
+            Assert.Equal("GetUserByName", result["action"]);
+            Assert.Equal("abc", result["name"]);
         }
 
         [Fact]
@@ -280,9 +280,9 @@ namespace Entropy.FunctionalTests
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             var result = await GetResponseValues(response);
-            Assert.Equal(result["id"], "691cf17a-791b-4af8-99fd-e739e168170f");
-            Assert.Equal(result["controller"], "Store");
-            Assert.Equal(result["action"], "GetStoreById");
+            Assert.Equal("691cf17a-791b-4af8-99fd-e739e168170f", result["id"]);
+            Assert.Equal("Store", result["controller"]);
+            Assert.Equal("GetStoreById", result["action"]);
         }
 
         [Fact]
@@ -294,8 +294,8 @@ namespace Entropy.FunctionalTests
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             var result = await GetResponseValues(response);
-            Assert.Equal(result["controller"], "Store");
-            Assert.Equal(result["action"], "GetStoreById");
+            Assert.Equal("Store", result["controller"]);
+            Assert.Equal("GetStoreById", result["action"]);
         }
 
         [Fact]
@@ -317,9 +317,9 @@ namespace Entropy.FunctionalTests
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             var result = await GetResponseValues(response);
-            Assert.Equal(result["location"], "Bellevue");
-            Assert.Equal(result["controller"], "Store");
-            Assert.Equal(result["action"], "GetStoreByLocation");
+            Assert.Equal("Bellevue", result["location"]);
+            Assert.Equal("Store", result["controller"]);
+            Assert.Equal("GetStoreByLocation", result["action"]);
         }
 
         [Fact]

@@ -236,7 +236,8 @@ namespace Entropy.FunctionalTests
             }
         }
 
-        [Theory, MemberData("InvalidJsonPatchData")]
+        [Theory]
+        [MemberData(nameof(InvalidJsonPatchData))]
         public async Task JsonPatch_InvalidOperations_failure(string url, string input, string errorMessage)
         {
             // Arrange
