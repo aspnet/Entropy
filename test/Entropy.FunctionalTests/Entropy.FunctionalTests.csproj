@@ -3,13 +3,26 @@
   <Import Project="..\..\build\common.props" />
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFrameworks>netcoreapp2.0</TargetFrameworks>
+    <TargetFrameworks Condition=" '$(OS)' != 'Windows_NT' ">netcoreapp2.0</TargetFrameworks>
 
     <DefineConstants Condition="'$(GenerateBaselines)'=='true'">$(DefineConstants);GENERATE_BASELINES</DefineConstants>
     <DefineConstants>$(DefineConstants);__RemoveThisBitTo__GENERATE_BASELINES</DefineConstants>
 
     <!-- set explicitly because some tests depend on this -->
     <RootNamespace>Entropy.FunctionalTests</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' != 'netcoreapp2.0' ">
+    <!-- Work around https://github.com/dotnet/sdk/issues/926. Align with bitness of the web site projects. -->
+    <PlatformTarget>x86</PlatformTarget>
+
+    <!--
+      Work around https://github.com/Microsoft/vstest/issues/428 aka https://github.com/aspnet/Mvc/issues/5873.
+      Create the appropriate binding redirects.
+    -->
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,7 +42,6 @@
     <ProjectReference Include="..\..\samples\Mvc.GenericControllers\Mvc.GenericControllers.csproj" />
     <ProjectReference Include="..\..\samples\Mvc.InlineConstraintSample.Web\Mvc.InlineConstraintSample.Web.csproj" />
     <ProjectReference Include="..\..\samples\Mvc.JsonPatchSample.Web\Mvc.JsonPatchSample.Web.csproj" />
-    <ProjectReference Include="..\..\samples\Mvc.LocalizationSample.Web\Mvc.LocalizationSample.Web.csproj" />
     <ProjectReference Include="..\..\samples\Mvc.RenderViewToString\Mvc.RenderViewToString.csproj" />
     <ProjectReference Include="..\..\samples\Mvc.SubAreaSample.Web\Mvc.SubAreaSample.Web.csproj" />
     <ProjectReference Include="..\..\samples\Mvc.TagHelperSample.Web\Mvc.TagHelperSample.Web.csproj" />
@@ -45,6 +57,10 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="$(TestSdkVersion)" />
     <PackageReference Include="xunit" Version="$(XunitVersion)" />
     <PackageReference Include="xunit.runner.visualstudio" Version="$(XunitVersion)" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
+    <ProjectReference Include="..\..\samples\Mvc.LocalizationSample.Web\Mvc.LocalizationSample.Web.csproj" />
   </ItemGroup>
 
   <!--

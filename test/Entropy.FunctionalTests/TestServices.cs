@@ -36,6 +36,7 @@ namespace Entropy.FunctionalTests
         public static async Task RunSiteTest(
             string siteName,
             ServerType serverType,
+            RuntimeFlavor runtimeFlavor,
             RuntimeArchitecture architecture,
             ApplicationType applicationType,
             ILoggerFactory loggerFactory,
@@ -43,22 +44,22 @@ namespace Entropy.FunctionalTests
         {
             var logger = loggerFactory.CreateLogger(siteName);
 
-            var deploymentParameters = new DeploymentParameters(GetApplicationDirectory(siteName), serverType, RuntimeFlavor.CoreClr, architecture)
+            var deploymentParameters = new DeploymentParameters(GetApplicationDirectory(siteName), serverType, runtimeFlavor, architecture)
             {
                 SiteName = "HttpTestSite",
                 ServerConfigTemplateContent = serverType == ServerType.Nginx ? File.ReadAllText(Path.Combine(WorkingDirectory, "nginx.conf")) : string.Empty,
                 PublishApplicationBeforeDeployment = true,
-                TargetFramework = "netcoreapp2.0",
+                TargetFramework = runtimeFlavor == RuntimeFlavor.Clr ? "net461" : "netcoreapp2.0",
                 ApplicationType = applicationType
             };
 
             using (var deployer = ApplicationDeployerFactory.Create(deploymentParameters, loggerFactory))
             {
-                logger.LogInformation($"Running deployment for {siteName}:{serverType}:{architecture}");
+                logger.LogInformation($"Running deployment for {siteName}:{serverType}:{runtimeFlavor}:{architecture}");
                 var deploymentResult = await deployer.DeployAsync();
                 deploymentResult.HttpClient.Timeout = TimeSpan.FromSeconds(10);
 
-                logger.LogInformation($"Running validation for {siteName}:{serverType}:{architecture}");
+                logger.LogInformation($"Running validation for {siteName}:{serverType}:{runtimeFlavor}:{architecture}");
                 await validator(deploymentResult.HttpClient, logger, deploymentResult.HostShutdownToken);
             }
         }

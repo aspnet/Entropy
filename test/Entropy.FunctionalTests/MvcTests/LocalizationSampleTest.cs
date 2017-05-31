@@ -1,6 +1,7 @@
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+#if NET461
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -142,3 +143,7 @@ mypartial
         }
     }
 }
+#elif NETCOREAPP2_0
+#else
+#error Target framework needs to be updated
+#endif

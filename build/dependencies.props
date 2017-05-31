@@ -4,9 +4,13 @@
     <AspNetIntegrationTestingVersion>0.4.0-*</AspNetIntegrationTestingVersion>
     <AspNetCoreVersion>2.0.0-*</AspNetCoreVersion>
     <AutoMapperVersion>5.2.0</AutoMapperVersion>
+    <ImmutableCollectionsVersion>1.3.1</ImmutableCollectionsVersion>
     <InternalAspNetCoreSdkVersion>2.1.0-*</InternalAspNetCoreSdkVersion>
     <NETStandardImplicitPackageVersion>$(BundledNETStandardPackageVersion)</NETStandardImplicitPackageVersion>
+    <NETStandardLibraryNETFrameworkVersion>2.0.0-*</NETStandardLibraryNETFrameworkVersion>
     <RuntimeFrameworkVersion Condition="'$(TargetFramework)'=='netcoreapp2.0'">2.0.0-*</RuntimeFrameworkVersion>
+    <NowinVersion>0.11.0</NowinVersion>
+    <OwinVersion>3.0.1</OwinVersion>
     <TestSdkVersion>15.3.0-*</TestSdkVersion>
     <XunitVersion>2.3.0-beta2-*</XunitVersion>
   </PropertyGroup>
