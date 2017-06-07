@@ -14,4 +14,8 @@
     <PackageReference Include="System.Collections.Immutable" Version="$(ImmutableCollectionsVersion)" />
   </ItemGroup>
 
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
+    <PackageReference Include="NETStandard.Library.NETFramework" Version="$(NETStandardLibraryNETFrameworkVersion)" PrivateAssets="All" />
+  </ItemGroup>
+
 </Project>
