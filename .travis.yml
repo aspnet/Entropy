@@ -23,6 +23,6 @@ branches:
     - release
     - dev
     - /^(.*\/)?ci-.*$/
-    - /^rel\/.*/`
+    - /^rel\/.*/
 script:
   - ./build.sh
