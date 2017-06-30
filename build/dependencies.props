@@ -7,7 +7,6 @@
     <ImmutableCollectionsVersion>1.3.1</ImmutableCollectionsVersion>
     <InternalAspNetCoreSdkVersion>2.1.0-*</InternalAspNetCoreSdkVersion>
     <NETStandardImplicitPackageVersion>2.0.0-*</NETStandardImplicitPackageVersion>
-    <NETStandardLibraryNETFrameworkVersion>2.0.0-*</NETStandardLibraryNETFrameworkVersion>
     <RuntimeFrameworkVersion Condition="'$(TargetFramework)'=='netcoreapp2.0'">2.0.0-*</RuntimeFrameworkVersion>
     <NowinVersion>0.11.0</NowinVersion>
     <OwinVersion>3.0.1</OwinVersion>
