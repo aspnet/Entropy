@@ -39,3 +39,4 @@ web.Release.config
 .vscode/
 global.json
 nginx.*.log
+korebuild-lock.txt

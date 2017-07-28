@@ -5,7 +5,7 @@
     <AspNetCoreVersion>2.1.0-*</AspNetCoreVersion>
     <AutoMapperVersion>5.2.0</AutoMapperVersion>
     <ImmutableCollectionsVersion>1.3.1</ImmutableCollectionsVersion>
-    <InternalAspNetCoreSdkVersion>2.1.0-*</InternalAspNetCoreSdkVersion>
+    <InternalAspNetCoreSdkVersion>2.1.1-*</InternalAspNetCoreSdkVersion>
     <NETStandardImplicitPackageVersion>2.0.0-*</NETStandardImplicitPackageVersion>
     <RuntimeFrameworkVersion Condition="'$(TargetFramework)'=='netcoreapp2.0'">2.0.0-*</RuntimeFrameworkVersion>
     <NowinVersion>0.11.0</NowinVersion>
