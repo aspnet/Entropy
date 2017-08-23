@@ -23,7 +23,6 @@ namespace Mvc.RenderViewToString
             var emailContent = RenderViewAsync(serviceScopeFactory).Result;
 
             Console.WriteLine(emailContent);
-            Console.ReadLine();
         }
 
         public static IServiceScopeFactory InitializeServices(string customApplicationBasePath = null)
@@ -53,7 +52,7 @@ namespace Mvc.RenderViewToString
                     UserData2 = 2
                 };
 
-                return helper.RenderViewToStringAsync("EmailTemplate", model);
+                return helper.RenderViewToStringAsync("Views/EmailTemplate.cshtml", model);
             }
         }
 
@@ -69,7 +68,7 @@ namespace Mvc.RenderViewToString
             else
             {
                 applicationName = Assembly.GetEntryAssembly().GetName().Name;
-                fileProvider = new PhysicalFileProvider(AppContext.BaseDirectory);
+                fileProvider = new PhysicalFileProvider(Directory.GetCurrentDirectory());
             }
 
             services.AddSingleton<IHostingEnvironment>(new HostingEnvironment
