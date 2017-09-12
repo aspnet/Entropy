@@ -1,0 +1,36 @@
+@page "{handler?}"
+@functions{
+    public string Message { get; private set; }
+
+    public void Get()
+    {
+        Message = "Hello World";
+    }
+
+    public void Post(string message)
+    {
+        Message = $"{nameof(Post)} handler received \"{message}\"";
+    }
+
+    public void Delete()
+    {
+        Message = $"{nameof(Delete)} handler invoked";
+    }
+
+    public void PutMessage(string message)
+    {
+        Message = $"{message} from {nameof(PutMessage)}";
+    }
+}
+
+<h2>Hello @Message!</h2>
+
+<form method="post">
+  <label>Say <input type="text" name="message" value="@Message" /></label>
+
+  <fieldset style="border: 0px; margin: 0px; padding: 4px 0px">
+    <button type="submit" formaction="Delete">Delete</button>
+    <button type="submit" formaction="PutMessage">PutMessage</button>
+    <button type="submit">Post</button>
+  </fieldset>
+</form>
