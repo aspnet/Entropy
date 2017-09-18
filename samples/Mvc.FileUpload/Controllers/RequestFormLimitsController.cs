@@ -12,12 +12,9 @@ namespace Mvc.FileUpload.Controllers
             return View();
         }
 
-        // Set the request form size limits *before* the antiforgery token validation filter is executed so that the
-        // limits are honored when the antiforgery validation filter tries to read the form. These form size limits
-        // only apply to this action.
         [HttpPost]
-        [RequestFormSizeLimit(valueCountLimit: 3, Order = 1)]
-        [ValidateAntiForgeryToken(Order = 2)]
+        [RequestFormLimits(ValueCountLimit = 3)]
+        [ValidateAntiForgeryToken]
         public IActionResult ActionSpecificLimits(User user)
         {
             if (!ModelState.IsValid)
