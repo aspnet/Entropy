@@ -11,6 +11,6 @@
     <NowinVersion>0.11.0</NowinVersion>
     <OwinVersion>3.0.1</OwinVersion>
     <TestSdkVersion>15.3.0-*</TestSdkVersion>
-    <XunitVersion>2.3.0-beta4-build3742</XunitVersion>
+    <XunitVersion>2.3.0</XunitVersion>
   </PropertyGroup>
 </Project>
