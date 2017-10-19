@@ -257,7 +257,7 @@ namespace Entropy.FunctionalTests
         }
 
         [Fact]
-        public async Task JsonPatch_InvalidData_FormatterErrorInModelState_Failure()
+        public async Task JsonPatch_InvalidData_ThrowsJsonException()
         {
             // Arrange
             var input = "{ \"op\": \"add\", " +
@@ -271,11 +271,11 @@ namespace Entropy.FunctionalTests
             };
 
             // Act
-            var response = await Client.SendAsync(request);
+            var ex = await Assert.ThrowsAsync<JsonException>(
+                () => Client.SendAsync(request));
 
             // Assert
-            var body = await response.Content.ReadAsStringAsync();
-            Assert.Equal("{\"\":[\"The input was not valid.\"]}", body);
+            Assert.Equal("The JSON patch document was malformed and could not be parsed.", ex.Message);
         }
 
         [Fact]
