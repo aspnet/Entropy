@@ -4,7 +4,7 @@
 
     public void Get()
     {
-        Message = "Hello World";
+        Message = "Hello World!";
     }
 
     public void Post(string message)
@@ -19,11 +19,11 @@
 
     public void PutMessage(string message)
     {
-        Message = $"{message} from {nameof(PutMessage)}";
+        Message = $"{nameof(PutMessage)} handler received \"{message}\"";
     }
 }
 
-<h2>Hello @Message!</h2>
+<h2>@Message</h2>
 
 <form method="post">
   <label>Say <input type="text" name="message" value="@Message" /></label>

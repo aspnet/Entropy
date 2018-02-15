@@ -1,9 +1,7 @@
 using System;
 using System.Reflection;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.AspNetCore.Mvc.RazorPages.Internal;
-using Microsoft.Extensions.Options;
 
 namespace Mvc.CustomRazorPageHandlers
 {
@@ -85,6 +83,7 @@ namespace Mvc.CustomRazorPageHandlers
         }
 
         httpMethod = methodName.Substring(0, handlerNameStart);
+
         if (string.Equals(httpMethod, "GET", StringComparison.OrdinalIgnoreCase) || 
             string.Equals(httpMethod, "POST", StringComparison.OrdinalIgnoreCase))
         {
