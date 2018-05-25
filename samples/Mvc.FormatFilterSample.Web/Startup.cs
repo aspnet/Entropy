@@ -20,7 +20,7 @@ namespace FormatFilterSample.Web
             {
                 var formatFilter = new FormatFilterAttribute();
                 options.Filters.Add(formatFilter);
-
+                options.OutputFormatters.Add(new XmlSerializerOutputFormatter());
                 var customFormatter = new CustomFormatter("application/custom");
                 options.OutputFormatters.Add(customFormatter);
                 options.OutputFormatters.RemoveType<StringOutputFormatter>();

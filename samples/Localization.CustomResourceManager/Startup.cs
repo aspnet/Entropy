@@ -57,7 +57,7 @@ namespace Localization.CustomResourceManager
             };
 #if NET461
             supportedCultures.Add(new CultureInfo("zh-CHT"));
-#elif NETCOREAPP2_0
+#elif NETCOREAPP2_2
 #else
 #error Target framework needs to be updated
 #endif
@@ -177,7 +177,7 @@ $@"<!doctype html>
             await context.Response.WriteAsync($"    <option value=\"{new CultureInfo("zh-CN").Name}\">{new CultureInfo("zh-CN").DisplayName}</option>");
 #if NET461
             await context.Response.WriteAsync($"    <option value=\"{new CultureInfo("zh-CHT").Name}\">{new CultureInfo("zh-CHT").DisplayName}</option>");
-#elif NETCOREAPP2_0
+#elif NETCOREAPP2_2
 #else
 #error Target framework needs to be updated
 #endif

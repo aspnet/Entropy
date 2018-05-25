@@ -25,7 +25,7 @@ namespace Entropy.FunctionalTests
         public async Task SimpleGet_Works()
         {
             // Arrange
-            var expected = "Hello Hello World!";
+            var expected = "Hello World!";
 
             // Act
             var response = await Client.GetStringAsync(string.Empty);

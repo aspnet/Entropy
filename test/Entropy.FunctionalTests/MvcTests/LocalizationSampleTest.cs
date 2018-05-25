@@ -143,7 +143,7 @@ mypartial
         }
     }
 }
-#elif NETCOREAPP2_0
+#elif NETCOREAPP2_2
 #else
 #error Target framework needs to be updated
 #endif

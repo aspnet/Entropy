@@ -275,7 +275,7 @@ namespace Entropy.FunctionalTests
 
             // Assert
             var body = await response.Content.ReadAsStringAsync();
-            Assert.Equal("{\"\":[\"The JSON patch document was malformed and could not be parsed.\"]}", body);
+            Assert.Equal("{\"\":[\"The input was not valid.\"]}", body);
         }
 
         [Fact]

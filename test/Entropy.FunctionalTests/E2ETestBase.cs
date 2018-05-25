@@ -24,7 +24,7 @@ namespace Entropy.FunctionalTests
             _siteName = siteName;
         }
 
-#if NETCOREAPP2_0
+#if NETCOREAPP2_2
         [ConditionalTheory]
         [OSSkipCondition(OperatingSystems.Linux)]
         [OSSkipCondition(OperatingSystems.MacOSX)]
@@ -32,17 +32,17 @@ namespace Entropy.FunctionalTests
         [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, ApplicationType.Standalone)]
         [InlineData(ServerType.Kestrel, RuntimeFlavor.CoreClr, RuntimeArchitecture.x86, ApplicationType.Standalone,
             Skip = "https://github.com/aspnet/Hosting/issues/949")]
-        [InlineData(ServerType.WebListener, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, ApplicationType.Portable)]
-        [InlineData(ServerType.WebListener, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, ApplicationType.Standalone)]
-        [InlineData(ServerType.WebListener, RuntimeFlavor.CoreClr, RuntimeArchitecture.x86, ApplicationType.Standalone,
+        [InlineData(ServerType.HttpSys, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, ApplicationType.Portable)]
+        [InlineData(ServerType.HttpSys, RuntimeFlavor.CoreClr, RuntimeArchitecture.x64, ApplicationType.Standalone)]
+        [InlineData(ServerType.HttpSys, RuntimeFlavor.CoreClr, RuntimeArchitecture.x86, ApplicationType.Standalone,
             Skip = "https://github.com/aspnet/Hosting/issues/949")]
         [InlineData(ServerType.Kestrel, RuntimeFlavor.Clr, RuntimeArchitecture.x64, ApplicationType.Standalone,
             Skip = "Temporarily disable MVC functional tests on net461")]
         [InlineData(ServerType.Kestrel, RuntimeFlavor.Clr, RuntimeArchitecture.x86, ApplicationType.Standalone,
             Skip = "https://github.com/aspnet/Hosting/issues/949")]
-        [InlineData(ServerType.WebListener, RuntimeFlavor.Clr, RuntimeArchitecture.x64, ApplicationType.Standalone,
+        [InlineData(ServerType.HttpSys, RuntimeFlavor.Clr, RuntimeArchitecture.x64, ApplicationType.Standalone,
             Skip = "Temporarily disable MVC functional tests on net461")]
-        [InlineData(ServerType.WebListener, RuntimeFlavor.Clr, RuntimeArchitecture.x86, ApplicationType.Standalone,
+        [InlineData(ServerType.HttpSys, RuntimeFlavor.Clr, RuntimeArchitecture.x86, ApplicationType.Standalone,
             Skip = "https://github.com/aspnet/Hosting/issues/949")]
         public Task WindowsOS(
             ServerType serverType,

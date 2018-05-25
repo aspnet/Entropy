@@ -1,5 +1,3 @@
-@using System.Collections.Generic
-@using Microsoft.AspNetCore.Http
 @using Microsoft.AspNetCore.Authentication
 @using Microsoft.AspNetCore.Mvc.Localization
 @model LoginViewModel
@@ -60,7 +58,7 @@
             <h4>@Localizer["Use another service to log in."]</h4>
             <hr />
             @{
-                var loginProviders = SignInManager.GetExternalAuthenticationSchemes().ToList();
+                var loginProviders = SignInManager.GetExternalAuthenticationSchemesAsync().Result.ToList();
                 if (loginProviders.Count == 0)
                 {
                     <div>

@@ -1,12 +1,20 @@
 using System;
 using System.Reflection;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.RazorPages.Internal;
+using Microsoft.Extensions.Options;
 
 namespace Mvc.CustomRazorPageHandlers
 {
   public class CustomHandlerPageApplicationModelProvider : DefaultPageApplicationModelProvider
   {
+    public CustomHandlerPageApplicationModelProvider(IModelMetadataProvider modelMetadataProvider, IOptions<MvcOptions> options)
+            : base(modelMetadataProvider, options)
+    {
+    }
+
     protected override PageHandlerModel CreateHandlerModel(MethodInfo method)
     {
       if (method == null)

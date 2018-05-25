@@ -49,7 +49,7 @@ namespace Entropy.FunctionalTests
                 SiteName = "HttpTestSite",
                 ServerConfigTemplateContent = serverType == ServerType.Nginx ? File.ReadAllText(Path.Combine(WorkingDirectory, "nginx.conf")) : string.Empty,
                 PublishApplicationBeforeDeployment = true,
-                TargetFramework = runtimeFlavor == RuntimeFlavor.Clr ? "net461" : "netcoreapp2.0",
+                TargetFramework = runtimeFlavor == RuntimeFlavor.Clr ? "net461" : "netcoreapp2.2",
                 ApplicationType = applicationType
             };
 

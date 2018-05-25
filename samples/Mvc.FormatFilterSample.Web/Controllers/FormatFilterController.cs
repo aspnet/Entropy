@@ -8,6 +8,7 @@ namespace FormatFilterSample.Web
     [FormatFilter]
     public class FormatFilterController : Controller
     {
+        [Produces("application/custom", "application/json")]
         [Route("[controller]/[action]/{id}.{format?}")]
         [Route("[controller]/[action].{format}")]
         public Product GetProduct(int id = 0)
