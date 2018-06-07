@@ -1,0 +1,19 @@
+@page "{handler?}"
+@model IndexModel
+
+<div id="ajax-partial">
+    <partial name="_IndexPartial" />
+</div>
+
+<a href="#" data-ajax="true" data-ajax-update="#ajax-partial" data-ajax-url='@Url.Page(pageName: "")'>Update partial</a>
+
+<form method="POST" data-ajax="true" data-ajax-update="#search-results"  data-ajax-url='@Url.Page(pageName: "", pageHandler: "SearchBooks")'>
+    <input type="submit" value="Search books" />
+
+    <div id="search-results"></div>
+</form>
+
+<footer>Last refreshed at @DateTime.Now</footer>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/mvc/3.0/jquery.unobtrusive-ajax.min.js"></script>
