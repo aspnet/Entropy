@@ -16,11 +16,7 @@ namespace Mvc.RazorPagePartial.Pages
 
         public IActionResult OnGetPartial()
         {
-            return new PartialViewResult
-            {
-                ViewName = "_IndexPartial",
-                ViewData = ViewData,
-            };
+            return Partial("_IndexPartial");
         }
 
         public IActionResult OnPostSearchBooks()
@@ -31,11 +27,7 @@ namespace Mvc.RazorPagePartial.Pages
                 $"Book 2 (ISBN: {Guid.NewGuid()})",
             };
 
-            return new PartialViewResult
-            {
-                ViewName = "_SearchResults",
-                ViewData = new ViewDataDictionary<List<string>>(this.ViewData, searchResults),
-            };
+            return Partial("_SearchResults", searchResults);
         }
     }
 }
