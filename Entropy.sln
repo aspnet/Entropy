@@ -1,4 +1,4 @@
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
@@ -130,6 +130,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvc.CustomRazorPageHandlers", "samples\Mvc.CustomRazorPageHandlers\Mvc.CustomRazorPageHandlers.csproj", "{C673D327-412E-45E6-A12F-A8D37551793F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvc.RazorPagePartial", "samples\Mvc.RazorPagePartial\Mvc.RazorPagePartial.csproj", "{D98E6BE8-F1A8-47E7-BC34-017825DCF24E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc.LocalizedRazorPages", "samples\Mvc.LocalizedRazorPages\Mvc.LocalizedRazorPages.csproj", "{507E3F7C-DB1A-4674-B542-BA33BAD419D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -729,6 +731,18 @@ Global
 		{D98E6BE8-F1A8-47E7-BC34-017825DCF24E}.Release|x64.Build.0 = Release|Any CPU
 		{D98E6BE8-F1A8-47E7-BC34-017825DCF24E}.Release|x86.ActiveCfg = Release|Any CPU
 		{D98E6BE8-F1A8-47E7-BC34-017825DCF24E}.Release|x86.Build.0 = Release|Any CPU
+		{507E3F7C-DB1A-4674-B542-BA33BAD419D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{507E3F7C-DB1A-4674-B542-BA33BAD419D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{507E3F7C-DB1A-4674-B542-BA33BAD419D8}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{507E3F7C-DB1A-4674-B542-BA33BAD419D8}.Debug|x64.Build.0 = Debug|Any CPU
+		{507E3F7C-DB1A-4674-B542-BA33BAD419D8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{507E3F7C-DB1A-4674-B542-BA33BAD419D8}.Debug|x86.Build.0 = Debug|Any CPU
+		{507E3F7C-DB1A-4674-B542-BA33BAD419D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{507E3F7C-DB1A-4674-B542-BA33BAD419D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{507E3F7C-DB1A-4674-B542-BA33BAD419D8}.Release|x64.ActiveCfg = Release|Any CPU
+		{507E3F7C-DB1A-4674-B542-BA33BAD419D8}.Release|x64.Build.0 = Release|Any CPU
+		{507E3F7C-DB1A-4674-B542-BA33BAD419D8}.Release|x86.ActiveCfg = Release|Any CPU
+		{507E3F7C-DB1A-4674-B542-BA33BAD419D8}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -794,6 +808,7 @@ Global
 		{8A61FA46-3FD4-42BE-80C6-E5931387590C} = {5BCA2B8A-37DA-4A88-A221-3D5B4796B07F}
 		{C673D327-412E-45E6-A12F-A8D37551793F} = {8B204FB8-31A6-4559-AE7F-0412F504983C}
 		{D98E6BE8-F1A8-47E7-BC34-017825DCF24E} = {5BCA2B8A-37DA-4A88-A221-3D5B4796B07F}
+		{507E3F7C-DB1A-4674-B542-BA33BAD419D8} = {8B204FB8-31A6-4559-AE7F-0412F504983C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5DF584CA-249D-432C-BBA9-4498414C8E97}
